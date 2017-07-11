@@ -1,0 +1,49 @@
+// Gil is a veteran of the IFOC military, spearheading its expansionary efforts
+// for over thirty years. He retired just before the Flemoid invasion, but never
+// keeps out of touch with what's going on at the frontlines.
+
+[IntroStrings]
+"Boy, it's been a long time since I've done this!"
+"Back in the saddle again!"
+
+[RoamingStrings]
+"Back in my day, there was no such thing as a zorcher!"
+"I used to be able to fly the fastest ships."
+"General Mills and I were in the same division. He's a good man."
+"I love watching strategy evolve in games like this."
+"So apparently the Beam Zorcher is hot stuff, then?"
+"If I could design a zorcher it'd look like the Phasing Zorcher."
+"Gotta love a good bowl of vegetables!"
+"This is much more fun than just sitting around, let me tell you."
+
+[RareRoamingStrings]
+"I kind of wish I was still on the frontlines, every once in a while..."
+
+[FragStrings]
+"Not bad for an old dog, huh?"
+"Blast from the past!"
+"That one worked back in my day, too!"
+"That trick is so old it's new again!"
+
+[KilledStrings]
+"My eyesight's not what it used to be."
+"I have no idea what just happened there."
+"Ah, nice shot, $player_killedby."
+"You're never too old to learn something new."
+
+[LosingRoamingStrings]
+"Either you guys are getting faster or I'm getting slower!"
+
+[EnragedStrings]
+"I don't get mad, I get even."
+
+[DemoralizedStrings]
+"$player_inlead might've even beat me when I was younger!"
+
+[WinStrings]
+"I guess I've still got it. ;)"
+"Retirement never felt so good!"
+
+[LoseStrings]
+"Great match."
+"I think I could actually handle another game."

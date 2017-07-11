@@ -1,0 +1,37 @@
+// The man himself. Consider yourself honored to have shared a battlefield with
+// him.
+
+[IntroStrings]
+"Greetings, fellow warriors!"
+
+[RoamingStrings]
+"$player_random_notself is doing well."
+"Don't give up, $player_lastplace!"
+
+[RareRoamingStrings]
+"I always enjoy a good zorchmatch!"
+
+[FragStrings]
+"Don't give in. You are stronger having faced me, $player_killed."
+"Focus, $player_killed."
+
+[KilledStrings]
+"Good shot!"
+
+[LosingRoamingStrings]
+"I will not give up!"
+
+[EnragedStrings]
+"A true warrior fights to the end!"
+
+[DemoralizedStrings]
+"My fate appears to be sealed, but I fight to the end!"
+
+[WinStrings]
+"It's over... but we haven't seen the last of the Flemoids."
+"Mission accomplished. Are you prepared for the next mission?"
+
+[LoseStrings]
+"I have failed my mission, but have fought honorably."
+"I have been defeated, but next time it won't be so easy."
+"Excellent, $player_inlead!"

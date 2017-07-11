@@ -1,0 +1,105 @@
+// A tribute to one of the greatest comedians to have ever lived (in my
+// opinion) with most of his best material, which has of course been cleaned up
+// up to keep the G-rated theme of Chex Quest. RIP Mitch Hedberg.
+
+[IntroStrings]
+"Hey, man!"
+
+[RoamingStrings]
+"Hey man, I would imagine that the inside of a bottle of cleaning fluid is REALLY clean."
+"I've got an idea for sweatshops: air conditioning! Problem solved!"
+"I have a vest. If I had no arms, it'd be a jacket."
+"I find that ducks' opinion of me is very much influenced over whether or not I have bread."
+"A fly was very close to being called a 'land', 'cause it does that half the time."
+"I want to have cinnamon roll incense, so that my roommates can wake up with false hopes."
+"Imagine if the Headless Horseman had a headless horse. That'd be total chaos."
+"Lost in the woods? Just build a house! You have severely improved your predicament."
+"You know that show called 'My Three Sons'? It'd be funny if it were called 'My One Dad'."
+"I remixed a remix, and it was back to normal."
+"I like rice, man. Rice is a great snack if you're hungry and want two thousand of something."
+"I would imagine if you could understand morse code, a tap dancer would drive you crazy."
+"I'd like to go fishing and catch a fish stick. That would be convenient."
+"I stopped wearing glasses, because when you talk to people, it's like they're outside a window."
+"I'd like to see a forklift lift a crate of forks. That'd be so literal, man!"
+"My fake plants died because I did not pretend to water them."
+"I want to get a job naming kitchen appliances."
+"I went to this doctor and he just took blood from my neck. Don't go see Dr. Acula."
+"I don't wanna have my face on the front of a Wheaties box."
+"I used to play golf. I never got a hole-in-one, but I did hit a guy."
+"If you are flammable and have legs, you are never blocking a fire exit."
+"I want to make a vending machine that sells vending machines."
+"I got my hair highlighted because some strands are more important than others."
+"I opened a yogurt and it said 'please try again'. I thought I'd opened it wrong."
+"I tried to walk into Target, but I missed. I told the attendant I was just practicing."
+"I saw a guy juggling chainsaws the other day. It was cool but kind of unnecessary."
+"When I was a boy, I laid in my twin-sized bed wondering where my brother was."
+"Two-in-one is a stupid term. Two is not big enough to hold one, that's why two was created."
+"It's dangerous to wave to people you don't know. What if they don't have an arm?"
+"It would be awesome if Spider Man shot hammocks instead of nets."
+"A burrito is a sleeping bag for ground beef."
+"I like refried beans, but I want to try fried beans, 'cause maybe they're just as good and we're wasting time."
+"I can't tell you what hotel I'm staying at... but there are two trees involved."
+"I had an ant farm once. Them fellas didn't grow anything!"
+"I had one anchovy. That's why I didn't have two anchovies."
+"I'm sick of soup of the day! It's time we decide what soup from now on is!"
+"I never had a piggy bank, but one time I had some bacon that tasted a lot like change."
+"This jacket is dry-clean only. That means it's dirty."
+"I think Bigfoot is naturally blurry, that's the problem."
+"I bought a two bedroom house, but isn't it up to me how many bedrooms there are?"
+"I'm against picketing, but I don't know how to show it."
+"Hey, you know what keeps me from acting? Auditions."
+"I think Pringles' original intention was to make tennis balls."
+"I like escalators, because an escalator can never break--it can only become stairs."
+"I wanted to buy a candle holder, but the store didn't have one, so I got a cake instead."
+"As a kid, I used to jump on beds, but as an adult, I don't sleep on trampolines."
+"Last year a reality TV show got 40,000 applications. That's amazing--such an even number."
+"My hotel is haunted. I saw a sheet lying on the floor, and it looked like a ghost passed out."
+"Every book is a children's book if the kid can read."
+"I put fruit on top of my waffles because I want something to brush off."
+"I think foosball is a combination of soccer and shish kabobs."
+"I don't have a microwave oven, but I do have a clock that occasionally cooks stuff."
+"I was gonna have my teeth whitened, but I thought, forget it, I'll get a tan instead."
+"I collect stamps. The easiest way to collect stamps is to not mail stuff."
+"I got a jump rope. It's just a rope, man--you gotta make the jump thing happen."
+"I saw a kid excited because his kite was flying. I don't know why, it's what they're supposed to do."
+"I wrote a script, but my editor told me to rewrite it. I said, 'Forget that, I'll just make a copy!'"
+
+[RareRoamingStrings]
+"I wish they made fajita cologne, because that stuff smells GOOD!"
+"I had a paper route is a kid. I had to go to two-thousand houses... or two dumpsters."
+"I can't imagine a scenario where I'd have to prove I bought a donut."
+"I order the club sandwich all the time, which is amazing, 'cause I'm not even a member."
+"I'm sick of following my dreams, man. I'm just gonna ask 'em where they're going, and hook up with 'em later."
+
+[FragStrings]
+"I'm an ice sculptor. Last night, I made a cube."
+"I've got new balance shoes on, but they're old, so I might start falling."
+"I bought a $7 pen because I always lose pens and I got sick of not caring."
+"I can read minds, but it's pointless because I'm illiterate."
+
+[KilledStrings]
+"That was really dumb."
+"That joke was only half-finished."
+"I will rewrite that joke by throwing out all the words and adding new ones."
+
+[LosingRoamingStrings]
+"I wish all my clothes were made from blankets. That way if I fall asleep, I'm tucked in."
+
+[EnragedStrings]
+"Come on, laugh!"
+"Y'all are a tough crowd!"
+
+[DemoralizedStrings]
+"You can't be like pancakes: all exciting at first, but at the end, you're sick of 'em."
+"I know a lot about cars, man. I can look at a car's headlights and tell you exactly where it's going."
+"I type 101 words a minute, but it's in my own language."
+"I used to be a hot-tar roofer. Yeah. I remember that... day."
+"Last time I called 'shotgun' we had rented a limo, so I messed up."
+"The depressing thing about tennis is no matter how good I get, I'll never beat a wall."
+
+[WinStrings]
+"A fight to the finish is nice because a finish is a good place to end."
+
+[LoseStrings]
+"You can't please all the people all the time, and last night, all those people were at my show."
+"I haven't slept for ten days... because that would be too long."

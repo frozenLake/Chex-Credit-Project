@@ -1,0 +1,31 @@
+// I was fully intending to use the teaminfo lump from the zandronum.pk3 file,
+// except that the text colors aren't defined using hex code, so naturally the
+// engine jacks them up when 'red' is used. It's green. Rarg. So the whole thing
+// is here so that the red text shows up properly. Of course, this works
+// everywhere except the bottom left of the HUD. Plus, I made the decision to
+// forego support for multi-team games. Until Zandronum comes up with better
+// control over multiplayer spawns, multi-team play on Chex Quest: Galactic
+// Conflict will have to wait; I didn't want any maps to be unplayable in any of
+// the game modes, so the compromise was to take out multiple teams.
+
+ClearTeams
+
+Team "Blue"
+{
+	PlayerColor "00 00 BF"
+	TextColor "Blue"
+	FlagItem "BlueFlag"
+	PlayerStartThingNumber 5080
+	SmallFlagHUDIcon "STFLA1"
+	LargeFlagHUDIcon "BFLASMAL"
+}
+
+Team "Red"
+{
+	PlayerColor "BF 00 00"
+	TextColor "NewRed"
+	FlagItem "RedFlag"
+	PlayerStartThingNumber 5081
+	SmallFlagHUDIcon "STFLA2"
+	LargeFlagHUDIcon "RFLASMAL"
+}

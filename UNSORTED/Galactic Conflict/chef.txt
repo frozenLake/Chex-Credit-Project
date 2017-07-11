@@ -1,0 +1,55 @@
+// He's always cookin' up trouble! It's everyone's favorite culinary wonder, The
+// Chef from Chextropolis!
+
+[IntroStrings]
+"What's cookin'?"
+"It's about to get spicy in here!"
+"This is gonna be tasty!"
+"Time to mix it up!"
+
+[RoamingStrings]
+"Something smells good in here!"
+"Today's specials include Propulsor a la mode!"
+"I'm as good with a zorcher as I am with a spatula!"
+"A platoon is only as good as their cook."
+"I need food for thought. Maybe literally."
+"Time for a cook-off!"
+
+[RareRoamingStrings]
+"My sous chef is nowhere near as good a shot as me."
+"In case you're wondering, the cooking puns are served well done with a healthy side of sarcasm."
+
+[FragStrings]
+"Your aim was a little... undercooked!"
+"Should've left that in the oven a bit longer, $player_killed."
+"I'm a seasoned veteran at this."
+"A little more spice next time."
+"Order up!"
+"Icing on the cake."
+"Don't be so salty!"
+"Another happy customer."
+
+[KilledStrings]
+"Well done!"
+"Out of the frying pan..."
+"How'd you like to spend a day on the line, $player_killedby?"
+"Well, deep fry me in carbonated chocolate sauce--good shot."
+"Nothing's finer than being zorched by a diner."
+
+[LosingRoamingStrings]
+"Time to turn up the heat!"
+
+[EnragedStrings]
+"I'm about to boil over!"
+"I'm about to be whipped into a frenzy!"
+
+[DemoralizedStrings]
+"I think I left something on the stove..."
+
+[WinStrings]
+"Can't take the heat? Get out of the kitchen!"
+"You've been served!"
+
+[LoseStrings]
+"I'm beaten, but only for this game!"
+"I'll find a way to whisk myself to the top of the leaderboard next match."

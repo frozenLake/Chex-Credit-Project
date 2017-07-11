@@ -1,0 +1,53 @@
+// Ace pilots and big egos go together like milk and cereal, and Flyer is
+// living proof of that. Hipster callsign and outdated sunglasses always on full
+// blast, Flyer has a hard time accepting he may not be the best at everything.
+
+[IntroStrings]
+"Ready for takeoff?"
+"Let's go!"
+"Blast off!"
+
+[RoamingStrings]
+"I want to get away... I wanna fly away."
+"Can't keep my eyes from the circling skies..."
+"You wouldn't believe the ego on some of the Federation's best pilots."
+"Flying through space is so liberating."
+"Hold still and lemme zorch you!"
+"Chex(R)ecutioner is just the dumbest map."
+
+[RareRoamingStrings]
+"Tongue tied and twisted, just an earth-bound misfit, I."
+
+[FragStrings]
+"Like a boss!"
+"Nice try, $player_killed."
+"Too late, game over, pal!"
+"I feel the need for speed!"
+
+[KilledStrings]
+"I'll take the sky any day."
+"That would've ended differently if we were in the air."
+"Now, let's imagine that was a dogfight..."
+"No way."
+"I'm after you now, $player_killedby!"
+
+[LosingRoamingStrings]
+"Time for a little payback!"
+
+[EnragedStrings]
+"Oh, that is NOT happening."
+"Come on, let's see it--I'm just getting started."
+"Cut the chatter."
+
+[DemoralizedStrings]
+"I have been totally grounded this match."
+"$player_inlead's gotta be cheating."
+
+[WinStrings]
+"Are you guys gonna play?"
+"Yeah, that's what I like to see."
+
+[LoseStrings]
+"Good match, but next time, you're mine."
+"My mind was somewhere else that game anyway."
+"At least I did better than $player_lastplace."

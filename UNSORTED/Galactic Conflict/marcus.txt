@@ -1,0 +1,60 @@
+// Marcus is one of the Federation's leading engineers, with a hand in nearly
+// its entire zorcher armory. The Rapid Zorcher is his pride and joy. He just
+// missed the cut for the Federation's three-person expansionary special-ops
+// team--and for very personal reasons is still beating himself up over it.
+
+[IntroStrings]
+"'Lo all."
+"Ready to get zorched?"
+"I'm ready. Come at me!"
+
+[RoamingStrings]
+"Anybody need a hyperdrive fixed? I haven't worked on one in forever."
+"I was the guy who helped design the latest verison of the Rapid Zorcher, you know."
+"There's a new version of the Rapid Zorcher on its way soon."
+"I wanted to be a part of the team that built the Federation's latest starcruiser."
+"How do you think the Federation would feel about a set of blueprints for a quantum-tunneling processor?"
+"There's no way I'd go back to working as an analytics manager."
+"The Mini Zorcher is actually a remarkable feat of engineering."
+"The Bootspoon? Now that's an example of outside-the-box thinking."
+"Do you have any idea how much power the LAZ Device consumes?"
+
+[RareRoamingStrings]
+"I admire the Beam Zorcher's designers, but they've got nothing on the guy who made the first zorchers."
+"You know, Riley is a pretty special girl."
+
+[FragStrings]
+"Should've used a Rapid Zorcher. ;)"
+"I'm surprised I managed that, actually."
+"That was easier than I thought. No offense. ;)"
+"Engineered to perfection."
+"Try that again some time, $player_killed."
+"Combat engineers FTW!"
+
+[KilledStrings]
+"I seem to have made an error in my calculations."
+"That's what I get for dropping a significant figure."
+"That was a little more than a math error."
+"Nicely played!"
+
+[LosingRoamingStrings]
+"I need to stop designing zorchers in my head and get back in the game."
+"I think that I need to make an adjustment to my opponents' skill coefficient."
+"If you're not first, you're... not first."
+
+[EnragedStrings]
+"Okay, I did NOT misjudge that by that much."
+"Somebody needs to check their upload speed..."
+
+[DemoralizedStrings]
+"If there's a solution to my issues this match, I can't find it."
+"I just can't seem to crunch the numbers the right way today."
+"Maybe I should take some lessons from $player_inlead."
+
+[WinStrings]
+"According to my calculations, I've finished first!"
+"Nicely played everyone. That was fun!"
+
+[LoseStrings]
+"You know what they say about the best-laid plans..."
+"I estimate that I have been bested!"

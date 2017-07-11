@@ -1,0 +1,61 @@
+// This guy's a practical joker always on the verge of being annoying.
+// Everything is an opportunity to get under someone's skin, but only in a
+// playful way--he's got a good heart. Maybe.
+
+[IntroStrings]
+"Here comes chaos!"
+"Helllloooooooo!"
+"Everyone's favorite troublemaker is here!"
+
+[RoamingStrings]
+"Is there honestly anyone who actually likes the Beam Zorcher?"
+"$player_random_notself, look behind you!"
+"There wouldn't happen to be a LAZ Device on this map, would there?"
+"Now wait a minute, didn't we just play this one?"
+"It's a good thing I'm not a Flemoid."
+"I have got the worst memory issues."
+"The LAZ Device: now there's a balanced zorcher."
+"Chex(R)ecutioner is the greatest thing ever."
+"I hope we've got time for one more after this one."
+"$player_inlead, I'm totally on low health right now and not waiting to zorch you at all."
+
+[RareRoamingStrings]
+"Breathe... breathe in the air."
+
+[FragStrings]
+"Score one for Thunder!"
+"Fast as lightning, man."
+"Could you make it a little harder next time?"
+"Maybe you'll get me next time, $player_killed."
+"I could've done that with a Bootspoon, too."
+
+[KilledStrings]
+"Oh, nice!"
+"I won't be making that mistake again."
+"Clearly I wasn't random enough."
+"Lightning can apparently strike twice."
+"Great shot, $player_killedby."
+"You wouldn't have gotten away with that if I had a LAZ Device."
+
+[LosingRoamingStrings]
+"Has anyone looked at the scoreboard? I haven't."
+"So apparently I'm not in first?"
+"What do you mean, we're not playing Headquarters? That's not on this game?"
+"We're scoring this based on who got fragged most, right?"
+
+[EnragedStrings]
+"Whatever."
+"What? What? WHAT?"
+"I just--how did you--I mean--I'm going to--WHAT?"
+"RAGE."
+
+[DemoralizedStrings]
+"Where's the reset button? That seems like a good idea right now."
+
+[WinStrings]
+"BOOYAH."
+"Thunderbolts and lightning, very very frightening!"
+
+[LoseStrings]
+"Great game, everyone."
+"We're playing Chex(R)ecutioner next, right?"

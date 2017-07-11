@@ -1,0 +1,64 @@
+// Meet the world's biggest chemistry fangirl. Yes, those exist. Alkyl's father
+// got her involved in the chemistry scene at a young age, and she was
+// successfully identyifying compounds from NMR spectra by age 11. One of the
+// Federation's brightest up-and-coming minds, she dreams of heading up one of
+// its chemically-focused agencies.
+
+[IntroStrings]
+"Zorch time!"
+"Here we go!"
+"Hey there. :)"
+
+[RoamingStrings]
+"You know, the Federation is hiring materials chemists right now."
+"Fluorine is like that greedy friend who hogs all your cookies and never shares."
+"I am so at home in a spectroscopy lab."
+"So I've been working on this polymerization reaction with ethers..."
+"Zusammen is just the cutest concept."
+"Does a monomer propose to his bride with an aromatic ring?"
+"I love the smell of an organic chemistry lab in the morning. Smells like... science!"
+"I've never met two people who pronounce Le Chatelier's name the same way."
+"Hydrides scare me."
+"I hate helium. I have an awful helium voice because mine is already so high."
+"Liquid nitrogen is so much fun."
+"Anions form under basic conditions, cations form under acidic conditions."
+"Anyone ever heard of octanitrocubane? No, I'm not making that up."
+"I'm glad the Federation is pushing chemistry lately."
+"The aldehyde is my favorite carbonyl."
+
+[RareRoamingStrings]
+"Don't tell anyone, but I started out studying Biology."
+"Organic Chemistry is like the best thing ever, and people hate it when I say that."
+
+[FragStrings]
+"Like water in a Dean-Stark trap."
+"See ya! :)"
+"Any closer and I'd have been toast."
+"Good try, $player_killed! :)"
+"Now to catch up to $player_inlead."
+
+[KilledStrings]
+"That was like it was shot from a particle accelerator."
+"Faster than an acid-base reaction! Wow, $player_killedby!"
+"Aww, you caught me off-guard."
+"That was a good shot!"
+
+[LosingRoamingStrings]
+"I'm not trying hard enough right now."
+"Okay Alkyl, focus, focus!"
+
+[EnragedStrings]
+"Grrrrrrrrrrrrrrrr."
+"Don't make me go all E2 on you!"
+"That's it--game on!"
+
+[DemoralizedStrings]
+"I think my chances of winning just evaporated."
+
+[WinStrings]
+"Woo! Thank you for playing. :)"
+"That was more fun than I was expecting! :)"
+
+[LoseStrings]
+"We can go another round if you want."
+"Good job! I'm happy for you. :)"

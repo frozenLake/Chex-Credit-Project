@@ -1,0 +1,11 @@
+menu/change			dssgtsit
+misc/secret			dssarea
+misc/bossfight		dsdaboss
+misc/bossvict		dsbosvic
+misc/reactor		railgf1
+misc/complete		dsbosvic
+misc/failure		dstcfail
+misc/slimer			dstelept
+misc/finalintro		dsfintro
+misc/finalvict		dsfvict
+weapons/railgf		dsbeamf

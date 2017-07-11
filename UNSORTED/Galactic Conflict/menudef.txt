@@ -1,0 +1,176 @@
+// Included this so that the weapon slots on the control menus will show up with
+// weapon names. I've canceled out the controls that don't apply to Chex Quest:
+// Galactic Conflict to make it easier to navigate the menus, but I didn't
+// delete them, so those of you who might want to create a mod for Galactic
+// Conflict will only have to remove the double slashes. Or something. Some of
+// the Zandronum menus have been changed for easier navigation/in-universe
+// relevance as well.
+
+OptionMenu "CustomizeControls"
+{
+	Title "CUSTOMIZE CONTROLS"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC to cancel", "ControlMessage"
+	StaticText 	""
+	StaticText 	"Controls", 1
+	Control 	"Fire",					"+attack"
+//	Control 	"Secondary Fire",		"+altattack"
+//	Control 	"Weapon Reload",			"+reload"
+//	Control 	"Weapon Zoom",				"+zoom"
+	Control 	"Use / Open",			"+use"
+	Control 	"Move forward",			"+forward"
+	Control 	"Move backward",		"+back"
+	Control 	"Strafe left",			"+moveleft"
+	Control 	"Strafe right",			"+moveright"
+	Control 	"Turn left",			"+left"
+	Control 	"Turn right",			"+right"
+	Control 	"Jump",					"+jump"
+	Control 	"Crouch",				"+crouch"
+	Control 	"Crouch Toggle",		"crouch"
+	Control 	"Fly / Swim up",		"+moveup"
+	Control 	"Fly / Swim down",		"+movedown"
+	Control 	"Stop flying",			"land"
+	Control 	"Mouse look",			"+mlook"
+	Control 	"Keyboard look",		"+klook"
+	Control 	"Look up",				"+lookup"
+	Control 	"Look down",			"+lookdown"
+	Control 	"Center view",			"centerview"
+	Control 	"Run",					"+speed"
+	Control 	"Strafe",				"+strafe"
+	Control		"Main Menu",			"menu_main"
+	Control		"Pause",				"pause"
+	StaticText 	""
+	StaticText 	"Weapons", 1
+	Control 	"Next weapon",			"weapnext"
+	Control 	"Previous weapon",		"weapprev"
+	Control		"Bootspoon/Super Bootspork",		"slot 1"
+	Control		"Mini Zorcher",		"slot 2"
+	Control		"Large Zorcher",		"slot 3"
+	Control		"Rapid Zorcher",		"slot 4"
+	Control		"Zorch Propulsor",		"slot 5"
+	Control		"Phasing Zorcher",		"slot 6"
+	Control		"LAZ Device",		"slot 7"
+	Control		"Beam Zorcher",		"slot 8"
+//	StaticText 	""
+//	StaticText 	"Inventory", 1
+//	Control 	"Activate item",		"invuse"
+//	Control 	"Activate all items",	"invuseall"
+//	Control 	"Next item",			"invnext"
+//	Control 	"Previous item",		"invprev"
+//	Control 	"Drop item",			"invdrop"
+//	Control		"Query item",			"invquery"
+	Control 	"Drop weapon",			"weapdrop"
+	StaticText	""
+	StaticText 	"Other", 1
+	Control 	"Toggle automap",		"togglemap"
+	Control 	"Chasecam",				"chase"
+	Control 	"Screenshot",			"screenshot"
+	Control  	"Open console",			"toggleconsole"
+//	StaticText 	"Strife Popup Screens", 1
+//	Control 	"Mission objectives",	"showpop 1"
+//	Control 	"Keys list",			"showpop 2"
+//	Control 	"Weapons/ammo/stats",	"showpop 3"
+	StaticText 	""
+	StaticText 	"Multiplayer Controls", 1
+	Control 	"Show Scoreboard",		"+showscores"
+	Control 	"Say",					"messagemode"
+	Control 	"Team say",				"messagemode2"
+	Control		"Vote yes",				"vote_yes"
+	Control		"Vote no",				"vote_no"
+	Control		"Spectate",				"spectate"
+	Control		"Taunt",				"taunt"
+	Option		"Join the game",		"joinmenukey", "JoinMenuKeys"
+	Control		"Join the game (custom)", "menu_join"
+	Control 	"Co-op spy",				"spynext"
+	StaticText 	""
+}
+
+OptionMenu ZA_MultiplayerOptions
+{
+	Title "Multiplayer Options"
+
+	SubMenu		"Offline Game",				"ZA_SkirmishMenu"
+	SubMenu		"Network Options",			"ZA_NetworkOptions"
+	SubMenu		"Log in",					"ZA_LoginMenu"
+	SubMenu		"Browse servers",			"ZA_Browser"
+	StaticText	" "
+	Command		"Spectate",					"menu_spectate"
+	Command		"Switch teams",				"menu_changeteam"
+	Command		"Disconnect",				"menu_disconnect"
+	StaticText	" "
+	SubMenu		"Call a vote",				"ZA_CallVote"
+	SubMenu		"Ignore a player",			"ZA_IgnoreMenu"
+	StaticText	" "
+	Option		"Start as spectator",		"cl_startasspectator",		"YesNo"
+	TextField	"Server password",			"cl_password"
+	TextField	"Server join password",		"cl_joinpassword"
+	Option		"Reset frags at join",		"cl_dontrestorefrags",		"YesNo"
+	Option		"Hide country",				"cl_hidecountry",			"YesNo"
+	Option		"Respawn using attack key",	"cl_respawnonfire",			"YesNo"
+	StaticText	" "
+	Option		"Skins",					"cl_skins",					"ZA_AllowSkins"
+	Option		"Taunts",					"cl_taunts",				"OnOff"
+	Option		"Icons",					"cl_icons",					"OnOff"
+	Option		"Identify players",			"cl_identifytarget",		"OnOff"
+	Option		"Show spawn spots",			"cl_showspawns",			"YesNo"
+	Slider		"Spectator move speed",		"cl_spectatormove",			0.1, 5.0, 0.1
+	StaticText	" "
+	Option		"Override player colors",	"cl_overrideplayercolors",	"ZA_OverridePlayerColors"
+	ColorPicker	"Ally color",				"cl_allycolor"
+	ColorPicker	"Enemy color",				"cl_enemycolor"
+}
+
+OptionValue ZA_Gamemode
+{
+	0, "Cooperative"
+	1, "Survival Cooperative"
+	3, "Zorchmatch"
+	4, "Team Zorchmatch"
+	5, "Duel"
+	7, "Last Man Standing"
+	8, "Team Last Man Standing"
+	9, "Possession"
+	10, "Team Possession"
+	12, "Capture The Flag"
+	13, "One Flag CTF"
+	15, "Domination"
+	11, "Teamgame (ACS)"
+}
+
+OptionMenu ZA_SkirmishMenu
+{
+	Title		"Multiplayer Game"
+	Option		"Map",					"menu_skirmishlevel",			"ZA_Levels"
+	Option		"Game Mode",			"menu_skirmishgamemode",		"ZA_Gamemode"
+	StaticText	""
+	NumberField	"Time Limit",			"menu_skirmishtimelimit"
+	NumberField	"Frag Limit",			"menu_skirmishfraglimit"
+	NumberField	"Point Limit",			"menu_skirmishpointlimit"
+	NumberField	"Duel Limit",			"menu_skirmishduellimit"
+	NumberField	"Win Limit",			"menu_skirmishwinlimit"
+	StaticText	""
+	NumberField	"Game Skill",			"menu_skirmishskill", 0, 4
+	NumberField	"Bot Skill",			"menu_skirmishbotskill", 0, 4
+	StaticText	" "
+	SubMenu		"Bot Setup",			"ZA_BotSetup"
+	StaticText	" "
+	Command		"Start Game!",			"menu_startskirmish"
+}
+
+OptionValue ZA_ServerGamemode
+{
+	0, "Any mode"
+	1, "Cooperative"
+	2, "Survival Cooperative"
+	4, "Zorchmatch"
+	8, "Last Man Standing"
+	10, "Possession"
+	6, "Duel"
+	5, "Team Zorchmatch"
+	9, "Team Last Man Standing"
+	11, "Team Possession"
+	16, "Domination"
+	13, "Capture The Flag"
+	14, "One Flag CTF"
+	12, "Teamgame (ACS)"
+}

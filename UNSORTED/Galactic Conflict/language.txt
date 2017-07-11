@@ -1,0 +1,215 @@
+// Watch your language!
+
+// U.S. English
+
+[enu default]
+
+STSTR_DQDON = "Invincility on";
+STSTR_DQDOFF = "Invincibility off";
+
+AM_MONSTERS	= "Flemoids:";
+
+// Reverted these to the original Chex Quest messages, for nostalgia reasons.
+
+STSTR_KFAADDED = "Super Zorch added";
+GOTLAZDEVICE = "You got the LAZ Device!";
+
+// Added a period to the end of these, 'cause they bugged me to no end.
+
+GOTGOGGLES = "Found Ultra Goggles.";
+GOTSLIMESUIT = "Found a Slime-Proof Suit.";
+GOTCHEXMAP = "Found a Computer Area Map.";
+
+// Needed for death by falling. Too violent?
+
+OB_DEFAULT = "%o didn't watch %p step.";
+
+// Other swapped or repurposed obituaries.
+
+OB_WATER = "%o ran out of air."; // Just for the space zones on E4M9.
+OB_MPDEFAULT = "%o was zorched by %k.";
+OB_KILLEDSELF = "%o 'disappeared'.";
+OB_SUICIDE = "%o 'disappeared'.";
+OB_CRUSH = "%o was Chex(R)ecuted.";
+
+
+OB_MPSPOON = "%o was spoon fed by %k.";
+OB_MPBOOTSPORK = "%o was thouroughly mixed with %k's bootspork.";
+OB_MPZORCH = "%o was zorched by %k.";
+OB_MPMEGAZORCH = "%o was hit by %k's mega-zorcher.";
+OB_MPRAPIDZORCH = "%o was rapid zorched by %k.";
+OB_MPPROPULSOR = "%o was zorched by %k's propulsor.";
+OB_MPP_SPLASH = "%o was hit by %k's propulsor.";
+OB_MPPHASEZORCH = "%o was phase zorched by %k.";
+OB_MPLAZ_BOOM = "%o fell prey to %k's LAZ device.";
+OB_MPLAZ_SPLASH = "%o was LAZ'd by %k.";
+
+OB_R_SPLASH = "%o was caught by %k's propulsor.";
+OB_MPR_SPLASH = "%o was caught by %k's propulsor.";
+
+// I never liked the default secret message or sound in ZDoom, so both got
+// changed.
+
+SECRETMESSAGE = "Secret area!";
+
+// Changed multiplayer messages. As of the original release, these are not
+// supported by Zandronum. In the event they are in the future, they're here.
+
+SPREEKILLSELF = "%o is so good %p managed to defeat %hself!";
+SPREEOVER = "%o's zorchstreak was ended by %k";
+SPREE5 = "%k is on a 5 zorchstreak! Nice!";
+SPREE10 = "%k is on a 10 zorchstreak! Impressive!";
+SPREE15 = "%k is on a 15 zorchstreak! Can anyone stop %p?";
+SPREE20 = "%k is on a 20 zorchstreak! How much longer will %p go?";
+SPREE25 = "%k is on a 25 zorchstreak! Is anyone else even playing?";
+
+MULTI2 = "Double zorch!";
+MULTI3 = "Triple zorch!";
+MULTI4 = "Multi-zorch!";
+MULTI5 = "Multi-zorch!";
+
+PICKUP_POSSESSIONSTONE = "You got the possession medal!";
+
+POSSESSIONARTIFACT_PICKEDUP = "The possession medal has been picked up!";
+POSSESSIONARTIFACT_DROPPED = "The possession medal has been dropped!";
+
+MEDALSTRING_EXCELLENT = "Double Zorch!";
+MEDALSTRING_INCREDIBLE = "Triple Zorch!";
+MEDALSTRING_IMPRESSIVE = "Impressive!";
+MEDALSTRING_MOSTIMPRESSIVE = "Most Impressive!";
+MEDALSTRING_DOMINATION = "Fantastic!";
+MEDALSTRING_TOTALDOMINATION = "Unbelievable!";
+MEDALSTRING_ACCURACY = "Marksman!";
+MEDALSTRING_PRECISION = "Sharpshooter!";
+MEDALSTRING_LLAMA = "Loser!";
+MEDALSTRING_YOUFAILIT = "Down and out!";
+MEDALSTRING_YOURSKILLISNOTENOUGH = "AFK?";
+
+// Level names and dialogue. I had to switch the original names so that they'd
+// show up correctly when 'secret' is typed in.
+
+HUSTR_E1M1 = "Landing Zone";
+HUSTR_E1M2 = "Storage Facility";
+HUSTR_E1M3 = "Laboratory";
+HUSTR_E1M4 = "Arboretum";
+HUSTR_E1M5 = "Caverns of Bazoik";
+HUSTR_E2M1 = "Spaceport";
+HUSTR_E2M2 = "Cinema";
+HUSTR_E2M3 = "Chex Museum";
+HUSTR_E2M4 = "City Streets";
+HUSTR_E2M5 = "Sewer System";
+HUSTR_E3M1 = "Central Command";
+HUSTR_E3M2 = "United Cereals";
+HUSTR_E3M3 = "Villa Chex";
+HUSTR_E3M4 = "Provincial Park";
+HUSTR_E3M5 = "Meteor Spaceship";
+HUSTR_E4M1 = "Docking Bays";
+HUSTR_E4M2 = "Communications Array";
+HUSTR_E4M3 = "Teleport Hub";
+HUSTR_E4M4 = "Crewmen's Quarters";
+HUSTR_E4M5 = "Botanical Labs";
+HUSTR_E4M6 = "Technology Centre";
+HUSTR_E4M7 = "Reactor Chambers";
+HUSTR_E4M8 = "Mining Tunnels";
+HUSTR_E4M9 = "Command Hall";
+HUSTR_E4B1 = "Training Range";
+HUSTR_E4B2 = "Power Control";
+HUSTR_E4B3 = "Randomonium";
+HUSTR_MP01 = "Shipping Yard";
+HUSTR_MP02 = "Water Facility";
+HUSTR_MP03 = "Museum Lobby";
+HUSTR_MP04 = "Shreddies Point";
+HUSTR_MP05 = "Telenet";
+HUSTR_MP06 = "Chextropolis Park";
+HUSTR_MP07 = "Chex(R)ecutioner";
+
+HUSTR_E4MA = "Docking Bays (Old)";
+HUSTR_E4MB = "Communications Array (Old)";
+HUSTR_E4MC = "Mining Tunnels (Old)";
+HUSTR_E4MD = "Teleport Hub (Old)";
+
+E4TEXT =
+	"After fighting your way through the\n"
+	"orbital asteroid base and clearing it\n"
+	"of Flemoids, you cancel the distress\n"
+	"signal and rescue the captive Federation\n"
+	"scientists. The base is ruined beyond\n"
+	"repair, but no one is hurt, and the\n"
+	"Flemoids are gone.\n"
+	"\n"
+	"Central Command informs you that you're\n"
+	"eligible for its most honorable medal\n"
+	"after eliminating the last traces of\n"
+	"the Flemoid threat, but you insist\n"
+	"that all you want is for things to stay\n"
+	"quiet for the rest of your retirement.\n"
+	"\n"
+	"Hopefully, the Flemoids won't have\n"
+	"anything more to say about that!\n";
+	
+BONUSTEXT1 =
+	"You've done it! You've found an alternate\n"
+	"route to the crewmen's quarters.\n"
+	"\n"
+	"Being a military outpost as well as a\n"
+	"research lab, the base also houses its\n"
+	"very own combat training facility. Since\n"
+	"the Flemoid invasion years ago, it's been\n"
+	"modified for use with Zorcher weaponry.\n"
+	"Now, it's jam-packed with Flemoids.\n"
+	"\n"
+	"Time for some target practice.\n";
+	
+BONUSTEXT2 =
+	"Wonderful job! It looks like you've found\n"
+	"another detour.\n"
+	"\n"
+	"They closed off the base's power control\n"
+	"center for safety reasons when the Flemoids\n"
+	"arrived, but the reactor chambers are still\n"
+	"open.\n"
+	"\n"
+	"And safer.\n"
+	"\n"
+	"Flemoidous slime does unusual things to\n"
+	"electronics...\n"
+	"\n"
+	"Good luck.\n";
+
+BONUSTEXT3 =
+	"Fantastic! You've found the last bonus\n"
+	"level!\n"
+	"\n"
+	"The cutting edge in virtual reality\n"
+	"labyrinth technology is the result of\n"
+	"this base's most prized research.\n"
+	"\n"
+	"Every time you enter this maze, its\n"
+	"layout changes depending on how much\n"
+	"zorch you have, how much time has elapsed,\n"
+	"how many items you've collected, and how\n"
+	"many enemies you've zorched. Can you find\n"
+	"your way into every room?\n"
+	"\n"
+	"Good luck, and have fun!\n";
+	
+BONUSFINISH =
+	"Congratulations! You've completed\n"
+	"the game's hidden final level!\n"
+	"This means that you've probably found\n"
+	"everything that Chex Quest: Galactic\n"
+	"Conflict has to offer.\n"
+	"\n"
+	"Or have you?\n"
+	"\n"
+	"Even if you've found everything, it\n"
+	"doesn't mean the fun has to stop.\n"
+	"Treat yourself to a bowl of your\n"
+	"favorite cereal, and keep that\n"
+	"zorcher handy--you never know when\n"
+	"you might need it!\n"
+	"\n"
+	"Thank you very much for playing!\n";
+
+OLDFINISH =
+	"Thanks for playing!";

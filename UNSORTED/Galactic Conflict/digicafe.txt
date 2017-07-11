@@ -1,0 +1,11 @@
+// An amazingly special thanks to the crew who made this game possible. It was
+// impossible to put words in their mouths other than ones they left for us in
+// secret. We love you guys.
+
+[IntroStrings]
+"Hello!"
+
+[LoseStrings]
+"You've done it!"
+"Wonderful job!"
+"Fantastic!"

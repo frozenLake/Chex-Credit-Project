@@ -1,0 +1,17 @@
+//------------------------------------------------------------------------------
+// Chex Quest: Galactic Conflict PWAD (chexgc.wad), by Tifosi 92
+//------------------------------------------------------------------------------
+
+// For use with the chex3.wad IWAD
+// Version 1.1
+
+// Version History:
+
+// Version 1.1
+// - By popular demand, added music from chex3.wad to MAPINFO.
+// - Modified a few sound lines in E4B3, particularly in the 'Portlandia' zone
+//   and the airvent zone.
+// - Added in E3M4 to fix a missing texture.
+
+// Version 1.0
+// - Launch version!

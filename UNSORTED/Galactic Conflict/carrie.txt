@@ -1,0 +1,51 @@
+// A musician who's from Portland (Oregon), she and her friend Fred are serial
+// misadventurers. Their latest exploit? Dimension-hopping into a world of
+// anthropomorphic cereal. It sounds weird, but Carrie's used to that--she's
+// from Portland, after all.
+
+[IntroStrings]
+"... and I'm Lisa Eversman!"
+"... and I'm Alicia! Royce is my boss."
+"... and I'm Madeline Harris!"
+"We're here on behalf of Portland, Oregon."
+
+[RoamingStrings]
+"Ever been to an outlet motel? Sooo many outlets!"
+"In Portland, people ride bikes--they ride double-decker bikes!"
+"I can't wait for the next CSA."
+"Hey, wanna go to a DJ night?"
+"I think our biggest threat is a raccoon and a possum."
+"A zorchmatch is an unspoken competition."
+
+[RareRoamingStrings]
+"I am wondering if you were interested in accepting Portland into your life."
+"People really used to rock the SNOT out of the vote!"
+
+[FragStrings]
+"Let's make that a regular occurrence. ;)"
+"Ooh, look, it's a bird!"
+"Coffee land!"
+
+[KilledStrings]
+"That was such a boring move. You should put a bird on it!"
+"What an entertaining play."
+"Aww! Nice!"
+"Time to go find some celery..."
+
+[LosingRoamingStrings]
+"It tears at the very core of my being that $player_inlead is leading this match."
+
+[EnragedStrings]
+"I am a peaceful person, but at this time I am VERY war-like."
+"Please, please, win! Meow, meow, meow!"
+
+[DemoralizedStrings]
+"Okay, I'm ready to go home!"
+
+[WinStrings]
+"The dream of the 90's is alive in Portland!"
+"Woohoo! First!"
+
+[LoseStrings]
+"We have time for just one more game, you think?"
+"Aw, nice job, $player_inlead."

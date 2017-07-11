@@ -1,0 +1,42 @@
+// The commander in chief. The boss man. The one who masterminded it all. What
+// else could I have named him?
+
+[IntroStrings]
+"Good day, everyone."
+
+[RoamingStrings]
+"I am relieved to be serving in peacetime."
+"I am confident the Flemoid threat is fully neutralized."
+"I'm pleased to say the Intergalactic Federation of Cereals is no longer in a sticky situation."
+"I'm proud to have served the people of the Intergalactic Federation of Cereals in a time of crisis."
+
+[RareRoamingStrings]
+"The best fight is one which passes without casualties."
+
+[FragStrings]
+"Seems I've still got it!"
+"That was close!"
+"Just like old times."
+"I read your book, $player_killed!"
+
+[KilledStrings]
+"Good play!"
+"I admire your tactics, $player_killedby."
+"Well played."
+
+[LosingRoamingStrings]
+"I've turned worse situations around before."
+
+[EnragedStrings]
+"I'm not one to give up that easily!"
+
+[DemoralizedStrings]
+"Retirement sounds like a pretty good idea right now..."
+
+[WinStrings]
+"Another successful campaign!"
+"Thank you all for playing--that was fun."
+
+[LoseStrings]
+"One battle doesn't make a campaign."
+"Congratulations! Good match."

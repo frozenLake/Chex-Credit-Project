@@ -1,0 +1,51 @@
+// Ever wondered what it would be like if you woke up one morning and became a
+// space-traveling cereal? For Fred, that's just another day. A TV star who
+// hails from Portland (Oregon), we're not quite sure just how or why Fred is
+// here. He's just happy his friend Carrie is along for the ride.
+
+[IntroStrings]
+"Hi, I'm Bryce Shivers..."
+"Hi, I'm Marcus Harris..."
+"I'm Royce..."
+"We're here on behalf of Portland, Oregon."
+
+[RoamingStrings]
+"Remember the 90's, when video games came in cereal boxes?"
+"No Olympics in Portland!"
+"SEEK: See, every, EVERY, kind of spot."
+"How are you on volume, is this volume loud?"
+"In Portland, you can go to, like, a record store and sell your CDs!"
+"Where are doorbells, usually?"
+
+[RareRoamingStrings]
+"If we had Einstein's fingernails, I'm sure they'd sell for a lot."
+"Why aren't we talking about 'Neu!'?"
+
+[FragStrings]
+"Turn that dirty clown frown right upside-down!"
+"You're looking a little 'San Francisco' right now."
+"When you look at the North Star, remember me!"
+"I offer a half-hearted apology. I am sorry."
+
+[KilledStrings]
+"CACAO."
+"That-that-that-that-that-that-that-that-that was NOT cool."
+"I'm so weird with that zorch button, it's like I push it and I'm all over the place."
+"Man down!"
+
+[LosingRoamingStrings]
+"I'm close enough to reach the lead, but not touch it."
+
+[EnragedStrings]
+"I am a second away from pictching my zorcher across the room. Which by the way is my own property."
+
+[DemoralizedStrings]
+"Time to take a peda-cab back to Portland."
+
+[WinStrings]
+"The dream of the 90's is alive in Portland!"
+"BYAAAAAY!"
+
+[LoseStrings]
+"Next time I'll be on top."
+"Ah. Come on."

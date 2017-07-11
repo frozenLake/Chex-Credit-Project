@@ -1,0 +1,499 @@
+// Bots are arranged from weakest to strongest, for convenience purposes. It
+// just worked out that the Mitch bot wound up being first this way.
+
+clearbots
+
+{
+	name = "Mitch"
+	accuracy = -1
+	intellect = 0
+	evade = 0
+	anticipation = -1
+	reactiontime = -1
+	perception = 6
+	favoriteweapon = "SuperBootsporkV4"
+	color = "00 64 EF"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 65
+	revealed = true
+	script = "fatbot"
+	chatlump = "MITCH"
+}
+{
+	name = "Chef"
+	accuracy = 0
+	intellect = 0
+	evade = 0
+	anticipation = 0
+	reactiontime = 0
+	perception = 0
+	favoriteweapon = "BootspoonV4"
+	color = "FF FF FF"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 30
+	revealed = true
+	script = "fatbot"
+	chatlump = "CHEF"
+}
+{
+	name = "Thunder"
+	accuracy = 1
+	intellect = 1
+	evade = 0
+	anticipation = 1
+	reactiontime = 1
+	perception = 0
+	favoriteweapon = "LAZDeviceV4"
+	color = "44 44 44"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 40
+	revealed = true
+	script = "crashbot"
+	chatlump = "THUNDER"
+}
+{
+	name = "Fred"
+	accuracy = 0
+	intellect = 2
+	evade = 0
+	anticipation = 0
+	reactiontime = 1
+	perception = 2
+	favoriteweapon = "RapidZorcherV4"
+	color = "CC FF 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 35
+	revealed = true
+	script = "sausgbot"
+	chatlump = "Fred"
+}
+{
+	name = "Carrie"
+	accuracy = 0
+	intellect = 2
+	evade = 0
+	anticipation = 0
+	reactiontime = 1
+	perception = 2
+	favoriteweapon = "SuperBootsporkV4"
+	color = "FF CC 33"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 35
+	revealed = true
+	script = "crashbot"
+	chatlump = "Carrie"
+}
+{
+	name = "Cobalt"
+	accuracy = 1
+	intellect = 1
+	evade = 1
+	anticipation = 1
+	reactiontime = 1
+	perception = 1
+	favoriteweapon = "BeamZorcherV4"
+	color = "00 00 90"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 15
+	revealed = true
+	script = "humanbot"
+	chatlump = "COBALT"
+}
+{
+	name = "Gil"
+	accuracy = 1
+	intellect = 1
+	evade = 2
+	anticipation = 1
+	reactiontime = 2
+	perception = 0
+	favoriteweapon = "PhasingZorcherV4"
+	color = "FF 80 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "dfultbot"
+	chatlump = "Gil"
+}
+{
+	name = "Flyer"
+	accuracy = 1
+	intellect = 1
+	evade = 2
+	anticipation = 0
+	reactiontime = 3
+	perception = 0
+	favoriteweapon = "ZorchPropulsorV4"
+	color = "00 FF 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "crashbot"
+	chatlump = "FLYER"
+}
+{
+	name = "Benson"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "LargeZorcherV4"
+	color = "CC FF 66"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "crashbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Bregi"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "PhasingZorcherV4"
+	color = "FF 00 FF"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "crashbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Brus"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "LAZDeviceV4"
+	color = "FF 99 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "dfultbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Holman"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "ZorchPropulsorV4"
+	color = "FF FF 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "dfultbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Hyers"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "RapidZorcherV4"
+	color = "66 99 99"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "fatbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Jacobi"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "PhasingZorcherV4"
+	color = "66 00 66"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "M Koenigs"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "LAZDeviceV4"
+	color = "FF 66 33"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "J Koenigs"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "SuperBootsporkV4"
+	color = "66 FF 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "sausgbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Storms"
+	accuracy = 2
+	intellect = 2
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 2
+	favoriteweapon = "RapidZorcherV4"
+	color = "99 99 99"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "sausgbot"
+	chatlump = "DIGICAFE"
+}
+{
+	name = "Alkyl"
+	accuracy = 2
+	intellect = 2
+	evade = 1
+	anticipation = 2
+	reactiontime = 3
+	perception = 3
+	favoriteweapon = "ZorchPropulsorV4"
+	color = "00 00 00"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 40
+	revealed = true
+	script = "crashbot"
+	chatlump = "ALKYL"
+}
+{
+	name = "Grignard"
+	accuracy = 2
+	intellect = 1
+	evade = 2
+	anticipation = 3
+	reactiontime = 2
+	perception = 3
+	favoriteweapon = "LargeZorcherV4"
+	color = "00 00 00"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 10
+	revealed = true
+	script = "sausgbot"
+	chatlump = "GRIGNARD"
+}
+{
+	name = "Marcus"
+	accuracy = 2
+	intellect = 4
+	evade = 2
+	anticipation = 2
+	reactiontime = 2
+	perception = 3
+	favoriteweapon = "RapidZorcherV4"
+	color = "00 C4 FF"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "MARCUS"
+}
+{
+	name = "Riley"
+	accuracy = 2
+	intellect = 2
+	evade = 3
+	anticipation = 3
+	reactiontime = 3
+	perception = 2
+	favoriteweapon = "PhasingZorcherV4"
+	color = "C4 00 00"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "RILEY"
+}
+{
+	name = "General Mills"
+	accuracy = 2
+	intellect = 4
+	evade = 2
+	anticipation = 4
+	reactiontime = 2
+	perception = 3
+	favoriteweapon = "BeamZorcherV4"
+	color = "00 00 C4"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 10
+	revealed = true
+	script = "dfultbot"
+	chatlump = "MILLS"
+}
+{
+	name = "Jet"
+	accuracy = 4
+	intellect = 4
+	evade = 4
+	anticipation = 4
+	reactiontime = 5
+	perception = 3
+	favoriteweapon = "LargeZorcherV4"
+	color = "00 99 33"
+	gender = "female"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "JET"
+}
+{
+	name = "Will"
+	accuracy = 4
+	intellect = 4
+	evade = 4
+	anticipation = 4
+	reactiontime = 4
+	perception = 4
+	favoriteweapon = "BeamZorcherV4"
+	color = "C4 C4 C4"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 25
+	revealed = true
+	script = "humanbot"
+	chatlump = "WILL"
+}
+{
+	name = "Lord Snotfolus"
+	accuracy = 6
+	intellect = 6
+	evade = 6
+	anticipation = 6
+	reactiontime = 6
+	perception = 6
+	favoriteweapon = "ZorchPropulsorV4"
+	color = "60 B0 58"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 15
+	revealed = true
+	script = "dfultbot"
+	chatlump = "SNOT"
+}
+{
+	name = "The Chex(R) Warrior"
+	accuracy = 6
+	intellect = 6
+	evade = 6
+	anticipation = 6
+	reactiontime = 6
+	perception = 6
+	favoriteweapon = "LAZDeviceV4"
+	color = "00 00 FF"
+	gender = "male"
+	skin = ""
+	class = "fighter"
+	railcolor = blue
+	chatfrequency = 10
+	revealed = true
+	script = "dfultbot"
+	chatlump = "CHEXGUY"
+}

@@ -1,0 +1,40 @@
+// The big-bad to end all big-bads is here, and he isn't afraid to squeeze
+// himself into a set of Chex(R) Armor and disgustingly tight spandex to do
+// battle on the cereals' own terms. Watch out--his combat skills are not to be
+// taken lightly.
+
+[IntroStrings]
+"Prepare for defeat, weakling!"
+
+[RoamingStrings]
+"The Cereal Dimension will belong to the Flemoid Empire!"
+"There is no hope for you and your nutrional friends."
+
+[RareRoamingStrings]
+"I will conquer ALL of you!"
+
+[FragStrings]
+"Pitiful."
+"You're no match for the Lord of the Flemoids."
+"You thought you could defeat me?"
+
+[KilledStrings]
+"Lucky shot."
+"Run away, weakling!"
+"I will find you, $player_killedby!"
+
+[LosingRoamingStrings]
+"I appear to be in a sticky situation."
+
+[EnragedStrings]
+"$player_inlead, you will never defeat the Flemoid Empire!"
+
+[DemoralizedStrings]
+"My minions will cover you in goo!"
+
+[WinStrings]
+"Victory, as expected."
+"The only possible outcome."
+
+[LoseStrings]
+"I will return... I always return."

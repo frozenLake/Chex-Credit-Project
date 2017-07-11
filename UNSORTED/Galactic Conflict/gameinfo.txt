@@ -1,0 +1,3 @@
+IWAD = "chex3.wad"
+STARTUPTITLE = "Chex Quest: Galactic Conflict"
+STARTUPCOLORS = "#C40000", "#0000A0"

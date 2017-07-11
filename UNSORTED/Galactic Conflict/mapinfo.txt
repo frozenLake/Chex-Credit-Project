@@ -1,0 +1,912 @@
+//------------------------------------------------------------------------------
+// Chex Quest: Galactic Conflict
+//------------------------------------------------------------------------------
+
+gameinfo
+{
+	playerclasses = "ChexPlayerV4"
+	titlepage = "TITLEPIC"
+	creditpage = "VICTORY2", "ENDPIC"
+	noloopfinalemusic = true
+	finalepage = "CREDIT", "CREDIT", "PFUB1", "EPI4_VIC"
+	infopage = "HELP1"
+	weaponslot = 1, "SuperBootsporkV4", "BootspoonV4"
+	weaponslot = 2, "MiniZorcherV4"
+	weaponslot = 3, "LargeZorcherV4"
+	weaponslot = 4, "RapidZorcherV4"
+	weaponslot = 5, "ZorchPropulsorV4"
+	weaponslot = 6, "PhasingZorcherV4"
+	weaponslot = 7, "LAZDeviceV4"
+	weaponslot = 8, "BeamZorcherV4"
+}
+
+skill baby
+{
+	AutoUseHealth
+	AmmoFactor = 2
+	DamageFactor = 0.5
+	EasyBossBrain
+	SpawnFilter = Baby
+	PicName = "M_JKILL"
+	Name = "$CSKILL_BABY"
+	Key = "i"
+}
+
+skill easy
+{
+	EasyBossBrain
+	AmmoFactor = 2
+	SpawnFilter = Easy
+	PicName = "M_ROUGH"
+	Name = "$CSKILL_EASY"
+	Key = "h"
+}
+
+skill normal
+{
+	AmmoFactor = 2
+	SpawnFilter = Normal
+	PicName = "M_HURT"
+	Name = "$CSKILL_NORMAL"
+	Key = "h"
+}
+
+skill hard
+{
+	AmmoFactor = 2
+	FastMonsters
+	SpawnFilter = Hard
+	PicName = "M_ULTRA"
+	Name = "$CSKILL_HARD"
+	Key = "u"
+}
+
+skill nightmare
+{
+	AmmoFactor = 2
+	FastMonsters
+	DisableCheats
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_NMARE"
+	MustConfirm = "$CNIGHTMARE"
+	Name = "$CSKILL_NIGHTMARE"
+	Key = "n"
+}
+
+//------------------------------------------------------------------------------
+// Episode 4: Galactic Conflict
+// (and the dev diary, for those bored enough to read it)
+//------------------------------------------------------------------------------
+
+episode E4M1
+{
+	picname = M_EPI4
+}
+
+// E4M1 - Docking Bays: This is where it all started. I was sick one weekend and
+// started faffing about with Doom Builder to pass the time. After two days,
+// this was the result. Well, sort of; I got fed up with the wonky geometry and
+// amateurish design of this level partway through working on E4M8 and went back
+// to revise it. Believe me--even though it essentially has the exact same
+// layout, the revision is far superior to the original. The rooms are bigger
+// and properly proportioned, there's a lot more scenery to give you a better
+// idea of what's going on, and it's a lot less linear than the original.
+// Rebuilding it from scratch took me five hours--worth it, in my opinion. The
+// original is on the game if you ever want to play it; just type 'Map E4MA'
+// into the console, and you can play through all the old versions of the maps.
+// You'd be amazed at how bad some of them are. The addition of the forcefields
+// was almost an afterthought. I wanted to upgrade the design of the forcefield,
+// but to be honest, the effect isn't the same without the hokey multi-colored
+// laser beams. Towards the point at which I finished work on E4M7, I realized
+// there was an exploit in the forcefield that allowed the player to sidle
+// through it without losing too much health. I assumed that the forcefield
+// property alone would be enough to prevent relatively unharmed passage, but I
+// had to go back and add line-blocking flags to each of the forcefields to
+// patch it--they only say that you need to do that in like, ten-thousand places
+// on the ZDoom wiki, but don't worry, I know better. Romero says you should
+// make your first level last, but if it weren't for this one this megawad
+// wouldn't exist. Take that with a pinch of salt.
+
+map E4M1 lookup HUSTR_E4M1
+{
+levelnum = 26
+next = E4M2
+secretnext = E4M2
+sky1 = SPACE1
+cluster = 4
+par = 210
+music = D_E1M1
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M2 - Communications Array: Though its successors would become much larger
+// and much more complex than this one, I still like the way this map came out.
+// Decided from here that I was doing a nine-level episode, and started creating
+// custom-made textures from existing graphics. One of my favorite bits on any
+// of these levels is the air-duct adventure with the Flem Mines. Because ZDoom
+// doesn't support the coding that prevents Flem Mines from fighting one another
+// (found in Chex3.exe), I had to change them in 'Decorate' to stop them from
+// damaging each other. It took four years, but I figured something out (check
+// their decorate entry for my solution). The two rooms at the end after the
+// elevator are also some of my favorites to play through, though the space
+// effect took some time to get just right. It looks much better on GZDoom than
+// it does in regular ZDoom, but that doesn't really surprise me. This one was
+// another one that got the revision treatment, shortly after E4M1--all the
+// rooms beheind the locked doors were formerly triangle-shaped computer rooms,
+// and the doors led immediately into them. The geometry on the hexagon room was
+// off, too, so I fixed that on the revision as well. And about the bridges--I
+// do know how to use fake floors, but I like the look of the 'step' textures as
+// catwalk-bridges and such better, so that's why I tended to use them more
+// often than the fake floors.
+
+map E4M2 lookup HUSTR_E4M2
+{
+levelnum = 27
+next = E4M3
+secretnext = E4M3
+sky1 = SPACE1
+cluster = 4
+par = 555
+music = D_E1M3
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M3 - Teleport Hub: If you think this one is a pain to play, it was even
+// more of a pain to make. It was a nightmare trying to keep track of the
+// available tags and link all the teleports properly. And then there are those
+// little things you do for variety, like putting each section of the base on
+// its own plane in terms of z-height. I hate the closeness in proximity of all
+// the rooms within the actual geometry of the map--for real they would be much
+// farther apart--but I felt it would be too much work for very little benefit
+// to spread the level out that much. I think the point is made that you're
+// going to parts of the base that are far apart, anyway. I wanted to make the
+// sections of the asteroid base visited in this level as diverse as possible,
+// so I utilized familiar themes from prior Chex levels throughout this one to
+// make each section feel like its own little mini-level--a concept I'd later
+// revisit when working on the random level. As long as it is, I think it came
+// out okay. The boss fight at the end took some time to code properly, and even
+// more time in the form of modifying the battlefield so that there's no escape
+// from the Flembrane's projectiles. You have no idea how weak that thing
+// actually is as an enemy because of its lack of mobility. I love the way the
+// fight itself came out, though. The 'challenge complete' fanfare from the
+// 'Modern Warfare' series wasn't my first choice as boss victory fanfare, but I
+// laughed so hard the first time I tried using it that I knew I wasn't going to
+// be able to get rid of it. It remained as a place-holder sound-effect for
+// boss victories right up until the very end of this project's development.
+// The replacement just doesn't quite have the same effect, but I got used to it
+// after a while. Years later (two, in fact), I decided to revisit this one and
+// remove some of the linearity from it as I added in the bonus level. It took
+// some time, but I feel it was worth it. The original progression is on the
+// game as 'E4MD'. The old teleport directory wasn't colored and there weren't
+// as many rooms; the revision adds some rooms and gives you two possible paths
+// through the level that share the majority of the rooms, but winds up taking
+// less time than the original. During the 'final push' for this project I went
+// through and added 'clogged' teleports to some of the other levels to give a
+// sense of continuity to the episode; I like the feel of interconnectedness it
+// gives.
+
+map E4M3 lookup HUSTR_E4M3
+{
+levelnum = 28
+next = E4M4
+secretnext = E4B1
+sky1 = SPACE1
+cluster = 4
+par = 615
+music = D_E1M4
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M4 - Crewmen's Quarters: I had always fancied the idea of building a
+// stealth level within the confines of Chex Quest, so I tried my hand at it
+// here. It was orginally going to consist of three pairs of barracks, but I
+// felt the scenery would be a little repetitive by then (read: I got bored). As
+// it stood, I was very, very tempted to make it so that you'd only have to go
+// through one set of 'fighting' barracks and one set of 'stealth' barracks, but
+// the progression works difficulty-wise, so I left it alone in the final cut.
+// The entire premise of this level is based around one of the questions I
+// always used to have when I played Chex Quest as a child: if the Bootspoon
+// makes no sound at all when you use it on nothing, how does it alert Flemoids?
+// At last, here, the Bootspoon actually has a purpose. I can die happy. Sure,
+// it seems just a little cheesy that you're wandering through these huge swarms
+// of Flemoids undetected just because you're using a spoon, but then again, did
+// you really expect something more realistic, considering you're playing a game
+// that actually allows you to use a -spoon- to defeat enemies in the first
+// place? I think that pretty much sets the precedent for disbelief suspension
+// here, to be perfectly hoenst with you. During my last revision of the game,
+// around when I started working on the Command Hall, I decided to open up some
+// of the earlier levels a little more--you originally didn't have a choice
+// between fighting and stealth in the first set of barracks, but I thought it
+// would be cool to give people that choice. In co-op, the level changes--you
+// need to clear out each of the first pair of barracks to get to the next.
+// This gives players an opportunity to split up. For a change.
+
+map E4M4 lookup HUSTR_E4M4
+{
+levelnum = 29
+next = E4M5
+secretnext = E4M5
+sky1 = SPACE1
+cluster = 4
+par = 435
+music = D_E2M5
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M5 - Botanical Labs: I like all the levels I made for this episode, but
+// this might actually be my favorite of them. It's got it all--the introduction
+// of my favorite weapon from any Doom-based game (the Phasing Zorcher), a
+// variety of Flemoids, some of my favorite scenery, a boss fight, water you can
+// actually swim in, plenty of hidden but rewarding secret areas, more of that
+// awesome view of outer space, and what I feel is perhaps the most balanced
+// progression throughout all the levels in this set, as linear as it is;
+// meaning I think that the difficulty ramps up appropriately as you go. Never a
+// dull moment, in my opinion, and I always enjoy playing through it. Oh, and
+// it's also got those blasted jetpack Flemoids. In retrospect, I'm sure I'm
+// like the 241,350,986th person to come up with the idea of giving Imp-style
+// enemies the power of flight, but I still felt really awesome when I decided
+// to do it. Splitting up here in co-op is lots of fun and halves the time the
+// level takes if you do it properly. Pretty cool.
+
+map E4M5 lookup HUSTR_E4M5
+{
+levelnum = 30
+next = E4M6
+secretnext = E4M6
+sky1 = SPACE1
+cluster = 4
+par = 750
+music = D_E3M3
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M6 - Technology Centre: I'm not kidding when I say I 'borrowed' a lot of
+// ideas for this level. The door maze at the start is a discarded idea from an
+// abandoned project; I didn't have a reliable method of solving it before but
+// stumbled onto the light cues as the solution by accident while developing
+// this level. The room with the hexagonal platforms was inspired by an early
+// level in Jedi Outcast; oddly enough, it's unintentionally more annoying than
+// the room that inspired it. The moving floors at the end were inspired by the
+// force floors from Chip's Challenge; they don't move as quickly, but the
+// effect is about the same. The name and appearance of the whole level was
+// inspired by McLaren International's headquarters in Woking, 'Paragon Centre'.
+// Heck, even one of the secret areas is basically right out of Super Mario 64.
+// I wanted it to look like those freakishly-clean white rooms from most sci-fi
+// movies, and duly fell in love with the white floor texture that I found as
+// soon as I saw it. This one doesn't 'feel' to me like any of the other levels
+// in the set, but in a good way, I think, and I like that. I tried going for
+// the same 'feel' on E4M7, but I think I failed miserably there. Behind the
+// Botanical Labs, this is probably my next favorite level--of all the little
+// gimmicks on it, my favorite one is probably the sinking hallway at the end,
+// though the pyramid stair-step contraption and the appearing bridges found in
+// the Super Mario 64 secret area (a very late addition, actually) are a close
+// second for me. The addition of the route to the bonus level was an
+// afterthought, and required another secret area at the end; the air-duct
+// corridor jump being too obvious, I settled on making a secret area within a
+// secret area instead. I normally hate it when developers do gimmicks like
+// that, but used sparingly I think they work, and I felt this was one of those
+// times that it would. I also love the custom sign on the door leading to the
+// power control room. This is also the level which introduces the Beam Zorcher.
+// For almost the entirety of this project's development, I was using the
+// sprites for the 'stolen' Phasing Zorcher from that other Chex Quest 3 as
+// placeholders. My brother gets full credit for all of the artwork pertaining
+// to the Beam Zorcher and he did a phenomenal job mimicking Charles Jacobi's
+// artwork style; when his sprites wound up in the game during the last couple
+// months I was working on it, I was duly blown away. I love it and think it's a
+// perfect fit for the Chex Quest universe, and the original sprites being in
+// the game gives a much better theatrical effect to the zorcher's introduction.
+
+map E4M6 lookup HUSTR_E4M6
+{
+levelnum = 31
+next = E4M7
+secretnext = E4B2
+sky1 = SPACE1
+cluster = 4
+par = 705
+music = D_E2M1
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M7 - Reactor Chambers: Oh man. This level. From start to finish, this one
+// was a flippin' ordeal--the one that relegated this little project from being
+// the object of my spare time to something I sparsely worked on each month. To
+// put things into perspective, finishing this level alone took me twice as long
+// as it took me to finish the first six--including the time I spent revising
+// the Docking Bays! I think you can find every map-making task I had ever
+// needed to do from the first six levels on this single level, and then a few
+// more, for good measure--new textures, new scenery, new projectiles, light
+// colors, bridges, a boss fight, special enemies for the boss fight, and to
+// quote the tragically late Phil Hartman, an 'ass-load' of ACS scripting. The
+// nice part is that once I finished it, I never had to go back and fix anything
+// on it. Unfortunately, the sad part is that I don't think it's really all that
+// fun to play. I mean, it works, but it's probably the most tedious one in the
+// set by far (maybe it's more exciting to play for a first-timer) and doesn't
+// 'feel' like I think a Chex Quest level should. In the end, it was probably a
+// huge waste of time, and I think I made things harder on myself than they
+// needed to be when I made this one (and probably also made it longer than it
+// needed to be), but hey, live and learn. I'd replace it with another level,
+// but seriously, I invested so much time in it that letting it die would almost
+// be unbearable--and I say that without a trace of affection whatsoever. It was
+// inspired by the notorious Cairn Reactor level from Jedi Outcast. I really
+// wanted to do something like that on ZDoom--Chex Quest, especially--but the
+// moral of this story is that it either doesn't work with ZDoom or I just
+// royally sucked at executing it. I get the feeling this level will probably
+// have the same kind of notoriety in this episode that Cairn Reactor did in
+// Jedi Outcast, too (I can almost hear the music from Cairn Reactor in my head
+// each time I play it). Unintentional, but at least then it has something going
+// for it, I suppose. Maybe it'll have some co-op value, but I have a feeling
+// I'll probably have more fun frying my team-mates by switching the reactor
+// beams on them than actually helping them. Don't ever play co-op with me, by
+// the way.
+
+map E4M7 lookup HUSTR_E4M7
+{
+levelnum = 32
+next = E4M8
+secretnext = E4M8
+sky1 = SPACE1
+cluster = 4
+par = 1020
+music = D_E3M4
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M8 - Mining Tunnels: Originally, this one was going to be very different--
+// the central room would have been like the 'Flemoid Nexus' that's in the final
+// version, but much larger and with a pit of slime in the middle. The pit would
+// have filled up as the player moved through the level, allowing access to new
+// areas as it drew level with the player's starting floor. I canned the idea
+// after the thought of how nightmarish it would be to script the filling of the
+// many rooms connected to it and the potential implications that would have on
+// co-op play. The only rooms leftover from the original map are the rooms at
+// the start before the slime river and the large, dark, multi-level room near
+// the yellow flemkey. I like the final version better than my original plan.
+// After designing seven straight levels that all turned out far larger and
+// longer than I had ever anticipated, I told myself to 'keep it short' for this
+// one. As you can see, that was totally effective--so effective that I ended up
+// making two levels in one, instead. I guess I can take solace in the fact that
+// it has the shortest par time of any level since the Crewmen's Quarters, at
+// least--but not by a very large amount, haha. This level's alternate path was
+// inspired by both the 'Waterfalls' segment of the original 'Prince of Persia:
+// The Sands of Time' and Banjo-Tooie's Glitter Gulch Mine, a level I still hate
+// to this day. Fun fact: it uses theme textures from each of the three previous
+// episodes' finale levels. Which honestly means nothing, because it's the next
+// one where things really start boiling down to this episode's slimy
+// conclusion, but I thought it was pretty cool anyway. This level also has
+// what is probably my favorite secret area in the whole game, hidden in plain
+// sight and inspired by one of my favorite movies. You'll feel awesome when you
+// figure it out--if you're really stuck, pull down the console and type
+// 'secret' for a clue from the movie that inspired it.
+
+map E4M8 lookup HUSTR_E4M8
+{
+levelnum = 33
+next = E4M9
+secretnext = E4M9
+sky1 = SPACE1
+cluster = 4
+par = 675
+music = D_E3M5
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4M9 - Command Hall: I started this one and then put it on hold for about two
+// years--the second big stall in this project after the reactor level. By the
+// time I had come back, I was committed to more mapping masochism in the form
+// of seven multiplayer maps/playability, co-op, and two additional bonus levels
+// over the one I already had planned. Can you call it a 19-map 'megawad' if
+// seven of those are made for multiplayer? 'Cause this thing feels like it fits
+// the bill. Anyway, this is the last map in the main campaign. I suppose I
+// should admit at this point that my first mapping experience in anything Doom-
+// related was messing around with console commands in an early version of Chex
+// Quest 3 to create harder versions of the levels in the game via use of the
+// 'freeze' and 'summon' commands, an enormous amount of patience, and saving.
+// These 'hard mode' levels involved about ten times as many Flemoids you'd find
+// on the original level, occasional alternate routes and additional scenery,
+// and cubic amounts of zorch recharges for you. At some point, they would all
+// devolve into a blast-fest with the Phasing Zorcher. Egocentric as it may be,
+// I really, really enjoyed playing through these; they were intense and
+// fast-paced, and you felt like a demigod surviving so many enemies. Because I
+// realize this sensation is only effective if utilized sparingly, I waited
+// until the end of the game to deploy it; it seemed the most fitting place to
+// unleash so many enemies. And so that's it: the design of this level closely
+// resembles the saves from when my Doom-editing hobby was barely even
+// infantile, bringing a nice cathartic circle-closing to a project that I feel
+// I've been building up to for something like seven years. The objective is
+// simple: load up on ammo, and don't let go of the button on that Phasing
+// Zorcher. It's the Flemoids' last-ditch attempt to take over the cereal
+// dimension, a surprise attack that's been building for eight long years--and
+// now it all comes to a head right here, and you're leading the way.
+//
+// There's a lot to this level, and at this point I really thought I was
+// beginning to exhaust my creativity with the use of the game's available
+// textures. I suck as a graphic artist, so that's why there's barely any new
+// textures in this game outside of recolors. My favorite part of this level is
+// possibly the bit with space combat, because as far as I can tell it's pretty
+// original. There's something very cinematic about how opening the door to the
+// vacuum gives this oddly muted sound, and I -LOVE- that moment when you
+// realize you're out in space fighting Flemoids--particularly since it was
+// something I'd wanted to deploy since the beginning of the project and didn't
+// get to do for four years. And it was completely intentional that this map has
+// exactly 1000 Flemoids on the hardest difficulty; a nice round number.
+
+map E4M9 lookup HUSTR_E4M9
+{
+levelnum = 34
+next = EndPic, "EPI4_VIC"
+secretnext = E4B3
+sky1 = SPACE1
+cluster = 4
+par = 1200
+music = D_E3M2
+nointermission
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4B1 - Training Range: As far as the timeline for ideas on this project went,
+// this was pretty much the last level I came up with, mentally. Its existence
+// is a side-effect of the Power Control level, seeing as the number of bonus
+// levels wouldn't have been three unless I had decided to do that one. I wasn't
+// enthusiastic about making this one when I started, because I knew it was
+// going to involve a lot of complicated tagging and scripting, but once all the
+// scripting came into place, I fell in love. It might have actually turned out
+// as my favorite bonus level, because the time-limited aspect of it reminds me
+// of the 'flight' challenge levels from the original Spyro the Dragon. The use
+// of the space texture as a night sky was almost an afterthough. Once I tested
+// it, I was immediately reminded of the night levels on the Super Mario
+// All-Stars remake of Super Mario Bros. I guess it's because of boatloads of
+// nostalgia, both aesthetically and gameplay-wise, that this one's my favorite.
+// Speedrunners should love this one; even on 'Super Slimey!', you should be
+// able to beat all of the training courses with about ten seconds to spare.
+
+map E4B1 lookup HUSTR_E4B1
+{
+levelnum = 35
+next = E4M4
+secretnext = E4M4
+sky1 = SPACE1
+cluster = 5
+par = 255
+music = D_E2M4
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4B2 - Power Control: It's amazing what Halloween spirit and a good quote
+// might do. During a Genetics lecture, my professor described translocation of
+// an antibody-producing gene to an unfamiliar locus as being 'like hitting the
+// light switch in your room and having your car start'. This, combined with the
+// the festive spirit of end-of-October and the music from the original Crash
+// Bandicoot's notorious 'Fumbling in the Dark' level playing through my head
+// on a loop for a week straight with no rational explanation, was the fuel for
+// a level full of malfunctioning objects bordering on the paranormal.
+// (Honestly, you'd have thought it'd have been the theme from the Generator
+// Room, but nope--Lights Out. It's got a total Looney Tunes vibe to me.) If you
+// feel like the equipment on this level has a mind of its own, then mission
+// accomplished. I wasn't going to do any more than one bonus level originally,
+// but the opportunity seemed too good to pass up. It took a long time to make,
+// and I don't think its length reflects that, but then again I've counted at
+// least eight different routes through this level. The room at the end with the
+// six different catwalks was a complete pain, and one of those aspects of
+// mapping that tends to put me off the whole concept. I had the idea and began
+// to carry it out long before I realized how difficult it would be. Originally,
+// this would've been linked to the Teleport Hub, but I decided I had more
+// options and more potential to be harsh if it showed up later on. Basically,
+// the prevailing design philosophy here is 'what would Chex Quest be like if
+// you made it into Doom?' Every game with a cutesie concept needs one of those
+// levels you'll remember because it scared the crap out of you, right? This is
+// that level--and the inherently childish nature of games like this means
+// you'll never see it coming. Happy Halloween. *evil grin*
+
+map E4B2 lookup HUSTR_E4B2
+{
+levelnum = 36
+next = E4M7
+secretnext = E4M7
+sky1 = SPACE1
+cluster = 6
+par = 225
+music = D_E1M5
+noinfighting
+sucktime = 1
+airsupply = 25
+}
+
+// E4B3 - Randomonium: I should start this entry by saying that I owe my dad a
+// HUGE thank-you for his help on this level. A lot of the script in here is
+// basically his, and we worked together to clean it up and get it ready to go
+// during the very final stage of this thing's development. And on that note,
+// perhaps all-too fittingly for this particular bit, this was the final level I
+// completed in the game's development. It has the distinction of being the only
+// map created on the -third- computer involved in this project; the basic forms
+// for E4M1-E4M8 were created on a 2007 Dell Vostro 1500; E4M9, Bonus 1-2,
+// Multi 1-7, and all of the revisions to E4M1-E4M8 were performed on a 2013
+// Dell Inspiron 15z; this level was created between OS X and a Windows
+// partition of a 2016 MacBook Pro. I'm not sure if most wads get finished
+// across multiple computers let alone multiple operating systems (or multiple
+// operating systems on the same computer), but I still think it's pretty cool
+// in retrospect that this project has followed me across so many computers.
+// Anyway, the level isn't 'true' random, but I loved the name so it stuck. The 
+// inspiration for this is yet another old video game: Super Mario World and the
+// 'random' level on Choco Island. I'd say this functions similarly. Of all the
+// levels in this project, this one put even the horror that is the reactor
+// level to shame in terms of the amount of frustration and annoyance I went
+// through in constructing it. I battled serious motivation issues to get this
+// one finished because of multiple setbacks and frankly more experimentation
+// with the scripts in the level than I'd ever dreamed I'd have to do. It was
+// literally the last thing on the list to put an end to a four-and-a-half year
+// Dooming odyssey. The nice part about it, though, is that I do think it's
+// actually quite fun to play through, and I got to include almost every single
+// concept from the proposed final episode for the sci-fi collaboration my
+// brother and I worked on, albeit in a significantly abbreviated form. These
+// ideas include the room with the lit pathway, the room that flips upside down,
+// the ridge adventure on Bazoik, the spiral waterfall room, and the room with
+// the monolithic block structure. The two ideas missing are the infinite-door
+// maze on E4M6 and the flooded caves on E4M8. Kind of cool to have 'lived out'
+// their creation at the very end, here. The upside down room is definitely a
+// reference to Majora's Mask, in case you didn't catch it; Stone Tower is
+// probably my favorite dungeon on any Zelda game. All in all, definitely owe
+// huge credit to my dad for this idea ever making it, though--thanks, dad!
+
+map E4B3 lookup HUSTR_E4B3
+{
+levelnum = 37
+next = EndPic, "EPI4_VIC"
+secretnext = EndPic, "EPI4_VIC"
+sky1 = SPACE1
+sky2 = SKY1
+cluster = 7
+par = 345
+music = D_E3M1
+nointermission
+noinfighting
+allowrespawn
+sucktime = 1
+airsupply = 25
+}
+
+//------------------------------------------------------------------------------
+// Old Maps
+//------------------------------------------------------------------------------
+
+// E4MA - Docking Bays (Old): This is essentially the exact map that I created
+// to kick-start this project. Very shoddy compared to the final product, I
+// think. I basically only included it as an easter-egg type thing; there are
+// some textures that have gone missing for some reason, but I didn't bother
+// fixing them--that would be cheating you of the 'pre-alpha' experience,
+// wouldn't it?
+
+map E4MA lookup HUSTR_E4MA
+{
+levelnum = 38
+next = E4MB
+secretnext = E4MB
+sky1 = SPACE1
+cluster = 6
+par = 330
+music = D_E1M1
+noinfighting
+sucktime = 1
+}
+
+// E4MB - Communications Array (Old): I was more proud of this one, but again
+// liked its revision much better. It's almost like the difference between some
+// of the levels on the original Chex Quest and their eventual revisions; so
+// much more life in them. More missing textures here, but that's because the
+// originals were eventually renamed.
+
+map E4MB lookup HUSTR_E4MB
+{
+levelnum = 39
+next = E4MC
+secretnext = E4MC
+sky1 = SPACE1
+cluster = 6
+par = 555
+music = D_E1M3
+noinfighting
+sucktime = 1
+}
+
+// E4MC - Mining Tunnels (Old): You can see where the original 'slime pit' was
+// on here. I think you can still get into the locked doors with the right keys,
+// too. The yellow/blue key doors were originally going to loop around like the
+// Flemoid nexus in the final product--so I guess that's another idea I kept.
+// This is really a stump of a level, but I hung onto it. Yay creative process!
+
+map E4MC lookup HUSTR_E4MC
+{
+levelnum = 40
+next = E4MD
+secretnext = E4MD
+sky1 = SPACE1
+cluster = 6
+par = 180
+music = D_E3M5
+noinfighting
+sucktime = 1
+}
+
+// E4MD - Teleport Hub (Old): Despite its complexity, there was formerly a
+// single straight path you could take through this one, and you can see that
+// here. No secret exit, either; that impossibly-hidden secret area only gave
+// you a Super Bootspork for your trouble. This one's definitely in the 'beta'
+// stage, as the only real modifications that happened here were to the
+// progression; the rooms that are finished on here changed little if at all.
+// The Zorch Propulsor is present in the first secret area and there's an
+// interesting typo in the teleport directory. I took out the Propulsor because
+// it made the boss fight too easy.
+
+map E4MD lookup HUSTR_E4MD
+{
+levelnum = 48
+next = EndGame6
+secretnext = EndGame6
+sky1 = SPACE1
+cluster = 6
+par = 900
+music = D_E1M4
+noinfighting
+sucktime = 1
+}
+
+//------------------------------------------------------------------------------
+// Multiplayer Maps
+//------------------------------------------------------------------------------
+
+// MP01 - Shipping Yard: If you've played any FPS within the last ten years,
+// then this map will probably feel awfully familiar... *wink*. I thought it
+// would be fun to port what I feel is one of the very few extremely good things
+// to come out of the over-marketed Call of Duty series over to ZDoom. It's not
+// an exact replica of Shipment, but that's intentional. I'm sure someone else
+// has done a much more authentic remake--this one was only intended to bring
+// Shipment to the world of Chex Quest, and to a greater extent, ZDoom. It only
+// occurred to me years later that they basically ripped off fy_iceworld to make
+// it, but, you know... it's CoD. What were you expecting?
+
+map MP01 lookup HUSTR_MP01
+{
+levelnum = 41
+next = MP02
+secretnext = MP02
+sky1 = SKY1
+cluster = 7
+par = 600
+music = D_E1M2
+noinfighting
+allowrespawn
+}
+
+// MP02 - Water Facility: N64 veterans will probably recognize this one--an
+// homage to what may have been the greatest kart-racing game ever made. I
+// remember battling late, late, late into the night with the rest of my family
+// on Icicle Pyramid when Diddy Kong Racing first came out. Whether or not the
+// layout would hold up on other shooters, I don't know, but there's something
+// about Doom's movement physics that made me feel like a port of Icicle Pyramid
+// was a good idea. The outer spirals to the third floor were replaced with
+// lifts instead--I'm not really sure you'd be able to properly recreate a
+// correctly-sloped U-turn involving a fake floor without some coding that's far
+// beyond my level, so the lifts will have to suffice. I think it's because of
+// this map that I imagine all of my multiplayer maps having the "Battle Stage"
+// music from Diddy Kong Racing playing on them. For some reason, that seems to
+// fit with Chex Quest for me. Unfortunately the bots suck at this level because
+// they can't seem to figure out how to use bridges or fake floors, so it's not
+// really much fun unless you've got human opponents.
+
+map MP02 lookup HUSTR_MP02
+{
+levelnum = 42
+next = MP03
+secretnext = MP03
+sky1 = SKY2
+cluster = 7
+par = 600
+music = D_E3M3
+noinfighting
+allowrespawn
+}
+
+// MP03 - Science Museum: I don't know if there's a whole lot for me to say
+// about this one. I think it's pretty generic in terms of scenery, to be honest
+// with you, but it was really fun to play when I tested it against the bots so
+// I guess it's not that bad. The addition of powerups makes it distinctive from
+// the other maps, I think. The room that was added in as in easter egg almost
+// didn't happen--the next texture I saw after the Botticelli texture was the
+// one that's featured as a switch on E2M3 to trigger the secret area with the
+// LAZ Device. It wound up being two homages in one. I thought it was cool,
+// anyway.
+
+map MP03 lookup HUSTR_MP03
+{
+levelnum = 43
+next = MP04
+secretnext = MP04
+sky1 = SKY2
+cluster = 7
+par = 600
+music = D_E1M3
+noinfighting
+allowrespawn
+}
+
+// MP04 - Shreddies Point: This one was the last multiplayer map I finished,
+// despite the fact it was one of the first I started work on. I remember it
+// most for the fact that I finished it while watching qualifying for the 100th
+// Indianapolis 500, as Mikhail Aleshin wrangled his DOOM-liveried car around
+// the track, barely brushing the wall on a four-lap run that would put him back
+// into the top nine. Fun stuff. Constructing outdoor or 'natural' areas has
+// never been a favorite part of mine when building levels, so maybe that was
+// why I put this one off so long. I like the way it came out, and the
+// multi-level structure of it with the bridges didn't really evolve until a few
+// days before I decided to finish it.
+
+map MP04 lookup HUSTR_MP04
+{
+levelnum = 44
+next = MP05
+secretnext = MP05
+sky1 = CJSKY3A
+cluster = 7
+par = 600
+music = D_E2M1
+noinfighting
+allowrespawn
+}
+
+// MP05 - Telenet: This was another aspect of this megawad that got inspired by
+// Chip's Challenge. It's kind of slow if you don't have very many players, but
+// with larger groups each of the pits evolves into its own mini-skirmish. I
+// wanted to play around with the scenery on this one, but I skinned it with the
+// E1M1 look and for me personally there was no going back. A nice retro
+// appearance, I thought. The teleports are designed to work exactly as the ones
+// in Chip's Challenge do--you move to the one closest to you in the direction
+// you enter. I could've probably saved a lot of time by putting just one in the
+// middle of each sector, but then it'd have been far too easy to warp around
+// the map in a hurry by doing quick turns on your way out of a teleport. 
+
+map MP05 lookup HUSTR_MP05
+{
+levelnum = 45
+next = MP06
+secretnext = MP06
+sky1 = SKY1
+cluster = 7
+par = 600
+music = D_E2M4
+noinfighting
+allowrespawn
+}
+
+// MP06 - Chextropolis Park: So this one started out as an off-shoot of the
+// training range map. Originally, one of the training courses I was going to
+// build would've been a parody of Nuketown: 'Zorchville'. As I began to build
+// the framework for that, I just became dissatisfied with the idea and decided
+// to drop it. Instead, you've got something that -kinda- resembles Nuketown but
+// not quite, and I think that's okay. I still built it as part of the Training
+// Range--that was always the plan--but the arrows on the floor are missing in
+// this version and you can get to both of the balconies. I very nearly
+// converted the desert training range into a map as well after testing this one
+// for a bit--it was a blast to play in testing deathmatch against the bots.
+
+map MP06 lookup HUSTR_MP06
+{
+levelnum = 46
+next = MP07
+secretnext = MP07
+sky1 = SPACE1
+cluster = 7
+par = 600
+music = D_E3M2
+noinfighting
+allowrespawn
+}
+
+// MP07 - Chex(R)ecutioner: So the name for this one came first. It literally
+// just popped into my head while I was mulling over map-making ideas, and I got
+// a kick out of it. The next thought was, "How do I apply that name to a map?"
+// and the thought after that was the fact that it was really fun frying my
+// teammates on the reactor level in co-op. So this one is literally the child
+// of a random insane thought serendipidously mated to the immature enjoyment
+// you get from trying to out-troll your friends. If Top Gear were to build a
+// deathmatch map on Doom, this would be it. I don't think it's the concept of
+// being able to send the rest of the match to their death that's so amusing in
+// this one, but the manner in which it's done; flicking a switch and having
+// everyone spontaneously die isn't very exciting--flicking a switch and
+// watching your opponents get annihilated like the cement truck from
+// Mythbusters is far more satisfying. There's a bit of ceremony to it--and
+// that's basically what's at play here. As the Silent Walrus once profoundly
+// suggested when asked to name the one certainty of the future: "We're all
+// gonna die." It's gloriously pointless, but that's the whole point. The (R) in
+// the title was obviously necessary. Play it with respawn protection disabled
+// for maximum insanity.
+
+map MP07 lookup HUSTR_MP07
+{
+levelnum = 47
+next = MP01
+secretnext = MP01
+sky1 = SPACE1
+cluster = 7
+par = 600
+music = D_E1M2
+noinfighting
+allowrespawn
+}
+
+//------------------------------------------------------------------------------
+// Clusters
+//------------------------------------------------------------------------------
+
+// Cluster 4 - Galactic Conflict
+
+clusterdef 4
+{
+flat = SPACE1
+music = D_VICTOR
+exittext = lookup, E4TEXT
+}
+
+// Cluster 5 - Bonus Map 1
+
+clusterdef 5
+{
+flat = CJFCOMM4
+music = D_VICTOR
+entertext = lookup, BONUSTEXT1
+}
+
+// Cluster 6 - Bonus Map 2
+
+clusterdef 6
+{
+flat = CJFCOMM5
+music = D_VICTOR
+entertext = lookup, BONUSTEXT2
+}
+
+// Cluster 7 - Bonus Map 3
+
+clusterdef 7
+{
+flat = SPACE1
+music = D_VICTOR
+entertext = lookup, BONUSTEXT3
+exittext = lookup, BONUSFINISH
+}
+
+// Cluster 8 - Old Maps
+
+clusterdef 8
+{
+flat = CJFRED
+music = D_VICTOR
+exittext = lookup, OLDFINISH
+}
+
+// Cluster 9 - Multiplayer Maps
+
+clusterdef 9
+{
+flat = CJFCOMM4
+}

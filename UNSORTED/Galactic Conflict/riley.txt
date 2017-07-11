@@ -1,0 +1,56 @@
+// Fun-loving and adventurous, Riley is part of the Federation's expansionary 
+// special-ops crew. This currently small team of three has been tight friends
+// for a long time. The team's outward focus on space exploration and contact
+// with other possible civilizations matches her personality perfectly.
+
+[IntroStrings]
+"Hi, everybody!"
+"Hey, guys!"
+"Who's ready to have some fun? :)"
+
+[RoamingStrings]
+"I spend way too much time looking at the scoreboard."
+"The Phasing Zorcher is just too much fun."
+"General Mills did a great job handling the Flemoid invasion."
+"I like objective modes the best. Teamwork FTW!"
+"Okay, I feel like $player_random_notself is following me right now."
+"I wasn't patient enough for long-range training with zorchers."
+"This is fun!"
+
+[RareRoamingStrings]
+"I always manage to get a little awkward around Will."
+"Don't tell anyone, but I LOVE Chex(R) Mix!"
+
+[FragStrings]
+"Ooh, sweet!"
+"I almost wasn't expecting that to work."
+"That was a little too close for me."
+"Nice try. ;)"
+"Buh-bye, $player_killed."
+
+[KilledStrings]
+"That felt like it came out of nowhere."
+"Aw, nice shot."
+"Wow, good one, $player_killedby!"
+"I tried so hard!"
+"Better luck next time, I guess."
+
+[LosingRoamingStrings]
+"Oh, it's not over yet."
+"I'm behind, but not for long!"
+"$player_inlead isn't going to be leading much longer!"
+
+[EnragedStrings]
+"Was that necessary? I mean, really..."
+"That wasn't very nice..."
+
+[DemoralizedStrings]
+"It's just not going my way today..."
+
+[WinStrings]
+"Yeah!"
+"I don't know about you guys, but I had fun! :)"
+
+[LoseStrings]
+"That was a good match!"
+"Let's go another round. I bet it won't end the same way. ;)"

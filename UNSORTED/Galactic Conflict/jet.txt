@@ -1,0 +1,66 @@
+// This one loves speed and dreams of a career as a successful racing driver.
+// She's the pilot in the Federation's expansionary team and totally at home
+// behind the wheel. She's also got a bit of a thing for the team's commander,
+// but don't tell anyone.
+
+[IntroStrings]
+"How's everybody doing?"
+"What's up, everyone?"
+"I hope you guys didn't miss me too much. ;)"
+"Hi, guys!"
+"Green flag! :)"
+
+[RoamingStrings]
+"Did anybody catch the last F1 race?"
+"I think it's about time for another track day."
+"Zorchers make the strangest sounds."
+"I can't wait for the 24 Hours of Le Mans."
+"I know it's a cliche, but the Shipping Yard is probably my favorite map."
+"The Indy 500 turns me into the worst fangirl."
+"I'm still trying to find a ride... sponsorship is hard to come by."
+"No way I'm not going to race this year. This year will be my year."
+
+[RareRoamingStrings]
+"I think Will likes the Beam Zorcher more than he likes me."
+"I wonder what it takes to get through to Will sometimes."
+"Racing is life. Everything before and after is just waiting."
+
+[FragStrings]
+"Bring it on!"
+"Ooooooooh, gotcha!"
+"Betcha didn't see that coming."
+"Back in the game!"
+"We'll have to do that again sometime. ;)"
+
+[KilledStrings]
+"Game on!"
+"Is that any way to treat a lady?"
+"You wanna take this out to the track?"
+"You wanna try that again, $player_killedby?"
+"Time for a fresh set of rubber..."
+"Me, competitive? Whatever gave you that idea?"
+
+[LosingRoamingStrings]
+"It's okay--the only lap you have to lead is the last one."
+"I hate losing. Especially to $player_inlead."
+
+[EnragedStrings]
+"That's it, you are SO toasted."
+"Oh, COME ON!"
+"Are you serious?"
+
+[DemoralizedStrings]
+"Well... darn."
+"I'm not sure I can come back from this."
+"This one's looking pretty much over."
+
+[WinStrings]
+"Checkered flag!"
+"Thanks for playing. ;)"
+"Well that was fun!"
+
+[LoseStrings]
+"Well, it's just one match."
+"One more! One more!"
+"I was off my game anyway."
+"Congrats, $player_inlead."

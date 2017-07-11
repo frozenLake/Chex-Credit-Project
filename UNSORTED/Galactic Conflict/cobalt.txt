@@ -1,0 +1,48 @@
+// Cobalt is a nerd, but does a really good job hiding it. She's always singing
+// to herself, but doesn't do anything more than lip-sync because she's too shy.
+// A shame, because her voice is beautiful.
+
+[IntroStrings]
+"What's happening?"
+"Hey there!"
+"Nothing like spending time with friends to help you unwind."
+
+[RoamingStrings]
+"Okay, I've feel like I've been following the same person for like a minute now."
+"I hate wearing glasses. Sunglasses are fun, though."
+"Chex armor is not kind to people with long hair."
+"I don't really play this game with a coherent strategy, haha."
+
+[RareRoamingStrings]
+"Is there a time limit on this thing?"
+
+[FragStrings]
+"That was beautiful!"
+"I bet that wasn't as fun for you."
+"Are you going to come back for more, $player_killed?"
+"Surprised, $player_killed? :)"
+
+[KilledStrings]
+"Maybe it's time I take my headphones out."
+"Oh, nice one!"
+"Great shot!"
+"I'll need to get a better zorcher for next time."
+"Are you kidding me?"
+
+[LosingRoamingStrings]
+"Man, I need to get back in the game."
+"Am I reading the leaderboard incorrectly, or is $player_inlead actually winning?"
+
+[EnragedStrings]
+"Okay, that's it!"
+"Come on, there's no need for that!"
+
+[DemoralizedStrings]
+"Sometimes I wonder why I bother."
+
+[WinStrings]
+"Is it somewhat ironic that I don't really like video games?"
+
+[LoseStrings]
+"That was fun, I guess."
+"Good match!"

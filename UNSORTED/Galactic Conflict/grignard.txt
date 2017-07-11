@@ -1,0 +1,25 @@
+// Alkyl's father. A man of few words, unlike her he's quiet and reserved. He's
+// prouder of her than anything else in the world.
+
+[IntroStrings]
+"Hello everyone."
+
+[RareRoamingStrings]
+"I'm proud Alkyl has been such a good daughter to me."
+
+[KilledStrings]
+"Nice shot."
+
+[LosingRoamingStrings]
+"This isn't as easy as it used to be."
+
+[DemoralizedStrings]
+"Looks like $player_inlead's running away with it."
+
+[WinStrings]
+"Good match, everyone."
+"Good game."
+
+[LoseStrings]
+"I always have fun."
+"Well played."

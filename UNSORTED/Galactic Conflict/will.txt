@@ -1,0 +1,60 @@
+// Strong-minded, resourceful, and quick on his feet, Will learned everything
+// he knows about survival in deep space from the legendary Chex(R) Warrior.
+// He was chosen by the man himself to head the IFOC's outward expansion. He
+// keeps his cards close to his chest and doesn't let his inner self show very
+// often. He's had a crush on one of his squadmates since childhood. Cute!
+
+[IntroStrings]
+"Let's do it!"
+"Are you ready?"
+"Let's rock 'n roll!"
+"All right, let's go."
+
+[RoamingStrings]
+"I bet the Federation's happy now that things have calmed down."
+"That new Beam Zorcher is a sweet bit of kit."
+"Gotta love a fresh set of armor."
+"One of these days I'm going to get my hands on my own LAZ Device."
+"I like a bit of down-time, but action is more fun."
+
+[RareRoamingStrings]
+"Jet, was your father as bold as the sergeant major?"
+"Jet, I thought the only lonely face was on the moon."
+"I think the Chex(R) guy is secretly Chuck Norris in a giant waffle iron."
+
+[FragStrings]
+"Better luck next time!"
+"I wasn't about to let you do that!"
+"Score!"
+"See ya!"
+
+[KilledStrings]
+"Nice shot."
+"How'd you manage that?"
+"I'll have to try that next time, $player_killedby."
+"Ha, don't count on that working again."
+"I was checking the scoreboard!"
+
+[LosingRoamingStrings]
+"I need to start practicing again."
+"It's not over yet!"
+
+[EnragedStrings]
+"That's it--you're going down!"
+"Oh, so that's how it is?"
+"Okay, bring it on!"
+
+[DemoralizedStrings]
+"This has been a tough match."
+"This has just been one of those days..."
+"So, when does the next match start?"
+
+[WinStrings]
+"Booyah!"
+"That's what I'm talking about! Yeah!"
+"Awesome! That was tough."
+
+[LoseStrings]
+"Good game."
+"Nice one!"
+"Let's go another round, I've still got time."

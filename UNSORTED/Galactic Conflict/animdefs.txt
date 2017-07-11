@@ -1,0 +1,45 @@
+// New switches
+
+switch doom 1 SW1REDM on pic SW2REDM tics 0
+switch doom 1 SW1M3STR on pic SW2M3STR tics 0
+switch doom 1 SW1BRWNS on pic SW2BRWNS tics 0
+switch doom 1 SW1CRBRN on pic SW2CRBRN tics 0
+switch doom 1 SW1M8ELV on pic SW2M8ELV tics 0
+
+// Teleport Switches for E4M3
+
+switch doom 1 SW1TELE1 on pic SW2TELE1 tics 0
+switch doom 1 SW1TELE2 on pic SW2TELE2 tics 0
+switch doom 1 SW1TELE3 on pic SW2TELE3 tics 0
+switch doom 1 SW1TELE4 on pic SW2TELE4 tics 0
+
+// Breakable glass
+
+switch doom 1 WINDOW1 on pic STEP3 tics 0
+
+// Slimed teleport walls--three are defined so they can blink out of phase
+
+texture TLSLIME1
+pic TLSLIME1 tics 8
+pic TLSLIME2 tics 8
+pic TLSLIME3 tics 8
+
+texture TLSLIME2
+pic TLSLIME2 tics 8
+pic TLSLIME3 tics 8
+pic TLSLIME1 tics 8
+
+texture TLSLIME3
+pic TLSLIME3 tics 8
+pic TLSLIME1 tics 8
+pic TLSLIME2 tics 8
+
+// And the one you've all surely been waiting for (not), the animated forcefield
+
+texture FFIELD1
+pic FFIELD1 tics 2
+pic FFIELD2 tics 3
+pic FFIELD3 tics 4
+pic FFIELD4 tics 6
+pic FFIELD3 tics 4
+pic FFIELD2 tics 3

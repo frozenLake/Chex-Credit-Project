@@ -1,0 +1,1813 @@
+// Collection of textures used in the Chex Quest: Galactic Conflict maps. These
+// won't show up in Doom Builder unless you have the latest version, so be sure
+// to update before you create any maps using chexgalactic.wad. You're free to
+// use any of these in custom maps built from Chex Quest: Galactic Conflict or
+// ZDoom in general--if you do, please do me a favor and remember to give credit
+// to the original artist (Mr. Jacobi), okay? And yes, in case you're curious, I
+// typed this entire thing by hand instead of using a texture editor, because
+// back when I started on this project SLADE was still in beta and SLumpEd
+// didn't have a texture editor. I got used to it, so I never stopped.
+
+// Flats and textures designed for special use, primarily when inset structures
+// or pain-in-the-backside areas to texture correctly are involved (I'm looking
+// at you, E4M7).
+
+walltexture E4M1TR1, 128, 96
+{
+	Patch E4M1TR1, 0, 0
+}
+
+walltexture E4M1TR2, 128, 64
+{
+	Patch E4M1TR2, 0, 0
+} 
+
+walltexture E4M1TR3, 128, 224
+{
+	Patch E4M1TR3, 0, 0
+}
+
+walltexture E4M1TR4, 128, 104
+{
+	Patch E4M1TR4, 0, 0
+}
+
+walltexture E4M1BL1, 128, 96
+{
+	Patch E4M1BL1, 0, 0
+}
+
+walltexture E4M2BTR1, 128, 72
+{
+	Patch E4M2BTR1, 0, 0
+}
+
+walltexture E4M2BTR2, 128, 64
+{
+	Patch E4M2BTR2, 0, 0
+}
+
+walltexture E4M2BTR3, 128, 192
+{
+	Patch CJCOMM23, 0, 4
+	Patch CJCOMM23, 0, -124
+	Patch E4M2BTR2, 0, 128
+}
+
+walltexture E4M2SLIM, 128, 192
+{
+	Patch CJCOMM23, 0, 4
+	Patch CJCOMM23, 0, -124
+	Patch E4M2BTR2, 0, 128
+	Patch NUKEDGE, 0, 169
+}
+
+walltexture E4M2VENT, 64, 128
+{
+	Patch E4M2VENT, 0, 0
+}
+
+walltexture E4M2BVN1, 64, 64
+{
+	Patch E4M2BVN1, 0, 0
+}
+
+walltexture E4M2BVN2, 64, 64
+{
+	Patch E4M2BVN2, 0, 0
+}
+
+walltexture E4M2SPAC, 128, 64
+{
+	Patch E4M2SPAC, 0, 0
+}
+
+walltexture E4M3STR1, 64, 344
+{
+	Patch E4M3STR1, 0, 0
+}
+
+walltexture E4M3STR2, 64, 320
+{
+	Patch E4M3STR2, 0, 0
+}
+
+walltexture E4M4BL1, 128, 56
+{
+	Patch E4M4BL1, 0, 0
+}
+
+walltexture E4M5SPAC, 32, 56
+{
+	Patch E4M5SPAC, 0, 0
+}
+
+walltexture E4M5VENT, 64, 128
+{
+	Patch E4M5VENT, 0, 0
+}
+
+walltexture E4M6SIL1, 128, 96
+{
+	Patch E4M6SIL1, 0, 0
+}
+
+walltexture E4M6SIL2, 128, 224
+{
+	Patch E4M6SIL2, 0, 0
+}
+
+walltexture E4M6VENT, 64, 128
+{
+	Patch ICKVENT, 0, 0
+	Patch ICKVENT, 0, 64
+}
+
+walltexture E4M7GRAY, 64, 144
+{
+	Patch W32_4, 0, 0
+	Patch W33_8, 0, 64
+	Patch W33_8, 0, 72
+	Patch W32_4, 0, 80
+}
+
+walltexture E4M7REAC, 64, 272
+{
+	Patch W32_4, 0, 0
+	Patch W33_8, 0, 64
+	Patch W32_4, 0, 72
+	Patch W32_4, 0, 136
+	Patch W33_8, 0, 200
+	Patch W32_4, 0, 208
+}
+
+walltexture E4M7ICK1, 64, 96
+{
+	Patch E4M7ICK1, 0, 0
+}
+
+walltexture E4M7ICK2, 64, 32
+{
+	Patch E4M7ICK2, 0, 0
+}
+
+walltexture E4M7ICK3, 64, 96
+{
+	Patch E4M7ICK3, 0, 0
+}
+
+walltexture E4M7ICK4, 64, 96
+{
+	Patch E4M7ICK4, 0, 0
+}
+
+walltexture E4M7ICK5, 64, 64
+{
+	Patch E4M7ICK5, 0, 0
+}
+
+walltexture E4M9BSL1, 128, 128
+{
+	Patch E4M9BSL1, 0, 0
+}
+
+walltexture E4M9BSL2, 128, 128
+{
+	Patch E4M9BSL2, 0, 0
+}
+
+walltexture E4M9BSL3, 128, 128
+{
+	Patch E4M9BSL3, 0, 0
+}
+
+walltexture E4M9BSL4, 128, 128
+{
+	Patch E4M9BSL4, 0, 0
+}
+
+walltexture E4M9GSL1, 128, 128
+{
+	Patch E4M9GSL1, 0, 0
+}
+
+walltexture E4M9GSL2, 128, 128
+{
+	Patch E4M9GSL2, 0, 0
+}
+
+walltexture E4M9GSL3, 128, 128
+{
+	Patch E4M9GSL3, 0, 0
+}
+
+walltexture E4M9GSL4, 128, 128
+{
+	Patch E4M9GSL4, 0, 0
+}
+
+walltexture E4M9GST1, 128, 384
+{
+	Patch E4M9GSL1, 0, 0
+	Patch GOLDWALL, 0, 128
+	Patch GOLDWALL, 0, 256
+}
+
+walltexture E4M9GST2, 128, 384
+{
+	Patch E4M9GSL2, 0, 0
+	Patch GOLDWALL, 0, 128
+	Patch GOLDWALL, 0, 256
+}
+
+walltexture E4M9GST3, 128, 384
+{
+	Patch E4M9GSL3, 0, 0
+	Patch GOLDWALL, 0, 128
+	Patch GOLDWALL, 0, 256
+}
+
+walltexture E4M9GST4, 128, 384
+{
+	Patch E4M9GSL4, 0, 0
+	Patch GOLDWALL, 0, 128
+	Patch GOLDWALL, 0, 256
+}
+
+walltexture E4M9TSL1, 128, 256
+{
+	Patch E4M9TSL1, 0, 0
+}
+
+walltexture E4M9TSL2, 128, 256
+{
+	Patch E4M9TSL2, 0, 0
+}
+
+walltexture E4M9TSL3, 128, 256
+{
+	Patch E4M9TSL3, 0, 0
+}
+
+walltexture E4M9GW1, 128, 64
+{
+	Patch E4M9GW1, 0, 0
+}
+
+walltexture E4M9CJW1, 128, 320
+{
+	Patch E4M9CJW1, 0, 0
+}
+
+walltexture E4M9CJW2, 128, 320
+{
+	Patch E4M9CJW2, 0, 0
+}
+
+walltexture E4M9CJW3, 128, 320
+{
+	Patch E4M9CJW3, 0, 0
+}
+
+walltexture B1CEM1, 128, 64
+{
+	Patch B1CEM1, 0, 0
+}
+
+walltexture B1CEM2, 128, 104
+{
+	Patch B1CEM2, 0, 0
+}
+
+walltexture B1BL1, 128, 104
+{
+	Patch B1BL1, 0, 0
+}
+
+walltexture B1STONE, 128, 160
+{
+	Patch B1STONE, 0, 0
+}
+
+walltexture B3VENT, 64, 136
+{
+	Patch B3VENT, 0, 0
+}
+
+flat COMFLAT1, 256, 64
+{
+	Patch COMFLAT1, 0, 0
+}
+
+flat COMFLAT2, 256, 64
+{
+	Patch COMFLAT2, 0, 0
+}
+
+flat COMFLAT3, 256, 64
+{
+	Patch COMFLAT3, 0, 0
+}
+
+flat COMFLAT4, 64, 256
+{
+	Patch COMFLAT4, 0, 0
+}
+
+flat COMFLAT5, 64, 256
+{
+	Patch COMFLAT5, 0, 0
+}
+
+flat COMFLAT6, 64, 256
+{
+	Patch COMFLAT6, 0, 0
+}
+
+flat COMFLAT7, 64, 256
+{
+	Patch COMFLAT7, 0, 0
+}
+
+// 'Missing' textures for lights and elevators. Can't believe some of these were
+// not present in the original WAD--would've made map design less-restrictive.
+
+flat FLAT24, 64, 64
+{
+	Patch FLAT24, 0, 0
+}
+
+flat CEIL3_6, 64, 64
+{
+	Patch CEIL3_6, 0, 0
+}
+
+flat CEIL3_7, 64, 64
+{
+	Patch CEIL3_7, 0, 0
+}
+
+flat CEIL3_8, 64, 64
+{
+	Patch CEIL3_8, 0, 0
+}
+
+flat ELEV1, 64, 64
+{
+	Patch ELEV1, 0, 0
+}
+
+flat ELEV2, 64, 64
+{
+	Patch ELEV2, 0, 0
+}
+
+flat ELEV3, 64, 64
+{
+	Patch ELEV3, 0, 0
+}
+
+flat GATE2, 64, 64
+{
+	Patch GATE2, 0, 0
+}
+
+flat GATE3, 64, 64
+{
+	Patch GATE3, 0, 0
+}
+
+flat GATE4, 64, 64
+{
+	Patch GATE4, 0, 0
+}
+
+// Walls and floors
+
+walltexture REDMARBL, 128, 125
+{
+	Patch MWALL4_2, 0, 0
+	Patch MWALL4_2, 0, 40
+	Patch MWALL4_2, 0, 80
+	Patch MWALL4_2, 0, 120
+}
+
+walltexture LABFENCE, 64, 35
+{
+	Patch CJLODG13, 0, -95
+	Patch CJLODG13, 16, -95
+	Patch CJLODG13, 32, -95
+	Patch CJLODG13, 48, -95
+}
+
+walltexture GRATE, 64, 128
+{
+	Patch BARS, 0, 0
+	Patch BARS, 0, 64
+}
+
+walltexture ELEVVENT, 64, 64
+{
+	Patch ELEVVENT, 0, 0
+}
+
+walltexture GRAYVENT, 64, 64
+{
+	Patch GRAYVENT, 0, 0
+}
+
+walltexture GOLD1, 128, 24
+{
+	Patch GOLD1, 0, 0
+}
+
+walltexture GOLD2, 128, 32
+{
+	Patch GOLD2, 0, 0
+}
+
+walltexture GOLDWALL, 128, 128
+{
+	Patch GOLDWALL, 0, 0
+}
+
+walltexture GOLDTRIM, 64, 8
+{
+	Patch GOLDTRIM, 0, 0
+}
+
+flat GOLDFLAT, 64, 64
+{
+	Patch GOLDFLAT, 0, 0
+}
+
+flat CJFGREEN, 64, 64
+{
+	Patch CJFGREEN, 0, 0
+}
+
+flat CJFRED, 64, 64
+{
+	Patch CJFRED, 0, 0
+}
+
+flat CJFBLUE, 64, 64
+{
+	Patch CJFBLUE, 0, 0
+}
+
+flat FWOOD1, 64, 64
+{
+	Patch FWOOD1, 0, 0
+}
+
+flat FWOOD2, 64, 64
+{
+	Patch FWOOD2, 0, 0
+}
+
+flat FIFOCW1, 128, 128
+{
+	Patch FIFOCW1, 0, 0
+}
+
+flat FIFOCW2, 128, 128
+{
+	Patch FIFOCW2, 0, 0
+}
+
+flat FIFOCW3, 128, 128
+{
+	Patch FIFOCW3, 0, 0
+}
+
+// Walls/floors with slime on them
+
+walltexture TLSLIME1, 128, 128
+{
+	Patch WALL57_2, 0, 0
+	Patch WALL57_2, 64, 0
+	Patch NUKEDGE, 0, 105
+}
+
+walltexture TLSLIME2, 128, 128
+{
+	Patch WALL57_3, 0, 0
+	Patch WALL57_3, 64, 0
+	Patch NUKEDGE, 0, 105
+}
+
+walltexture TLSLIME3, 128, 128
+{
+	Patch WALL57_4, 0, 0
+	Patch WALL57_4, 64, 0
+	Patch NUKEDGE, 0, 105
+}
+
+walltexture TLSLIME4, 128, 128
+{
+	Patch COMP03_1, 0, 0
+	Patch NUKEDGE, 0, 105
+}
+
+walltexture BRNSLIME, 128, 192
+{
+	Patch SW12_4, 0, 0
+	Patch SW12_4, 32, 0
+	Patch SW12_4, 64, 0
+	Patch SW12_5, 96, 0
+	Patch SW12_4, 0, 128
+	Patch SW12_4, 32, 128
+	Patch SW12_4, 64, 128
+	Patch SW12_5, 96, 128
+	Patch NUKEDGE, 0, 169
+}
+
+walltexture STARGSLM, 128, 64
+{
+	Patch SW19_3, 0, 0
+	Patch SW19_3, 64, 0
+	Patch NUKEDGE, 0, 42
+}
+
+walltexture SLIMDOOR, 128, 64
+{
+	Patch SLIME_DR, 0, 0
+	Patch SLIME_DR, 64, 0
+	Patch NUKEDGE, 0, 42
+}
+
+walltexture E4M3SL1, 128, 166
+{
+	Patch E4M3SL1, 0, 0
+}
+
+walltexture E4M3SL2, 128, 166
+{
+	Patch E4M3SL2, 0, 0
+}
+
+walltexture E4M3SL3, 128, 166
+{
+	Patch E4M3SL3, 0, 0
+}
+
+walltexture E4M3SL4, 128, 166
+{
+	Patch E4M3SL4, 0, 0
+}
+
+walltexture B2SLLIFT, 64, 264
+{
+	Patch COMP03_2, 0, 0
+	Patch COMP03_2, 0, 64
+	Patch COMP03_2, 0, 128
+	Patch COMP03_2, 0, 192
+	Patch COMP03_2, 0, 256
+	Patch NUKEDGE, 0, 242
+}
+
+flat TELSPLAT, 64, 64
+{
+	Patch TELSPLAT, 0, 0
+}
+
+flat E4M3SLF1, 64, 64
+{
+	Patch E4M3SLF1, 0, 0
+}
+
+flat E4M3SLF2, 64, 64
+{
+	Patch E4M3SLF2, 0, 0
+}
+
+// Docking bay status indicators for E4M1
+
+walltexture BAY1A, 53, 24
+{
+	Patch BAY1A, 0, 0
+}
+
+walltexture BAY1B, 53, 24
+{
+	Patch BAY1B, 0, 0
+}
+
+walltexture BAY1C, 53, 24
+{
+	Patch BAY1C, 0, 0
+}
+
+walltexture BAY1D, 53, 24
+{
+	Patch BAY1D, 0, 0
+}
+
+walltexture BAY2A, 53, 24
+{
+	Patch BAY2A, 0, 0
+}
+
+walltexture BAY2B, 53, 24
+{
+	Patch BAY2B, 0, 0
+}
+
+walltexture BAY2C, 53, 24
+{
+	Patch BAY2C, 0, 0
+}
+
+walltexture BAY2D, 53, 24
+{
+	Patch BAY2D, 0, 0
+}
+
+// Sign for the attic power lift in E4M2
+
+walltexture CJSTOR1, 64, 128
+{
+	Patch CJCOMM23, -32, 0
+	Patch POWRLIFT, 13, 32
+	Patch STORAGE, 0, 19
+}
+
+// Signs for the barracks in E4M4
+
+walltexture BARRAC1A, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC1A, 46, 4
+}
+
+walltexture BARRAC1B, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC1B, 46, 4
+}
+
+walltexture BARRAC2A, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC2A, 46, 4
+}
+
+walltexture BARRAC2B, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC2B, 46, 4
+}
+
+walltexture MESSHALL, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch MESSHALL, 46, 4
+}
+
+walltexture QUARTERS, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch QUARTERS, 46, 4
+}
+
+walltexture WASHROOM, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch WASHROOM, 46, 4
+}
+
+// These two textures are unused--E4M4 was going to be longer, but by the time I
+// got to the second set of barracks I realized it was getting too long. These
+// textures are defined here anyway so they can be used in custom levels.
+
+walltexture BARRAC3A, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC3A, 46, 4
+}
+
+walltexture BARRAC3B, 128, 24
+{
+	Patch DOOR3_6, 0, 0
+	Patch BARRAC3B, 46, 4
+}
+
+// Sand for E4M5
+
+flat SAND, 64, 64
+{
+	Patch SAND, 0, 0
+}
+
+// Force floors used in E4M6
+
+flat FFLOORN, 64, 64
+{
+	Patch FFLOORN, 0, 0
+}
+
+flat FFLOORW, 64, 64
+{
+	Patch FFLOORW, 0, 0
+}
+
+flat FFLOORE, 64, 64
+{
+	Patch FFLOORE, 0, 0
+}
+
+flat FFLOORS, 64, 64
+{
+	Patch FFLOORS, 0, 0
+}
+
+// 'No Entry' sign for E4M6's secret exit
+
+walltexture NOENTRY, 64, 128
+{
+	Patch NOENTRY, 0, 0
+}
+
+// Special textures for the dual-layered catwalks in E4M7 and the multi-layered
+// ones in BONUS2
+
+walltexture RCSTEP, 32, 144
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 136
+}
+
+walltexture B2S16, 32, 656
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 640
+}
+
+walltexture B2S12, 32, 136
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 128
+}
+
+walltexture B2S13, 32, 264
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 256
+}
+
+walltexture B2S36, 32, 392
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 384
+}
+
+walltexture B2S26, 32, 520
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 512
+	
+}
+
+walltexture B2S145, 32, 520
+{
+	Patch STEP2, 0, 0
+	Patch STEP2, 0, 384
+	Patch STEP2, 0, 512
+}
+
+// Crates - the nomenclature can be confusing for some of them, but that's
+// because I chose prefixes found in car names (e.g. 'RS', 'ST'). Racing geek at
+// heart.
+
+walltexture CRTBLAK, 64, 64
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK3, 32, 0
+}
+
+walltexture CRTSILV, 64, 64
+{
+	Patch CRTSILV1, 0, 0
+	Patch CRTSILV3, 32, 0
+}
+
+walltexture CRTBLAKW, 128, 64
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK2, 32, 0
+	Patch CRTBLAK2, 40, 0
+	Patch CRTBLAK2, 48, 0
+	Patch CRTBLAK2, 56, 0
+	Patch CRTBLAK2, 64, 0
+	Patch CRTBLAK2, 72, 0
+	Patch CRTBLAK2, 80, 0
+	Patch CRTBLAK2, 88, 0
+	Patch CRTBLAK3, 96, 0
+}
+
+walltexture CRTSILVW, 128, 64
+{
+	Patch CRTSILV1, 0, 0
+	Patch CRTSILV2, 32, 0
+	Patch CRTSILV2, 40, 0
+	Patch CRTSILV2, 48, 0
+	Patch CRTSILV2, 56, 0
+	Patch CRTSILV2, 64, 0
+	Patch CRTSILV2, 72, 0
+	Patch CRTSILV2, 80, 0
+	Patch CRTSILV2, 88, 0
+	Patch CRTSILV3, 96, 0
+}
+
+walltexture CRTREDW, 128, 64
+{
+	Patch BCRATEL1, 0, 0
+	Patch BCRATEM1, 32, 0
+	Patch BCRATEM1, 40, 0
+	Patch BCRATEM1, 48, 0
+	Patch BCRATEM1, 56, 0
+	Patch BCRATEM1, 64, 0
+	Patch BCRATEM1, 72, 0
+	Patch BCRATEM1, 80, 0
+	Patch BCRATEM1, 88, 0
+	Patch BCRATER1, 96, 0
+
+}
+
+walltexture CRTTANW, 128, 64
+{
+	Patch GCRATEL1, 0, 0
+	Patch GCRATEM1, 32, 0
+	Patch GCRATEM1, 40, 0
+	Patch GCRATEM1, 48, 0
+	Patch GCRATEM1, 56, 0
+	Patch GCRATEM1, 64, 0
+	Patch GCRATEM1, 72, 0
+	Patch GCRATEM1, 80, 0
+	Patch GCRATEM1, 88, 0
+	Patch GCRATER1, 96, 0
+
+}
+
+walltexture CSTAKRB, 64, 128
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK3, 32, 0
+	Patch BCRATEL1, 0, 64
+	Patch BCRATER1, 32, 64
+}
+
+walltexture CSTAKRS, 64, 128
+{
+	Patch CRTSILV1, 0, 0
+	Patch CRTSILV3, 32, 0
+	Patch BCRATEL1, 0, 64
+	Patch BCRATER1, 32, 64
+}
+
+walltexture CSTAKTS, 64, 128
+{
+	Patch GCRATEL1, 0, 0
+	Patch GCRATER1, 32, 0
+	Patch CRTSILV1, 0, 64
+	Patch CRTSILV3, 32, 64
+}
+
+walltexture CSTAKSB, 64, 128
+{
+	Patch CRTSILV1, 0, 0
+	Patch CRTSILV3, 32, 0
+	Patch CRTBLAK1, 0, 64
+	Patch CRTBLAK3, 32, 64
+}
+
+walltexture CSTAKSBW, 128, 128
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK2, 32, 0
+	Patch CRTBLAK2, 40, 0
+	Patch CRTBLAK2, 48, 0
+	Patch CRTBLAK2, 56, 0
+	Patch CRTBLAK2, 64, 0
+	Patch CRTBLAK2, 72, 0
+	Patch CRTBLAK2, 80, 0
+	Patch CRTBLAK2, 88, 0
+	Patch CRTBLAK3, 96, 0
+	Patch CRTSILV1, 0, 64
+	Patch CRTSILV2, 32, 64
+	Patch CRTSILV2, 40, 64
+	Patch CRTSILV2, 48, 64
+	Patch CRTSILV2, 56, 64
+	Patch CRTSILV2, 64, 64
+	Patch CRTSILV2, 72, 64
+	Patch CRTSILV2, 80, 64
+	Patch CRTSILV2, 88, 64
+	Patch CRTSILV3, 96, 64
+}
+
+walltexture CSTAKRSW, 128, 128
+{
+	Patch BCRATEL1, 0, 0
+	Patch BCRATEM1, 32, 0
+	Patch BCRATEM1, 40, 0
+	Patch BCRATEM1, 48, 0
+	Patch BCRATEM1, 56, 0
+	Patch BCRATEM1, 64, 0
+	Patch BCRATEM1, 72, 0
+	Patch BCRATEM1, 80, 0
+	Patch BCRATEM1, 88, 0
+	Patch BCRATER1, 96, 0
+	Patch CRTSILV1, 0, 64
+	Patch CRTSILV2, 32, 64
+	Patch CRTSILV2, 40, 64
+	Patch CRTSILV2, 48, 64
+	Patch CRTSILV2, 56, 64
+	Patch CRTSILV2, 64, 64
+	Patch CRTSILV2, 72, 64
+	Patch CRTSILV2, 80, 64
+	Patch CRTSILV2, 88, 64
+	Patch CRTSILV3, 96, 64
+}
+
+walltexture CSTAKSTW, 128, 128
+{
+	Patch GCRATEL1, 0, 0
+	Patch GCRATEM1, 32, 0
+	Patch GCRATEM1, 40, 0
+	Patch GCRATEM1, 48, 0
+	Patch GCRATEM1, 56, 0
+	Patch GCRATEM1, 64, 0
+	Patch GCRATEM1, 72, 0
+	Patch GCRATEM1, 80, 0
+	Patch GCRATEM1, 88, 0
+	Patch GCRATER1, 96, 0
+	Patch CRTSILV1, 0, 64
+	Patch CRTSILV2, 32, 64
+	Patch CRTSILV2, 40, 64
+	Patch CRTSILV2, 48, 64
+	Patch CRTSILV2, 56, 64
+	Patch CRTSILV2, 64, 64
+	Patch CRTSILV2, 72, 64
+	Patch CRTSILV2, 80, 64
+	Patch CRTSILV2, 88, 64
+	Patch CRTSILV3, 96, 64
+}
+
+walltexture CSTAKRBW, 128, 128
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK2, 32, 0
+	Patch CRTBLAK2, 40, 0
+	Patch CRTBLAK2, 48, 0
+	Patch CRTBLAK2, 56, 0
+	Patch CRTBLAK2, 64, 0
+	Patch CRTBLAK2, 72, 0
+	Patch CRTBLAK2, 80, 0
+	Patch CRTBLAK2, 88, 0
+	Patch CRTBLAK3, 96, 0
+	Patch BCRATEL1, 0, 64
+	Patch BCRATEM1, 32, 64
+	Patch BCRATEM1, 40, 64
+	Patch BCRATEM1, 48, 64
+	Patch BCRATEM1, 56, 64
+	Patch BCRATEM1, 64, 64
+	Patch BCRATEM1, 72, 64
+	Patch BCRATEM1, 80, 64
+	Patch BCRATEM1, 88, 64
+	Patch BCRATER1, 96, 64
+}
+
+walltexture CSTAKTBW, 128, 128
+{
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK2, 32, 0
+	Patch CRTBLAK2, 40, 0
+	Patch CRTBLAK2, 48, 0
+	Patch CRTBLAK2, 56, 0
+	Patch CRTBLAK2, 64, 0
+	Patch CRTBLAK2, 72, 0
+	Patch CRTBLAK2, 80, 0
+	Patch CRTBLAK2, 88, 0
+	Patch CRTBLAK3, 96, 0
+	Patch GCRATEL1, 0, 64
+	Patch GCRATEM1, 32, 64
+	Patch GCRATEM1, 40, 64
+	Patch GCRATEM1, 48, 64
+	Patch GCRATEM1, 56, 64
+	Patch GCRATEM1, 64, 64
+	Patch GCRATEM1, 72, 64
+	Patch GCRATEM1, 80, 64
+	Patch GCRATEM1, 88, 64
+	Patch GCRATER1, 96, 64
+}
+
+walltexture CRTMULTS, 128, 72
+{
+	Patch CRTSILV1, 0, 8
+	Patch CRTSILV1, 0, 4
+	Patch CRTSILV1, 32, 8
+	Patch CRTSILV1, 32, 4
+	Patch CRTSILV1, 64, 8
+	Patch CRTSILV1, 64, 4
+	Patch CRTSILV1, 92, 8
+	Patch CRTSILV1, 92, 4
+	Patch CRTSILV1, 96, 8
+	Patch CRTSILV1, 96, 4
+	Patch CRTSILV1, 0, 0
+	Patch CRTSILV2, 32, 0
+	Patch CRTSILV2, 40, 0
+	Patch CRTSILV2, 48, 0
+	Patch CRTSILV2, 56, 0
+	Patch CRTSILV2, 64, 0
+	Patch CRTSILV2, 72, 0
+	Patch CRTSILV2, 80, 0
+	Patch CRTSILV2, 88, 0
+	Patch CRTSILV3, 96, 0
+}
+
+walltexture CRTMULTB, 128, 72
+{
+	Patch CRTBLAK1, 0, 8
+	Patch CRTBLAK1, 0, 4
+	Patch CRTBLAK1, 32, 8
+	Patch CRTBLAK1, 32, 4
+	Patch CRTBLAK1, 64, 8
+	Patch CRTBLAK1, 64, 4
+	Patch CRTBLAK1, 92, 8
+	Patch CRTBLAK1, 92, 4
+	Patch CRTBLAK1, 96, 8
+	Patch CRTBLAK1, 96, 4
+	Patch CRTBLAK1, 0, 0
+	Patch CRTBLAK2, 32, 0
+	Patch CRTBLAK2, 40, 0
+	Patch CRTBLAK2, 48, 0
+	Patch CRTBLAK2, 56, 0
+	Patch CRTBLAK2, 64, 0
+	Patch CRTBLAK2, 72, 0
+	Patch CRTBLAK2, 80, 0
+	Patch CRTBLAK2, 88, 0
+	Patch CRTBLAK3, 96, 0
+}
+
+walltexture CRTMULTR, 128, 72
+{
+	Patch BCRATEL1, 0, 8
+	Patch BCRATEL1, 0, 4
+	Patch BCRATEL1, 32, 8
+	Patch BCRATEL1, 32, 4
+	Patch BCRATEL1, 64, 8
+	Patch BCRATEL1, 64, 4
+	Patch BCRATEL1, 92, 8
+	Patch BCRATEL1, 92, 4
+	Patch BCRATEL1, 96, 8
+	Patch BCRATEL1, 96, 4
+	Patch BCRATEL1, 0, 0
+	Patch BCRATEM1, 32, 0
+	Patch BCRATEM1, 40, 0
+	Patch BCRATEM1, 48, 0
+	Patch BCRATEM1, 56, 0
+	Patch BCRATEM1, 64, 0
+	Patch BCRATEM1, 72, 0
+	Patch BCRATEM1, 80, 0
+	Patch BCRATEM1, 88, 0
+	Patch BCRATER1, 96, 0
+}
+
+walltexture CRTMULTT, 128, 72
+{
+	Patch GCRATEL1, 0, 8
+	Patch GCRATEL1, 0, 4
+	Patch GCRATEL1, 32, 8
+	Patch GCRATEL1, 32, 4
+	Patch GCRATEL1, 64, 8
+	Patch GCRATEL1, 64, 4
+	Patch GCRATEL1, 92, 8
+	Patch GCRATEL1, 92, 4
+	Patch GCRATEL1, 96, 8
+	Patch GCRATEL1, 96, 4
+	Patch GCRATEL1, 0, 0
+	Patch GCRATEM1, 32, 0
+	Patch GCRATEM1, 40, 0
+	Patch GCRATEM1, 48, 0
+	Patch GCRATEM1, 56, 0
+	Patch GCRATEM1, 64, 0
+	Patch GCRATEM1, 72, 0
+	Patch GCRATEM1, 80, 0
+	Patch GCRATEM1, 88, 0
+	Patch GCRATER1, 96, 0
+}
+
+flat CRATOP3, 64, 64
+{
+	Patch CRATOP3, 0, 0
+}
+
+flat CRATOP4, 64, 64
+{
+	Patch CRATOP4, 0, 0
+}
+
+// Doors
+
+walltexture D_DOCKS, 128, 128
+{
+	Patch D_DOCKS, 0, 0
+}
+
+walltexture D_COMM7, 128, 128
+{
+	Patch D_COMM7, 0, 0
+}
+
+walltexture D_GREY, 128, 128
+{
+	Patch D_GREY, 0, 0
+}
+
+walltexture D_GREYSL, 128, 128
+{
+	Patch D_GREYSL, 0, 0
+}
+
+walltexture D_TELEM, 128, 128
+{
+	Patch D_TELEM, 0, 0
+}
+
+walltexture D_TELEA, 128, 128
+{
+	Patch D_TELEA, 0, 0
+}
+
+walltexture D_TELEB, 128, 128
+{
+	Patch D_TELEB, 0, 0
+}
+
+walltexture D_TELEC, 128, 128
+{
+	Patch D_TELEC, 0, 0
+}
+
+walltexture D_TELED, 128, 128
+{
+	Patch D_TELED, 0, 0
+}
+
+walltexture D_TELEE, 128, 128
+{
+	Patch D_TELEE, 0, 0
+}
+
+walltexture D_TELEF, 128, 128
+{
+	Patch D_TELEF, 0, 0
+}
+
+walltexture D_TELEG, 128, 128
+{
+	Patch D_TELEG, 0, 0
+}
+
+walltexture D_TELEH, 128, 128
+{
+	Patch D_TELEH, 0, 0
+}
+
+walltexture D_RANGE, 128, 128
+{
+	Patch D_RANGE, 0, 0
+}
+
+walltexture D_TRSLIM, 128, 128
+{
+	Patch D_TRSLIM, 0, 0
+}
+
+walltexture D_LABSLM, 128, 128
+{
+	Patch D_LABSLM, 0, 0
+}
+
+walltexture D_BROWN, 192, 115
+{
+	Patch D_BROWN, 0, 0
+}
+
+walltexture D_QUARTR, 128, 128
+{
+	Patch D_QUARTR, 0, 0
+}
+
+walltexture D_BOSS, 256, 128
+{
+	Patch D_BOSS, 0, 0
+}
+
+walltexture D_HANGBL, 256, 128
+{
+	Patch D_HANGBL, 0, 0
+}
+
+walltexture D_BOTLAB, 128, 128
+{
+	Patch D_BOTLAB, 0, 0
+}
+
+walltexture D_TCENTR, 128, 128
+{
+	Patch D_TCENTR, 0, 0
+}
+
+walltexture D_TCSLIM, 128, 128
+{
+	Patch D_TCSLIM, 0, 0
+}
+
+walltexture D_REACTR, 128, 128
+{
+	Patch D_REACTR, 0, 0
+}
+
+walltexture D_RCSLIM, 128, 128
+{
+	Patch D_RCSLIM, 0, 0
+}
+
+walltexture D_POWER, 128, 128
+{
+	Patch D_POWER, 0, 0
+}
+
+walltexture D_PCSLIM, 128, 128
+{
+	Patch D_PCSLIM, 0, 0
+}
+
+walltexture D_MINES, 128, 128	// These almost didn't exist. Extra rooms got
+{								// created during revisions and I felt that they
+	Patch D_MINES, 0, 0			// needed to be there to make the base feel as
+}								// if it were one big piece. A lot of the extra
+								// 'clogged' teleports contributed to this, I
+walltexture D_MTSLIM, 128, 128	// think, but they showed up late in the lengthy
+{								// development of this monster.
+	Patch D_MTSLIM, 0, 0
+}
+
+walltexture D_COMAND, 128, 128
+{
+	Patch D_COMAND, 0, 0
+}
+
+walltexture D_CHSLIM, 128, 128
+{
+	Patch D_CHSLIM, 0, 0
+}
+
+walltexture D_ASTRO, 128, 128
+{
+	Patch D_ASTRO, 0, 0
+}
+
+walltexture D_ASLIM, 128, 128
+{
+	Patch D_ASLIM, 0, 0
+}
+
+// Lights
+
+flat HEXLIGHT, 128, 128
+{
+	Patch HEXLIGHT, 0, 0
+}
+
+flat CAVLIGHT, 128, 128
+{
+	Patch CAVLIGHT, 0, 0
+}
+
+// Switches
+
+walltexture SW1CRBRN, 128, 128
+{
+	Patch BCRATEL1, 0, 64
+	Patch BCRATEM1, 32, 64
+	Patch BCRATEM1, 40, 64
+	Patch BCRATEM1, 48, 64
+	Patch BCRATEM1, 56, 64
+	Patch BCRATEM1, 64, 64
+	Patch BCRATEM1, 72, 64
+	Patch BCRATEM1, 80, 64
+	Patch BCRATEM1, 88, 64
+	Patch BCRATER1, 96, 64
+	Patch GCRATEL1, 0, 0
+	Patch GCRATEM1, 32, 0
+	Patch GCRATEM1, 40, 0
+	Patch GCRATEM1, 48, 0
+	Patch GCRATEM1, 56, 0
+	Patch GCRATEM1, 64, 0
+	Patch GCRATEM1, 72, 0
+	Patch GCRATEM1, 80, 0
+	Patch GCRATEM1, 88, 0
+	Patch SW1CRBR, 96, 0
+}
+
+walltexture SW2CRBRN, 128, 128
+{
+	Patch BCRATEL1, 0, 64
+	Patch BCRATEM1, 32, 64
+	Patch BCRATEM1, 40, 64
+	Patch BCRATEM1, 48, 64
+	Patch BCRATEM1, 56, 64
+	Patch BCRATEM1, 64, 64
+	Patch BCRATEM1, 72, 64
+	Patch BCRATEM1, 80, 64
+	Patch BCRATEM1, 88, 64
+	Patch BCRATER1, 96, 64
+	Patch GCRATEL1, 0, 0
+	Patch GCRATEM1, 32, 0
+	Patch GCRATEM1, 40, 0
+	Patch GCRATEM1, 48, 0
+	Patch GCRATEM1, 56, 0
+	Patch GCRATEM1, 64, 0
+	Patch GCRATEM1, 72, 0
+	Patch GCRATEM1, 80, 0
+	Patch GCRATEM1, 88, 0
+	Patch SW2CRBR, 96, 0
+}
+
+walltexture SW1REDM, 128, 125
+{
+	Patch MWALL4_2, 64, 0
+	Patch MWALL4_2, 64, 40
+	Patch MWALL4_2, 64, 80
+	Patch MWALL4_2, 64, 120
+	Patch MWALL4_2, -64, 0
+	Patch MWALL4_2, -64, 40
+	Patch MWALL4_2, -64, 80
+	Patch MWALL4_2, -64, 120
+	Patch SW1S1, 40, 64
+}
+
+walltexture SW2REDM, 128, 125
+{
+	Patch MWALL4_2, 64, 0
+	Patch MWALL4_2, 64, 40
+	Patch MWALL4_2, 64, 80
+	Patch MWALL4_2, 64, 120
+	Patch MWALL4_2, -64, 0
+	Patch MWALL4_2, -64, 40
+	Patch MWALL4_2, -64, 80
+	Patch MWALL4_2, -64, 120
+	Patch SW2S0, 40, 64
+}
+
+// Created just for the storage room in E4M3
+
+walltexture SW1M3STR, 64, 384
+{
+	Patch W32_4, 0, 0
+	Patch W32_4, 0, 56
+	Patch W33_8, 0, 120
+	Patch W32_4, 0, 128
+	Patch W32_4, 0, 184
+	Patch W33_8, 0, 248
+	Patch W32_4, 0, 256
+	Patch W32_4, 0, 312
+	Patch W33_8, 0, 376
+	Patch SW1S1, 7, 326
+}
+
+walltexture SW2M3STR, 64, 384
+{
+	Patch W32_4, 0, 0
+	Patch W32_4, 0, 56
+	Patch W33_8, 0, 120
+	Patch W32_4, 0, 128
+	Patch W32_4, 0, 184
+	Patch W33_8, 0, 248
+	Patch W32_4, 0, 256
+	Patch W32_4, 0, 312
+	Patch W33_8, 0, 376
+	Patch SW1S0, 7, 326
+}
+
+// These textures replace SW2GSTON, which would become a brick wall when
+// activated in the Chex 3 IWAD for some reason.
+
+walltexture SW1BRWNS, 64, 128
+{
+	Patch WALL48_2, 0, 0
+	Patch SW1S1, 13, 67
+}
+
+walltexture SW2BRWNS, 64, 128
+{
+	Patch WALL48_2, 0, 0
+	Patch SW2S0, 13, 67
+}
+
+// Teleport switches/signs for the teleport hub in E4M3
+
+walltexture TELEMAIN, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch TELEMAIN, 0, 0
+}
+
+walltexture TELEDIR, 128, 85
+{
+	Patch TELEDIR, 0, 0
+}
+
+walltexture SW1TELE1, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S1, 7, 33
+	Patch TELEPRT1, 0, 0
+}
+
+walltexture SW2TELE1, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S0, 7, 33
+	Patch TELEPRT1, 0, 0
+}
+
+walltexture SW1TELE2, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S1, 7, 33
+	Patch TELEPRT2, 0, 0
+}
+
+walltexture SW2TELE2, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S0, 7, 33
+	Patch TELEPRT2, 0, 0
+}
+
+walltexture SW1TELE3, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S1, 7, 33
+	Patch TELEPRT3, 0, 0
+}
+
+walltexture SW2TELE3, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S0, 7, 33
+	Patch TELEPRT3, 0, 0
+}
+
+walltexture SW1TELE4, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S1, 7, 33
+	Patch TELEPRT4, 0, 0
+}
+
+walltexture SW2TELE4, 64, 80
+{
+	Patch WALL01_C, 0, 33
+	Patch WALL01_C, 16, 33
+	Patch WALL01_C, 32, 33
+	Patch WALL01_C, 48, 33
+	Patch SW1S0, 7, 33
+	Patch TELEPRT4, 0, 0
+}
+
+// When I got back into working on this again after my second long hiatus, I
+// set about revising the Flembrane battle at the end of E4M8 so you couldn't
+// just camp up in whichever tunnel you used to get there. I still wanted the
+// two separate routes to merge in the same room, so a lift was the best
+// compromise. Naturally a custom switch was required for the room I made.
+
+walltexture SW1M8ELV, 64, 200
+{
+	Patch DOOR2_4, -89, -56
+	Patch DOOR2_4, 39, -56
+	Patch DOOR2_4, -89, 72
+	Patch DOOR2_4, 39, 72
+	Patch SW1S1, 8, 144
+}
+
+walltexture SW2M8ELV, 64, 200
+{
+	Patch DOOR2_4, -89, -56
+	Patch DOOR2_4, 39, -56
+	Patch DOOR2_4, -89, 72
+	Patch DOOR2_4, 39, 72
+	Patch SW2S0, 8, 144
+}
+
+// Reactor status indicators for E4M7
+
+walltexture RCGREEN, 64, 256
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORG, 6, 12
+	Patch OFF, 6, 72
+	Patch COMP03_4, 0, 128
+	Patch COMP03_4, 32, 128
+	Patch COMP03_4, 0, 192
+	Patch COMP03_4, 32, 192
+	Patch REACTORG, 6, 140
+	Patch ON, 6, 200
+}
+
+walltexture RCORANGE, 64, 256
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORO, 6, 12
+	Patch OFF, 6, 72
+	Patch COMP03_4, 0, 128
+	Patch COMP03_4, 32, 128
+	Patch COMP03_4, 0, 192
+	Patch COMP03_4, 32, 192
+	Patch REACTORO, 6, 140
+	Patch ON, 6, 200
+}
+
+walltexture RCPURPLE, 64, 256
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORP, 6, 12
+	Patch OFF, 6, 72
+	Patch COMP03_4, 0, 128
+	Patch COMP03_4, 32, 128
+	Patch COMP03_4, 0, 192
+	Patch COMP03_4, 32, 192
+	Patch REACTORP, 6, 140
+	Patch ON, 6, 200
+}
+
+// These were created before I found out how to merely swap textures on a
+// sidedef using ACS. Being as *amazingly generous* as I am, I left them here.
+
+walltexture RCGROFF, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORG, 6, 12
+	Patch OFF, 6, 72
+}
+
+walltexture RCGRON, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORG, 6, 12
+	Patch ON, 6, 72
+}
+
+walltexture RCOROFF, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORO, 6, 12
+	Patch OFF, 6, 72
+}
+
+walltexture RCORON, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORO, 6, 12
+	Patch ON, 6, 72
+}
+
+walltexture RCPUOFF, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORP, 6, 12
+	Patch OFF, 6, 72
+}
+
+walltexture RCPUON, 64, 128
+{
+	Patch COMP03_4, 0, 0
+	Patch COMP03_4, 32, 0
+	Patch COMP03_4, 0, 64
+	Patch COMP03_4, 32, 64
+	Patch REACTORP, 6, 12
+	Patch ON, 6, 72
+}
+
+// Junction sign for E4M8's split paths
+
+walltexture JUNCTION, 64, 32
+{
+	Patch JUNCTION, 0, 0
+}
+
+// Signs for the training range
+
+walltexture TR1, 53, 24
+{
+	Patch TR1, 0, 0
+}
+
+walltexture TR2, 53, 24
+{
+	Patch TR2, 0, 0
+}
+
+walltexture TR3, 53, 24
+{
+	Patch TR3, 0, 0
+}
+
+walltexture TC1, 53, 24
+{
+	Patch TC1, 0, 0
+}
+
+walltexture TC2, 53, 24
+{
+	Patch TC2, 0, 0
+}
+
+walltexture TC3, 53, 24
+{
+	Patch TC3, 0, 0
+}
+
+// Welcome to Randomonium!
+
+walltexture RANDSIGN, 128, 24
+{
+	Patch RANDSIGN, 0, 0
+}
+
+walltexture RANDCOMP, 128, 24
+{
+	Patch RANDCOMP, 0, 0
+}
+
+flat FLAT3, 64, 64
+{
+	Patch FLAT3, 0, 0
+}
+
+// Teleport directory without color-coding, kept for those who might find use
+// for it in some custom maps. Probably not useful, but then you should know by
+// now that I'm not good at throwing things away anyway. *shrugs* Maybe you
+// could do inset wall sections showing only a part of the texture so that way
+// it'll have more purposes than just mapping teleports. 
+
+walltexture TELEDIR2, 128, 85
+{
+	Patch TELEDIR2, 0, 0
+}
+
+// Breakable glass, defined to match up with 'STEP3'
+
+walltexture WINDOW1, 128, 84
+{
+	Patch STEP5, 0, 0
+	Patch STEP5, 64, 0
+}
+
+// The amazingly cheesy forcefield textures
+
+walltexture FFIELD1, 64, 128
+{
+	Patch FFIELD1, 0, 0
+}
+
+walltexture FFIELD2, 64, 128
+{
+	Patch FFIELD2, 0, 0
+}
+
+walltexture FFIELD3, 64, 128
+{
+	Patch FFIELD3, 0, 0
+}
+
+walltexture FFIELD4, 64, 128
+{
+	Patch FFIELD4, 0, 0
+}
+
+// Space texture used as a sky on a few levels... it's unnecessary to define it
+// as a wall texture (I think?), but this way it can be used as a wall texture
+// in custom maps. I'm sure someone out there reading this just died from
+// excitement.
+
+walltexture SPACE1, 512, 240
+{
+	Patch SPACE1, 0, 0
+}
+
+// Target practice!
+
+walltexture T_ARMOR, 39, 62
+{
+	Patch T_ARMOR, 0, 0
+}
+
+walltexture T_BIPED, 32, 60
+{
+	Patch T_BIPED, 0, 0
+}
+
+walltexture T_COMMON, 37, 55
+{
+	Patch T_COMMON, 0, 0
+}
+
+walltexture T_CYCLOP, 51, 52
+{
+	Patch T_CYCLOP, 0, 0
+}
+
+walltexture T_LARVA, 26, 49
+{
+	Patch T_LARVA, 0, 0
+}
+
+walltexture T_QUAD, 55, 74
+{
+	Patch T_QUAD, 0, 0
+}
+
+walltexture T_STRID, 39, 92
+{
+	Patch T_STRID, 0, 0
+}
+
+walltexture T_SUPER, 70, 65
+{
+	Patch T_SUPER, 0, 0
+}
+
+walltexture T_BOSS, 100, 110
+{
+	Patch T_BOSS, 0, 0
+}
+
+// Upside down walls and doors for the special area of Bonus 3
+
+walltexture D_ASTROU, 128, 128
+{
+	Patch D_ASTRO, 0, 0 {FlipY FlipX}
+}
+
+walltexture D_BASICU, 128, 128
+{
+	Patch DOOR2_1, 0, 0 {FlipY FlipX}
+}
+
+walltexture MARBINV, 128, 128
+{
+	Patch MWALL4_1, 0, 0 {FlipY FlipX}
+}
