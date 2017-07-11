@@ -1,0 +1,145 @@
+// The Ultimate Chex Quest MAPINFO lump
+
+clearepisodes
+
+episode E5M1
+picname M_EPI5
+
+episode E6M1
+picname M_EPI6
+
+episode E1M1
+picname M_EPI1
+
+episode E2M1
+picname M_EPI2
+
+episode E3M1
+picname M_EPI3
+
+episode E4M1
+picname M_EPI4
+
+
+// Episode 5
+
+map E5M1 "Botany Research Facility"
+levelnum 11
+titlepatch WILV40
+enterpic DINERPIC
+next E5M2
+secretnext E5M2
+sky1 SKY5 0
+cluster 5
+par 180
+music D_E5M1
+intermusic D_INTER
+exitpic $INTERM02
+noinfighting
+
+map E5M2 "Water Works"
+levelnum 12
+titlepatch WILV41
+exitpic HALLWAY
+enterpic $INTERM02
+next E5M3
+secretnext E5M3
+sky1 SKY5 0
+cluster 5
+par 120
+music D_E5M2
+intermusic D_INTER
+noinfighting
+evenlighting
+
+map E5M3 "Grimstar Labs"
+levelnum 13
+titlepatch WILV42
+enterpic HALLWAY
+next Endpic HERO
+secretnext Endpic HERO
+sky1 SKY5 0
+cluster 5
+par 240
+music D_E5M3
+noinfighting
+nointermission
+
+
+// Episode 6
+
+map E6M1 "E6M1"
+levelnum 51
+titlepatch WILV00
+next E6M2
+secretnext E6M2
+sky1 SKY6 0
+cluster 6
+par 75
+music D_E6M1
+intermusic D_INTER
+exitpic $INTERM01
+noinfighting
+
+map E6M2 "E6M2"
+levelnum 52
+titlepatch WILV01
+next E6M3
+secretnext E6M3
+sky1 SKY6 0
+cluster 6
+par 180
+music D_E6M2
+intermusic D_INTER
+exitpic $INTERM01
+enterpic $INTERM01
+noinfighting
+
+map E6M3 "E6M3"
+levelnum 53
+titlepatch WILV02
+next E6M4
+secretnext E6M4
+sky1 SKY6 0
+cluster 6
+par 180
+music D_E6M3
+intermusic D_INTER
+exitpic $INTERM01
+enterpic $INTERM01
+noinfighting
+
+map E6M4 "E6M4"
+levelnum 54
+titlepatch WILV03
+next EndPIC LURKER
+secretnext Endpic LURKER
+sky1 SKY6 0
+cluster 6
+par 180
+music D_E6M4
+enterpic $INTERM01
+noinfighting
+nointermission
+
+
+
+// Clusters (correspond with same-numbered episode)
+
+clusterdef 5
+pic GRADED
+music D_VICTOR
+exittext "
+
+
+Congratulations! You beat Strife's Level
+Pack 1!"
+
+clusterdef 6
+pic GRADED
+music D_VICTOR
+exittext "
+
+
+Congratulations! You beat Strife's Level
+Pack 2!"

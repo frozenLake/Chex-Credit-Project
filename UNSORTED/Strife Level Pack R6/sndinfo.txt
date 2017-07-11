@@ -1,0 +1,4 @@
+// Flemoidus Arachnus Sounds
+
+arachnus/sight			dsaracs
+arachnus/active			dsaracw

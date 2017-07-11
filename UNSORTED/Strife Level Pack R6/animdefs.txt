@@ -1,0 +1,4 @@
+Switch	Doom 1		STRSW1S1	On Pic	STRSW2S1	Tics 0
+Switch	Doom 1		STRSW1S2	On Pic	STRSW2S2	Tics 0
+Switch	Doom 1		STRSW1S3	On Pic	STRSW2S3	Tics 0
+Switch	Doom 1		STRSW1S4	On Pic	STRSW2S4	Tics 0
