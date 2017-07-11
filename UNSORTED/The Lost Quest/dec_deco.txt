@@ -1,0 +1,310 @@
+// White Tree ------------------------------------------
+
+ACTOR WhiteTree 12000
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE D -1
+		Stop
+	}
+}
+
+// Orange Tree ------------------------------------------
+
+ACTOR OrangeTree 12001
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE E -1
+		Stop
+	}
+}
+
+// Purple Tree ------------------------------------------
+
+ACTOR PurpleTree 12002
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE F -1
+		Stop
+	}
+}
+
+// Pine Tree ------------------------------------------
+
+ACTOR PineTree 12003
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE G -1
+		Stop
+	}
+}
+
+// Slimed Pine Tree ------------------------------------------
+
+ACTOR SlimedPineTree 12004
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE H -1
+		Stop
+	}
+}
+
+// Oak Tree ------------------------------------------
+
+ACTOR OakTree 12005
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE I -1
+		Stop
+	}
+}
+
+// Forest Tree ------------------------------------------
+
+ACTOR ForestTree 12006
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE J -1
+		Stop
+	}
+}
+
+// Bush --------------------------------------------------------------
+
+actor Bush 12007
+{
+  height 40
+  radius 20
+  +SOLID
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    PLNT F -1
+	loop
+  }
+}
+
+// Rock --------------------------------------------------------------
+
+actor Rock 12008
+{
+  height 20
+  radius 20
+  +SOLID
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    ROKU A -1
+	loop
+  }
+}
+
+// Slime Coment --------------------------------------------------------------
+
+actor SlimeCometTLQ 20009
+{
+  height 0
+  radius 0
+  +SOLID
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    SMBA A -1
+	loop
+  }
+}
+
+// Celing Slime --------------------------------------------------------------
+
+actor CelingSlime 20010
+{
+  height 0
+  radius 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    CESL A -1
+	loop
+  }
+}
+
+// Celing Fire --------------------------------------------------------------
+
+actor CelingFire 20011
+{
+  height 0
+  radius 0
+  +SOLID
+  +SPAWNCEILING
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    SHAN A 3 Bright
+    SHAN B 3 Bright
+    SHAN C 3 Bright
+    SHAN D 3 Bright
+	loop
+  }
+}
+
+// Rock Mine Cart --------------------------------------------------------------
+
+actor RockCart 20012
+{
+  height 0
+  radius 0
+  +SOLID
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    CARU A -1
+	loop
+  }
+}
+
+// Wall Lamp --------------------------------------------------------------
+
+actor WallLamp 20013
+{
+   radius 1
+   height 1
+   states
+   {
+   Spawn:
+      WTRH A -1
+      stop
+   }
+}
+
+// Red Glitter --------------------------------------------------------------
+
+ACTOR RedGlitterGenerator1 20014
+{
+  +NOBLOCKMAP 
+  +NOSECTOR 
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    TNT1 A 8 A_SpawnItemEx("TeleGlitter1", random[TeleGlitter](0,31)-16, random[TeleGlitter](0,31)-16, 0, 0,0,0.25)
+    Loop
+  }
+}
+
+// Blue Glitter --------------------------------------------------------------
+
+ACTOR BlueGlitterGenerator2 20015
+{
+  +NOBLOCKMAP 
+  +NOSECTOR 
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    TNT1 A 8 A_SpawnItemEx("TeleGlitter2", random[TeleGlitter2](0,31)-16, random[TeleGlitter2](0,31)-16, 0, 0,0,0.25)
+    Loop
+  }
+}
+
+// Slime Coment --------------------------------------------------------------
+
+actor SlimeComet 20016
+{
+  height 0
+  radius 0
+  +SOLID
+  +NOGRAVITY
+  +FLOAT
+  states
+  {
+  Spawn:
+    SMBA A -1
+	loop
+  }
+}
+
+// Barrle --------------------------------------------------------------
+
+actor Barrle 20017
+{
+  height 26
+  radius 16
+  +SOLID
+  states
+  {
+  Spawn:
+    BARO A -1
+	loop
+  }
+}
+
+// Yellow Tree ------------------------------------------
+
+ACTOR YellowTree 12018
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE K -1
+		Stop
+	}
+}

@@ -1,0 +1,125 @@
+map TITLEMAP "The Title Map"
+levelnum 0
+music D_TITLE
+
+clusterdef 1
+flat FLOOR7_2
+music D_BUNNY
+exittext "You did it! Gorre has been zorched
+back to it's demension. Brano has been saved 
+from the flemiod invasion!  Your next stop is
+Syofile to rid of a flemiod named Innis, but 
+there is a threat on Syofile more dangerous 
+than the flemoids themselfs..."
+
+
+map E1M1 "Brano Airport"
+levelnum 1
+titlepatch BRN_11
+next E1M2
+secretnext E1M2
+sky1 BEFREE10 0
+cluster 1
+par 120
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M1
+nointermission
+
+map E1M2 "Brano Laboratory"
+levelnum 2
+titlepatch BRN_12
+next E1M3
+secretnext E1M3
+sky1 BEFREE10 0
+cluster 1
+par 90
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M2
+nointermission
+
+map E1M3 "Green Storage"
+levelnum 3
+titlepatch BRN_04
+next E1M4
+secretnext MAP10
+sky1 BEFREE10 0
+cluster 1
+par 120
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M3
+nointermission
+
+map E1M4 "Red Storage"
+levelnum 4
+titlepatch BRN_05
+next E1M5
+secretnext E1M6
+sky1 BEFREE11 0
+cluster 1
+par 90
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M4
+nointermission
+
+map E1M5 "Hidden Backtracks"
+levelnum 5
+titlepatch BRN_05
+next E1M6
+secretnext E1M10
+sky1 BEFREE11 0
+cluster 1
+par 150
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M5
+nointermission
+
+map E1M6 "Brano Sewer System"
+levelnum 6
+titlepatch BRN_06
+next E1M7
+secretnext E1M8
+sky1 BEFREE12 0
+cluster 1
+par 150
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M6
+nointermission
+
+map E1M7 "The Machinator"
+levelnum 7
+titlepatch BRN_07
+next EndDemon
+sky1 BEFREE10 0
+cluster 1
+par 150
+noinfighting
+nofallingdamage
+evenlighting
+music D_E1M7
+nointermission
+
+map TESTMAP "Test Map"
+levelnum 129
+titlepatch BRN_11
+next E1M1
+secretnext E1M1
+sky1 BEFREE99 0
+cluster 1
+par 120
+noinfighting
+nofallingdamage
+evenlighting
+music D_TEST
+nointermission

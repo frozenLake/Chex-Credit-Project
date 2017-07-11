@@ -1,0 +1,82 @@
+//=============================//
+//Player - 1                   //
+//=============================//
+
+//=============================//
+//Flemiods - 2                 //
+//=============================//
+
+grunt/active			dscommon
+grunt/attack			dssplat1
+shotguy/active			dscommon
+shotguy/attack			dssplat2
+imp/melee			dssplat2
+imp/shotx			dssplat3
+strider/sight			dscybsit
+strider/active			dsstrid1
+strider/pain			dspopain
+strider/melee			dsstrid2
+strider/death			dsspidth
+caco/sight			dssgtsit
+caco/shotx			dssplat4
+baron/shotx			dssplat4
+knight/sight			dsbrssit
+knight/death			dsbrsdth
+max/sight			dsmax2
+max/active			dsmax3
+max/death			dsmax1
+skull/sight			dsflem2
+skull/active			dsflem3
+skull/pain			dsflem2
+skull/melee			dsflem1
+skull/death			dspodth1
+spider/sight			dsbomin1
+spider/active			dsbomin2
+spider/pain			dsbomin3
+spider/attack			dsfirsht
+cyber/sight			dssnotf1
+cyber/active			dssnotf3
+cyber/pain			dssnotf2
+mem/sight			DSBRSSIT
+mem/active			DSMEMTAL
+mem/death			DSCYBDTH
+gorre/sight			DSGORRE1
+gorre/active			DSGORRE1
+gorre/pain			dssnotf2
+gorre/death			DSGORRE2
+fmtq/sight			DSTQSEE
+fmtq/active			DSTQACT
+fmtq/attack			DSTQATK
+fmtq/death			DSTQDTH
+fmcm/death			DSCMDTH
+fmcm/sight			DSCMSEE
+fmcy/death			DSCYDTH
+fmcy/sight			DSCYSEE
+fmqd/sight			DSQDSEE
+fmtu/attack			DSTUATK
+fmtu/death			DSTUDTH
+fmtu/sight			DSTUSEE
+//=============================//
+//Pickup - 3                   //
+//=============================//
+
+//=============================//
+//Zorcher - 4                  //
+//=============================//
+
+//=============================//
+//Ambient - 5                  //
+//=============================//
+
+world/waterdrips		DSWDRIP
+world/waterfall			DSWFALL
+
+//=============================//
+//Other - 6                    //
+//=============================//
+
+switches/normbutn		dsswtchn
+switches/exitbutn		dsswtchx
+switches/normbute		dsswtche
+switches/ff0			DSLEVER1
+switches/ff1			DSLEVER2

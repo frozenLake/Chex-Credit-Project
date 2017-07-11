@@ -1,0 +1,919 @@
+// Flemoidus Commonus ------------------------------------------------------------
+
+ACTOR FlemoidusCommonusTLQ 10001
+{
+	//$Category "Flemoids"
+	SpawnID -0
+	Health 20
+	Radius 20
+	Height 56
+	Speed 8
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0
+	PainChance 200
+	Monster
+	+FLOORCLIP
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "grunt/sight"
+	AttackSound "grunt/attack"
+	PainSound "grunt/pain"
+	DeathSound "grunt/death"
+	ActiveSound "grunt/active"
+	Obituary "%o got slimed by a Commonus"
+	States
+	{
+	Spawn:
+		POSS AB 10 A_Look
+		Loop
+	See:
+		POSS AABBCCDD 4 A_Chase
+		Loop
+	Melee:
+		POSS E 10 A_FaceTarget
+		POSS F 10 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		Goto See
+	Pain:
+		POSS G 3
+		POSS G 3 A_Pain
+		Goto See
+	Death:
+		POSS H 5
+		POSS I 5 A_Scream
+		POSS J 5 A_NoBlocking
+		POSS K 5
+		POSS L -1
+		Stop
+	XDeath:
+		POSS M 5
+		POSS N 5 A_XScream
+		POSS O 5 A_NoBlocking
+		POSS PQRST 5
+		POSS U -1
+		Stop
+	Raise:
+		POSS K 5
+		POSS JIH 5
+		Goto See
+	}
+}
+
+// Flemoidus Bipedicus ------------------------------------------------------------
+
+ACTOR FlemoidusBipedicusTLQ 10002
+{
+	//$Category "Flemoids"
+	SpawnID 1
+	Health 30
+	Radius 20
+	Height 56
+	Mass 100
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0
+	Speed 8
+	PainChance 170
+	Monster
+	+FLOORCLIP
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "shotguy/sight"
+	AttackSound "shotguy/attack"
+	PainSound "shotguy/pain"
+	DeathSound "shotguy/death"
+	ActiveSound "shotguy/active"
+	Obituary "%o got slimed by a Bipedicus"
+	States
+	{
+	Spawn:
+		SPOS AB 10 A_Look
+		Loop
+	See:
+		SPOS AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+		SPOS E 14 A_FaceTarget
+		SPOS F 14 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		Goto See
+	Pain:
+		SPOS G 3
+		SPOS G 3 A_Pain
+		Goto See
+	Death:
+		SPOS H 5
+		SPOS I 5 A_Scream
+		SPOS J 5 A_NoBlocking
+		SPOS K 5
+		SPOS L -1
+		Stop
+	XDeath:
+		SPOS M 5
+		SPOS N 5 A_XScream
+		SPOS O 5 A_NoBlocking
+		SPOS PQRST 5
+		SPOS U -1
+		Stop
+	Raise:
+		SPOS L 5
+		SPOS KJIH 5
+		Goto See
+	}
+}
+
+// Flemoidus Loricatus ------------------------------------------------------------
+
+ACTOR FlemoidusLoricatus 10003
+{
+	//$Category "Flemoids"
+	SpawnID 5
+	Health 60
+	Radius 20
+	Height 56
+	Mass 100
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0
+	Speed 8
+	PainChance 200
+	Monster
+	+FLOORCLIP
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	Obituary "%o got slimed by a Loricatus"
+	States
+	{
+	Spawn:
+		TROO AB 10 A_Look
+		Loop
+	See:
+		TROO AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		TROO EF 8 A_FaceTarget
+		TROO G 6 A_CustomComboAttack("LoricatusBall", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	Pain:
+		TROO H 2
+		TROO H 2 A_Pain
+		Goto See
+	Death:
+		TROO I 8
+		TROO J 8 A_Scream
+		TROO K 6
+		TROO L 6 A_NoBlocking
+		TROO M -1
+		Stop
+	XDeath:
+		TROO N 5
+		TROO O 5 A_XScream
+		TROO P 5
+		TROO Q 5 A_NoBlocking
+		TROO RST 5
+		TROO U -1
+		Stop
+	Raise:
+		TROO MLKJI 8
+		Goto See
+	}
+}
+
+ACTOR LoricatusBall
+{
+	SpawnID 10
+	SpawnID 10
+	Radius 6
+	Height 8
+	Speed 10
+	FastSpeed 20
+	Damage 3
+	Projectile
+	DamageType Flem
+	+RANDOMIZE
+	SeeSound "imp/attack"
+	DeathSound "imp/shotx"
+	States
+	{
+	Spawn:
+		BAL1 AB 4
+		Loop
+	Death:
+		BAL1 CDE 6
+		Stop
+	}
+}
+
+// Flemoidus Cycloptis ------------------------------------------------------------
+
+ACTOR FlemoidusCycloptis 10004
+{
+	//$Category "Flemoids"
+	SpawnID 9
+	Health 150
+	PainChance 180
+	Speed 10
+	Radius 30
+	Height 56
+	Mass 400
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0
+	Monster
+	+FLOORCLIP +FASTER +FASTMELEE
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "%o got slimed by a Cycloptis"
+	States
+	{
+	Spawn:
+		SARG AB 10 A_Look
+		Loop
+	See:
+		SARG AABBCCDD 2 A_Chase
+		Loop
+	Melee:
+		SARG EF 8 A_FaceTarget
+		SARG G 8 A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		SARG H 2
+		SARG H 2 A_Pain
+		Goto See
+	Death:
+		SARG I 8
+		SARG J 8 A_Scream
+		SARG K 4
+		SARG L 4 A_NoBlocking
+		SARG M 4
+		SARG N -1
+		Stop
+	Raise:
+		SARG N 5
+		SARG MLKJI 5
+		Goto See
+	}
+}
+
+// Flemoidus Teneris ------------------------------------------------------------
+
+ACTOR FlemoidusTeneris 10005
+{
+	//$Category "Flemoids"
+	SpawnID 117
+	Health 100
+	PainChance 180
+	Speed 7
+	Radius 30
+	Height 56
+	Mass 400
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Monster
+	+FLOORCLIP +FASTER +FASTMELEE
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "%o got slimed by a Teneris"
+	States
+	{
+	Spawn:
+		LRVA AB 10 A_Look
+		Loop
+	See:
+		LRVA AABBAABB 2 A_Chase
+		Loop
+	Melee:
+		LRVA CD 8 A_FaceTarget
+		LRVA E 8 A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		LRVA F 2
+		LRVA F 2 A_Pain
+		Goto See
+	Death:
+		LRVA G 8
+		LRVA H 8 A_Scream
+		LRVA I 4
+		LRVA J 4 A_NoBlocking
+		LRVA K 4
+		LRVA L -1
+		Stop
+	Raise:
+		LRVA L 5
+		LRVA KJIHG 5
+		Goto See
+	}
+}
+
+// Flemoidus Quadrumpus ------------------------------------------------------------
+
+ACTOR FlemoidusQuadrumpus 10006
+{
+	//$Category "Flemoids"
+	SpawnID 122
+	Health 60
+	Radius 20
+	Height 56
+	Mass 100
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Speed 8
+	PainChance 200
+	Monster
+	+FLOORCLIP
+        +WINDTHRUST
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "imp/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	Obituary "%o got slimed by a Quadrumpus"
+	States
+	{
+	Spawn:
+		QUAD AB 10 A_Look
+		Loop
+	See:
+		QUAD AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		QUAD EF 8 A_FaceTarget
+		QUAD G 6 A_CustomComboAttack("LoricatusBall", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	Pain:
+		QUAD H 2
+		QUAD H 2 A_Pain
+		Goto See
+	Death:
+		QUAD I 8
+		QUAD J 8 A_Scream
+		QUAD K 6
+		QUAD L 6 A_NoBlocking
+		QUAD M -1
+		Stop
+	XDeath:
+		QUAD N 5
+		QUAD O 5 A_XScream
+		QUAD P 5
+		QUAD Q 5 A_NoBlocking
+		QUAD RST 5
+		QUAD U -1
+		Stop
+	Raise:
+		QUAD MLKJI 8
+		Goto See
+	}
+}
+
+// Flemoidus Navigiumus ------------------------------------------------------------
+
+ACTOR FlemoidusNavigiumus 10007
+{
+	//$Category "Flemoids"
+	SpawnID 19
+	Health 400
+	Radius 31
+	Height 56
+	Mass 400
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Speed 8
+	PainChance 128
+	Monster
+	+FLOAT +NOGRAVITY +DONTFALL
+	+DONTGIB
+        +WINDTHRUST
+	//+NOBLOODDECALS
+	SeeSound "caco/sight"
+	PainSound "caco/pain"
+	DeathSound "caco/death"
+	ActiveSound "caco/active"
+	Obituary "%o got slimed by a Navigiumus"
+	States
+	{
+	Spawn:
+		HEAD A 10 A_Look
+		Loop
+	See:
+		HEAD A 3 A_Chase
+		Loop
+	Missile:
+		HEAD B 5 A_FaceTarget
+		HEAD C 5 A_FaceTarget
+		HEAD D 5 A_CustomComboAttack("NavigiumusBall", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Pain:
+		HEAD E 3
+		HEAD E 3 A_Pain
+		HEAD F 6
+		Goto See
+	Death:
+		HEAD G 8
+		HEAD H 8 A_Scream
+		HEAD I 8
+		HEAD J 8
+		HEAD K 8 A_NoBlocking
+		HEAD L -1 A_SetFloorClip
+		Stop
+	Raise:
+		HEAD L 8 A_UnSetFloorClip
+		HEAD KJIHG 8
+		Goto See
+	}
+}
+
+ACTOR NavigiumusBall
+{
+	SpawnID 126
+	Radius 6
+	Height 8
+	Speed 10
+	FastSpeed 20
+	Damage 5
+	Projectile 
+	DamageType Flem
+	+RANDOMIZE
+        +WINDTHRUST
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	States
+	{
+	Spawn:
+		BAL2 AB 4
+		Loop
+	Death:
+		BAL2 CDE 6
+		Stop
+	}
+}
+
+// Flemoidus Stridicus ------------------------------------------------------------
+
+ACTOR FlemoidusStridicus 10008
+{
+	//$Category "Flemoids"
+	SpawnID 8
+	Health 225
+	PainChance 100
+	Speed 16
+	Radius 30
+	Height 56
+	Mass 400
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Monster
+	+FLOORCLIP +FASTER +FASTMELEE
+	+DONTGIB
+        +WINDTHRUST
+	//+NOBLOODDECALS
+	SeeSound "strider/sight"
+	AttackSound "strider/melee"
+	PainSound "strider/pain"
+	DeathSound "strider/death"
+	ActiveSound "strider/active"
+	Obituary "%o got slimed by a Stridicus"
+	States
+	{
+	Spawn:
+		STTT AB 10 A_Look
+		Loop
+	See:
+		STTT AABBCCDD 2 A_Chase
+		Loop
+	Melee:
+		STTT EF 8 A_FaceTarget
+		STTT G 8 A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		STTT H 2
+		STTT H 2 A_Pain
+		Goto See
+	Death:
+		STTT I 8
+		STTT J 8 A_Scream
+		STTT K 4
+		STTT L 4 A_NoBlocking
+		STTT M 4
+		STTT N -1
+		Stop
+	Raise:
+		STTT N 5
+		STTT MLKJI 5
+		Goto See
+	}
+}
+
+// Flemoidus Minumis ------------------------------------------------------------
+
+ACTOR FlemoidusMinumis 10009
+{
+
+
+	//$Category "Flemoids"
+	SpawnID 110
+	Health 100
+	Radius 16
+	Height 56
+	Mass 50
+	damagefactor "Flem", 0.0  //flem damage doesn't hurt flemoids
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Speed 8
+	Damage 3
+	PainChance 256
+	Monster
+	+FLOAT +NOGRAVITY +MISSILEMORE +DONTFALL +NOICEDEATH
+	+DONTGIB
+        +WINDTHRUST
+	//+NOBLOODDECALS
+	SeeSound "skull/sight"
+	AttackSound "skull/melee"
+	PainSound "skull/pain"
+	DeathSound "skull/death"
+	ActiveSound "skull/active"
+	Obituary "%o got slimed by a Minumis"
+	States
+	{
+	Spawn:
+		SKUL AB 10 A_Look
+		Loop
+	See:
+		SKUL AB 6 A_Chase
+		Loop
+	Missile:
+		SKUL C 10 A_FaceTarget
+		SKUL D 4 A_SkullAttack
+		SKUL CD 4 
+		Goto Missile+2
+	Pain:
+		SKUL E 3 
+		SKUL E 3 A_Pain
+		Goto See
+	Death:
+		SKUL F 6 
+		SKUL G 6 A_Scream
+		SKUL H 6 
+		SKUL I 6 A_NoBlocking
+		SKUL J 6
+		SKUL K 6
+		Stop
+	}
+}
+
+// Slime Pillar ------------------------------------------------------------
+
+ACTOR SlimePillar 15218
+{
+	//$Category "Flemoids"
+  Game Doom
+  Radius 20
+  Height 110
+  Health 100
+  Mass 100000000000
+  +SHOOTABLE
+  +DONTGIB
+  //+NOBLOODDECALS
+  +SOLID
+  states
+  {
+  Spawn:
+    PIL1 ABCD 4
+    loop
+  Death:
+    PIL1 EFGHIJK 4
+    NULL A 0
+    stop
+  }
+}
+
+// Flemoidus Membranis ------------------------------------------------------------
+
+ACTOR FlemoidusMembranis 10010
+{
+	//$Category "Flemoids"
+  health 1000
+  radius 64
+  height 64
+  mass 1000
+  speed 0
+  painchance 50
+  damagefactor "Flem",0
+  seesound "mem/sight"
+  painsound "strider/pain"
+  deathsound "mem/death"
+  activesound "mem/active"
+  missiletype "FlembraneBall"
+  MONSTER
+  +DONTGIB
+  //+NOBLOODDECALS
+        +WINDTHRUST
+  +FLOORCLIP
+  states
+  {
+  Spawn:
+    BOSS AB 10 A_Look
+    loop
+  See:
+    BOSS AABBCCDD 3 A_Chase
+    loop
+  Missile:
+    BOSS EF 8 A_FaceTarget
+    BOSS G 8 A_MissileAttack
+    goto See
+  Pain:
+    BOSS H 2 Bright
+    BOSS H 2 Bright A_Pain
+    goto See
+  Death:
+    BOSS I 8 Bright
+    BOSS J 8 Bright A_Scream
+    BOSS K 8 Bright
+    BOSS L 8 Bright A_NoBlocking
+    BOSS MN 8 Bright
+    BOSS O 5 A_BossDeath
+    NULL A -1
+    stop
+	}
+}
+
+actor FlembraneBall
+{
+  spawnid 154
+  radius 6
+  height 16
+  speed 15
+  fastspeed 20
+  damage 8
+  renderstyle Normal
+  seesound "baron/attack"
+  deathsound "baron/shotx"
+  damagetype Flem
+  PROJECTILE
+  +RANDOMIZE
+  states
+  {
+  Spawn:
+    BAL7 AB 4
+    loop
+  Death:
+    BAL7 CDE 6
+    stop
+  }
+}
+
+// Flemoidus Maximus ------------------------------------------------------------
+
+actor FlemoidusMaximus 10011
+{
+	//$Category "Flemoids"
+  spawnid 113
+  obituary "$o got slimed by a Maximus"
+  hitobituary "$o got slimed by a Maximus"
+  health 500
+  radius 24
+  height 64
+  mass 1000
+  speed 8
+  painchance 50
+  damagefactor "Flem",0
+  seesound "max/sight"
+  painsound "max/sight"
+  deathsound "max/death"
+  activesound "mem/active"
+  missiletype "FlembraneBall"
+  MONSTER
+  +DONTGIB
+        +WINDTHRUST
+  //+NOBLOODDECALS
+  +FLOORCLIP
+  states
+  {
+  Spawn:
+    BOS2 AB 10 A_Look
+    loop
+  See:
+    BOS2 AABBCCDD 3 A_Chase
+    loop
+  Missile:
+    BOS2 EF 8 A_FaceTarget
+    BOS2 G 8 A_MissileAttack
+    goto See
+  Pain:
+    BOS2 H 2 Bright
+    BOS2 H 2 Bright A_Pain
+    goto See
+  Death:
+    BOS2 I 8 Bright
+    BOS2 J 8 Bright A_Scream
+    BOS2 K 8 Bright
+    BOS2 L 8 Bright A_NoBlocking
+    BOS2 MN 8 Bright
+    BOS2 O 5 A_BossDeath
+    NULL A -1
+    stop
+  }
+}
+
+// Flemoidus Abominus ------------------------------------------------------------
+
+ACTOR FlemoidusAbominus 10012
+{
+	//$Category "Flemoids"
+	Health 1500
+	Radius 75
+	Height 80
+	Mass 1000
+	damagefactor "Flem", 0.0
+	Speed 12
+	PainChance 40
+	Monster
+	MinMissileChance 160
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+        +WINDTHRUST
+	+BOSSDEATH
+	+DONTGIB
+	SeeSound "spider/sight"
+	AttackSound "spider/attack"
+	PainSound "spider/pain"
+	DeathSound "spider/death"
+	ActiveSound "spider/active"
+	Obituary "$o got slimed by a Abominus"
+	States
+	{
+	Spawn:
+		SPID ABCD 6 A_Look
+		Loop
+	See:
+		SPID A 3 A_Hoof
+		SPID ABBCC 3 A_Chase
+		SPID D 3 A_Metal
+		SPID D 3 A_Chase
+		Loop
+	Missile:
+		SPID F 20 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("NavigiumusBall", 32, random[headattack](1,6)*10, "", "flem")
+ 		SPID H 8 A_CustomComboAttack("NavigiumusBall", 32, random[headattack](1,6)*10, "", "flem")
+		Goto Missile
+	Pain:
+		SPID I 3
+		SPID I 3 A_Pain
+		Goto See
+	Death:
+		SPID J 10 A_Scream
+		SPID K 5 A_NoBlocking
+		SPID LMNOPQR 5
+		SPID S 15
+		SPID S -1 A_BossDeath    
+		Stop
+	}
+}
+
+// Flemoidus Gargantucis ------------------------------------------------------------
+
+ACTOR FlemoidusGargantucis 10013
+{
+	//$Category "Flemoids"
+	Health 2000
+	Radius 40
+	Height 110
+	Mass 1000
+	damagefactor "Flem", 0.0
+	Speed 16
+	PainChance 20
+	Monster
+	MinMissileChance 160
+	+BOSS 
+	+MISSILEMORE
+	+FLOORCLIP
+        +WINDTHRUST
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$o got slimed by a Gargantucis"
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		Loop
+	Missile:
+		CYBR E 6 A_FaceTarget
+		CYBR F 12 A_CustomMissile("FlembraneBall", 32)
+		CYBR E 12 A_FaceTarget
+		CYBR F 12 A_CustomMissile("FlembraneBall", 32)
+		CYBR E 12 A_FaceTarget
+		CYBR F 12 A_CustomMissile("FlembraneBall", 32)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Death:
+		CYBR H 5
+		CYBR I 5 A_Scream
+		CYBR JKL 5
+		CYBR M 5 A_NoBlocking
+		CYBR NO 5
+		CYBR P 15
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+// Cyber Maximus ------------------------------------------------------------
+
+actor CyberMaximus 10019
+{
+	//$Category "Flemoids"
+  spawnid 114
+  obituary "%o was flemed by a Cyber Maximus!"
+  health 2000
+  radius 36
+  height 96
+  mass 1000
+  speed 16
+  painchance 20
+  damagefactor "Flem",0
+  seesound "max/sight"
+  painsound "max/pain"
+  deathsound "max/death"
+  activesound "max/active"
+  scale 1.5
+  MONSTER
+  +BOSS
+  +FLOORCLIP
+  +DONTGIB
+        +WINDTHRUST
+  //+NOBLOODDECALS
+  +NORADIUSDMG
+  +DONTMORPH
+  +MISSILEMORE
+  +DONTFALL
+  states
+  {
+  Spawn:
+    CMAX AB 10 A_Look
+    loop
+  See:
+    CMAX A 3 A_Hoof
+    CMAX ABBCC 3 A_Chase
+    CMAX D 3 A_Metal
+    CMAX D 3 
+    loop
+  Missile:
+    CMAX E 6 A_FaceTarget
+    CMAX E 12 A_CustomMissile("FlemRocket", 72)
+    CMAX F 12 A_CustomMissile("FlemRocket", 72)
+    goto See
+  Pain:
+    CMAX G 10 Bright A_Pain
+    goto See
+  Pain.Ice:
+    CMAX A 0
+    goto Missile
+  Death:
+    CMAX H 10 Bright
+    CMAX I 10 Bright A_Scream
+    CMAX J 10 Bright
+    CMAX K 10 Bright A_NoBlocking
+    CMAX L 10 Bright
+    CMAX M 30
+    CMAX N 0 A_BossDeath
+    NULL A -1
+    stop
+  Ice:
+    CMAX A 5 A_GenericFreezeDeath
+    CMAX A 1 A_FreezeDeathChunks
+    wait
+  }
+}

@@ -1,0 +1,114 @@
+ACTOR Captive 15000
+{
+  Game Doom
+  Health 220
+  Radius 16
+  Height 72
+  Speed 0
+  Mass 10000000
+  PainChance 256
+  MONSTER
+  -COUNTKILL
+  +NOICEDEATH
+  +RANDOMIZE
+  PainSound "keen/pain"
+  DeathSound "keen/death"
+  States
+  {
+  Spawn:
+    CAP1 A    30
+    CAP1 BDCCDB 6
+    Loop
+  Death:
+    CAP1 G	6
+    CAP1 H	6 A_Scream
+    CAP1 I	6
+    CAP1 J	3 A_NoBlocking
+    CAP1 J	3 A_BossDeath
+    CAP1 K	40
+    TFOG A 6 Bright A_PlaySound("misc/teleport")
+    TFOG BABCDEFGHIJ 6 Bright
+    Stop
+  Pain:
+    CAP1 G	4
+    CAP1 G	8 A_Pain
+    Goto Spawn
+  }
+}
+
+ACTOR Captive2 15001
+{
+  Game Doom
+  Health 200
+  Radius 16
+  Height 72
+  Speed 0
+  Mass 10000000
+  PainChance 256
+  MONSTER
+  -COUNTKILL
+  +NOICEDEATH
+  +RANDOMIZE
+  PainSound "keen/pain"
+  DeathSound "keen/death"
+  States
+  {
+  Spawn:
+    CAP2 A    20
+    CAP2 BCBDE 6
+    Loop
+  Death:
+    CAP2 F	6
+    CAP2 G	6 A_Scream
+    CAP2 H	6
+    CAP2 I	3 A_NoBlocking
+    CAP2 I	3 A_BossDeath
+    CAP2 J	40
+    TFOG A 5 Bright A_PlaySound("misc/teleport")
+    TFOG BABCDEFGHIJ 5 Bright
+    Stop
+  Pain:
+    CAP2 F	4
+    CAP2 F	8 A_Pain
+    Goto Spawn
+  }
+}
+
+ACTOR Captive3 15002
+{
+  Game Doom
+  Health 220
+  Radius 16
+  Height 72
+  Speed 0
+  Mass 10000000
+  PainChance 256
+  MONSTER
+  -COUNTKILL
+  +NOICEDEATH
+  +RANDOMIZE
+  PainSound "keen/pain"
+  DeathSound "keen/death"
+  States
+  {
+  Spawn:
+    CAP3 A    30
+    CAP3 BCCB 6
+    Loop
+  Death:
+    CAP3 D	6
+    CAP3 E	6 A_Scream
+    CAP3 F	6
+    CAP3 G	3 A_NoBlocking
+    CAP3 G	3 A_BossDeath
+    CAP3 H	6
+    CAP3 I	40
+    TFOG A 6 Bright A_PlaySound("misc/teleport")
+    TFOG BABCDEFGHIJ 6 Bright
+    Stop
+  Pain:
+    CAP3 D	4
+    CAP3 D	8 A_Pain
+    Goto Spawn
+  }
+}

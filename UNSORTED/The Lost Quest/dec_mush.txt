@@ -1,0 +1,113 @@
+// Red Mushroom --------------------------------------------------------------
+
+actor RedMushroom : Health 16000
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount 5
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH A 6
+    loop
+  }
+}
+
+// Blue Mushroom --------------------------------------------------------------
+
+actor BlueMushroom : Health 16001
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount 7
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH B 6
+    loop
+  }
+}
+
+// Green Mushroom --------------------------------------------------------------
+
+actor GreenMushroom : Health 16002
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount 8
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH C 6
+    loop
+  }
+}
+
+// Yellow Mushroom --------------------------------------------------------------
+
+actor YellowMushroom : Health 16003
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount 10
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH D 6
+    loop
+  }
+}
+
+// Gray Mushroom --------------------------------------------------------------
+
+actor GrayMushroom : Health 16004
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount -10
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH E 6
+    loop
+  }
+}
+
+// Purple Mushroom --------------------------------------------------------------
+
+actor PurpleMushroom : Health 16005
+{
+  radius 20
+  height 16
+  inventory.pickupmessage "You ate a Mushroom!"
+  inventory.amount 9
+  inventory.maxamount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    MUSH F 6
+    loop
+  }
+}

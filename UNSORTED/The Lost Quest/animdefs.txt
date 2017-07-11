@@ -1,0 +1,204 @@
+warp flat WARP_SLM
+warp2 texture CQWTRB01
+   
+texture CQWTRA01
+    pic CQWTRA01 tics 5
+    pic CQWTRA02 tics 5
+    pic CQWTRA03 tics 5
+    
+texture CQLGTA01
+    pic CQLGTA01 tics 5
+    pic CQLGTA02 tics 5
+    pic CQLGTA03 tics 5
+    
+texture CQGATEA1
+    pic CQGATEA1 tics 5
+    pic CQGATEA2 tics 5
+    pic CQGATEA3 tics 5
+
+texture FORCE1
+    pic FORCE1 tics 7
+    pic FORCE2 tics 7
+    pic FORCE3 tics 7
+    pic FORCE4 tics 7
+    pic FORCE5 tics 7
+    pic FORCE6 tics 7
+    pic FORCE7 tics 7
+    pic FORCE8 tics 7
+    pic FORCE9 tics 7
+
+texture FORCE21
+    pic FORCE21 tics 7
+    pic FORCE22 tics 7
+    pic FORCE23 tics 7
+    pic FORCE24 tics 7
+    pic FORCE25 tics 7
+    pic FORCE26 tics 7
+    pic FORCE27 tics 7
+    pic FORCE28 tics 7
+    pic FORCE29 tics 7
+
+texture FORCE31
+    pic FORCE31 tics 7
+    pic FORCE32 tics 7
+    pic FORCE33 tics 7
+    pic FORCE34 tics 7
+    pic FORCE35 tics 7
+    pic FORCE36 tics 7
+    pic FORCE37 tics 7
+    pic FORCE38 tics 7
+    pic FORCE39 tics 7
+    
+texture FORCE41
+    pic FORCE41 tics 7
+    pic FORCE42 tics 7
+    pic FORCE43 tics 7
+    pic FORCE44 tics 7
+    pic FORCE45 tics 7
+    pic FORCE46 tics 7
+    pic FORCE47 tics 7
+    pic FORCE48 tics 7
+    pic FORCE49 tics 7
+
+texture BIGFORC1
+    pic BIGFORC1 tics 7
+    pic BIGFORC2 tics 7
+    pic BIGFORC3 tics 7
+    pic BIGFORC4 tics 7
+    pic BIGFORC5 tics 7
+    pic BIGFORC6 tics 7
+    pic BIGFORC7 tics 7
+    pic BIGFORC8 tics 7
+    pic BIGFORC9 tics 7
+    
+texture BGFORC21
+    pic BGFORC21 tics 7
+    pic BGFORC22 tics 7
+    pic BGFORC23 tics 7
+    pic BGFORC24 tics 7
+    pic BGFORC25 tics 7
+    pic BGFORC26 tics 7
+    pic BGFORC27 tics 7
+    pic BGFORC28 tics 7
+    pic BGFORC29 tics 7
+    
+texture BGFORC31
+    pic BGFORC31 tics 7
+    pic BGFORC32 tics 7
+    pic BGFORC33 tics 7
+    pic BGFORC34 tics 7
+    pic BGFORC35 tics 7
+    pic BGFORC36 tics 7
+    pic BGFORC37 tics 7
+    pic BGFORC38 tics 7
+    pic BGFORC39 tics 7
+    
+texture BGFORC41
+    pic BGFORC41 tics 7
+    pic BGFORC42 tics 7
+    pic BGFORC43 tics 7
+    pic BGFORC44 tics 7
+    pic BGFORC45 tics 7
+    pic BGFORC46 tics 7
+    pic BGFORC47 tics 7
+    pic BGFORC48 tics 7
+    pic BGFORC49 tics 7
+
+switch FORCS101
+on sound "switches/ff0"
+pic FORCS101 tics 8
+pic FORCS102 tics 8 
+pic FORCS103 tics 8 
+pic FORCS104 tics 8
+pic FORCS105 tics 8 
+pic FORCS106 tics 8 
+pic FORCS107 tics 8 
+pic FORCS108 tics 8 
+pic FORCS109 tics 8 
+pic FORCS110 tics 8
+
+off sound "switches/ff1"
+pic FORCS110 tics 8
+pic FORCS110 tics 8 
+pic FORCS110 tics 8 
+
+switch FORCS201
+on sound "switches/ff0"
+pic FORCS201 tics 8
+pic FORCS202 tics 8 
+pic FORCS203 tics 8 
+pic FORCS204 tics 8
+pic FORCS205 tics 8 
+pic FORCS206 tics 8 
+pic FORCS207 tics 8 
+pic FORCS208 tics 8 
+pic FORCS209 tics 8 
+pic FORCS210 tics 8
+
+off sound "switches/ff1"
+pic FORCS210 tics 8
+pic FORCS210 tics 8 
+pic FORCS210 tics 8 
+
+switch FORCS301
+on sound "switches/ff0" 
+pic FORCS301 tics 8
+pic FORCS302 tics 8 
+pic FORCS303 tics 8 
+pic FORCS304 tics 8
+pic FORCS305 tics 8 
+pic FORCS306 tics 8 
+pic FORCS307 tics 8 
+pic FORCS308 tics 8 
+pic FORCS309 tics 8 
+pic FORCS310 tics 8
+
+off sound "switches/ff1" 
+pic FORCS310 tics 8
+pic FORCS310 tics 8 
+pic FORCS310 tics 8 
+
+switch FORCS401
+on sound "switches/ff0" 
+pic FORCS401 tics 8
+pic FORCS402 tics 8 
+pic FORCS403 tics 8 
+pic FORCS404 tics 8
+pic FORCS405 tics 8 
+pic FORCS406 tics 8 
+pic FORCS407 tics 8 
+pic FORCS408 tics 8 
+pic FORCS409 tics 8 
+pic FORCS410 tics 8
+
+off sound "switches/ff1" 
+pic FORCS410 tics 8
+pic FORCS410 tics 8 
+pic FORCS410 tics 8 
+
+switch CQNOSW1A on sound "switches/normbutn" pic CQNOSW1B tics 0
+switch CQNOSW1B off sound "switches/normbutx" pic CQNOSW1A tics 0
+
+switch CQNOSW2A on sound "switches/normbutn" pic CQNOSW2B tics 0
+switch CQNOSW2B off sound "switches/normbutx" pic CQNOSW2A tics 0
+
+switch CQNOSW3A on sound "switches/normbutn" pic CQNOSW3B tics 0
+switch CQNOSW3B off sound "switches/normbutx" pic CQNOSW3A tics 0
+
+switch CQNOSW4A on sound "switches/normbutn" pic CQNOSW4B tics 0
+switch CQNOSW4B off sound "switches/normbutx" pic CQNOSW4A tics 0
+
+switch CQNOSWSA on sound "switches/normbutn" pic CQNOSWSB tics 0
+switch CQNOSWSB off sound "switches/normbutx" pic CQNOSWSA tics 0
+
+switch CQERSW1A on sound "switches/normbute" pic CQERSW1B tics 0
+switch CQERSW1B off sound "switches/normbutn" pic CQERSW1A tics 0
+
+switch CQERSW2A on sound "switches/normbute" pic CQERSW2B tics 0
+switch CQERSW2B off sound "switches/normbutn" pic CQERSW2A tics 0
+
+switch CQERSW3A on sound "switches/normbute" pic CQERSW3B tics 0
+switch CQERSW3B off sound "switches/normbutn" pic CQERSW3A tics 0
+
+switch CQERSW4A on sound "switches/normbute" pic CQERSW4B tics 0
+switch CQERSW4B off sound "switches/normbutn" pic CQERSW4A tics 0

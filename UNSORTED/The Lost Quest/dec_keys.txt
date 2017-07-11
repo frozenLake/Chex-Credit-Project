@@ -1,0 +1,77 @@
+actor BlueFlemKey : DoomKey 4000
+{
+  inventory.pickupmessage "You got a blue Flem Key!"
+  inventory.icon "STKEYS6"
+  states
+  {
+  Spawn:
+    BFLM A 10
+    BFLM B 10 bright
+    loop
+  }
+}
+
+actor YellowFlemKey : DoomKey 4561
+{
+  inventory.pickupmessage "You got a yellow Flem Key!"
+  inventory.icon "STKEYS7"
+  states
+  {
+  Spawn:
+    YFLM A 10
+    YFLM B 10 bright
+    loop
+  }
+}
+
+actor RedFlemKey : DoomKey 4342
+{
+  inventory.pickupmessage "You got a red Flem Key!"
+  inventory.icon "STKEYS8"
+  states
+  {
+  Spawn:
+    RFLM A 10
+    RFLM B 10 bright
+    loop
+  }
+}
+
+actor PurpleFlemKey : DoomKey 4033
+{
+  inventory.pickupmessage "You got a Purple Flem Key!"
+  inventory.icon "STKEYS9"
+  states
+  {
+  Spawn:
+    PFLM A 10
+    PFLM B 10 bright
+    loop
+  }
+}
+
+actor OrangeFlemKey : DoomKey 4034
+{
+  inventory.pickupmessage "You got an orange Flem Key!"
+  inventory.icon "STKEYS10"
+  states
+  {
+  Spawn:
+    OFLM A 10
+    OFLM B 10 bright
+    loop
+  }
+}
+
+actor GreenFlemKey : DoomKey 4165
+{
+  inventory.pickupmessage "You got a green Flem Key!"
+  inventory.icon "STKEYS11"
+  states
+  {
+  Spawn:
+    GFLM A 10
+    GFLM B 10 bright
+    loop
+  }
+}

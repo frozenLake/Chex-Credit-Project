@@ -1,0 +1,49 @@
+splash Water
+{
+	smallclass		WaterSplash
+	smallclip		12
+	smallsound		world/drip
+
+	baseclass		WaterSplashBase
+	chunkclass		WaterSplash
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			world/watersplash
+}
+
+splash Slime
+{
+	smallclass		SludgeChunk
+	smallclip		12
+	smallsound		world/sludgegloop
+
+	baseclass		SludgeSplash
+	chunkclass		SludgeChunk
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	1
+	sound			world/sludgegloop
+}
+
+terrain Water
+{
+	splash			Water
+	liquid
+}
+
+terrain Slime
+{
+	splash			Slime
+	liquid
+}
+
+ifdoom
+floor CQWTRB01 WATER
+floor CQWTRB02 WATER
+floor CQWTRB03 WATER
+floor CQWTRB04 WATER
+floor WARP_SLM SLIME
+endif

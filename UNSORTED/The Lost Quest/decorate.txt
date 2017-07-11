@@ -1,0 +1,28 @@
+#include "DEC_FLEM" // Flemiods
+#include "DEC_FLMA" // Flemegaus Flemiods
+#include "DEC_DECO" // Decorations
+#include "DEC_CAPT" // Captives
+#include "DEC_MUSH" // Mushrooms
+#include "DEC_ZCHR" // Zorchers
+#include "DEC_KEYS" // Keys
+#include "DEC_OTHR" // Other
+
+actor TLQPlayer : ChexPlayer
+{
+    player.displayname "Chex Warrior"
+    player.crouchsprite ""
+    player.colorrange 112, 127
+    player.startitem "MiniZorcher"
+    player.startitem "Bootspoon"
+    player.startitem "MiniZorchRecharge", 50
+    player.damagescreencolor "60 b0 58"
+    player.WeaponSlot 1, Bootspoon, SuperBootspork
+    player.WeaponSlot 2, MiniZorcher
+    player.WeaponSlot 3, LargeZorcher, SuperLargeZorcher, MegaLargeZorcher
+    player.WeaponSlot 4, RapidZorcher
+    player.WeaponSlot 5, ZorchPropulsor
+    player.WeaponSlot 6, PhasingZorcher
+    player.WeaponSlot 7, LAZDevice
+    Health 129
+    Player.MaxHealth 129
+}

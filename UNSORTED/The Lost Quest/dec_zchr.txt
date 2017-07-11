@@ -1,0 +1,95 @@
+// PropulsorMissile ---------------------------------------------------------
+
+actor PropulsorMissileV3 : DoomWeapon Replaces PropulsorMissile
+{
+  Game Doom
+  SpawnID 127
+  Radius 11
+  Height 8
+  Speed 20
+  Damage 20
+  Projectile
+  +RANDOMIZE
+  +DEHEXPLOSION
+   donthurtshooter
+  SeeSound "weapons/rocklf"
+  DeathSound "weapons/rocklx"
+  Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
+  States
+  {
+  Spawn:
+    MISL A 1 bright
+    loop
+  Death:
+    MISL B 8 bright A_Explode
+    MISL C 6 bright
+    MISL D 4 bright
+    stop
+  }
+}
+
+actor FlemRocket
+{
+  Radius 11
+  Height 8
+  Speed 20
+  Damage 20
+  Projectile
+  +RANDOMIZE
+  +DEHEXPLOSION
+  SeeSound "fmtu/attack"
+  DeathSound "weapons/rocklx"
+  Obituary "o% got it hard."
+  States
+  {
+  Spawn:
+    MISL A 1 bright
+    loop
+  Death:
+    MISL B 8 bright A_Explode
+    MISL C 6 bright
+    MISL D 4 bright
+    stop
+  }
+}
+
+// Mega Large Zorcher ---------------------------------------------------------
+
+actor MegaLargeZorcher : Weapon 10200
+{
+  Weapon.SelectionOrder 1350
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 12
+  Weapon.AmmoType "Shell"
+  Inventory.PickupMessage "You got the mega shotgun!"
+  Obituary "%o saw teh boomstick."
+  States
+  {
+  Ready:
+    MGSH B 1 A_WeaponReady
+    Loop
+  Deselect:
+    MGSH B 1 A_Lower
+    Loop
+  Select:
+    MGSH B 1 A_Raise
+    Loop
+  Fire:
+    MGSH E 3
+    MGSH F 2 A_FireShotgun
+    MGSH F 2 A_FireShotgun
+    MGSH F 2 A_FireShotgun
+    MGSH C 5
+    MGSH D 5
+    MGSH B 3
+    MGSH B 7 A_ReFire
+    Goto Ready
+  Flash:
+    MGSH B 4 Bright A_Light1
+    MGSH B 3 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    MGSH A -1
+    Stop
+  }
+}
