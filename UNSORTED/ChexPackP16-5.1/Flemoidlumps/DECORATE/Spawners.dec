@@ -1,0 +1,138 @@
+// monster spawners: 150XX
+
+actor CommonousSpot : CustomMonsterInvasionSpot  15000
+{
+Game chex
+dropitem "Commonus"
+Radius 20
+Height 56
+}
+
+actor BipedicusSpot : CustomMonsterInvasionSpot 15001
+{
+Game chex
+dropitem "Bipedicus"
+Radius 20
+Height 56
+}
+
+actor BipedicusWithArmorSpot : CustomMonsterInvasionSpot 15002
+{
+Game chex
+dropitem "BipedicusWithArmor"
+Radius 20
+Height 56
+}
+
+actor MaximusSpot : CustomMonsterInvasionSpot 15003
+{
+Game chex
+dropitem "Maximus"
+Radius 24
+Height 64
+}
+
+actor FlembraneSpot : CustomMonsterInvasionSpot 15004
+{
+Game chex
+dropitem "Flembrane75"
+Radius 64
+Height 64
+}
+
+actor StridicusSpot : CustomMonsterInvasionSpot 15005
+{
+Game chex
+dropitem "Stridicus"
+Radius 30
+Height 56
+}
+
+actor CycloptisSpot : CustomMonsterInvasionSpot 15006
+{
+Game chex
+dropitem "Cycloptis"
+Radius 30
+Height 56
+}
+
+actor LarvaSpot : CustomMonsterInvasionSpot 15007
+{
+Game chex
+dropitem "Larva75"
+Radius 15
+Height 45 
+}
+
+actor QuadrumpusSpot : CustomMonsterInvasionSpot 15008
+{
+Game chex
+dropitem "Quadrumpus75"
+Radius 20
+Height 56
+}
+
+actor FlembominationSpot : CustomMonsterInvasionSpot 15009
+{
+Game chex
+dropitem "Flembomination75"
+Radius 100
+Height 100
+}
+
+actor LordSnotfolusSpot : CustomMonsterInvasionSpot 15010
+{
+Game chex
+dropitem "LordSnotfolus"
+Radius 40
+Height 110
+}
+
+
+actor SuperCycloptisSpot : CustomMonsterInvasionSpot 15011
+{
+Game chex
+radius 31
+height 56
+dropitem "SuperCycloptis75"
+}
+
+actor FlemMineSpot : CustomMonsterInvasionSpot 15012
+{
+Game chex
+radius 15
+height 45
+dropitem "FlemMine75"
+}
+
+Actor GyroSpot : CustomMonsterInvasionSpot 15013
+{
+	//$Category Invasion Flemoids
+	//$Sprite GYROA0
+	//$Title "Gyro Spot"
+Game Chex
+Height 48
+Radius 16
+dropitem "gyro"
+}
+
+Actor FlemPillarSpot 15014
+{
+	//$Category Invasion Flemoids
+	//$Sprite PIL1A0
+	//$Title "Flem Pillar Spot"
+game Chex
+Radius 20
+Height 110
+dropitem "FlemPillarSpot"
+}
+
+actor DualMaximusSpot : CustomMonsterInvasionSpot 15015 //17551
+{
+	//$Category Invasion Flemoids
+	//$Sprite DUALG1
+	//$Title "Dual Launching Maximus Spot"
+dropitem "DualMaximus"
+Radius 30
+Height 100
+}

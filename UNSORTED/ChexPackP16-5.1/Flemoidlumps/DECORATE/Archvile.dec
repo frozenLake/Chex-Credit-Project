@@ -1,0 +1,101 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//  \   ______________________________________________________________________   /  //
+//  :::|  ____    ____    ____     _____    _____      ___    _______   ____  |:::  //
+//  \  | |  _ \  |  __|  / __ \   /  _  \  | ___ \    / _ \  |___ ___| |  __| |  /  //
+//\    | | | \ | | |__  | |  |_| |  / \  | | |_| |   / |_| \    | |    | |__  |    ///
+//:::::| | | | | |  __| | |   _  |  | |  | |  _  /   | ___ |    | |    |  __| |::::://
+//\    | | |_/ | | |__  | |__| | |  \_/  | | | \ \  / /   \ \   | |    | |__  |    ///
+//  \  | |____/  |____|  \____/   \_____/  |_|  \_\ |_|   | |   |_|    |____| |  /  //
+//  :::|______________________________________________________________________|:::  //
+//  \                                                                            /  //
+//                            -Flemoidus Bipedicus Remissus-                        //
+//                                                                                  //
+//                    -Coding, Sprite Edits by QuadrumpusGuy and 75-                //
+//                        -Original Sprites by Charles Jacobi-                      //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+ACTOR Remissus replaces Archvile //64
+{
+	//$Category	flemoids
+	//$Sprite BWARA0
+	//$Title "Remissus"
+  Bloodcolor "FF77AA"
+  SpawnID 111
+  Health 850
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 10
+  PainChance 10
+  Monster
+  +QUICKTORETALIATE 
+  +FLOORCLIP 
+  +NOTARGET
+  +DONTGIB
+  -NOINFIGHTING
+  SeeSound "Archvile/See"
+  PainSound "Archvile/Pain"
+  DeathSound "Archvile/Die"
+  ActiveSound "Archvile/Active"
+  damagefactor "Flem", 0.0
+  damagefactor "Slime", 0.0
+  Obituary "%o was zorched by a Flemoidus Bipedicus Remissus' High energy phasing zorch Blast."
+  
+  dropitem "Zorchcell", 255
+  dropitem "Zorchcell", 255
+  dropitem "zorchcell", 128
+  dropitem "zorchcellpack", 20
+  States
+  {
+  Spawn:
+    BWAR AB 10 A_Look
+    Loop
+  See:
+    BWAR AABBCCDD 2 A_VileChase
+    Loop
+  Missile:
+    BWAR E 10 bright A_FaceTarget
+    BWAR F 4 bright A_CustomMissile("FlazBall",32)
+    BWAR E 4 bright
+    BWAR E 0 bright A_SentinelRefire
+    Goto See
+  Heal:
+    BWAR F 10 BRIGHT
+    Goto See
+  Pain:
+    BWAR G 4 bright 
+    BWAR G 4 bright A_Pain
+    Goto See
+  Death:
+    BWAR H 8 bright
+    BWAR I 8 bright A_Scream
+    BWAR J 6 bright
+    BWAR K 6 bright A_NoBlocking
+    BWAR L -1
+    Stop
+  }
+}
+
+Actor FLAZBall : Phasezorchmissile
+{
+	Damagetype Flem
+	+SEEKERMISSILE
+	Seesound "Archvile/Shot"
+	Deathsound "Flazball/Explosion"
+	Speed 30
+	
+	Damage 4
+	
+	States
+	{
+		Spawn:
+			FLAZ AABB 3 BRIGHT A_Seekermissile(10,15)
+			loop
+		Death:
+			FLAZ CDEF 5 BRIGHT
+			stop
+	}
+}

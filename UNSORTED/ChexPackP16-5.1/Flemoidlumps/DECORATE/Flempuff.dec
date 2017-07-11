@@ -1,0 +1,18 @@
+Actor Flempuff : Bulletpuff
+{
+	  Damagetype "Flem"
+	  Renderstyle Add
+	  Game Chex
+	  Alpha 1.0
+	  VSpeed 0
+	  Mass 10
+	  States
+	  {
+		  Spawn:			
+			// Intentional fall-through
+		  Melee:
+			SPUF ABC 4
+			Stop
+	  }
+}
+

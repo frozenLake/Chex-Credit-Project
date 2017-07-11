@@ -1,0 +1,265 @@
+pointlight hanginglightL
+{
+color 1.0 1.0 1.0
+size 32
+offset 0 -5 0 
+}
+
+/////////////////////////////////////
+pointlight lablight1
+{
+color 1.0 1.0 0.2
+size 35
+offset 0 0 0 
+}
+
+pointlight lablight2
+{
+color 0.2 0.2 1.0
+size 35
+offset 0 0 0
+}
+///////////////////////////////////////
+
+pointlight desklight
+{
+color 1.0 1.0 0.6
+size 25
+offset 0 15 0
+}
+
+///////////////////////////////////
+pointlight Candelight1
+{
+color 1.0 0.3 0.0
+size 45
+offset 0 -10 0
+}
+
+pointlight Candelight2
+{
+color 1.0 0.6 0.0
+size 50
+offset 0 -10 0
+}
+
+pointlight Candelight3
+{
+color 1.0 .1 0.0
+size 45
+offset 0 -10 0 
+}
+///////////////////////////////////
+
+//////////////////////////////////
+pointlight propmonitorA
+{
+color 1.0 0.2 0.2
+size 16
+offset 0 5 0
+}
+
+pointlight propmonitorB
+{
+color 1.0 0.4 0.4
+size 20
+offset 0 5 0
+}
+/////////////////////////////////
+
+Pointlight LandingLight
+{
+color 1.0 1.0 0.6
+size 30
+offset 0 0 0
+}
+
+Pointlight Streetlight
+{
+color 1.0 1.0 0.6
+size 80
+offset 0 111 0
+}
+
+pointlight Firelight1
+{
+color 1.0 .4 0.0
+size 70
+}
+
+pointlight Firelight2
+{
+color 1.0 .9 0.0
+size 80
+}
+
+pointlight Firelight3
+{
+color 1.0 .2 0.0
+size 64
+}
+
+pointlight Firelight4
+{
+color 1.0 .7 0.0
+size 70
+}
+
+Pointlight mushroomlight1
+{
+color 1.0 0.8 0.6
+size 30
+offset 0 0 0
+}
+
+Pointlight mushroomlight2
+{
+color 1.0 0.8 0.6
+size 32
+offset 0 0 0
+}
+
+Pointlight mushroomlight3
+{
+color 1.0 0.8 0.6
+size 35
+offset 0 0 0
+}
+
+/////
+
+pointlight telelight1
+{
+color 1.0 0.5 1.0
+size 25
+offset 0 15 0
+}
+
+pointlight telelight2
+{
+color 1.0 0.6 1.0
+size 30
+offset 0 15 0
+}
+
+pointlight telelight3
+{
+color 1.0 0.6 1.0
+size 35
+offset 0 15 0
+}
+
+pointlight telelight4
+{
+color 1.0 0.6 1.0
+size 40
+offset 0 15 0
+}
+
+pointlight telelight5
+{
+color 1.0 0.6 1.0
+size 45
+offset 0 15 0
+}
+
+//////////////////////
+
+
+pointlight RedTorchLight1
+{
+color 1.0 .4 0.0
+size 35
+}
+
+pointlight RedTorchLight2
+{
+color 1.0 .9 0.0
+size 40
+}
+
+pointlight RedTorchLight3
+{
+color 1.0 .2 0.0
+size 32
+}
+
+pointlight RedTorchLight4
+{
+color 1.0 .6 0.6
+size 35
+}
+
+pointlight GreenTorchLight1
+{
+color .4 1.0 0.4
+size 35
+}
+
+pointlight GreenTorchLight2
+{
+color .6 1.0 0.6
+size 40
+}
+
+pointlight GreenTorchLight3
+{
+color 0.0 1.0 0.0
+size 50
+}
+
+pointlight GreenTorchLight4
+{
+color .2 1.0 0.0
+size 32
+}
+
+pointlight BlueTorchLight1
+{
+color .4 .4 1.0
+size 35
+}
+
+pointlight BlueTorchLight2
+{
+color .6 .6 1.0
+size 40
+}
+
+pointlight BlueTorchLight3
+{
+color .4 .2 1.0
+size 32
+}
+
+pointlight BlueTorchLight4
+{
+color .7 .2 1.0
+size 32
+}
+
+// candle
+
+pointlight CandleStickLight1
+{
+color 1.0 .4 0.0
+size 17
+}
+
+pointlight CandleStickLight2
+{
+color 1.0 .9 0.0
+size 20
+}
+
+pointlight CandleStickLight3
+{
+color 1.0 .2 0.0
+size 16
+}
+
+pointlight CandleStickLight4
+{
+color 1.0 0.0 0.0
+size 16
+}

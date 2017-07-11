@@ -1,0 +1,14 @@
+STATSMFONT
+{
+   0 SMFNUM0
+   1 SMFNUM1
+   2 SMFNUM2
+   3 SMFNUM3
+   4 SMFNUM4
+   5 SMFNUM5
+   6 SMFNUM6
+   7 SMFNUM7
+   8 SMFNUM8
+   9 SMFNUM9    
+   NOTRANSLATION 109	// don't touch the shadow color!
+}

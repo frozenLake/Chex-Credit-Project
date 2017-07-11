@@ -1,0 +1,43 @@
+Actor Flembrane75 : FlembraneV3 replaces FlembraneV3
+{
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+DONTGIB
+	+LOOKALLAROUND
+	-NOINFIGHTING
+	
+	Game chex
+	Health 4000
+	Height 96
+	Speed 0 // it stays still
+	
+	States
+	{
+	Pain:
+		FLMB H  2 bright 
+		FLMB H  2 bright A_Pain
+		Goto See
+	Death:
+		FLMB I  8 bright
+		FLMB J  8 bright A_Scream
+		FLMB K  8 bright
+		FLMB L  8 bright A_NoBlocking
+		FLMB MN 8 bright
+		FLMB O -1
+		Stop
+		
+	Missile:
+	Melee:
+		FLMB EF 8 A_FaceTarget
+		FLMB G 8 A_CustomMissile("MaximusBall", 48)
+		Goto See
+	Raise:
+		FLMB O 8 bright
+		FLMB NMLKJI  8 bright
+		Goto See
+	}
+}
+
+// NOTE! "Summon Flembrane" spawns a maximus (ARGH!)
+
+// why'd he have to replace the Flembrane with a maximus?

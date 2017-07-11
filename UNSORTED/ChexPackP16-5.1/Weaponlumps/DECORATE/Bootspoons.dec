@@ -1,0 +1,49 @@
+//////////////////////////////////////////////////////////////////////////
+// gave it an editor number and a pickup sprite
+// in case you want the player to not have one at spawn.
+
+// Also changed the puff type so that it does more damage against other
+// players in pvp
+///////////////////////////////////////////////////////////////////////
+
+Actor PvPSpoonPuff : ZorchPuff
+{
+	Damagetype "PvPSpoonPuff"
+	SeeSound "player/male/fist"
+}
+
+actor BootSpoon75 : BootSpoon replaces Bootspoon 11011
+{
+	obituary "%o got served by %k's bootspoon"
+	inventory.pickupmessage "Picked up a \cjbootspoon"
+	weapon.slotnumber 1
+	inventory.icon "SPONA0"
+	
+	+WEAPON.NOLMS
+	+WEAPON.NOALERT
+
+	States
+	{
+	Spawn:
+		SPON A -1
+		stop
+	Fire:
+		PUNG B 4
+		TNT1 A 0 A_JumpIfInventory("PowerStrength", 1, "Berserked")
+	Normal:
+		PUNG C 4 A_CustomPunch(2*random(1, 10), TRUE,0,"PvPSpoonPuff")
+		Goto FireEnd
+	Berserked:
+		PUNG C 4 A_CustomPunch(20*random(1, 10), TRUE,0,"PvPSpoonPuff")
+	FireEnd:
+		PUNG D 5
+		PUNG C 4
+		PUNG B 5 A_ReFire
+		Goto Ready
+    }
+}
+
+
+
+// maybe have a little chink sound when the spoon hits a wall?
+// Double bootspoons just look silly and are inefficient

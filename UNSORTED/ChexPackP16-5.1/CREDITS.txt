@@ -1,0 +1,219 @@
+You may use this mod as a base for other mods, though you may 
+not continue this mod without permission
+
+(i.e., if you want to build off of this please call it something else)
+
+AlexMax:
+
+	Hub system code
+	
+Tilple:
+	M_Crave, "Museum Rave". The music that goes with ZM07 (museum)
+	Chexmix, "Chexmix". A remix of E1M1, played on DUEL02 (Zorch!)
+
+Quadrumpusguy:
+
+	Created the freezing zorcher recolor
+	Created the Chex Vanguards and their code
+	Some door textures
+	Made the switch box code
+	DUEL03 : "D.O.S. Days"
+	Alpha testing
+	Mercury textures and flats
+	The bookshelf textures
+	Episode 4
+	Ideas	
+	Coding for the ArchVile replacement, and the edit that I re-colored
+	Box of zorch recharges sprites and code
+
+
+Kinsie:
+
+	The boombox, not directly stated that it can be used. If you don't want me using it, 
+	let me know and I will take it out. 
+
+Rick Astley : 
+
+	The song played in the ghettoblaster
+
+
+Charles Jacobi/Digital Cafe:
+
+	Chex3.wad as the base
+
+Strife:
+(not Strife the game, Strife is his username)
+
+	D_E3M4, D_E3M5 (included in Chex3.wad)
+	The status bar, from an unreleased mod
+	He made the music for Mario Zorchmatch (ZM04)
+	He made the music for Quarry (ZM06) [M_ROC.mid]
+	He made the music for E1M8 (The Depths of Bazoik)
+	Refuel.mid - the music for DUEL04 (Bazoik research facility)
+	The hub music
+	Caves.mid, the music for ZM09
+	NITSKY, the starry black sky
+	SUNSETSK, the starry sky at sunset
+
+
+Lucius Octavian:
+
+	He created ZM03 and put chex textures and things in ZM04(I edited both of those maps from their original form)
+	He made the M_Doom Minizorcher graphic cursor
+	He made the Zorchpuff sprites. 
+
+	He made the water splash sprites (edited for use in TERRAIN, they were originally fountains)
+
+
+Manny cav:
+
+	Zorch launcher and zorch grenade sprites
+
+	Also, the CTF flags and medals are also his. 
+
+	I used the same sprites he used for the skulltag weapons in cqarena. 
+
+	He also made the max armor bonus replacement, and the max armor replacement.
+
+	Some patches were taken from TNCQ, I'm not sure if he was the one who edited them.
+
+	Bootspoon pickup sprite
+	
+	Heavy editing of the ultra rapid zorcher sprites from the Stolen
+	Chex 3, specifically removing the hideous looking bootspork tube.
+
+Arch129:
+
+	The HUDFONT.
+	CQBROKXX textures, BEFREE sky textures. The CQFENCE textures
+	
+	Two Chexter getting zorched sprites:
+		PLAYO1, PLAYP0
+
+	The CQGNMTxx textures
+	
+	My version of the flem pillar was based on his code.
+	
+	The Blursphere replacement's sprites.
+	
+	Various plant sprites see /misclumps/deco.dec 
+	
+	Textures with the prefix TLQ
+	
+	The code and textures for the lever switches
+	
+	textures from FreeChex/Breakfast Trek 
+	
+	BZOINK	FBCRACER	FBCRACHE	FBCRANEC	FRCRACER	FRCRACHE
+	FRCRANEC	FREEDOR	FREEBKEY	FREEBLK	FREEBLUE	FREECAU
+	FREECOMM	FREEBLU	FREEDDB	FREEGATE FREEGRAS  FREEGS  FREELIFT
+	FREELIT  FREEPIC  FREERKEY FREETRAK FREEWSQR FREEYKEY GRAYVB
+	FREEGRAT FREESW2 FREESW1 FREERED FREMCRAT FREECAB FREEVENT
+	FREETCRA FREEYSIG FREERSIG FREEBSIG FREEPANY
+	
+	Sprites from breakfast trek
+	
+	
+	
+
+
+Boingo The Clown:
+
+	the TUCQTILE textures, TUCQTape, anything that starts with TUCQ. 
+	
+	The flem pillar, the gyro body and pain frame sprites. 
+	
+	The Ultimate Chex Quest is a great mod, if you haven't played it, you should.
+
+True_Dude:
+
+	The propeller of the Gyro
+	
+	Some sprites from breakfast trek;
+		
+		Supercharge breakfast
+
+The_FunkTasm:
+
+	A toolbox texture, and the Doom ad billboard
+
+
+
+www.vgmusic.com:
+
+	SKERRIES.mid - The original song was by Graeme Norgate in a game called Blast Corps.
+	ZM02 (Jade Plateau) is based off of a level in that game.
+
+	ZM03 (DK Zorchmatch) is also from vgmusic, it is an arranged version of
+	a song from Donkey Kong 64
+
+
+Zorchdude:
+
+	iChex Warrior sprites
+	
+Datra:
+
+	Stool model, minizorch recharge model
+	I (75) did the skin photoshops.
+	
+	
+Tools:
+
+	Slade 3 by Sirjuddington 
+	Doombuilder 2 by CodeImp
+	GzDoomBuilder by MaxED (fork of DoomBuilder 2)
+	Irfanview
+	GIMP
+	Microsoft Paint
+	Notepad++
+	Anvil Studio
+	FL Studio
+	Timidity++
+	Microsoft Word
+	HxD Hex Editor
+	Blender
+	Inkscape
+	Photoshop CS4 (I prefer GIMP)
+	7zip
+	
+	
+	
+	Also used:
+	
+	XWE (replaced by Slade 3)
+	SlumpED (replaced by Slade 3)
+
+"The Stolen Chex3 developers"
+
+	They remain unknown
+	
+	They made the original Ultra rapid zorcher, heavily modified by Manny Cav.
+
+Unknown: 
+
+	If you made these things and want credit, or want them removed, tell me and
+	I will fix it for the next release.
+
+	- Liquid zorcher sprites. Eriance, possibly?
+	It was modified by the slimenator.
+
+	I don't know who made the Ultra Rapid Zorcher sprites. It's very, very old.
+
+	I don't know who made the super large zorcher sprites, it may have been 
+	the slimeinator.
+
+
+	I'm not sure who made the MTNSKY sky and the bazoik sunset sky, it may
+	have been The Slimeinator
+	
+	
+music = D_BOOM // Boomer Kuwanger's theme from Mega Man X
+music = M_GREY 	// Grey's theme from Mega Man ZX Advent
+
+// map by LAZ Trooper with minor edits by 75
+MAP DUEL17 "TNCQ Classic Duel"
+
+// map by laz trooper with some edits by 75
+map ZM09 "Pro Zorchmatch Arena"
+

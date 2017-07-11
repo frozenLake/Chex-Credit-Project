@@ -1,0 +1,173 @@
+[enu default]
+
+STSTR_CHOPPERS = "Could I get a quick heil?";
+
+////////////////////////
+// non-weapon related//
+///////////////////////
+
+OB_SUICIDE = "%o zorched %hself.";
+OB_FALLING = "%o fell too far.";
+OB_CRUSH = "%o was squished.";
+OB_EXIT = "%o tripped a booby trapped exit.";
+OB_WATER = "%o can't swim.";
+OB_SLIME = "%o sinks into some slime.";
+OB_LAVA = "%o sinks into some slime.";
+OB_POWERSTRAND = "%o was hit by inter-dimensional slime!";
+OB_SPLASH = "%o stood in the wrong spot.";
+OB_R_SPLASH = "%o should have stood back.";
+OB_ROCKET = "%o should have stood back.";
+OB_KILLEDSELF = "%o zorched %hself";
+OB_MPTELEFRAG = "%o was zorched by a teleporter error";
+
+///////////////////
+//
+// Doom weapons
+// Doom obituaries and pickup weapons so that the invasion spawners
+// will work without me redefining every weapon
+//
+//////////////////
+
+//OB_MPSPOON Bootspoon is redefined - see definition
+OB_MPBOOTSPORK = "%o was mixed by %k's super bootspork";
+
+
+OP_MPZORCH = "%o was hit by %k's large zorcher";
+// this ob is shared with the minizorcher, but since I redefined it, it doesn't matter
+
+
+OB_MPMEGAZORCH = "%o was sent back the hard way by %k's super large zorcher";
+
+OB_MPRAPIDZORCH = "%o was pummeled by %k's Rapid zorcher";
+
+OB_MPPROPULSOR = "%o was blown elsewhere by %k's zorch propulsor";
+
+// He only kept the standard OB names for the splash deaths... go figure.
+OB_MPR_SPLASH = "%o was sucked in by %k's propulsor blast";
+
+OB_MPPHASEZORCH = "%o got in phase with %k's phasing zorcher";
+
+OB_MPLAZ_BOOM = "%o took %k's laz portal to the face";
+
+
+// these don't seem to work.
+OB_MPLAZ_SPLASH = "%o fell prey to %k's spam cannon.";
+OB_MPBFG_SPLASH = "%o fell prey to %k's spam cannon.";
+
+// Minizorcher needed to be redefined because of its nonsensical states
+// it fires BEFORE the button is pushed normally
+
+// bootspoon is redefined because it has no spawn state and no pickup message/sprite
+
+
+
+
+// all skulltag weapons needed to be redefined - "game chex"
+
+// New weapons have their obituaries defined in their definitions
+
+// other OBs
+
+
+OB_DEFAULT = "%o vanished.";
+
+OB_FRIENDLY1 = "%k zorches a teammate.";
+OB_FRIENDLY2 = "%k Chex %p glasses.";
+OB_FRIENDLY3 = "%k gets a point for the other team.";
+
+OB_GRENADE_SPLASH = "%o was within range of %k's zorch grenade blast.";
+OB_GRENADE_SELF = "%o was taken out by %p own zorch grenade.";
+
+OB_BFG10K_SELF = "%o got too close to %p liquid zorcher blast.";
+
+OB_SPACE = "%o got lost.";
+OB_REFLECTION = "%o was hit by zorch bounced off of %k's reflective armor"
+
+
+////////////////////////////////////
+// Interface strings
+////////////////////////////////
+
+QUITMSG = "I hope you're just taking a\nbreak for Chex party mix.";
+
+QUITMSG23 = "Don't quit now, you can still win!";
+QUITMSG24 = "Don't give up -- the flemoids will\nget the upper hand!";
+QUITMSG25 = "Boingo the Clown says\n\"Keep right on Zorchin' dude!\"";
+QUITMSG26 = "I hope you're not up\npast your bed time!";
+QUITMSG27 = "Chex Quest 3 was made\n by Charles Jacobi and Digital Cafe";
+QUITMSG28 = "Don't quit now, you can still win!";
+QUITMSG29 = "I hope you're just taking a\nbreak for Chex party mix.";
+
+
+
+//////////////////////////////
+//		Pickup messages
+/////////////////////////////
+
+GOTZORCHPACK = "Picked up a Super Zorchpack!";
+
+GOTCLIP = "Picked up a mini zorch recharge";
+GOTCLIPBOX = "Picked up a box of mini zorch recharges";
+
+GOTSHELLS = "Picked up a large zorch recharge";
+GOTSHELLBOX = "Picked up a box of large zorch recharges";
+
+GOTCELL = "Picked up a phasing zorch recharge";
+GOTCELLBOX = "Picked up a phasing zorch pack";
+
+GOTROCKET = "Picked up a propulsor charge";
+GOTROCKBOX = "Picked up a case of propulsor charges";
+
+
+GOTSPOON = "Picked up a Bootspoon";
+GOTCHAINSAW = "Picked up a super bootspork";
+GOTMINIZORCHER = "Hey, a mini zorcher!"
+GOTSHOTGUN = "You got the large zorcher!";
+GOTSHOTGUN2 = "You got the Super Large Zorcher!";
+GOTCHAINGUN = "You got the rapid Zorcher!";
+GOTLAUNCHER = "Picked up a Zorch Propulsor!";
+GOTPLASMA = "You got the Phasing Zorcher!";
+GOTBFG9000 = "You got the LAZ Device!";
+
+
+// Chukker decided not to use the standard obituaries for some reason
+// defining weapons twice, because invasion will play the doom ones
+// and co-op/ deathmatch will play the chex ones.
+
+GOTSUPERBOOTSPORK = "Picked up a super bootspork";
+GOTLARGEZORCHER = "You got the large zorcher!";
+GOTSUPERLARGEZORCHER = "You got the Super Large Zorcher!";
+GOTRAPIDZORCHER = "You got the rapid Zorcher!";
+GOTZORCHPROPULSOR = "Picked up a Zorch Propulsor!";
+GOTPHASINGZORCHER = "You got the Phasing Zorcher!";
+GOTLAZDEVICE = "You got the LAZ Device!";
+
+
+
+PICKUP_MINIGUN = "You got the ultra rapid zorcher!";
+PICKUP_BFG10K =  "You got the liquid zorcher!";
+
+GOTSTIM = "Ate a bowl of fruit";
+GOTSTIMLOW = "Ate some fruit, you feel a bit better";
+
+GOTMEDINEED = "Ate some vegetables, you feel a lot better";
+GOTMEDIKIT = "Picked up a bowl of vegetables";
+
+GOTARMOR = "Picked up chex armor";
+GOTMEGA = "Picked up the super chex armor!";
+
+GOTHTHBONUS = "Drank a glass of water";
+GOTARMBONUS = "Picked up a can of slime repellant";
+
+PICKUP_MAXHEALTHBONUS = "Drank a glass of OJ";
+PICKUP_MAXARMORBONUS =  "Picked up a can of super slime repellant";
+
+GOTSUIT = "Picked up a slime proof suit";
+
+PICKUP_DOOMSPHERE = "Zorchsphere!";
+
+DUEL32_START = "\cvWelcome to \cjChex Pack Duel!\n\n\ckSelect the map you want to play by touching its picture. If you are alone, you will go directly to the map. If another player is also selecting, you must both agree on the same map.\n\n\cdIf you change your mind, you can return to this hub by spectating. All active players must spectate to return here.\n\n\cfHave fun!\n\nHub coding by AlexMax.";
+DUEL32_SOLO = "\cvWelcome to \cJChex Pack Duel!\n\n\ckRemember, you can return to the hub by spectating.";
+DUEL32_COUNTDOWN = "\cvReturning to the hub in \cj";
+
+SECTEXT = "OKEY THERE'S LIKE A FLEMOIDS AND I'M LIKE THIS\nPLANET BEZORK AND THEY CAPTURED ALL THE\nCEREAL AND...AND YOU KILL THEM, \n-BUT YOU KILL EM WITH GUNS BECAUSE\n1: THIS IS AN E-RATED GAME AND \n2: THIS IS - YOU CAN ONLY KILL EM WITH\nTELE-POTATACLES SEFELDRONES-MENSIONS\nSO WE NEED... WE NEED LIKE SOME... \nREALLY STUPID PERSON TO GONNA\nOUT THERE AND KILL ALL THOSE";

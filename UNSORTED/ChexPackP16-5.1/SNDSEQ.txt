@@ -1,0 +1,6 @@
+:Seq1POLY
+	door 18
+	playuntildone doors/sli1start
+	playrepeat doors/sli1mid
+	stopsound doors/sli1end
+end

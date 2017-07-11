@@ -1,0 +1,21 @@
+Object Maximus
+{
+Frame BOSSH {light maximuspainzorch}
+Frame BOSSI {light maximusdeathzorch1}
+Frame BOSSJ {light maximusdeathzorch2}
+Frame BOSSK {light maximusdeathzorch3}
+Frame BOSSL {light maximusdeathzorch2}
+Frame BOSSM {light maximusdeathzorch1}
+Frame BOSSN {light propulsorlight}
+}
+
+Object DualMaximus
+{
+Frame BOSSH {light maximuspainzorch}
+Frame BOSSI {light maximusdeathzorch1}
+Frame BOSSJ {light maximusdeathzorch2}
+Frame BOSSK {light maximusdeathzorch3}
+Frame BOSSL {light maximusdeathzorch2}
+Frame BOSSM {light maximusdeathzorch1}
+Frame BOSSN {light propulsorlight}
+}

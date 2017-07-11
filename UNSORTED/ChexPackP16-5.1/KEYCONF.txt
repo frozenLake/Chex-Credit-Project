@@ -1,0 +1,10 @@
+clearplayerclasses
+
+addplayerclass ChexPlayer75
+addplayerclass CrateDisguise
+addplayerclass iChexWarrior
+addplayerclass BipedicusWarrior
+addplayerclass CommonousWarrior
+addplayerclass BipedicusWithArmorWarrior
+addplayerclass QuadrumpusWarrior
+addplayerclass RadsuitWarrior

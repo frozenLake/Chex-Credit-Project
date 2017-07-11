@@ -1,0 +1,27 @@
+#library "Cloaker"
+#include "zcommon.acs"
+
+
+
+Script 301 (void)
+{
+	while(CheckInventory("CloakWatch" == 1))
+	{
+		while(CheckInventory("Cloaked") == 0)
+		{
+			GiveInventory("CloakJuice",1);
+			delay(5);
+		}
+		
+		while((CheckInventory("CloakJuice") > 0) && (CheckInventory("Cloaked") == 1))
+		{
+			TakeInventory("Cloakjuice",1);
+			delay(3);
+		}
+		
+		if(CheckInventory("CloakJuice") == 0)
+		{
+			GiveInventory("PowerWatchUncloak",1);
+		}
+	}
+}

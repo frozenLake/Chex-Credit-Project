@@ -1,0 +1,3956 @@
+//------------------------------------------------------------------------------
+//  Chex Player
+//------------------------------------------------------------------------------
+
+DamageType Zorch
+{
+}
+
+actor ChexPlayerV4 : ChexPlayer replaces ChexPlayer
+{
+	BloodType ZorchBlood
+	player.startitem "MiniZorcherV4"
+	player.startitem "MiniZorchRecharge", 50
+	player.startitem "BootspoonV4"
+	player.WeaponSlot 1, BootspoonV4, SuperBootsporkV4
+	player.WeaponSlot 2, MiniZorcherV4
+	player.WeaponSlot 3, LargeZorcherV4
+	player.WeaponSlot 4, RapidZorcherV4
+	player.WeaponSlot 5, ZorchPropulsorV4
+	player.WeaponSlot 6, PhasingZorcherV4
+	player.WeaponSlot 7, LAZDeviceV4
+	player.WeaponSlot 8, BeamZorcherV4
+	PainChance "Zorch", 255
+	States
+	{
+	Pain.Zorch:
+		PLAZ O 4
+		PLAZ O 4 A_Pain
+		Goto Spawn
+	Death.Zorch:
+		PLAZ H 6
+		PLAZ I 6 A_PlayerScream
+		PLAZ J 6 A_NoBlocking
+		PLAZ K 6
+		PLAZ L 6
+		PLAZ M 6
+		PLAZ N -1
+		Stop
+	XDeath.Zorch:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+	Pain.Telefrag:
+		PLAZ O 4
+		PLAZ O 4 A_Pain
+		Goto Spawn
+	Death.Telefrag:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+	XDeath.Telefrag:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+	Pain.InstantDeath:
+		PLAZ O 4
+		PLAZ O 4 A_Pain
+		Goto Spawn
+	Death.InstantDeath:
+		PLAZ H 6
+		PLAZ I 6 A_PlayerScream
+		PLAZ J 6 A_NoBlocking
+		PLAZ K 6
+		PLAZ L 6
+		PLAZ M 6
+		PLAZ N -1
+		Stop
+	XDeath.InstantDeath:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+	Pain.Crush:			// These exist so that Multi 7's death sequence will
+		PLAZ O 4		// display the correct obituary string. I had to use
+		PLAZ O 4 A_Pain // sector damage because the railguns alone won't kill
+		Goto Spawn		// everyone. Because supplying a custom damage type
+	Death.Crush:		// won't let you do a custom obituary, this was the best
+		PLAZ H 6		// solution. The crush obituary string is changed.
+		PLAZ I 6 A_PlayerScream
+		PLAZ J 6 A_NoBlocking
+		PLAZ K 6
+		PLAZ L 6
+		PLAZ M 6
+		PLAZ N -1
+		Stop
+	XDeath.Crush:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+	Pain.Disintegrate:	// These are for the Power Control level. Apologies to
+		PLAZ O 4		// anyone who uses these various damagetypes for
+		PLAZ O 4 A_Pain	// anything.
+		Goto Spawn
+	Death.Disintegrate:
+		PLAZ H 6
+		PLAZ I 6 A_PlayerScream
+		PLAZ J 6 A_NoBlocking
+		PLAZ K 6
+		PLAZ L 6
+		PLAZ M 6
+		PLAZ N -1
+		Stop
+	XDeath.Disintegrate:
+		PLAZ H 3
+		PLAZ I 3 A_PlayerScream
+		PLAZ J 3 A_NoBlocking
+		PLAZ K 3
+		PLAZ L 3
+		PLAZ M 3
+		PLAZ N -1
+		Stop
+		Stop
+	}
+}
+
+actor ZorchBlood : Blood
+{
+	States
+	{
+	Spawn:
+		PLAZ S -1
+		Stop
+	Spray:
+		PLAZ S -1
+		Stop
+	}
+}
+
+//------------------------------------------------------------------------------
+//	Chex Ammo
+//------------------------------------------------------------------------------
+
+// Fusion Zorch ----------------------------------------------------------------
+
+actor FusionZorch : Ammo 22000
+{
+	Game Chex
+	DamageType Zorch
+	Inventory.PickupMessage "Picked up a Fusion Zorch recharge."
+	Inventory.Amount 1
+	Inventory.MaxAmount 10
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 20
+	Inventory.Icon "FUS1A0"
+	States
+	{
+	Spawn:
+		FUS1 A -1
+		Stop
+	}
+}
+
+actor FusionZorchPack : FusionZorch 22001
+{
+	Game Chex
+	Inventory.PickupMessage "Picked up a Fusion Zorch pack."
+	Inventory.Amount 2
+	States
+	{
+	Spawn:
+		FUS2 A -1
+		Loop
+	}
+}
+
+//------------------------------------------------------------------------------
+//	Chex Items
+//------------------------------------------------------------------------------
+
+actor RepellentPack : SlimeRepellent 22002
+{
+	Inventory.PickupMessage "Picked up a pack of slime repellent."
+	Armor.Saveamount 20
+	States
+	{
+	Spawn:
+		RPAC A -1
+		Stop
+	}
+}
+
+actor UltraArmor : InvulnerabilitySphere 2022
+{
+	Game Chex
+	+INVENTORY.ADDITIVETIME
+	Powerup.Color Red
+	Powerup.Duration -30
+	Inventory.PickupMessage "You got the Ultra Armor! You're invincible!"
+	States
+	{
+	Spawn:
+		UAR1 AB 6 Bright
+		Loop
+	}
+}
+
+actor StealthSuit : BlurSphere 2024
+{
+	Game Chex
+	+INVENTORY.ADDITIVETIME
+	Inventory.PickupMessage "You got the stealth suit!"
+	States
+	{
+	Spawn:
+		STLH A -1 Bright
+		Loop
+	}
+}
+
+actor LifeForce : Megasphere 83
+{
+	Game Chex
+	Inventory.PickupMessage "Full power!"
+	States
+	{
+	Spawn:
+		LIFE ABCD 6 BRIGHT
+		Loop
+	}
+}
+
+actor ZorchReactor : PowerupGiver 22041
+{
+	Game Chex
+	+COUNTITEM
+	+INVENTORY.ADDITIVETIME
+	+INVENTORY.AUTOACTIVATE
+	Powerup.Color Gold
+	Powerup.Type "InfiniteAmmo"
+	Powerup.Duration -20
+	Inventory.PickupMessage "You found a zorch reactor! Light 'em up!"
+	States
+	{
+	Spawn:
+		ZRXN ABCD 6 BRIGHT
+		Loop
+	}
+}
+
+// The scuba suit is actually an 'ironfeet' power-up, meaning you can use it to
+// walk on slime. Ironfeet powerups prevent drowning, as well, but who'd want to
+// go scuba-diving in a Slimeproof Suit when you could have one of these,
+// instead? Also, I needed the additive time function to make it last longer on
+// easier difficulties; I just spawned multiple ones in the same spot.
+
+actor ScubaSuit : SlimeproofSuit 22023
+{
+	+COUNTITEM
+	+INVENTORY.ADDITIVETIME
+	Inventory.PickupMessage "You got the scuba suit!"
+	Powerup.Color Blue
+	Powerup.Duration -30
+	States
+	{
+	Spawn:
+		SCUB A -1
+		Stop
+	}
+}
+
+// Multiplayer-only powerups ---------------------------------------------------
+
+actor MultiStealth : StealthSuit 22038
+{
+	Powerup.Duration -20
+}
+
+actor MultiGoggles : UltraGoggles 22039
+{
+	Powerup.Duration -20
+}
+
+actor MultiInvulnerability : UltraArmor 22040
+{
+	Powerup.Duration -20
+	Powerup.Mode Reflective
+}
+
+//------------------------------------------------------------------------------
+//	Chex Weapons - redefined to deal 'Zorch' damage
+//------------------------------------------------------------------------------
+
+// Puff types for hitscan and railguns -----------------------------------------
+
+actor ZorchPuff : BulletPuff replaces BulletPuff
+{
+	DamageType Zorch
+}
+
+actor ZorchRailPuff : BulletPuff
+{
+	+ALWAYSPUFF
+	DamageType Zorch
+}
+
+// The all-new STEALTH Bootspoon -----------------------------------------------
+
+actor BootspoonV4 : Bootspoon replaces Bootspoon
+{
+	+WEAPON.NOALERT // BOOYAH
+	Weapon.Slotnumber 1
+	Tag "Bootspoon" // It's not just a 'spoon'--it's a BOOTSPOON.
+	DamageType Zorch
+}
+
+// Super Bootspork -------------------------------------------------------------
+
+actor SuperBootsporkV4 : SuperBootspork replaces SuperBootspork
+{
+	+INVENTORY.ALWAYSPICKUP
+	Weapon.SelectionOrder 1500
+	Weapon.Slotnumber 1
+	DamageType Zorch
+}
+
+// Mini Zorcher ----------------------------------------------------------------
+
+actor MiniZorcherV4 : MiniZorcher replaces MiniZorcher
+{
+	Weapon.Slotnumber 2
+	DamageType Zorch
+}
+
+// Large Zorcher ---------------------------------------------------------------
+
+actor LargeZorcherV4 : LargeZorcher replaces LargeZorcher
+{
+	Weapon.Slotnumber 3
+	DamageType Zorch
+}
+
+// Rapid Zorcher ---------------------------------------------------------------
+
+actor RapidZorcherV4 : RapidZorcher replaces RapidZorcher
+{
+	Weapon.Slotnumber 4
+	DamageType Zorch
+}
+
+// Zorch Propulsor -------------------------------------------------------------
+
+actor ZorchPropulsorV4 : ZorchPropulsor replaces ZorchPropulsor
+{
+	Weapon.SelectionOrder 200
+	Weapon.Slotnumber 5
+	-WEAPON.NOAUTOFIRE // Personally, I think this is quite useful.
+	DamageType Zorch
+	States
+	{
+	Fire:
+		MISG B 8 A_GunFlash
+		MISG B 12 A_FireCustomMissile("PropulsorMissileV4")
+		MISG B 0 A_ReFire
+		Goto Ready
+	}
+}
+
+actor PropulsorMissileV4 : PropulsorMissileV3 replaces PropulsorMissileV3
+{
+	DamageType Zorch
+}
+
+// Phasing Zorcher -------------------------------------------------------------
+
+actor PhasingZorcherV4 : PhasingZorcher replaces PhasingZorcher
+{
+	Weapon.Slotnumber 6
+	DamageType Zorch
+	States
+	{
+	Fire:
+		PLSG A 0 A_GunFlash
+		PLSG A 3 A_FireCustomMissile("PhaseZorchMissileV4")
+		PLSG B 20 A_ReFire
+		Goto Ready
+	Flash:
+		PLSF A 0 A_Jump(128, "Flash2")
+		PLSF A 3 Bright A_Light1
+		Goto LightDone
+	Flash2:
+		PLSF B 3 Bright A_Light1
+		Goto LightDone
+	}
+}	
+
+actor PhaseZorchMissileV4 : PhaseZorchMissile replaces PhaseZorchMissile
+{
+	DamageType Zorch
+}
+
+// LAZ Device ------------------------------------------------------------------
+
+actor LAZDeviceV4 : LAZDevice replaces LAZDevice
+{
+	Weapon.Slotnumber 7
+	DamageType Zorch
+	States
+	{
+	Fire:
+		BFGG A 20 A_BFGsound
+		BFGG B 10 A_GunFlash
+		BFGG B 10 A_FireCustomMissile("LAZBallV4")
+		BFGG B 20 A_ReFire
+		Goto Ready
+	}
+}
+
+actor LAZBallV4 : LAZBall replaces LAZBall
+{
+	DamageType Zorch
+}
+
+actor LAZExtra : BFGExtra replaces BFGExtra
+{
+	DamageType Zorch
+}
+
+// Beam Zorcher ----------------------------------------------------------------
+
+actor BeamZorcherV4 : DoomWeapon 22007
+{ 
+	Game Chex
+	Weapon.SelectionOrder 1600
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 1
+	Weapon.AmmoType "FusionZorch"
+	Weapon.Slotnumber 8
+	Inventory.PickupMessage "You got the Beam Zorcher!"
+	Tag "Beam Zorcher"
+	DamageType Zorch
+	Obituary "%o was beam-zorched by %k."
+	States
+	{
+	Ready:
+		BEAM A 1 A_WeaponReady
+		Loop
+	Deselect:
+		BEAM A 1 A_Lower
+		Loop
+	Select:
+		BEAM A 1 A_Raise
+		Loop
+	Fire:
+		BEAM B 4
+		BEAM B 0 A_Light (20)
+		BEAM C 8 A_RailAttack (500, 0, 1, "DF8080", "DF0000", RGF_FULLBRIGHT, 0 , "ZorchRailPuff", 0, 0, 0, 0, 32, 0, "BeamZorch") 
+		BEAM B 0 A_Light0
+		BEAM B 21
+		BEAM A 8 A_ReFire
+		Goto Ready
+	Flash:
+		BEAM B 4 Bright A_Light1
+		BEAM C 3 Bright A_Light2
+		Goto LightDone
+	Spawn:
+		BEAM D -1
+		Stop
+	}
+}
+
+actor BeamZorch
+{
+	Alpha 0.7
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		ZORC A 2 Bright A_FadeIn (0.1)
+		ZORC A 2 Bright A_FadeIn (0.1)
+		ZORC A 2 Bright A_FadeIn (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		ZORC A 1 Bright A_FadeOut (0.1)
+		Stop
+	}
+}
+
+// I know it didn't need to be called 'V4', because it is new, but whenever I
+// typed weapon names into the console I always forgot this was the only one
+// that didn't have it and I got frustrated forgetting, so I gave in and changed
+// it. You guys are just gonna have to deal.
+
+//------------------------------------------------------------------------------
+//	Chex Monsters
+//------------------------------------------------------------------------------
+
+// Commonus --------------------------------------------------------------------
+
+actor CommonusV4 : FlemoidusCommonusV3 replaces FlemoidusCommonusV3
+{
+	DamageFactor "Melee", 0.0
+	States
+	{
+	Pain.Melee:
+		Goto See
+	}
+}
+	
+actor StealthCommonus : CommonusV4 20001
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Flemoid."
+	States
+	{
+	Melee:
+		POSS AB 5 Fast A_FaceTarget
+		POSS E 10 A_FaceTarget
+		POSS F 10 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		Goto See
+	}
+}
+
+// Bipedicus -------------------------------------------------------------------
+
+actor BipedicusV4 : FlemoidusBipedicusV3 replaces FlemoidusBipedicusV3
+{
+	Speed 9
+	PainChance 175
+	DamageFactor "Melee", 0.0
+	States
+	{
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthBipedicus : BipedicusV4 20002
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Bipedicus."
+	States
+	{
+	Melee:
+		SPOS AB 5 Fast A_FaceTarget
+		SPOS E 14 A_FaceTarget
+		SPOS F 14 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		Goto See
+	}
+}
+
+// Armored Bipedicus -----------------------------------------------------------
+
+actor ArmoredBipedicusV4 : ArmoredFlemoidusBipedicusV3 replaces ArmoredFlemoidusBipedicusV3
+{
+	Health 75
+	Speed 10
+	PainChance 160
+	DamageFactor "Melee", 0.0
+	States
+	{
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthArmoredBipedicus : ArmoredBipedicusV4 20003
+{
+	+STEALTH
+	Obituary "%o thought %g saw an Armored Bipedicus."
+	States
+	{
+	Missile:
+		TROO AB 5 Fast A_FaceTarget
+		TROO EF 8 A_FaceTarget
+		TROO G 6 A_CustomComboAttack("BipedicusBallV3", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	}
+}
+
+// Quadrumpus ------------------------------------------------------------------
+
+actor QuadrumpusV4 : Quadrumpus replaces Quadrumpus
+{
+	DamageFactor "Melee", 0.0
+	States
+	{
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthQuadrumpus : QuadrumpusV4 20009
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Quadrumpus."
+	States
+	{
+	Missile:
+		QUAD AB 5 Fast A_FaceTarget
+		QUAD EF 8 A_FaceTarget
+		QUAD G 6 A_CustomComboAttack("BipedicusBallV3", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	}
+}
+
+// Hovering Armored Bipedicus --------------------------------------------------
+
+actor FlyingBipedicusV4 : ArmoredBipedicusV4 20010
+{
+	Health 80
+	PainChance 155
+	MeleeThreshold 200
+	MeleeRange 92
+	DamageFactor "Melee", 0.0
+	DamageFactor "Flem", 0.0
+	DamageFactor "Slime", 0.0
+	DamageType Flem
+	DamageType Slime
+	Damage 4
+	+FLOAT
+	+NOGRAVITY
+	+NOLIFTDROP
+	+DONTFALL
+	+NOVERTICALMELEERANGE
+	Obituary "%o was slimed by a flying armored Bipedicus."
+	States
+	{
+	Spawn:
+		FLYR AB 10 A_Look
+		Loop
+	See:
+		FLYR AABBCCDD 3 A_Chase("Melee", "Missile")
+		Loop
+	Missile:
+		FLYR EF 8 A_FaceTarget
+		FLYR G 6 A_CustomComboAttack("BipedicusBallV3", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	Melee:
+		FLYR EF 8 A_FaceTarget
+		FLYR G 6 A_SkullAttack
+		Goto See
+	Pain:
+		FLYR H 2
+		FLYR H 2 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		FLYR I 8
+		FLYR J 8 A_Scream
+		FLYR K 6
+		FLYR L 6 A_NoBlocking
+		FLYR M -1 A_QueueCorpse
+		Stop
+	XDeath:
+		FLYR N 5
+		FLYR O 5 A_XScream
+		FLYR P 5
+		FLYR Q 5 A_NoBlocking
+		FLYR RST 5
+		FLYR U -1
+		Stop
+	Raise:
+		FLYR M 0 A_UnSetFloorClip
+		FLYR MLKJI 8
+		Goto See
+	}
+}
+
+actor StealthFlyingBipedicus : FlyingBipedicusV4 20011
+{
+	+STEALTH
+	Obituary "%o thought %g saw a flying armored Bipedicus."
+	States
+	{
+	Missile:
+		FLYR AB 5 Fast A_FaceTarget
+		FLYR EF 8 A_FaceTarget
+		FLYR G 6 A_CustomComboAttack("BipedicusBallV3", 32, random[troopattack](1,8)*3, "imp/melee", "flem")
+		Goto See
+	Melee:
+		FLYR AB 5 Fast A_FaceTarget
+		FLYR EF 8 A_FaceTarget
+		FLYR G 6 A_SkullAttack
+		Goto See
+	}
+}
+
+// Stridicus (some states are redefined to accomodate the new 'fast' coding)----
+
+actor StridicusV4 : FlemoidusStridicus replaces FlemoidusStridicus
+{
+	Health 250
+	Speed 18 // They're faster than you now, but they zig-zag. Run!
+	DamageFactor "Melee", 0.0
+	States
+	{
+	See:
+		SARG AABBCCDD 2 Fast A_Chase
+		Loop
+	Melee:
+		SARG EF 8 Fast A_FaceTarget
+		SARG G 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		SARG H 2 Fast
+		SARG H 2 Fast A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthStridicus : StridicusV4 20004
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Stridicus."
+	States
+	{
+	Melee:
+		SARG AB 5 Fast A_FaceTarget
+		SARG EF 8 Fast A_FaceTarget
+		SARG G 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	}
+}
+
+// Cycloptis (some states are redefined to accomodate the new 'fast' coding)----
+
+actor CycloptisV4 : FlemoidusCycloptisCommonusV3 replaces FlemoidusCycloptisCommonusV3
+{
+	Health 175
+	Speed 14
+	DamageFactor "Melee", 0.0
+	States
+	{
+	See:
+		CYCL AABBCCDD 2 Fast A_Chase
+		Loop
+	Melee:
+		CYCL EF 8 Fast A_FaceTarget
+		CYCL G 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		CYCL H 2 Fast
+		CYCL H 2 Fast A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthCycloptis : CycloptisV4 20005
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Cycloptis."
+	States
+	{
+	Melee:
+		CYCL AB 5 Fast A_FaceTarget
+		CYCL EF 8 Fast A_FaceTarget
+		CYCL G 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	}
+}
+
+// Larva (some states are redefined to accomodate the new 'fast' coding)--------
+
+actor LarvaV4 : Larva replaces Larva
+{
+	Speed 10
+	DamageFactor "Melee", 0.0
+	States
+	{
+	See:
+		LRVA AABBAABB 2 Fast A_Chase
+		Loop
+	Melee:
+		LRVA CD 8 Fast A_FaceTarget
+		LRVA E 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		LRVA F 2 Fast
+		LRVA F 2 Fast A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthLarva : LarvaV4 20008
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Larva."
+	States
+	{
+	Melee:
+		LRVA AB 5 Fast A_FaceTarget
+		LRVA CD 8 Fast A_FaceTarget
+		LRVA E 8 Fast A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	}
+}
+
+// Super Cycloptis--------------------------------------------------------------
+
+actor SuperCycloptisV4 : SuperCycloptis replaces SuperCycloptis
+{
+	DamageFactor "Melee", 0.0
+}
+
+actor StealthSuperCycloptis : SuperCycloptisV4 20006
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Super Cycloptis."
+	States
+	{
+	Missile:
+		HEAD B 5 Fast A_FaceTarget
+		HEAD B 5 A_FaceTarget
+		HEAD C 5 A_FaceTarget
+		HEAD D 5 A_CustomComboAttack("CycloptisBall", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	}
+}
+
+// Flem Mine (redefined to prevent friendly fire issues in ZDoom.exe) ----------
+
+// It took me four years to figure out a work-around for this. I wanted to make
+// it so that CQ3 could be usable with any version of ZDoom rather than be
+// dependent on a special executable that was stuck in the past, and the coding
+// for the Flem Mines broke their teamkilling ability. After a while, I happened
+// to be reading about how A_SkullAttack was coded, and when I learned that the
+// damage type is hard-coded as melee, the solution occurred to me: apply a zero
+// damage factor for melee. Problem solved! The obvious side-effect is that
+// you can't kill Flemoids with melee attacks, but with everything assuming a
+// zorch damage type for this episode, that problem fixed itself. Chex Warrior
+// can now actually do something Doomguy can't: melee-zorch Flemoids!
+
+actor FlemMineV4 : FlemMine replaces FlemMine
+{
+	DamageType Flem
+	DamageType Slime
+	DamageFactor "Melee", 0.0
+	States
+	{
+	Pain.Melee:
+		Goto See
+	}
+}
+
+// Maximus (some states are redefined to accomodate the new 'fast' coding)------
+
+actor MaximusV4 : FlemoidusMaximus replaces FlemoidusMaximus
+{
+	+BOSS
+	+QUICKTORETALIATE
+	DamageFactor "Melee", 0.0
+	States
+	{
+	See:
+		BOSS AABBCCDD 3 Fast A_Chase
+		Loop
+	Melee:
+	Missile:
+		BOSS EF 6 Fast A_FaceTarget
+		BOSS G 3 Fast A_CustomComboAttack("MaximusBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	Pain:
+		BOSS H  2 Fast
+		BOSS H  2 Fast A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	}
+}
+
+actor StealthMaximus : MaximusV4 20007
+{
+	+STEALTH
+	Obituary "%o thought %g saw a Maximus."
+	States
+	{
+	Missile:
+		BOSS AB 5 Fast A_FaceTarget
+		BOSS EF 6 Fast A_FaceTarget
+		BOSS G 3 Fast A_CustomComboAttack("MaximusBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+// Flembrane (some states are redefined to accomodate the new 'fast' coding)----
+
+actor FlembraneV4 : FlembraneV3 replaces FlembraneV3
+{
+	+BOSS
+	+QUICKTORETALIATE
+	DamageFactor "Melee", 0.0
+	Mass 0x7ffffff // Not that it really matters...
+	States
+	{
+	See:
+		FLMB AABBAAB 3 Fast A_Chase
+		Loop
+	Melee:
+	Missile:
+		FLMB EF 3 Fast A_FaceTarget
+		FLMB G 2 Fast A_CustomComboAttack("MaximusBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	Pain:
+		FLMB H  2 Fast
+		FLMB H  2 Fast A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		FLMB I  8
+		FLMB J  8 A_Scream
+		FLMB K  8
+		FLMB L  8 A_NoBlocking
+		FLMB MN 8
+		FLMB O -1
+		Stop
+	}
+}
+
+// Flembrane Boss --------------------------------------------------------------
+
+actor FlembraneBossEasiest : FlembraneV4 19301
+{
+	Species "FlembraneBoss"
+	PainChance 100
+	DamageFactor "Melee", 0.0
+	+BOSS
+	+NEVERRESPAWN
+	+NOFEAR
+	+SEEINVISIBLE
+	+THRUSPECIES
+	+MTHRUSPECIES
+	States
+	{
+	Melee:
+	Missile:
+		FLMB EF 12 A_FaceTarget
+		FLMB G 12 A_CustomComboAttack("FlembraneBossBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+actor FlembraneBossEasy : FlembraneBossEasiest 19302
+{
+	Health 1500
+	PainChance 75
+	States
+	{
+	Melee:
+	Missile:
+		FLMB EF 8 A_FaceTarget
+		FLMB G 8 A_CustomComboAttack("FlembraneBossBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+actor FlembraneBossMedium : FlembraneBossEasy 19303
+{
+	Health 2000
+	PainChance 50
+	States
+	{
+	Melee:
+	Missile:
+		FLMB EF 6 A_FaceTarget
+		FLMB G 6 A_CustomComboAttack("FlembraneBossBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+actor FlembraneBossHard : FlembraneBossMedium 19304
+{
+	Health 2500
+	PainChance 40
+	States
+	{
+	Melee:
+	Missile:
+		FLMB EF 8 Fast A_FaceTarget
+		FLMB G 8 Fast A_CustomComboAttack("FlembraneBossBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+actor FlembraneBossHardest : FlembraneBossHard 19305
+{
+	Health 3000
+	PainChance 30
+	States
+	{
+	Melee:
+	Missile:
+		FLMB EF 6 Fast A_FaceTarget
+		FLMB G 6 Fast A_CustomComboAttack("FlembraneBossBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+		Goto See
+	}
+}
+
+actor FlembraneBossBall : MaximusBall
+{
+	Species "FlembraneBoss"
+	+THRUSPECIES
+	+MTHRUSPECIES
+}
+
+// Maximus Boss (for Maximi that aren't supposed to respawn) -------------------
+
+actor MaximusBoss : MaximusV4 19501
+{
+	+NOTELEFRAG
+	+NEVERRESPAWN
+	+NOFEAR
+	+SEEINVISIBLE
+	+LOOKALLAROUND
+}
+
+// The Flembomination Boss, and its projectiles --------------------------------
+
+actor FlembominationBossEasiest : Flembomination 19701
+{
+	Health 5000
+	Mass 0x7ffffff
+	Speed 10
+	PainChance 50
+	DamageFactor "Melee", 0.0
+	Species "Flembomination"
+	+MISSILEEVENMORE
+	+NOTELEFRAG
+	+NEVERRESPAWN
+	+QUICKTORETALIATE
+	+LOOKALLAROUND
+	+NOFEAR
+	+SEEINVISIBLE
+	+THRUSPECIES
+	States
+	{
+	See:
+		SPID A 6 A_Hoof
+		SPID ABBCC 3 A_Chase
+		SPID D 6 A_Metal
+		SPID D 6 A_Chase
+		SPID D 0 A_Jump(256, "Attack1")
+		Loop
+	Missile:
+		SPID D 0 A_Jump(256, "Attack1")
+		Goto See
+	Attack1:
+		SPID F 16 A_FaceTarget 
+		SPID G 16 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 16 A_FaceTarget 
+ 		SPID H 16 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		SPID J 0 A_KillChildren
+		SPID J 20 A_Scream
+		SPID K 10 A_NoBlocking
+		SPID LMNOPQR 10 A_KillChildren
+		SPID S 1 A_BossDeath
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S 10 A_KillChildren
+		SPID S -1
+		Stop
+	}
+}
+
+actor FlembominationBossEasy : FlembominationBossEasiest 19702
+{
+	Health 6250
+	PainChance 45
+	Speed 12
+	States
+	{
+	Attack1:
+		SPID D 0 A_JumpIfHealthLower(3000, "Attack2")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack2:
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	}
+}
+
+actor FlembominationBossMedium : FlembominationBossEasy 19703
+{
+	Health 7500
+	PainChance 40
+	Speed 14
+	States
+	{
+	See:
+		SPID A 3 A_Hoof
+		SPID ABBCC 3 A_Chase
+		SPID D 3 A_Metal
+		SPID D 3 A_Chase
+		SPID D 0 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		SPID D 0 A_JumpIfHealthLower(3250, "Attack2")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack2:
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	}
+}
+
+actor FlembominationBossHard : FlembominationBossMedium 19704
+{
+	Health 8750
+	PainChance 35
+	Speed 16
+	States
+	{
+	Attack1:
+		SPID D 0 A_JumpIfHealthLower(6000, "Attack2")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack2:
+		SPID D 0 A_JumpIfHealthLower(3000, "Attack3")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack3:
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	}
+}
+
+actor FlembominationBossHardest : FlembominationBossHard 19705
+{
+	Health 10000
+	PainChance 30
+	Speed 20
+	States
+	{
+	Attack1:
+		SPID D 0 A_JumpIfHealthLower(7000, "Attack2")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+		SPID G 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 8 A_FaceTarget 
+ 		SPID H 8 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack2:
+		SPID D 0 A_JumpIfHealthLower(5000, "Attack3")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+		SPID G 6 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 6 A_FaceTarget 
+ 		SPID H 6 A_CustomComboAttack("FlemBall1", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack3:
+		SPID D 0 A_JumpIfHealthLower(3000, "Attack4")
+		SPID F 4 A_FaceTarget 
+		SPID G 4 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 4 A_FaceTarget 
+ 		SPID H 4 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 4 A_FaceTarget 
+		SPID G 4 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		SPID F 4 A_FaceTarget 
+ 		SPID H 4 A_CustomComboAttack("FlemBall2", 32, random[headattack](1,6)*10, "", "flem")
+		Goto See
+	Attack4:
+		SPID F 8 A_FaceTarget 
+		SPID G 4 
+		SPID H 4 A_CustomMissile("FlemBall2", 32, 0, 0)
+ 		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 36)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 72)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 108)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 144)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 180)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 216)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 252)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 288)
+		SPID H 0 A_CustomMissile("FlemBall2", 32, 0, 324)
+		Goto See
+	}
+}
+
+actor FlemBall1
+{
+	Game Chex
+	Radius 30
+	Height 16
+	Speed 10
+	FastSpeed 18
+	Damage 20
+	Projectile
+	DamageType Flem
+	+RANDOMIZE
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("FlemCommonus", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor FlemBall2
+{
+	Game Chex
+	Radius 30
+	Height 16
+	Speed 10
+	FastSpeed 18
+	Damage 20
+	Projectile
+	DamageType Flem
+	+RANDOMIZE
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("FlemLarva", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor FlemCommonus : CommonusV4
+
+{
+	Species "Flembomination"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by the Flembomination."
+}
+
+actor FlemLarva : LarvaV4
+{
+	Health 60
+	Species "Flembomination"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by the Flembomination."
+}
+
+// Lord Snotfolus and his projectiles ------------------------------------------
+
+// Health
+// Hardest = 25,000 + regeneration
+// Hard = 22,500
+// Medium = 20,000
+// Easy = 17,500
+// Easiest = 15,000
+
+actor SnotfolusBossEasiest 19901
+{
+	Game Chex
+	SpawnID 114
+	Health 15000
+	Radius 50
+	Height 110
+	Mass 0x7ffffff
+	Species "Snot"
+	DamageFactor "Slime", 0.0
+	DamageFactor "Flem", 0.0
+	DamageFactor "Melee", 0.0
+	Speed 8
+	PainChance 35
+	Monster
+	MinMissileChance 160
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+QUICKTORETALIATE
+	+FASTER
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	+DONTGIB
+	+NEVERRESPAWN
+	+NOTELEFRAG
+	+NOFEAR
+	+MISSILEEVENMORE
+	+LOOKALLAROUND
+	+SEEINVISIBLE
+	+MTHRUSPECIES
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+	Obituary "$OB_SNOTFOLUS"
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		CYBR D 3 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		CYBR D 0 A_JumpIfHealthLower(12500, "Attack2")
+		CYBR D 0 A_Jump(256, "Attack1a", "Attack1b", "Attack1c")
+	Attack1a:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack1b:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack1c:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2:
+		CYBR D 0 A_JumpIfHealthLower(10000, "Attack3")
+		CYBR D 0 A_Jump(256, "Attack2a", "Attack2b", "Attack2c")
+	Attack2a:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2b:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack2c:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3:
+		CYBR D 0 A_JumpIfHealthLower(7500, "Attack4")
+		CYBR D 0 A_Jump(256, "Attack3a", "Attack3b", "Attack3c")
+	Attack3a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall1", 32)
+		Goto See
+	Attack3b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack4:
+		CYBR D 0 A_JumpIfHealthLower(5000, "Attack5")
+		CYBR D 0 A_Jump(256, "Attack4a", "Attack4b", "Attack4c")
+	Attack4a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall2", 32)
+		Goto See
+	Attack4b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack4c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack5:
+		CYBR D 0 A_JumpIfHealthLower(2500, "Attack6")
+		CYBR D 0 A_Jump(256, "Attack5a", "Attack5b", "Attack5c")
+	Attack5a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		Goto See
+	Attack5b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack5c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack6:
+		CYBR D 0 A_Jump(256, "Attack6a", "Attack6b")
+	Attack6a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		Goto See
+	Attack6b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		CYBR H 10 A_KillChildren
+		CYBR I 1 A_Scream
+		CYBR I 9 A_KillChildren
+		CYBR JKL 10 A_KillChildren
+		CYBR M 1 A_NoBlocking
+		CYBR M 9 A_KillChildren
+		CYBR NO 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBossEasy : SnotfolusBossEasiest 19902
+
+{
+	Health 17500
+	Speed 10
+	PainChance 30
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		CYBR D 3 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		CYBR D 0 A_JumpIfHealthLower(15000, "Attack2")
+		CYBR D 0 A_Jump(256, "Attack1a", "Attack1b", "Attack1c")
+	Attack1a:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack1b:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack1c:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2:
+		CYBR D 0 A_JumpIfHealthLower(12500, "Attack3")
+		CYBR D 0 A_Jump(256, "Attack2a", "Attack2b", "Attack2c")
+	Attack2a:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2b:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack2c:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3:
+		CYBR D 0 A_JumpIfHealthLower(10000, "Attack4")
+		CYBR D 0 A_Jump(256, "Attack3a", "Attack3b", "Attack3c")
+	Attack3a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall1", 32)
+		Goto See
+	Attack3b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack4:
+		CYBR D 0 A_JumpIfHealthLower(7500, "Attack5")
+		CYBR D 0 A_Jump(256, "Attack4a", "Attack4b", "Attack4c")
+	Attack4a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall2", 32)
+		Goto See
+	Attack4b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack4c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack5:
+		CYBR D 0 A_JumpIfHealthLower(5000, "Attack6")
+		CYBR D 0 A_Jump(256, "Attack5a", "Attack5b", "Attack5c")
+	Attack5a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		Goto See
+	Attack5b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack5c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack6:
+		CYBR D 0 A_JumpIfHealthLower(2500, "Attack7")
+		CYBR D 0 A_Jump(256, "Attack6a", "Attack6b")
+	Attack6a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		Goto See
+	Attack6b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack7:
+		CYBR D 0 A_Jump(256, "Attack7a")
+	Attack7a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		CYBR H 10 A_KillChildren
+		CYBR I 1 A_Scream
+		CYBR I 9 A_KillChildren
+		CYBR JKL 10 A_KillChildren
+		CYBR M 1 A_NoBlocking
+		CYBR M 9 A_KillChildren
+		CYBR NO 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBossMedium : SnotfolusBossEasiest 19903
+
+{
+	Health 20000
+	Speed 12
+	PainChance 25
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		CYBR D 3 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		CYBR D 0 A_JumpIfHealthLower(17500, "Attack2")
+		CYBR D 0 A_Jump(256, "Attack1a", "Attack1b", "Attack1c")
+	Attack1a:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack1b:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack1c:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2:
+		CYBR D 0 A_JumpIfHealthLower(15000, "Attack3")
+		CYBR D 0 A_Jump(256, "Attack2a", "Attack2b", "Attack2c")
+	Attack2a:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2b:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack2c:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3:
+		CYBR D 0 A_JumpIfHealthLower(12500, "Attack4")
+		CYBR D 0 A_Jump(256, "Attack3a", "Attack3b", "Attack3c")
+	Attack3a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall1", 32)
+		Goto See
+	Attack3b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack4:
+		CYBR D 0 A_JumpIfHealthLower(10000, "Attack5")
+		CYBR D 0 A_Jump(256, "Attack4a", "Attack4b", "Attack4c")
+	Attack4a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall2", 32)
+		Goto See
+	Attack4b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack4c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack5:
+		CYBR D 0 A_JumpIfHealthLower(7500, "Attack6")
+		CYBR D 0 A_Jump(256, "Attack5a", "Attack5b", "Attack5c")
+	Attack5a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		Goto See
+	Attack5b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack5c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack6:
+		CYBR D 0 A_JumpIfHealthLower(5000, "Attack7")
+		CYBR D 0 A_Jump(256, "Attack6a", "Attack6b")
+	Attack6a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		Goto See
+	Attack6b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack7:
+		CYBR D 0 A_JumpIfHealthLower(2500, "Attack8")
+		CYBR D 0 A_Jump(256, "Attack7a")
+	Attack7a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack8:
+		CYBR D 0 A_Jump(256, "Attack8a", "Attack8b")
+	Attack8a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		Goto See	
+	Attack8b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		CYBR H 10 A_KillChildren
+		CYBR I 1 A_Scream
+		CYBR I 9 A_KillChildren
+		CYBR JKL 10 A_KillChildren
+		CYBR M 1 A_NoBlocking
+		CYBR M 9 A_KillChildren
+		CYBR NO 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBossHard : SnotfolusBossEasiest 19904
+
+{
+	Health 22500
+	Speed 14
+	PainChance 20
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		CYBR D 3 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		CYBR D 0 A_JumpIfHealthLower(20000, "Attack2")
+		CYBR D 0 A_Jump(256, "Attack1a", "Attack1b", "Attack1c")
+	Attack1a:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack1b:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack1c:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2:
+		CYBR D 0 A_JumpIfHealthLower(17500, "Attack3")
+		CYBR D 0 A_Jump(256, "Attack2a", "Attack2b", "Attack2c")
+	Attack2a:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2b:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack2c:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3:
+		CYBR D 0 A_JumpIfHealthLower(15000, "Attack4")
+		CYBR D 0 A_Jump(256, "Attack3a", "Attack3b", "Attack3c")
+	Attack3a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall1", 32)
+		Goto See
+	Attack3b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack4:
+		CYBR D 0 A_JumpIfHealthLower(12500, "Attack5")
+		CYBR D 0 A_Jump(256, "Attack4a", "Attack4b", "Attack4c")
+	Attack4a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall2", 32)
+		Goto See
+	Attack4b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack4c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack5:
+		CYBR D 0 A_JumpIfHealthLower(10000, "Attack6")
+		CYBR D 0 A_Jump(256, "Attack5a", "Attack5b", "Attack5c")
+	Attack5a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		Goto See
+	Attack5b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack5c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack6:
+		CYBR D 0 A_JumpIfHealthLower(7500, "Attack7")
+		CYBR D 0 A_Jump(256, "Attack6a", "Attack6b")
+	Attack6a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		Goto See
+	Attack6b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack7:
+		CYBR D 0 A_JumpIfHealthLower(5000, "Attack8")
+		CYBR D 0 A_Jump(256, "Attack7a")
+	Attack7a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack8:
+		CYBR D 0 A_JumpIfHealthLower(2500, "Attack9")
+		CYBR D 0 A_Jump(256, "Attack8a", "Attack8b")
+	Attack8a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		Goto See	
+	Attack8b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack9:
+		CYBR D 0 A_Jump(256, "Attack9a")
+	Attack9a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 10 A_FaceTarget
+		CYBR E 5 A_CustomMissile("SpawnBall1", 32, 0, 0)
+ 		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 36)
+		CYBR E 0 A_CustomMissile("SpawnBall3", 32, 0, 72)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 108)
+		CYBR E 0 A_CustomMissile("SpawnBall1", 32, 0, 144)
+		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 180)
+		CYBR E 0 A_CustomMissile("SpawnBall3", 32, 0, 216)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 252)
+		CYBR E 0 A_CustomMissile("SpawnBall1", 32, 0, 288)
+		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 324)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		CYBR H 10 A_KillChildren
+		CYBR I 1 A_Scream
+		CYBR I 9 A_KillChildren
+		CYBR JKL 10 A_KillChildren
+		CYBR M 1 A_NoBlocking
+		CYBR M 9 A_KillChildren
+		CYBR NO 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBossHardest : SnotfolusBossEasiest 19905
+
+{
+	Health 25000
+	Speed 16
+	PainChance 15
+	States
+	{
+	Spawn:
+		CYBR AB 10 A_Look
+		Loop
+	See:
+		CYBR A 3 A_Hoof
+		CYBR ABBCC 3 A_Chase
+		CYBR D 3 A_Metal
+		CYBR D 3 A_Chase
+		CYBR D 3 A_Jump(256, "Attack1")
+		Loop
+	Attack1:
+		CYBR D 0 A_JumpIfHealthLower(22500, "Attack2")
+		CYBR D 0 A_Jump(256, "Attack1a", "Attack1b", "Attack1c")
+	Attack1a:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack1b:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack1c:	
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2:
+		CYBR D 0 A_JumpIfHealthLower(20000, "Attack3")
+		CYBR D 0 A_Jump(256, "Attack2a", "Attack2b", "Attack2c")
+	Attack2a:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack2b:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack2c:
+		CYBR E 4 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3:
+		CYBR D 0 A_JumpIfHealthLower(17500, "Attack4")
+		CYBR D 0 A_Jump(256, "Attack3a", "Attack3b", "Attack3c")
+	Attack3a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall1", 32)
+		Goto See
+	Attack3b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack3c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		Goto See
+	Attack4:
+		CYBR D 0 A_JumpIfHealthLower(15000, "Attack5")
+		CYBR D 0 A_Jump(256, "Attack4a", "Attack4b", "Attack4c")
+	Attack4a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SpawnBall2", 32)
+		Goto See
+	Attack4b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack4c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack5:
+		CYBR D 0 A_JumpIfHealthLower(12500, "Attack6")
+		CYBR D 0 A_Jump(256, "Attack5a", "Attack5b", "Attack5c")
+	Attack5a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		Goto See
+	Attack5b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack5c:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR F 3 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack6:
+		CYBR D 0 A_JumpIfHealthLower(10000, "Attack7")
+		CYBR D 0 A_Jump(256, "Attack6a", "Attack6b")
+	Attack6a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 6 A_FaceTarget
+		CYBR F 8 A_CustomMissile("SpawnBall4", 32)
+		Goto See
+	Attack6b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack7:
+		CYBR D 0 A_JumpIfHealthLower(7500, "Attack8")
+		CYBR D 0 A_Jump(256, "Attack7a")
+	Attack7a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		CYBR F 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32)
+		Goto See
+	Attack8:
+		CYBR D 0 A_JumpIfHealthLower(5000, "Attack9")
+		CYBR D 0 A_Jump(256, "Attack8a", "Attack8b")
+	Attack8a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall4", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall2", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR F 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		CYBR E 9 A_FaceTarget
+		CYBR F 9 A_CustomMissile("SpawnBall3", 32)
+		Goto See	
+	Attack8b:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -11)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 11)
+		CYBR E 1 A_FaceTarget
+		CYBR F 2 A_CustomMissile("SnotfolusBall", 32, 0, 0)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, -22)
+		CYBR F 0 A_CustomMissile("SnotfolusBall", 32, 0, 22)
+		Goto See
+	Attack9:
+		CYBR D 0 A_JumpIfHealthLower(2500, "Attack10")
+		CYBR D 0 A_Jump(256, "Attack9a")
+	Attack9a:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 12 A_FaceTarget
+		CYBR E 6 A_CustomMissile("SpawnBall1", 32, 0, 0)
+ 		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 36)
+		CYBR E 0 A_CustomMissile("SpawnBall3", 32, 0, 72)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 108)
+		CYBR E 0 A_CustomMissile("SpawnBall1", 32, 0, 144)
+		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 180)
+		CYBR E 0 A_CustomMissile("SpawnBall3", 32, 0, 216)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 252)
+		CYBR E 0 A_CustomMissile("SpawnBall1", 32, 0, 288)
+		CYBR E 0 A_CustomMissile("SpawnBall2", 32, 0, 324)
+		Goto See
+	Attack10:
+		CYBR ABBCC 3 A_Chase
+		CYBR E 6 A_FaceTarget
+		CYBR E 3 A_CustomMissile("SpawnBall4", 32, 0, 0)
+ 		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 36)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 72)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 108)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 144)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 180)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 216)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 252)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 288)
+		CYBR E 0 A_CustomMissile("SpawnBall4", 32, 0, 324)
+		Goto See
+	Pain:
+		CYBR G 10 A_Pain
+		Goto See
+	Pain.Melee:
+		Goto See
+	Death:
+		CYBR H 10 A_KillChildren
+		CYBR I 1 A_Scream
+		CYBR I 9 A_KillChildren
+		CYBR JKL 10 A_KillChildren
+		CYBR M 1 A_NoBlocking
+		CYBR M 9 A_KillChildren
+		CYBR NO 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P 10 A_KillChildren
+		CYBR P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBall
+{
+	Game Chex
+	SpawnID 154
+	Radius 6
+	Height 16
+	Speed 10
+	FastSpeed 20
+	Damage 18
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	+MTHRUSPECIES
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL7 AB 4
+		Loop
+	Death:
+		BAL7 CDE 6
+		Stop
+	}
+}
+
+actor SpawnBall1
+{
+	Game Chex
+	SpawnID 230
+	Radius 32
+	Height 16
+	Speed 8
+	FastSpeed 18
+	Health 20
+	Damage 50
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	+MTHRUSPECIES
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("SnotBiped", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor SnotBiped : BipedicusV4
+{
+	Species "Snot"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by one of Lord Snotfolus's minions."
+}
+
+actor SpawnBall2
+{
+	Game Chex
+	SpawnID 230
+	Radius 32
+	Height 16
+	Speed 8
+	FastSpeed 18
+	Health 20
+	Damage 50
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	+MTHRUSPECIES
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("SnotLarva", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor SnotLarva : LarvaV4
+{
+	Health 60
+	Species "Snot"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by one of Lord Snotfolus's minions."
+}
+
+actor SpawnBall3
+{
+	Game Chex
+	SpawnID 230
+	Radius 32
+	Height 16
+	Speed 8
+	FastSpeed 18
+	Health 20
+	Damage 50
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	+MTHRUSPECIES
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("SnotQuad", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor SnotQuad : QuadrumpusV4
+{
+	Health 54
+	Species "Snot"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by one of Lord Snotfolus's minions."
+}
+
+actor SpawnBall4
+{
+	Game Chex
+	SpawnID 230
+	Radius 32
+	Height 16
+	Speed 8
+	FastSpeed 18
+	Health 20
+	Damage 50
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	+MTHRUSPECIES
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL9 AB 4
+		Loop
+	Death:
+		BAL9 C 0 A_SpawnItemEx("SnotStrid", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER, 0)
+		BAL9 CDE 6
+		Stop
+	}
+}
+
+actor SnotStrid : StridicusV4
+{
+	Health 150
+	Species "Snot"
+	+FIXMAPTHINGPOS
+	+NEVERRESPAWN
+	Obituary "%o was defeated by one of Lord Snotfolus's minions."
+}
+
+//------------------------------------------------------------------------------
+//	Chex Decorations
+//------------------------------------------------------------------------------
+
+// Needed to be replaced so it could stand on the bridges in E4M2. Scenery and
+// bridges don't normally like to cooperate, apparently.
+
+actor OxygenTank : PropOxygenTank replaces PropOxygenTank
+{
+	+CANPASS
+}
+
+// Replaced to move with the teleports in E4M3.
+
+actor Teleparticles : WhiteParticleFountain replaces WhiteParticleFountain
+{	
+	Game Chex
+	+MOVEWITHSECTOR
+}	
+
+// Diner tables, made taller for the mess halls in E4M4. 'Cause we like our
+// chairs up high here at Chex-asteroid-space-base-thing.
+
+actor DinerTableV4 : ChexDinerTable 22025
+{
+	+CANPASS
+	States
+	{
+	Spawn:
+		DINE B -1
+		Stop
+	}
+}
+
+actor FlagpoleRed : ChexFlagOnPole 22008
+{
+	Mass 500
+	+CANPASS
+	States
+	{
+	Spawn:
+		RFLG A -1
+		Stop
+	}
+}
+
+// Invisible 'counter' item for the secret area in E4M6 that's an homage to
+// Super Mario 64. Originally they were apple trees hidden outside the map,
+// but that was way too WTF for something as clean as the Technology Centre.
+
+actor E4M6Counter 22042
+{
+	Radius 1
+	Height 1
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		REAC G -1
+		Stop
+	}
+}
+
+// Reactor globes for E4M7. Not the most original appearance, but I don't care.
+// They're only supposed to annoy the crap out of you, anyway. I stuck with the
+// particles on these for the longest time until I realized the engine could
+// only render so many and the beams became non-lethal once the particles ran
+// out. So I rigged up a chintzy sprite instead. The sprite for a 'deceased'
+// reactor globe became my go-to for anything that needed to be non-existant.
+
+actor ReactorRailgunFastest : SwitchableDecoration 22010
+{
+	Game Chex
+	Radius 16
+	Height 32
+	Mass 0x7ffffff
+	DamageType Zorch
+	AttackSound "misc/reactor"
+	+SOLID
+	+CANPASS
+	+STANDSTILL
+	+NOINTERACTION
+	+NOTAUTOAIMED
+	+NOTARGET
+	+BRIGHT
+	+RANDOMIZE
+	+FIXMAPTHINGPOS
+	Obituary "%o was zorched by a reactor beam."
+	States
+	{
+	Spawn:
+		REAC A -1
+		Stop
+	Active:
+		REAC A 1
+		REAC A 21
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		Loop
+	Inactive:
+		REAC A -1
+		Stop
+	}
+}
+
+actor ReactorRailgunBurst1sec : ReactorRailgunFastest 22011
+{
+	States
+	{
+	Active:
+		REAC A 1
+		REAC A 35
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		Loop
+	}
+}
+
+actor ReactorRailgunBurst2sec : ReactorRailgunFastest 22012
+{
+	States
+	{
+	Active:
+		REAC A 1
+		REAC A 70
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		REAC A 3 A_CustomRailgun (400, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		Loop
+	}
+}
+
+actor DormantGlobeRed : ReactorRailgunFastest 22009
+{
+	States
+	{
+	Spawn:
+		REAC A -1
+		Stop
+	}
+}
+
+actor ReactorRailgunMultiplayer : ReactorRailgunFastest 22031
+{
+	Obituary "%o was Chex(R)ecuted."
+	States
+	{
+	Active:
+		REAC A 1
+		REAC A 21
+		REAC A 3 A_CustomRailgun (0, 0, "DF8080", "DF0000", 0, 0, 0, "ZorchRailPuff", 0, 0, 0, 0, 6, 0, "RailZorch", 0)
+		Loop
+	}
+}
+
+actor RailZorch
+{
+	Alpha 0.7
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		REAC H 2 Bright A_FadeIn (0.1)
+		REAC H 2 Bright A_FadeIn (0.1)
+		REAC H 2 Bright A_FadeIn (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		REAC H 1 Bright A_FadeOut (0.1)
+		Stop
+	}
+}
+
+// Yes, I'm aware these things didn't have to be killable to be removed from the
+// map. Unfortunately, I didn't find that out until after I had written the
+// hundreds of lines of script for the level. I could change it, but why waste
+// the time as long as it works as is?
+
+actor ReactorBlue : SwitchableDecoration 22013
+{
+	Game Chex
+	Radius 16
+	Height 32
+	Health 10
+	Mass 0x7ffffff
+	DamageType Zorch
+	AttackSound "misc/reactor"
+	+SOLID
+	+CANPASS
+	+SHOOTABLE
+	+INVULNERABLE
+	+NOTARGET
+	+NOTAUTOAIMED
+	+DORMANT
+	+NEVERRESPAWN
+	+BRIGHT
+	+RANDOMIZE
+	+FIXMAPTHINGPOS
+	Obituary "%o was zorched by a reactor beam."
+	States
+	{
+	Spawn:
+		REAC B -1
+		Stop
+	Active:
+		REAC B 1 A_CustomMissile("BlueShot", 0, 0, 0, 2, 0)
+		REAC B 4
+		Loop
+	Inactive:
+		REAC B -1
+		Stop
+	Death:
+		REAC G 1
+		Stop
+	}
+}
+
+actor BlueShot : PhaseZorchMissileV4
+{
+	RenderStyle Translucent
+	Damage 75
+	DamageType Zorch
+	Obituary "%o was zorched by a reactor beam."
+	States
+	{
+	Spawn:
+		RSBL AB 6 Bright
+		Loop
+	Death:
+		REAC G 0
+		Stop
+	}
+}
+
+actor ReactorPurple : ReactorBlue 22014
+{
+	States
+	{
+	Spawn:
+		REAC C -1
+		Stop
+	Active:
+		REAC C 1 A_CustomMissile("PurpleShot", 0, 0, 0, 2, 0)
+		REAC C 4
+		Loop
+	Inactive:
+		REAC C -1
+		Stop
+	}
+}
+
+actor PurpleShot : BlueShot
+{
+	States
+	{
+	Spawn:
+		RSPU AB 6 Bright
+		Loop
+	}
+}
+
+actor ReactorGreen : ReactorBlue 22015
+{
+	States
+	{
+	Spawn:
+		REAC D -1
+		Stop
+	Active:
+		REAC D 1 A_CustomMissile("GreenShot", 0, 0, 0, 2, 0)
+		REAC D 4
+		Loop
+	Inactive:
+		REAC D -1
+		Stop
+	}
+}
+
+actor GreenShot : BlueShot
+{
+	States
+	{
+	Spawn:
+		RSGR AB 6 Bright
+		Loop
+	}
+}
+
+actor ReactorOrange : ReactorBlue 22016
+{
+	States
+	{
+	Spawn:
+		REAC E -1
+		Stop
+	Active:
+		REAC E 1 A_CustomMissile("OrangeShot", 0, 0, 0, 2, 0)
+		REAC E 4
+		Loop
+	Inactive:
+		REAC E -1
+		Stop
+	}
+}
+
+actor OrangeShot : BlueShot
+{
+	States
+	{
+	Spawn:
+		RSOR AB 6 Bright
+		Loop
+	}
+}
+
+actor DormantGlobe : ReactorBlue 22017
+{
+	States
+	{
+	Spawn:
+		REAC F -1
+		Stop
+	Active:
+		REAC F -1
+		Stop
+	Inactive:
+		REAC F -1
+		Stop
+	}
+}
+
+actor DormantGlobeBlue : DormantGlobe 22054 // The editor number is so high
+{											// because I didn't actually have a
+	States									// need for it until Bonus 3. Sorry.
+	{
+	Spawn:
+		REAC B -1
+		Stop
+	Active:
+		REAC B -1
+		Stop
+	Inactive:
+		REAC B -1
+		Stop
+	}
+}
+
+actor DormantGlobeGreen : DormantGlobe 22019
+{
+	States
+	{
+	Spawn:
+		REAC D -1
+		Stop
+	Active:
+		REAC D -1
+		Stop
+	Inactive:
+		REAC D -1
+		Stop
+	}
+}
+
+actor DormantGlobeOrange : DormantGlobe 22020
+{
+	States
+	{
+	Spawn:
+		REAC E -1
+		Stop
+	Active:
+		REAC E -1
+		Stop
+	Inactive:
+		REAC E -1
+		Stop
+	}
+}
+
+actor DormantGlobePurple : DormantGlobe 22021
+{
+	States
+	{
+	Spawn:
+		REAC C -1
+		Stop
+	Active:
+		REAC C -1
+		Stop
+	Inactive:
+		REAC C -1
+		Stop
+	}
+}
+
+// Grey rock recolor. Can't believe there wasn't an orange rock for the Bazoik
+// caverns in the original game. Can you say 'missed opportunity'?
+
+actor OrangeRock : PropGreyRock 22018
+{
+	+CANPASS
+	States
+	{
+	Spawn:
+		OROC A -1
+		Stop
+	}
+}
+
+// This exists purely so that the player can't hide from the Flembrane during
+// the boss fight in E4M3. The Flembrane's projectiles can pass through it.
+
+actor E4M3ChexWarriorStatue : StatueChexWarrior 22022
+{
+	Species "FlembraneBoss"
+}
+
+// This had to be created so the stalactites would hang from the ceiling
+// properly. In the original game, they hung a few inches below the ceiling.
+// Some of them still will for some reason--dunno why. Also, they misspelled it.
+
+actor Stalactite : PropStalagtite 22024
+{
+	Height 32
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		STAL A -1
+		Stop
+	}
+}
+
+// Ceiling monitors in E4M1--they're this far down the order because I didn't
+// decide to redo E4M1 'til I was almost finished with E4M8, and I was too lazy
+// to re-order everything based on its DoomEd Number in Decorate.
+
+actor CeilingMonitor : PropMonitor 22026
+{
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		MON1 AB 6 Bright
+		Loop
+	}
+}
+
+// Chains. For when I actually got back to E4M8.
+
+actor Chains : Stalactite 22027
+{
+	Height 384
+	Radius 1
+	States
+	{
+	Spawn:
+		CHAI A -1
+		Stop
+	}
+}
+
+// These little nuggets make it easier for you to get slimed by the only stealth
+// enemies on the alternate path through E4M8. One of those little things you
+// probably didn't notice. Maybe. The latter two make it so you can't dodge the
+// Flembrane battle by jumping backwards from the lift switch. Tha last one is
+// a special bit of scenery used as a decoy.
+
+actor E4M8Lamp : ChexLandingLight 22028
+{
+	Species "E4M8Strid"
+	+THRUSPECIES
+}
+
+actor E4M8Strid : StealthStridicus 22029
+{
+	Species "E4M8Strid"
+	+THRUSPECIES
+}
+
+actor E4M8Cart : PropBazoikCart 22036
+{
+	Height 200
+}
+
+actor E4M8Rock : OrangeRock 22037
+{
+	Height 200
+}
+
+actor E4M8Key 22043
+{
+	Height 16
+	Radius 8
+	+CANPASS
+	States
+	{
+	Spawn:
+		YKEY A 10
+		YKEY B 10 Bright
+		Loop
+	}
+}
+
+// This version of the landing light can't be stood on, and contributes to the
+// carnage caused by Chex(R)ecutioner's central switch.
+
+actor MultiLamp : ChexLandingLight 22030
+{
+	Height 256
+	States
+	{
+	Spawn:
+		COLU A -1
+		Stop
+	}
+}
+
+// Respawning Flemoids for use in multiplayer maps.
+
+actor MultiCommonus : CommonusV4 22032
+{
+	+ALWAYSRESPAWN
+}
+
+actor MultiBipedicus : BipedicusV4 22033
+{
+	+ALWAYSRESPAWN
+}
+
+actor MutliCycloptis : CycloptisV4 22034
+{
+	+ALWAYSRESPAWN
+}
+
+actor MultiArmoredBipedicus : ArmoredBipedicusV4 22035
+{
+	+ALWAYSRESPAWN
+}
+
+// The Erlenmeyer flask from the original maps, redefined to prevent flasks from
+// showing up everywhere as 'crushed gibs' in multiplayer. Also, it's not a
+// beaker. Beakers have the little pointy bit on the rims... like a beak.
+
+actor ErlenmeyerFlask : PropBeaker replaces PropBeaker 22044
+{
+	States
+	{
+	Spawn:
+		FLAS A -1
+		Stop
+	}
+}
+
+// Multiplayer spawns, defined here for two reasons: the first of these is so
+// they can be generated from strings in ACS scripting, and the second is to
+// give them a sprite so that the multiplayer maps are not littered with
+// exclamation marks where the team spawns are when run in something other than
+// Zandronum.
+
+actor BlueSpawn 5080
+{
+	States
+	{
+	Spawn:
+		REAC G -1
+		Stop
+	}
+}
+
+actor RedSpawn 5081
+{
+	States
+	{
+	Spawn:
+		REAC G -1
+		Stop
+	}
+}
+
+// Flags redefined to stand on bridges! Yay!
+
+actor FlagpoleBlue : ChexFlagOnPole replaces ChexFlagOnPole 22045
+{
+	+CANPASS
+	States
+	{
+	Spawn:
+		COL6 A -1
+		Stop
+	}
+}
+
+// These guys exist so that the teleport ambush battle after the yellow Flemkey
+// switch in E4M9 doesn't last forever on "Super Slimey!" I wanted more control
+// over how long it took the player to advance past this room on this difficulty
+// and this seemed the best way to do it.
+
+actor E4M9Strid : StridicusV4 22046
+{
+	+NEVERRESPAWN
+}
+
+actor E4M9Armored : ArmoredBipedicusV4 22047
+{
+	+NEVERRESPAWN
+}
+
+actor E4M9Quad : QuadrumpusV4 22048
+{
+	+NEVERRESPAWN
+}
+
+actor E4M9Super : SuperCycloptisV4 22049
+{
+	+NEVERRESPAWN
+}
+
+actor E4M9Cycloptis : CycloptisV4 22050
+{
+	+NEVERRESPAWN
+}
+
+// And Lord Snotfolus' bodyguards, who are not meant to respawn once defeated.
+
+actor SnotFlembrane : FlembraneV4 22051
+{
+	+NEVERRESPAWN
+	+LOOKALLAROUND
+}
+
+actor SnotStealthMaximus : MaximusBoss 22052
+{
+	+STEALTH
+	+LOOKALLAROUND
+}
+
+// I was really iffy on doing this, but without this, you can easily camp
+// Snotfolus with the Beam Zorcher as long as you got behind one early on and he
+// got locked into an attack pattern. I still wanted them there as obstacles,
+// but I also wanted his minions to be able to hit you. This seemed to be the
+// best compromise but it's one of the things that I came very close to
+// changing.
+
+actor SnotLamp : PropShortGreenTorch 22053
+{
+	Species "Snot"
+}
+
+// The centerpiece of the game's one -really- jokey room...
+
+actor TreeofDEATH : SwitchableDecoration 22055
+{
+	Game Chex
+	Radius 20
+	Height 64
+	Speed 0
+	Mass 0x7ffffff
+	DamageType Zorch
+	AttackSound "weapons/railgf"
+	+SOLID
+	+CANPASS
+	+LOOKALLAROUND
+	+NODAMAGE
+	+SEEINVISIBLE
+	+REFLECTIVE
+	//+AIMREFLECT For when Zandronum can support this flag
+	+DORMANT
+	+NEVERRESPAWN
+	+BRIGHT
+	+RANDOMIZE
+	+FIXMAPTHINGPOS
+	Obituary "%o doesn't read warning signs."
+	States
+	{
+	Spawn:
+		TRE5 A -1
+		Stop
+	Active:
+		TRE5 A 1 A_Chase
+		TRE5 A 1 A_CustomRailgun(0xffffff, 0, "DF8080", "DF0000", 0, 1, 0, "ZorchRailPuff", 0, 0, 0, 0, 32, 0, "BeamZorch", 0)
+		Loop
+	Inactive:
+		TRE5 A -1
+		Stop
+	}
+}
+
+// Didn't need to add this until Bonus 3, in which case the Flemoids teleporting
+// in on the elevator would cause the teleport fog to sink through the elevator;
+// this fixes that.
+
+actor TeleportFogMoving : TeleportFog replaces TeleportFog
+{
+	+MOVEWITHSECTOR
+}
+
+// Scenery for an homage to a favorite N64 locale of mine
+
+actor StoneChandelier : PropRedTorch 22056
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		CHAN ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+actor InvertedChandelier : PropRedTorch 22060
+{
+	States
+	{
+	Spawn:
+		ICHN ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+actor InvertedDavidStatue : StatueDavid 22057
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		ISTU A -1
+		Stop
+	}
+}
+
+actor InvertedThinkerStatue : StatueThinker 22058
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		ISTU B -1
+		Stop
+	}
+}
+
+actor InvertedVillaStatue : PropTechPillar 22059
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+	States
+	{
+	Spawn:
+		ISTU C -1
+		Stop
+	}
+}
+
+actor CeilingFountainBlue : BlueParticleFountain 22061
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+}
+
+actor CeilingFountainRed : RedParticleFountain 22062
+{
+	+SPAWNCEILING
+	+NOGRAVITY
+}
+
+// How the heck this ever ended up longer than the original 'decorate' file for
+// Chex 3, I'll never know.

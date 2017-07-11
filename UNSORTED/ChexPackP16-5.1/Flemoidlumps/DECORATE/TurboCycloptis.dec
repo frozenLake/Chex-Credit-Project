@@ -1,0 +1,157 @@
+ACTOR Cycloptis_Generic
+//WARNING: DO NOT USE THIS ACTOR. THIS IS A PARENT CLASS FOR THE CELERIUM AND CLOAKED CELERIUM.
+{
+	Mass 100
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Monster
+	+SOLID
+	+FLOORCLIP +FASTER +FASTMELEE
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+	+DONTGIB
+	Game Chex
+
+	States
+	{
+	Spawn:
+		CYCT AB 10 A_Look
+		Loop
+	See:
+		CYCT AABBCCDD 2 A_Chase
+		Loop
+	Melee:
+		CYCT EF 8 A_FaceTarget
+		CYCT G 8 A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+       CYCT H 2 BRIGHT 
+       CYCT H 2 BRIGHT A_Pain
+       Goto See
+	 Death:
+       CYCT I 8 BRIGHT
+       CYCT J 8 BRIGHT A_Scream
+       CYCT K 4 BRIGHT 
+       CYCT L 4 BRIGHT A_NoBlocking
+       CYCT M 4 BRIGHT 
+       CYCT N -1
+       Stop
+	}
+
+			
+}
+
+
+
+
+
+ACTOR Celerium : Cycloptis_Generic 15104
+{
+
+	//$Category Flemoids
+	//$Sprite CYCTA2A8
+	//$Title "Celerium"
+	Radius 24
+	Height 68
+	Health 225
+	Speed 12
+	PainChance 160
+	Obituary "%o was caught by a Cycloptis Celerium!"
+	+ALWAYSFAST
+	States
+		{
+			Spawn:
+				CYCT AB 10 A_Look
+				Loop
+			See:
+				CYCT AABBCCDD 2 A_Chase
+				Loop
+			Melee:
+				CYCT EF 8 A_FaceTarget
+				CYCT G 8 A_CustomMeleeAttack(random[sargattack](1,10)*6, "", "", "Flem")
+				Goto See
+			Pain:
+       				CYCT H 2 BRIGHT 
+       				CYCT H 2 BRIGHT A_Pain
+       				Goto See
+			Death:
+       				CYCT I 8 BRIGHT
+       				CYCT J 8 BRIGHT A_Scream
+       				CYCT K 4 BRIGHT 
+       				CYCT L 4 BRIGHT A_NoBlocking
+       				CYCT M 4 BRIGHT 
+       				CYCT N -1
+       				Stop
+       			Raise:
+       				CYCT M 5 BRIGHT
+       				CYCT L 5 BRIGHT
+        			CYCT K 5 BRIGHT
+        			CYCT J 5 BRIGHT
+        			CYCT I 5 BRIGHT
+        			Goto See
+			}
+
+			
+}
+
+
+ACTOR Celerium_Spectre : Cycloptis_Generic 15105
+{
+
+	//$Category Flemoids
+	//$Sprite CYCTB2B8
+	//$Title "Celerium - Cloaked"
+	Radius 24
+	Height 68
+	Health 175
+	PainChance 170
+	Obituary "%o was stalked down by a Cloaked Cycloptis Celerium!"
+	Speed 11
+	+SHADOW	
+	+QUICKTORETALIATE
+	+NOTIMEFREEZE
+	+ALWAYSFAST
+	RenderStyle OptFuzzy
+	Alpha 0.5
+
+	States
+		{
+			Spawn:
+				CYCT AB 10 A_Look
+				Loop
+			See:
+				CYCT AABBCCDD 2 A_Chase
+				Loop
+			Melee:
+				CYCT EF 8 A_FaceTarget
+				CYCT G 8 A_CustomMeleeAttack(random[sargattack](1,10)*6, "", "", "Flem")
+				Goto See
+			Pain:
+       				CYCT H 2 BRIGHT 
+       				CYCT H 2 BRIGHT A_Pain
+       				Goto See
+			Death:
+       				CYCT I 8 BRIGHT
+       				CYCT J 8 BRIGHT A_Scream
+       				CYCT K 4 BRIGHT 
+       				CYCT L 4 BRIGHT A_NoBlocking
+       				CYCT M 4 BRIGHT 
+       				CYCT N -1
+       				Stop
+			}
+
+			
+
+
+
+
+}
+
+
+
+

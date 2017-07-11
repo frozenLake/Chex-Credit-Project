@@ -1,0 +1,53 @@
+// 191xx : Rebel vanguard invasion spawners
+
+
+actor RebelVanguard_LightningSpot : CustomPickupInvasionSpot 19100
+{
+	//$Category vangardinvasion
+	//$Sprite BXCLA1
+	//$Title "CL Zorcher Vanguard Spawner"
+dropitem "RebelVanguard_lightning"
+Radius 16
+Height 56
+}
+
+actor RebelVanguard_RapidSpot : CustomPickupInvasionSpot 19101
+{
+	//$Category vangardinvasion
+	//$Sprite BXRZA1
+	//$Title "Rapid Zorcher Vanguard Spawner"
+dropitem "RebelVanguard_Rapid"
+Radius 16
+Height 56
+}
+
+actor RebelVanguard_UltraRapidSpot : CustomPickupInvasionSpot 19102
+{
+	//$Category vangardinvasion
+	//$Sprite BXURA1
+	//$Title "Ultra Rapid Zorcher Vanguard Spawner"
+dropitem "RebelVanguard_UltraRapid"
+Radius 16
+Height 56
+}
+
+
+actor RebelVanguard_LargeSpot : CustomPickupInvasionSpot 19103
+{
+	//$Category vangardinvasion
+	//$Sprite BXLZA1
+	//$Title "Large Zorcher Vanguard Spawner"
+dropitem "RebelVanguard_Large"
+Radius 16
+Height 56
+}
+
+actor RebelVanguard_MiniSpot : CustomPickupInvasionSpot 19103
+{
+	//$Category vangardinvasion
+	//$Sprite BXMZA1
+	//$Title "Mini Zorcher Vanguard Spawner"
+dropitem "RebelVanguard_Mini"
+Radius 16
+Height 56
+}

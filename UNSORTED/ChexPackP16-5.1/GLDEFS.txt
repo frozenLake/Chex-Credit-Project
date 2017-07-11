@@ -1,0 +1,52 @@
+//weapons
+
+#include Weaponlumps/GLDEFS/Weaponlights.GL
+
+#include Weaponlumps/GLDEFS/Weapons.GL
+#include Weaponlumps/GLDEFS/Weaponbrightmaps.GL
+#include Weaponlumps/GLDEFS/Ammo.GL
+
+// player
+
+#include Misclumps/Player.GL
+
+// flemoids
+
+#include Flemoidlumps/GLDEFS/Flemlights.GL
+
+#include Flemoidlumps/GLDEFS/CommonFelmoids.GL
+#include Flemoidlumps/GLDEFS/Cycloptis.GL
+#include Flemoidlumps/GLDEFS/Flembomination.GL
+#include Flemoidlumps/GLDEFS/Larva.GL
+#include Flemoidlumps/GLDEFS/Maximus.GL
+#include Flemoidlumps/GLDEFS/Quadrumpus.GL
+#include Flemoidlumps/GLDEFS/Snotfolus.GL
+#include Flemoidlumps/GLDEFS/FlemMine.GL
+#include Flemoidlumps/GLDEFS/Stridicus.GL
+#include Flemoidlumps/GLDEFS/Gyro.GL
+#include Flemoidlumps/GLDEFS/FlemPillar.GL
+#include Flemoidlumps/GLDEFS/Archvile.GL
+#include Flemoidlumps/GLDEFS/TurboCycloptis.GL
+#include Flemoidlumps/GLDEFS/CycloptisLarva.GL
+
+// Chex vanguards
+
+#include Misclumps/Vanguards.GL
+
+// skins
+
+#include Misclumps/Skins.GL
+
+// decoration
+
+#include Misclumps/Decolights.GL
+
+#include Misclumps/Deco.GL
+
+// flats
+
+#include Misclumps/Flats.GL
+
+// captives
+
+#include Misclumps/Captives.GL

@@ -1,0 +1,66 @@
+object Commonus
+{
+	// pain
+	Frame POSSG {light Felmoidpainlight}
+	
+	Frame POSSH {light Felmoiddeath1}
+	Frame POSSI {light Felmoiddeath2}
+	Frame POSSJ {light Felmoiddeath3}
+	Frame POSSK {light propulsorlight}
+	
+	//the HIJK and MNOP frames are identical
+	
+	Frame POSSM {light Felmoiddeath1}
+	Frame POSSN {light Felmoiddeath2}
+	Frame POSSO {light Felmoiddeath3}
+	Frame POSSP {light propulsorlight}
+}
+
+object Bipedicus
+{
+	// pain
+	
+	Frame SPOSG {light Felmoidpainlight}
+	
+	//death
+	
+	Frame SPOSH {light Felmoidpainlight}
+	Frame SPOSI {light Felmoiddeath2}
+	Frame SPOSJ {light Felmoiddeath1}
+	Frame SPOSK {light propulsorlight}
+	
+	//xdeath
+	
+	Frame SPOSM {light Felmoidpainlight}
+	Frame SPOSN {light Felmoiddeath1}
+	Frame SPOSO {light Felmoiddeath2}
+	Frame SPOSP {light Felmoiddeath3}
+	Frame SPOSQ {light Felmoiddeath2}
+	Frame SPOSR {light Felmoiddeath1}
+	Frame SPOSS {light Felmoidpainlight}
+	Frame SPOST {light propulsorlight}
+}
+
+object BipedicusWithArmor
+{
+	// pain
+	
+	Frame TROOH {light Felmoidpainlight}
+	
+	// death
+	
+	Frame TROOI {light Felmoiddeath1}
+	Frame TROOJ {light Felmoiddeath2}
+	Frame TROOK {light Felmoidpainlight}
+	Frame TROOL {light propulsorlight}
+	
+	// xdeath
+	
+	Frame TROON {light Felmoidpainlight}
+	Frame TROOO {light Felmoiddeath1}
+	Frame TROOP {light Felmoiddeath2}
+	Frame TROOQ {light Felmoiddeath3}
+	Frame TROOR {light Felmoiddeath2}
+	Frame TROOS {light Felmoidpainlight}
+	Frame TROOT {light propulsorlight}
+}	

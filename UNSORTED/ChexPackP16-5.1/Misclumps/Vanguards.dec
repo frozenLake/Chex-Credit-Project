@@ -1,0 +1,654 @@
+// 190xx
+
+// RebelVanguard/Brand X Warrior code and sprites by QuadrumpusGuy
+
+
+Actor VanguardBase // does not appear in game, just an abstract class. You can't inherit dropitems, unfortunately.
+{
+	Monster
+	Health 100
+	Height 56
+	Radius 16
+	Speed 18
+	PainChance 220
+	Damagefactor "Zorch", 1.0
+	Damagefactor "Flem", 1.0  
+	
+	Obituary "%o was Zorched by a Brand X Warrior!"
+
+	PainSound "ChexVanguard/Pain"
+	DeathSound "ChexVanguard/Death"
+	ActiveSound "Rebel/Walk"
+	
+	+FLOORCLIP
+	+DONTGIB
+	+NOBLOOD
+}
+
+
+
+Actor RebelVanguard : RandomSpawner 19000
+{
+	//$Category chexvanguards
+	//$Sprite REBEF0
+	//$Title "Random Vanguard"
+DropItem "RebelVanguard_Lightning" 255 2 
+DropItem "RebelVanguard_Rapid" 255 4
+DropItem "RebelVanguard_Large" 255 5
+DropItem "RebelVanguard_UltraRapid" 255 3 
+DropItem "RebelVanguard_Mini" 255 7
+}
+
+Actor BrandXChainLightning : Chainlightning
+{
+//damage 5
+
+damage 2
+}
+
+Actor RebelVanguard_Lightning 19001
+{
+	//$Category chexvanguards
+	//$Sprite BXURA1
+	//$Title "CL Vanguard"
+	
+	Monster
+	Health 100
+	Height 56
+	Radius 16
+	Speed 18
+	PainChance 240
+	Damagefactor "Zorch", 1.0
+	Damagefactor "Flem", 1.0  
+	
+	Obituary "%o was Zorched by a Brand X Lightning Warrior!"
+
+	PainSound "ChexVanguard/Pain"
+	DeathSound "ChexVanguard/Death"
+	ActiveSound "Rebel/Walk"
+	
+	+FLOORCLIP
+	+DONTGIB
+	+NOBLOOD
+	
+	AttackSound "Weapons/CLShot"
+	
+	DropItem "CLZorcher", 256
+	DropItem "LightningAmmo" 256
+	DropItem "LightningAmmo" 256
+	DropItem "LightningAmmoLarge" 64
+	
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 32
+	DropItem "GlassOfWater" 32
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 32
+	DropItem "SlimeRepellent" 32
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 16
+	DropItem "MaxHealthBonus" 16
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 16
+	DropItem "SlimeOff" 16
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "BowlOfFruit" 8
+	DropItem "BowlOfVegetables" 4
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchShell" 12
+	DropItem "ZorchCell" 12
+	DropItem "ZorchRocketAmmo" 12
+
+//	DropItem "FreezingZorchRecharge" 12
+
+	DropItem "MiniZorcher75" 255
+	DropItem "DualMiniZorchers" 10
+	DropItem "BootSpork" 55
+	DropItem "DualBootSporks" 5
+	DropItem "RapidZorcher75" 3
+	DropItem "LargeZorcher75" 3
+	DropItem "UltraRapidZorcher" 3
+	DropItem "DropProp" 2
+	DropItem "DropFreezingZorcher" 1
+	DropItem "FreeBreakfast" 1
+	
+
+
+	States
+	{
+		Spawn:
+			BXCL A 3 A_Look
+			loop
+		
+		See:
+			BXCL ABCD 3 A_Chase
+			loop
+			
+		Pain:
+    		BXCL O 4 bright 
+			BXCL O 4 bright A_Pain
+    		Goto See
+
+		Pain.Flem:
+			BXCL G 0 
+			BXCL G 4
+			BXCL G 4 A_Pain
+			Goto See
+
+
+		Death:
+		XDeath:
+			BXCL P 15 bright A_Scream
+			BXCL Q 15 bright A_NoBlocking
+			PLZD R 15 bright 
+			NULL A -1 
+			Stop	
+		
+		Death.Flem:
+		XDeath.Flem:
+			PLAY H 0 
+			BXCL H 10
+			BXCL I 10 A_Playsound("Rebel/SDeath")
+			BXCL J 10 A_NoBlocking
+			BXCL KLM 10
+			BXCL N -1
+			Stop
+		Missile:
+			BXCL E 10 A_FaceTarget
+			BXCL F 2 bright A_CustomMissile("BrandXChainLightning",32,-16,0)
+			BXCL F 2 bright A_FaceTarget
+			BXCL F 2 bright A_CustomMissile("BrandXChainLightning",32,-16,0)
+			BXCL F 2 bright A_FaceTarget
+			BXCL F 2 bright A_CustomMissile("BrandXChainLightning",32,-16,0)
+			BXCL F 0 bright A_FaceTarget
+			BXCL E 10
+			Goto See
+		
+	}
+}		
+
+
+Actor RebelVanguard_Rapid : VanguardBase 19002
+{
+	//$Category chexvanguards
+	//$Sprite REBEA0
+	//$Title "Rapid Zorcher Vanguard"
+	
+	Obituary "%o was Zorched by a Brand X Rapid Zorcher Warrior!"
+	
+	Attacksound "weapons/minigun"
+	
+	DropItem "RapidZorcher75", 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 64
+	
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 32
+	DropItem "GlassOfWater" 32
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 32
+	DropItem "SlimeRepellent" 32
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 16
+	DropItem "MaxHealthBonus" 16
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 16
+	DropItem "SlimeOff" 16
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "BowlOfFruit" 8
+	DropItem "BowlOfVegetables" 4
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchShell" 12
+	DropItem "ZorchCell" 12
+	DropItem "ZorchRocketAmmo" 12
+	DropItem "LightningAmmo" 12
+	DropItem "LightningAmmo" 12
+	
+
+	DropItem "MiniZorcher75" 255
+	DropItem "BootSpork" 55
+	DropItem "DualBootSporks" 5
+	DropItem "DualMiniZorchers" 10
+	DropItem "CLZorcher" 25
+	DropItem "LargeZorcher75" 3
+	DropItem "UltraRapidZorcher" 3
+	DropItem "DropProp" 2
+	DropItem "DropFreezingZorcher" 1
+	DropItem "FreeBreakfast" 1
+	
+	States
+	{
+	
+		Spawn:
+			BXRZ A 3 A_Look
+			loop
+		
+		See:
+			BXRZ ABCD 3 A_Chase
+			loop
+			
+		Pain:
+    		BXRZ O 4 bright 
+			BXRZ O 4 bright A_Pain
+    		Goto See
+
+		Pain.Flem:
+			BXRZ G 0 
+			BXRZ G 4
+			BXRZ G 4 A_Pain
+			Goto See
+
+
+		Death:
+		XDeath:
+			BXRZ P 15 bright A_Scream
+			BXRZ Q 15 bright A_NoBlocking
+			PLZD R 15 bright 
+			NULL A -1 
+			Stop	
+		
+		Death.Flem:
+		XDeath.Flem:
+			PLAY H 0 
+			BXRZ H 10
+			BXRZ I 10 A_Playsound("Rebel/SDeath")
+			BXRZ J 10 A_NoBlocking
+			BXRZ KLM 10
+			BXRZ N -1
+			Stop
+		
+		Missile:
+			BXRZ E 10 bright A_FaceTarget
+			BXRZ F 4 bright A_CustomBulletAttack(22.5, 0, 1, 3, "ZorchPuff", 0)
+			BXRZ F 4 bright A_CustomBulletAttack(22.5, 0, 1, 3, "ZorchPuff", 0)
+			BXRZ F 4 bright A_CustomBulletAttack(22.5, 0, 1, 3, "ZorchPuff", 0)
+			BXRZ F 2 bright A_FaceTarget
+			BXRZ F 2 bright
+			Goto See
+	}
+}		
+
+
+Actor RebelVanguard_Large : VanguardBase 19003
+{
+	
+	//$Category chexvanguards
+	//$Sprite REBEA0
+	//$Title "Large Zorcher Vanguard"
+	
+	Obituary "%o was Zorched by a Brand X Large Zorcher Warrior!"
+	
+	Attacksound "weapons/shotgf"
+	
+	DropItem "ZorchShell" 256
+	DropItem "ZorchShell" 256
+	DropItem "LargeZorcher75", 256
+	
+	DropItem "ZorchShell" 64
+	
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 32
+	DropItem "GlassOfWater" 32
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 32
+	DropItem "SlimeRepellent" 32
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 16
+	DropItem "MaxHealthBonus" 16
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 16
+	DropItem "SlimeOff" 16
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "BowlOfFruit" 8
+	DropItem "BowlOfVegetables" 4
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchShell" 12
+	DropItem "ZorchCell" 12
+	DropItem "ZorchRocketAmmo" 12
+	DropItem "LightningAmmo" 12
+	DropItem "LightningAmmo" 12
+//	DropItem "FreezingZorchRecharge" 12
+
+	DropItem "MiniZorcher75" 255
+	DropItem "DualMiniZorchers" 10
+	DropItem "BootSpork" 55
+	DropItem "DualBootSporks" 5
+	DropItem "RapidZorcher75" 3
+	DropItem "CLZorcher" 20
+	DropItem "UltraRapidZorcher" 3
+	DropItem "DropProp" 2
+	DropItem "DropFreezingZorcher" 1
+	DropItem "FreeBreakfast" 1
+	
+
+	States
+	{
+		Spawn:
+			BXLZ A 3 A_Look
+			loop
+		
+		See:
+			BXLZ ABCD 3 A_Chase
+			loop
+			
+		Pain:
+    		BXLZ O 4 bright 
+			BXLZ O 4 bright A_Pain
+    		Goto See
+
+		Pain.Flem:
+			BXLZ G 0 
+			BXLZ G 4
+			BXLZ G 4 A_Pain
+			Goto See
+
+
+		Death:
+		XDeath:
+			BXLZ P 15 bright A_Scream
+			BXLZ Q 15 bright A_NoBlocking
+			PLZD R 15 bright 
+			NULL A -1 
+			Stop	
+		
+		Death.Flem:
+		XDeath.Flem:
+			PLAY H 0 
+			BXLZ H 10
+			BXLZ I 10 A_Playsound("Rebel/SDeath")
+			BXLZ J 10 A_NoBlocking
+			BXLZ KLM 10
+			BXLZ N -1
+			Stop
+
+		Missile:
+			BXLZ E 10 A_FaceTarget
+			BXLZ F 10 bright A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "ZorchPuff")
+			BXLZ E 10
+			Goto See
+		}
+	}		
+
+
+Actor RebelVanguard_UltraRapid :VanguardBase 19004
+{
+	//$Category chexvanguards
+	//$Sprite REBEA0
+	//$Title "Ultra Rapid Vanguard"
+	
+	Attacksound "weapons/minigun"
+	
+	Obituary "%o was Zorched by a Brand X Ultra Rapid Warrior!"
+	
+	DropItem "UltraRapidZorcher", 256
+	
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 64
+	
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 32
+	DropItem "GlassOfWater" 32
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 32
+	DropItem "SlimeRepellent" 32
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 16
+	DropItem "MaxHealthBonus" 16
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 16
+	DropItem "SlimeOff" 16
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "BowlOfFruit" 8
+	DropItem "BowlOfVegetables" 4
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchShell" 12
+	DropItem "ZorchCell" 12
+	DropItem "ZorchRocketAmmo" 12
+	DropItem "LightningAmmo" 12
+	DropItem "LightningAmmo" 12
+
+	DropItem "MiniZorcher75" 255
+	DropItem "BootSpork" 55
+	DropItem "DualBootSporks" 5
+	DropItem "DualMiniZorchers" 25
+	DropItem "RapidZorcher75" 4
+	DropItem "LargeZorcher75" 4
+	DropItem "CLZorcher" 25
+	DropItem "DropProp" 2
+	DropItem "DropFreezingZorcher" 1
+	DropItem "FreeBreakfast" 1
+	
+
+	States
+	{
+		Spawn:
+			BXUR A 3 A_Look
+			loop
+		
+		See:
+			BXUR ABCD 3 A_Chase
+			loop
+			
+		Pain:
+    		BXUR O 4 bright 
+			BXUR O 4 bright A_Pain
+    		Goto See
+
+		Pain.Flem:
+			BXUR G 0 
+			BXUR G 4
+			BXUR G 4 A_Pain
+			Goto See
+
+
+		Death:
+		XDeath:
+			BXUR P 15 bright A_Scream
+			BXUR Q 15 bright A_NoBlocking
+			PLZD R 15 bright 
+			NULL A -1 
+			Stop	
+		
+		Death.Flem:
+		XDeath.Flem:
+			PLAY H 0 
+			BXUR H 10
+			BXUR I 10 A_Playsound("Rebel/SDeath")
+			BXUR J 10 A_NoBlocking
+			BXUR KLM 10
+			BXUR N -1
+			Stop
+
+
+		Missile:
+			BXUR E 10 bright A_FaceTarget
+			BXUR F 1 bright A_CustomBulletAttack(22.5, 0, 1, 2, "ZorchPuff", 0)
+			BXUR F 1 bright A_Facetarget
+			BXUR F 1 bright A_CustomBulletAttack(22.5, 0, 1, 2, "ZorchPuff", 0)
+			BXUR F 1 bright A_SentinelRefire
+			Goto Missile+1
+		}
+	}		
+
+
+Actor RebelVanguard_Mini : VanguardBase 19005
+{
+	//$Category chexvanguards
+	//$Sprite REBEA0
+	//$Title "Mini Zorcher Vanguard"
+	
+	Obituary "%o was Zorched by a Brand X Warrior!"
+	
+	Attacksound "weapons/minigun"
+
+	DropItem "MiniZorcher75", 256
+	DropItem "ZorchClip" 256
+	DropItem "ZorchClip" 64
+	
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 40
+	DropItem "GlassOfWater" 32
+	DropItem "GlassOfWater" 32
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 40
+	DropItem "SlimeRepellent" 32
+	DropItem "SlimeRepellent" 32
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 20
+	DropItem "MaxHealthBonus" 16
+	DropItem "MaxHealthBonus" 16
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 20
+	DropItem "SlimeOff" 16
+	DropItem "SlimeOff" 16
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "GlassOfMilk" 8
+	DropItem "BowlOfFruit" 8
+	DropItem "BowlOfVegetables" 4
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchClip" 12
+	DropItem "ZorchShell" 12
+	DropItem "ZorchCell" 12
+	DropItem "ZorchRocketAmmo" 12
+	DropItem "LightningAmmo" 12
+	DropItem "LightningAmmo" 12
+
+
+
+	DropItem "DualMiniZorchers" 128
+	DropItem "CLZorcher" 25
+	DropItem "BootSpork" 55
+	DropItem "DualBootSporks" 5
+	DropItem "RapidZorcher75" 3
+	DropItem "LargeZorcher75" 3
+	DropItem "UltraRapidZorcher" 3
+	DropItem "DropProp" 2
+	DropItem "DropFreezingZorcher" 1
+	
+	DropItem "FreeBreakfast" 1
+	
+
+	States
+	{
+	
+		Spawn:
+			BXMZ A 3 A_Look
+			loop
+		
+		See:
+			BXMZ ABCD 3 A_Chase
+			loop
+			
+		Pain:
+    		BXMZ O 4 bright 
+			BXMZ O 4 bright A_Pain
+    		Goto See
+
+		Pain.Flem:
+			BXMZ G 0 
+			BXMZ G 4
+			BXMZ G 4 A_Pain
+			Goto See
+
+
+		Death:
+		XDeath:
+			BXMZ P 15 bright A_Scream
+			BXMZ Q 15 bright A_NoBlocking
+			PLZD R 15 bright 
+			NULL A -1 
+			Stop	
+		
+		Death.Flem:
+		XDeath.Flem:
+			PLAY H 0 
+			BXMZ H 10 
+			BXMZ I 10 A_Playsound("Rebel/SDeath")
+			BXMZ J 10 A_NoBlocking
+			BXMZ KLM 10
+			BXMZ N -1
+			Stop
+
+		Missile:
+			BXMZ E 10 A_FaceTarget
+			BXMZ F 10 bright A_CustomBulletAttack (50, 0, 1, random(1,5) * 3, "ZorchPuff")
+			BXMZ E 10 bright A_FaceTarget
+			Goto See
+
+	}
+}		

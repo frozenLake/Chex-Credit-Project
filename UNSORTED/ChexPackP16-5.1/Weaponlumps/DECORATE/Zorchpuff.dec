@@ -1,0 +1,17 @@
+// weapons: 110XX
+
+Actor Zorchpuff : Bulletpuff replaces Bulletpuff
+{
+Renderstyle normal
+
+States
+  {
+  Spawn:
+    PUFF A 4 bright
+    PUFF B 4 bright
+    // Intentional fall-through
+  Melee:
+    PUFF CD 4 bright
+    Stop
+  }
+}

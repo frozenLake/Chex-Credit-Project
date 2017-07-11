@@ -1,0 +1,243 @@
+actor rightprop : fireright
+{}
+
+// this should be used in PVP maps (deathmatch, CTF) or
+// in co-op/single player maps with DM playability with the "Deathmatch" flag.
+
+// This is also dropped by Brand X Warriors and Captives. 
+Actor DWZorchPropulsorSpawner : CustomInventory replaces ZorchPropulsor 2003
+{
+	//$Category zorchers
+	//$Sprite BAUNA0
+	//$Title "Zorch Propulsor - Dual wieldable"
+	
+	Inventory.Pickupmessage ""
+	States
+	{
+	Spawn:
+		LAUN A 8
+		BAUN A 8
+		loop
+		
+	Pickup:
+		TNT1 A 0 A_jumpifinventory("BlueTeam",1,"IsBlueTeam")
+			TNT1 A 0 A_JumpifInventory("DualZorchPropulsors",1,"END")
+				TNT1 A 0 A_Jumpifinventory("ZorchPropulsor75",1,"Gotonered")
+					TNT1 A 0 A_Spawnitem("ZorchPropulsor75",0)
+					stop
+			
+				GotoneRed:
+				TNT1 A 0 A_Spawnitem("DualZorchPropulsors",0)
+				stop
+			
+		Isblueteam:
+			TNT1 A 0 A_JumpifInventory("BlueTeamDualZorchPropulsors",1,"END")
+				TNT1 A 0 A_Jumpifinventory("BlueTeamZorchPropulsor",1,"Gotoneblue")
+					TNT1 A 0 A_Spawnitem("BlueTeamZorchPropulsor",1)
+					stop
+			
+				GotoneBlue:
+				TNT1 A 0 A_SpawnItem("BlueTeamDualZorchPropulsors",0)
+				stop
+		
+		
+		END:
+			TNT1 A 0 
+			fail 
+	}
+}
+
+// Same as the above actor, except this will always allow the player
+// to pick it up, even if he/she already has two propulsors
+
+// this item is dropped by captives and brand X warriors rarely.
+Actor DropProp : DWZorchPropulsorSpawner
+{
+	Inventory.pickupmessage "You now hold \cjtwo zorch propulsors!"
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_jumpifinventory("BlueTeam",1,"IsBlueTeam")
+				TNT1 A 0 A_Jumpifinventory("ZorchPropulsor75",1,"Gotonered")
+					TNT1 A 0 A_Spawnitem("ZorchPropulsor75",0)
+					stop
+			
+				GotoneRed:
+				TNT1 A 0 A_Spawnitem("DualZorchPropulsors",0)
+				stop
+			
+		Isblueteam:
+				TNT1 A 0 A_Jumpifinventory("BlueTeamZorchPropulsor",1,"Gotoneblue")
+					TNT1 A 0 A_Spawnitem("BlueTeamZorchPropulsor",1)
+					stop
+			
+				GotoneBlue:
+				TNT1 A 0 A_SpawnItem("BlueTeamDualZorchPropulsors",0)
+				stop
+				
+	}
+}
+
+
+Actor ZorchPropulsor75 : Rocketlauncher 11049
+{
+	//$Category zorchers
+	//$Sprite LAUNA0
+	//$Title "Zorch Propulsor"
+	Game chex
+	Weapon.slotnumber 5
+	Inventory.Pickupmessage "you picked up a \cjzorch propulsor!"
+	Inventory.Icon "LAUNA0"
+	Weapon.Ammotype "ZorchRocketAmmo"
+	Weapon.AmmoGive 2
+
+	States
+	{
+		Spawn:
+			LAUN A -1
+			Stop
+		Fire:
+			MISG C 4
+			MISG B 4 A_GunFlash
+			MISG B 12 A_FireMissile
+			MISG B 0 A_ReFire
+			Goto Ready
+		Flash:
+			MISF A 2 Bright A_Light1
+			MISF B 2 Bright
+			MISF CD 2 Bright A_Light2
+			Goto LightDone
+	}
+}
+// made for team weapons.
+Actor DualZorchPropulsorsGiver : CustomInventory 11009
+{
+	//$Category zorchers
+	//$Sprite DELAA0
+	//$Title "Dual Zorch Propulsors"
+	States
+	{
+	Spawn:
+		DELA A 5
+		BELA A 5
+		loop
+	pickup:
+		TNT1 A 0 A_JumpIfInventory("BlueTeam",1,"IsBlueTeam")
+		TNT1 A 0 A_JumpIfInventory("DualZorchPropulsors",1,"GOTIT")
+		TNT1 A 0 A_SpawnItem("DualZorchPropulsors",0)
+		FAIL
+	IsBlueTeam:
+		TNT1 A 0 A_JumpIfInventory("BlueTeamDualZorchPropulsors",1,"GOTIT")
+		TNT1 A 0 A_SpawnItem("BlueTeamDualZorchPropulsors",0)
+		FAIL
+	GOTIT:
+		TNT1 A 0
+		FAIL
+	}
+}
+	
+		
+Actor DualZorchPropulsors : ZorchPropulsor75 
+{
+	+WEAPON.NOLMS
+	Weapon.Selectionorder 2400
+	Inventory.PickupMessage "you now hold \cjtwo propulsors\!\cq be careful!"
+	Obituary "%o was overpowered by %k's dual propulsors"
+	Weapon.slotnumber 5
+	Weapon.AmmoGive 4
+	Weapon.Ammotype2 "ZorchRocketAmmo"
+	Weapon.Ammouse2 1
+	Inventory.icon "DELAA0"
+	
+	States
+	{
+	Spawn:
+		DELA A -1
+		stop
+			
+	Deselect:
+		DMIS A 1 A_Lower
+		loop	
+	Select:
+		DMIS A 1 A_Raise
+		loop
+	
+	Ready:
+		DMIS A 1 A_WeaponReady
+		loop
+		
+		
+	Fire:
+		DMIS A 1
+		DMIS A 0 A_jumpifinventory("rightprop",1,"fireright")
+		goto Fireleft
+		
+		// 8 12 0
+		
+	Altfire:
+		DMIS C 4
+		DMIS B 4 A_GunFlash
+		DMIS B 0 A_FireCustomMissile("PropulsorMissileRight")
+		DMIS B 0
+		DMIS B 0 A_FireCustomMissile("Propulsormissileleft")
+		DMIS B 12 
+		DMIS B 0 A_Refire
+		goto Ready
+	
+	Fireleft:
+		LMIS C 2 
+		LMIS B 2 A_GunFlash
+		LMIS B 0 A_Giveinventory("rightprop",1)
+		LMIS B 6 A_FireCustomMissile("Propulsormissileleft")
+		LMIS B 0 A_ReFire
+		goto ready
+		
+		// the left one fires, the right one just flashes
+	
+	FireRight:
+		RMIS C 2
+		RMIS B 4 A_GunFlash
+		RMIS B 0 A_Takeinventory("rightprop",1)
+		RMIS B 6 A_FireCustomMissile("PropulsormissileRight")
+		RMIS B 0 A_Refire
+		goto ready
+		
+	Flash:	
+		DMIS A 0 Bright A_JumpifInventory("rightprop",1,"Rightflash")
+		LMSF A 2 Bright A_Light1
+		LMSF B 2 Bright
+		LMSF CD 2 Bright A_Light2
+		goto lightdone
+	
+	RightFlash:
+		RMSF A 2 Bright A_Light1
+		RMSF B 2 Bright
+		RMSF CD 2 Bright A_Light2
+		goto lightdone	
+		
+	AltFlash:
+		DMIF A 2 Bright A_Light1
+		DMIF B 2 Bright
+		DMIF CD 2 Bright A_Light2
+		goto lightdone
+	}
+}
+
+
+
+Actor PropulsormissileRight : PropulsorMissile replaces rocket
+{
+	
+	-ROCKETTRAIL
+}
+
+Actor PropulsormissileLeft : Propulsormissileright
+{
+	Obituary "%o was overpowered by %k's dual propulsors"
+	States
+	{
+		Spawn:
+			LISL A 1 BRIGHT
+			loop
+	}
+}

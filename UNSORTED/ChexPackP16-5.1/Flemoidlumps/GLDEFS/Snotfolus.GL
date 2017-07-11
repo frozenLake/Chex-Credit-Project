@@ -1,0 +1,12 @@
+Object LordSnotfolus
+{
+Frame CYBRG {light snotfoluspainlight}
+Frame CYBRH {light snotfoluspainlight}
+Frame CYBRI {light snotfolusdeathlight1}
+Frame CYBRJ {light snotfolusdeathlight2}
+Frame CYBRK {light snotfolusdeathlight3}
+Frame CYBRL {light snotfolusdeathlight4}
+Frame CYBRM {light snotfolusdeathlight5}
+Frame CYBRN {light snotfolusdeathlight6}
+Frame CYBRO {light snotfolusdeathlight7}
+}

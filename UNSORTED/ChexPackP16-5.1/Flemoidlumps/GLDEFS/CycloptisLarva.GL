@@ -1,0 +1,12 @@
+Object CycloptisLarva
+{
+	Frame FLYSE {light propulsorlight} // pain
+	
+	Frame FLYSF {light Cycloptisdeath2}
+	Frame FLYSG {light Cycloptisdeath2}
+	Frame FLYSH {light Cycloptisdeath2}
+	
+	Frame FLYSI {light propulsorlight}
+	Frame FLYSJ {light propulsorlight}
+	Frame FLYSK {light propulsorlight}
+}

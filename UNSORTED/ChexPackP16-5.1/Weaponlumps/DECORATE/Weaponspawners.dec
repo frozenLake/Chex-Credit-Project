@@ -1,0 +1,111 @@
+actor BootSpoonSpot : CustomPickupInvasionSpot 11200
+{
+radius 20
+height 16
+dropitem "BootSpoon"
+}
+
+actor BootSporkSpot : CustomPickupInvasionSpot 		11201
+{
+radius 20
+height 16
+dropitem "BootSpork"
+}
+
+
+actor MiniZorcherSpot : CustomPickupInvasionSpot 11202
+{
+radius 20
+height 16
+dropitem "MiniZorcher"
+}
+
+actor LargeZorcherSpot : ShotgunSpot 11203
+{
+dropitem "LargeZorcher"
+}
+
+actor SuperLargeZorcherSpot : SuperShotgunspot 11204
+{
+dropitem "SuperLargeZorcher"
+}
+
+actor RapidZorcherSpot : ChaingunSpot 11205
+{
+dropitem "Rapidzorcher"
+}
+
+actor Propulsorspot : RocketLauncherSpot 11206
+{
+	//$Category invweapons
+	//$Sprite LAUNA0
+	//$Title "Dual Wieldable Zorch Propulsor Invasion Spawner"
+dropitem "DWZorchPropulsorSpawner"
+}
+
+actor PhasingZorcherSpot : PlasmaRifleSpot 11207
+{
+dropitem "PhasingZorcher"
+}
+
+actor LazDeviceSpot : BFG9000Spot 11208
+{
+dropitem "LazDevice"
+}
+
+
+actor GhettoBlasterSpot : CustomPickupInvasionSpot 11209
+{
+Radius 20
+height 15
+dropitem "GhettoBlaster"
+}
+
+actor ZorchGlovesSpot : CustomPickupInvasionSpot 11210
+{
+radius 20
+height 15
+dropitem "ZorchGloves"
+}
+
+actor ClZorcherSpot : CustomPickupInvasionSpot 11211
+{
+radius 20
+height 15
+dropitem "ClZorcher"
+}
+
+actor DualMinizorchersspot : CustomPickupInvasionSpot 11212
+{
+radius 20
+height 15
+dropitem "DualMinizorchers"
+}
+
+actor Dualzorchpropulsorsspot : CustomPickupInvasionSpot 11213
+{
+radius 20
+height 15
+dropitem "DualZorchPropulsors"
+}
+
+actor DualFreezingZorchersspot : CustomPickupInvasionSpot 11214
+{
+radius 20
+height 15
+dropitem "DualFreezingZorchers"
+}
+
+actor DualBootsporksSpot : CustomPickupInvasionSpot 11215
+{
+radius 20
+height 15
+dropitem "DualBootsporks"
+}
+
+actor FreezingZorcherSpot : CustomPickupInvasionSpot 11216
+{
+radius 20
+height 15
+dropitem "FreezingZorcher"
+}

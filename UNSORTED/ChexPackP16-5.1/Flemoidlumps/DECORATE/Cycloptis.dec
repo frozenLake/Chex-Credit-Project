@@ -1,0 +1,65 @@
+ACTOR Cycloptis replaces FlemoidusCycloptisCommonusV3
+{
+
+	  Monster
+  +FLOORCLIP
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+  Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+  
+	+DONTGIB
+	-NOINFIGHTING
+	Game Chex
+	height 76
+	radius 20
+	Mass 4
+	Speed 10
+	Health 300
+	Obituary "%o was cornered by a Cycloptis"
+	
+
+  SpawnID 8
+  PainChance 180
+  
+  Damagetype Flem
+  Damagefactor "Flem", 0.0
+
+
+
+
+	States
+	{
+	Spawn:
+		CYCL AB 10 A_Look
+		Loop
+	 Melee:
+		CYCL EF 8 A_FaceTarget
+		CYCL G 8 A_SargAttack
+		Goto See
+	See:
+		CYCL AAAABBBBCCCCDDDD 1 A_Chase
+		Loop
+	Pain:
+       CYCL H 2 BRIGHT 
+       CYCL H 2 BRIGHT A_Pain
+       Goto See
+	Death:
+       CYCL I 8 BRIGHT
+       CYCL J 8 BRIGHT A_Scream
+       CYCL K 4 BRIGHT 
+       CYCL L 4 BRIGHT A_NoBlocking
+       CYCL M 4 BRIGHT 
+       CYCL N -1
+       Stop
+	   
+	 Raise:
+		CYCL N 5
+		CYCL MLKJI 5
+		Goto See
+	}
+
+			
+}

@@ -1,0 +1,15 @@
+Object Captive1
+{
+	Frame CAP1G {light playerpainlight}
+	Frame CAP1H {light playerdeathlight1}
+	Frame CAP1I {light playerdeathlight2}
+	Frame CAP1J {light propulsorlight}
+}
+
+Object Captive2
+{
+	Frame CAP2F {light playerpainlight}
+	Frame CAP2G {light playerdeathlight2}
+	Frame CAP2H {light playerdeathlight1}
+	Frame CAP2I {light propulsorlight}
+}

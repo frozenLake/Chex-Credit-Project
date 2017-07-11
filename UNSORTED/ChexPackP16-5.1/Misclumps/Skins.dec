@@ -1,0 +1,539 @@
+actor CrateDisguise : ChexPlayer75
+{
+	Player.Displayname "Crate disguise"
+	Player.CrouchSprite "CRAC"
+	Player.ColorRange 112, 127
+	Scale .7
+	
+
+	States
+   	{
+		// only change in the missle state is I gave his sprite the bright property
+		
+	  Spawn:
+		CRAT A -1
+		Loop
+		
+	  See:
+		CRAT ABCD 4 
+		Loop
+		
+	  Missile:
+		CRAT E 12 BRIGHT  
+		Goto Spawn
+		
+	  Melee:
+		CRAT F 6 BRIGHT
+		Goto Missile
+		
+		Missile:
+		CRAT E 12 BRIGHT
+		Goto Spawn
+
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+		Pain:
+			CRAT O 4 bright A_SetBlend("99 20 20", .5, 20)
+			CRAT O 4 bright A_Pain
+			Goto Spawn
+
+		Pain.Flem:
+			CRAT O 0 A_SetBlend("20 99 20", 1, 20)
+			CRAT O 4
+			CRAT O 4 A_Pain
+			Goto Spawn
+
+		Death:
+		XDeath:
+			CRAT P 0 bright A_SetBlend("99 20 20", 1, 120)
+			CRAT P 15 bright A_PlayerScream
+			CRAT Q 15 bright A_NoBlocking
+			CRAT Q 0 BRIGHT A_TakeInventory("sound_play", 1)
+			CRAT R 15 bright 
+			CRAT S -1
+			Stop
+
+		// Flem
+	
+		
+		Death.Flem:
+		XDeath.Flem:
+			CRAT P 0 A_TakeInventory("sound_play", 1)
+			CRAT P 0 A_SetBlend("20 99 20", 1, 120)
+			CRAT P 10
+			CRAT Q 10 A_PlayerScream
+			CRAT Q 10 A_NoBlocking
+			CRAT R 15
+			CRAT S -1
+			Stop
+		// maybe add extremedeath flems?	
+	}
+}
+
+// iChex Warrior sprites by Zorchdude
+
+actor iChexWarrior : ChexPlayer75
+{
+	Player.Displayname "iChex/Zorchdude"
+	Player.ColorRange 112, 127
+	
+	//+BRIGHT this flag doesn't work...
+	
+	States
+	{
+		 Spawn:
+		ICHX A -1  BRIGHT 
+		Loop
+		
+	  See:
+		ICHX ABCD 4  BRIGHT 
+		Loop
+		
+	  Missile:
+		ICHX E 12 BRIGHT 
+		Goto Spawn
+		
+	  Melee:
+		ICHX F 6 BRIGHT  
+		Goto Missile
+		
+		Missile:
+		ICHX E 12 BRIGHT  
+		Goto Spawn
+
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		ICHX G 4 BRIGHT  A_SetBlend("99 20 20", .5, 20)
+		ICHX G 4 BRIGHT  A_Pain
+		Goto Spawn
+
+	Pain.Flem:
+		ICHX G 0 BRIGHT  A_SetBlend("20 99 20", 1, 20)
+		ICHX G 4 BRIGHT  
+		ICHX G 4 BRIGHT  A_Pain 
+		Goto Spawn
+			
+	  Death:
+		ICHX H 0 A_TakeInventory("sound_play", 1)
+		ICHX H 10 BRIGHT  A_SetBlend("99 20 20", 1, 120)
+		ICHX I 10 BRIGHT  A_PlayerScream 
+		ICHX J 10 BRIGHT  A_NoBlocking 
+		ICHX KLM 10 BRIGHT 
+		ICHX N -1  BRIGHT 
+		Stop
+		
+	  XDeath:
+		ICHX O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		ICHX O 5 BRIGHT  A_SetBlend("99 20 20", 1, 120) 
+		ICHX P 5 BRIGHT  A_XScream
+		ICHX Q 5 BRIGHT  A_NoBlocking
+		ICHX RSTUV 5 BRIGHT 
+		ICHX W -1
+		Stop
+
+	Death.Flem:
+		ICHX H 0 BRIGHT A_TakeInventory("sound_play", 1)
+		ICHX H 10 BRIGHT  
+		ICHX I 10 BRIGHT  A_PlayerScream
+		ICHX J 10 BRIGHT  A_NoBlocking
+		ICHX KLM 10 BRIGHT 
+		ICHX N -1
+		Stop
+		
+		XDeath.Flem:
+		ICHX O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		ICHX O 5 BRIGHT  A_SetBlend("99 20 20", 1, 120)
+		ICHX P 5 BRIGHT  A_XScream
+		ICHX Q 5 BRIGHT  A_NoBlocking
+		ICHX RSTUV 5 BRIGHT 
+		ICHX W -1 BRIGHT 
+		Stop
+
+	
+	}
+}
+
+actor BipedicusWarrior : ChexPlayer75
+{
+	Player.Displayname "Bipedicus"
+	Player.ColorRange 112, 127
+	
+	PainSound "shotguy/pain"
+	DeathSound "shotguy/death"
+	
+	Player.SoundClass "BipedicusWarrior"
+
+	
+	-NOBLOOD
+	
+	States
+	{
+	   Spawn:
+		SPOS A -1 
+		Loop
+		
+	  See:
+		SPOS ABCD 4 
+		Loop
+		
+	  Missile:
+		SPOS E 12 BRIGHT 
+		Goto Spawn
+		
+	  Melee:
+		SPOS F 6 BRIGHT 
+		Goto Missile
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		SPOS G 4 BRIGHT A_SetBlend("99 20 20", .5, 20)
+		SPOS G 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+
+	Pain.Flem:
+		SPOS G 0 BRIGHT A_SetBlend("20 99 20", 1, 20)
+		SPOS G 4 BRIGHT
+		SPOS G 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+			
+	  XDeath:
+		SPOS H 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		SPOS I 5 BRIGHT A_XScream 
+		SPOS J 5 BRIGHT A_NoBlocking 
+		SPOS J 0 BRIGHT A_TakeInventory("sound_play", 1)
+		SPOS K 5 BRIGHT
+		SPOS L -1 
+		Stop
+		
+	  Death:
+		SPOS M 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		SPOS N 5 BRIGHT A_PlayerScream
+		SPOS O 5 BRIGHT A_NoBlocking
+		SPOS O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		SPOS PQRST 5 BRIGHT
+		SPOS U -1
+
+	Death.Flem:
+		SPOS M 5 BRIGHT A_Playsound("misc/gibbed")
+		SPOS N 5 BRIGHT A_PlayerScream
+		SPOS O 5 BRIGHT A_NoBlocking
+		SPOS O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		SPOS PQRST 5 BRIGHT
+		SPOS U -1
+		
+	  XDeath:
+		SPOS H 5 BRIGHT 
+		SPOS I 5 BRIGHT A_Playsound("misc/gibbed")
+		SPOS J 5 BRIGHT A_NoBlocking 
+		SPOS J 0 BRIGHT A_TakeInventory("sound_play", 1)
+		SPOS K 5 BRIGHT
+		SPOS L -1 
+		Stop
+
+	
+	}
+}
+	
+Actor CommonousWarrior : BipedicusWarrior
+{
+	Player.Displayname "Commonous"
+	Player.ColorRange 112, 127
+	
+	Player.SoundClass "CommonousWarrior"
+	
+
+  painsound "imp/pain"
+  deathsound "imp/death"
+  
+	States
+	{
+	   Spawn:
+		POSS A -1 
+		Loop
+		
+	  See:
+		POSS ABCD 4 
+		Loop
+		
+	  Missile:
+		POSS E 12 BRIGHT 
+		Goto Spawn
+		
+	  Melee:
+		POSS F 6 BRIGHT 
+		Goto Missile
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		POSS G 4 BRIGHT A_SetBlend("99 20 20", .5, 20)
+		POSS G 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+
+	Pain.Flem:
+		POSS G 0 BRIGHT A_SetBlend("20 99 20", 1, 20)
+		POSS G 4 BRIGHT
+		POSS G 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+			
+	  XDeath:
+		POSS H 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		POSS I 5 BRIGHT A_XScream 
+		POSS I 0 BRIGHT A_TakeInventory("sound_play", 1)
+		POSS J 5 BRIGHT A_NoBlocking 
+		POSS K 5 BRIGHT
+		POSS L -1 
+		Stop
+		
+	  Death:
+		POSS M 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		POSS N 5 BRIGHT A_PlayerScream
+		POSS O 5 BRIGHT A_NoBlocking
+		POSS O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		POSS PQRST 5 BRIGHT
+		POSS U -1
+
+	Death.Flem:
+		POSS M 5 BRIGHT A_Playsound("misc/gibbed")
+		POSS N 5 BRIGHT A_PlayerScream
+		POSS O 5 BRIGHT A_NoBlocking
+		POSS O 0 BRIGHT A_TakeInventory("sound_play", 1)
+		POSS PQRST 5 BRIGHT
+		POSS U -1
+		
+	  XDeath:
+		POSS H 5 BRIGHT A_TakeInventory("sound_play", 1)
+		POSS I 5 BRIGHT A_Playsound("misc/gibbed")
+		POSS J 5 BRIGHT A_NoBlocking 
+		POSS J 0 BRIGHT 
+		POSS K 5 BRIGHT
+		POSS L -1 
+		Stop
+
+	
+	}
+}
+
+Actor BipedicusWithArmorWarrior : BipedicusWarrior
+{
+	Player.Displayname "BipedicusWithArmor"
+	Player.ColorRange 112, 127
+	
+	Player.SoundClass "BWAWarrior"
+	
+	  painsound "imp/pain"
+	  deathsound "imp/death"
+		
+	States
+	{
+	   Spawn:
+		TROO A -1 
+		Loop
+		
+	  See:
+		TROO ABCD 4 
+		Loop
+		
+	  Missile:
+		TROO G 12 BRIGHT 
+		Goto Spawn
+		
+	  Melee:
+		TROO F 6 BRIGHT 
+		Goto Missile
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		TROO H 4 BRIGHT A_SetBlend("99 20 20", .5, 20)
+		TROO H 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+
+	Pain.Flem:
+		TROO H 0 BRIGHT A_SetBlend("20 99 20", 1, 20)
+		TROO H 4 BRIGHT
+		TROO H 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+			
+	  XDeath:
+		TROO I 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		TROO I 0 BRIGHT A_TakeInventory("sound_play", 1)
+		TROO J 5 BRIGHT A_XScream 
+		TROO K 5 BRIGHT A_NoBlocking 
+		TROO L 5 BRIGHT
+		TROO M -1 
+		Stop
+		
+	  Death:
+		TROO N 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		TROO N 0 BRIGHT A_TakeInventory("sound_play", 1)
+		TROO O 5 BRIGHT A_PlayerScream
+		TROO P 5 BRIGHT A_NoBlocking
+		TROO QRST 5 BRIGHT
+		TROO U -1
+
+	Death.Flem:
+		TROO N 5 BRIGHT A_Playsound("misc/gibbed")
+		TROO N 0 BRIGHT A_TakeInventory("sound_play", 1)
+		TROO O 5 BRIGHT A_PlayerScream
+		TROO P 5 BRIGHT A_NoBlocking
+		TROO QRST 5 BRIGHT
+		TROO U -1
+		
+	  XDeath:
+		TROO I 5 BRIGHT A_TakeInventory("sound_play", 1)
+		TROO J 5 BRIGHT A_Playsound("misc/gibbed")
+		TROO K 5 BRIGHT A_NoBlocking 
+		TROO L 5 BRIGHT
+		TROO M -1 
+		Stop
+
+	
+	}
+}
+
+
+Actor QuadrumpusWarrior : BipedicusWithArmorWarrior
+{
+	Player.Displayname "Quadrumpus"
+	Player.ColorRange 112, 127
+	
+	Player.SoundClass "QUADWarrior"
+	
+
+	  painsound "imp/pain"
+	  deathsound "imp/death"
+	  
+	 States
+	{
+	   Spawn:
+		QUAD A -1 
+		Loop
+		
+	  See:
+		QUAD ABCD 4 
+		Loop
+		
+	  Missile:
+		QUAD G 12 BRIGHT 
+		Goto Spawn
+		
+	  Melee:
+		QUAD F 6 BRIGHT 
+		Goto Missile
+
+		// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		QUAD H 4 BRIGHT A_SetBlend("99 20 20", .5, 20)
+		QUAD H 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+
+	Pain.Flem:
+		QUAD H 0 BRIGHT A_SetBlend("20 99 20", 1, 20)
+		QUAD H 4 BRIGHT
+		QUAD H 4 BRIGHT A_Playsound("shotguy/pain")
+		Goto Spawn
+			
+	  XDeath:
+		QUAD I 0 BRIGHT A_TakeInventory("sound_play", 1)
+		QUAD I 5 BRIGHT A_SetBlend("99 20 20", 1, 120)
+		QUAD J 5 BRIGHT A_XScream 
+		QUAD K 5 BRIGHT A_NoBlocking 
+		QUAD L 5 BRIGHT 
+		QUAD M -1 
+		Stop
+		
+	  Death:
+		QUAD N 0 BRIGHT A_TakeInventory("sound_play", 1)
+		QUAD N 5 BRIGHT  A_SetBlend("99 20 20", 1, 120)
+		QUAD O 5 BRIGHT  A_PlayerScream
+		QUAD P 5 BRIGHT  A_NoBlocking
+		QUAD QRST 5 BRIGHT 
+		QUAD U -1
+
+	Death.Flem:
+		QUAD N 0 BRIGHT A_TakeInventory("sound_play", 1)
+		QUAD N 5 BRIGHT  A_Playsound("misc/gibbed")
+		QUAD O 5 BRIGHT  A_PlayerScream
+		QUAD P 5 BRIGHT  A_NoBlocking
+		QUAD QRST 5 BRIGHT 
+		QUAD U -1
+		
+	  XDeath:
+		QUAD I 0 BRIGHT A_TakeInventory("sound_play", 1)
+		QUAD I 5 BRIGHT  
+		QUAD J 5 BRIGHT  A_Playsound("misc/gibbed")
+		QUAD K 5 BRIGHT  A_NoBlocking 
+		QUAD L 5 BRIGHT 
+		QUAD M -1 
+		Stop
+
+	
+	}
+}
+
+actor RadsuitWarrior : ChexPlayer75
+{
+	Player.Displayname "Slimeproof suit"
+
+	 Player.ColorRange 192, 207
+	
+
+	States
+	{
+		 Spawn:
+		SUIS A -1   
+		Loop
+		
+	  See:
+		SUIS ABCD 4   
+		Loop
+		
+	  Missile:
+		SUIS E 12  BRIGHT
+		Goto Spawn
+		
+	  Melee:
+		SUIS F 6   BRIGHT
+		Goto Missile
+
+		
+	// zorch - this skin does not yet have slime pain and death sprites. 
+	Pain:
+		SUIS O 4  bright A_SetBlend("99 20 20", .5, 20)
+		SUIS O 4  bright A_Pain
+		Goto Spawn
+	
+			
+	
+	Pain.Flem:
+		SUIS G 0   A_SetBlend("20 99 20", 1, 20)
+		SUIS G 4   
+		SUIS G 4   A_Pain 
+		Goto Spawn
+		
+	  Death:
+	  XDeath:
+		SUIS P 0  bright A_TakeInventory("sound_play", 1)
+		SUIS P 15 bright A_SetBlend("99 20 20", 1, 120) 
+		SUIS Q 15 bright A_PlayerScream
+		SUIS Q 0 bright A_NoBlocking
+		SUIS R 15 bright
+		NULL A -1
+		Stop
+		
+
+		Death.Flem:
+		XDeath.Flem:
+			SUIS H 0 A_SetBlend("20 99 20", 1, 120)
+			SUIS H 10
+			SUIS I 10 A_PlayerScream
+			SUIS J 10 A_NoBlocking
+			SUIS J 0 A_TakeInventory("sound_play", 1)
+			SUIS KLM 10
+			SUIS N -1
+			Stop
+
+	
+	}
+}
+

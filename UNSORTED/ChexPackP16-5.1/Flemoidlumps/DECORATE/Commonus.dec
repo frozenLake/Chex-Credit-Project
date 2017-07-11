@@ -1,0 +1,42 @@
+ACTOR Commonus : FlemoidusCommonusV3 replaces FlemoidusCommonusV3
+{
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+DONTGIB
+	-NOINFIGHTING
+	Game Chex
+	Obituary "%o let %hself get slimed by a commonus"
+	
+	Maxtargetrange 400
+	
+	States
+	{
+	Missile:
+		POSS E 10 A_FaceTarget
+		POSS F 10 A_CustomMissile("BBall", 40,0,0,CMF_AIMDIRECTION,random(0,30))
+		
+		Goto See
+	Pain:
+		POSS G 3 bright 
+		POSS G 3 bright A_Pain
+		Goto See
+	Death:
+		POSS H 5 bright
+		POSS I 5 bright A_Scream
+		POSS J 5 bright A_NoBlocking
+		POSS K 5 bright
+		POSS L -1
+		Stop
+	XDeath:
+		POSS M 5 bright
+		POSS N 5 bright A_XScream
+		POSS O 5 bright A_NoBlocking
+		POSS PQRST 5 bright
+		POSS U -1
+		Stop
+	Raise:
+		POSS K 5 bright
+		POSS JIH 5 bright
+		Goto See
+	}	
+}

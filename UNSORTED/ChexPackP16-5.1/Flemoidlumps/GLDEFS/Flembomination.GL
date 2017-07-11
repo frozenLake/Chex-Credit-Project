@@ -1,0 +1,13 @@
+Object Flembomination75
+{
+Frame SPIDI {light snotfoluspainlight}
+Frame SPIDJ {light snotfoluspainlight}
+Frame SPIDK {light snotfolusdeathlight1}
+Frame SPIDL {light snotfolusdeathlight2}
+Frame SPIDM {light snotfolusdeathlight3}
+Frame SPIDN {light snotfolusdeathlight4}
+Frame SPIDO {light snotfolusdeathlight5}
+Frame SPIDP {light snotfolusdeathlight6}
+Frame SPIDQ {light snotfolusdeathlight7}
+Frame SPIDR {light propulsorlight}
+}

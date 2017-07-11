@@ -1,0 +1,191 @@
+// pickups: 200xx
+
+/*
+
+ACTOR Grapes : Health 20009
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 3
+  Inventory.MaxAmount 300
+  Inventory.PickupMessage "You ate some juicy grapes."
+  States
+  {
+  Spawn:
+    GRAP A -1
+    Loop
+  }
+}
+*/
+
+Actor SlimeOff : Maxarmorbonus replaces MaxArmorbonus
+{
+// sprite by Manny Cav
+Inventory.Pickupmessage "Picked up a bottle of slime off!"
+	States
+	{
+		Spawn:
+		BON4 A -1
+		stop
+	}
+}
+
+Actor SuperchargeBreakfast75 : superchargebreakfast replaces SuperChargebreakfast
+{
+	
+	Inventory.Pickupsound "Pickups/breakfast"
+}
+
+Actor ChexShield : ResistanceRune replaces ResistanceRune 5104
+{
+	//$Category powerups
+	//$Sprite ARMXA0
+	//$Title "Chex Shield"
+	Height 44
+	Radius 26
+	Inventory.PickupMessage "Picked up the energized Chex shield!"
+	States
+	{
+	Spawn:
+	ARMX A 1
+	Loop
+	}
+}
+
+Actor Drumstick : Berserk replaces Berserk  2023
+{
+	//$Category powerups
+	//$Sprite FRYDA0
+	//$Title "Fried Chicken - Berzerk"
+	+Floatbob
+	Height 28
+	Radius 16
+	Inventory.PickupMessage "You ate some fried chicken - you feel stronger!"
+	Inventory.PickupSound "pickups/breakfast"
+	States
+	{
+	Spawn:
+	FRYD A 1
+	Loop
+	Pickup:
+	TNT1 A 0 A_GiveInventory("PowerStrength")
+	TNT1 A 0 HealThing(100, 0)
+	TNT1 A 0 A_SelectWeapon("BootSpoon75")
+	Stop
+	}
+}
+
+Actor HighJumpBoots : HighJumprune replaces HighJumpRune
+{
+	Inventory.PickupMessage "Picked up the high jump boots!"
+	States
+	{
+		Spawn:
+		HIJR A -1
+		stop
+	}
+}
+
+/////////////////////////////////
+//@             @             @//
+//                             //
+//  QuadrumpusGuy's  Decorate  //
+//       Glass of 2% Milk      //
+//                             //
+//@             @             @//
+/////////////////////////////////
+
+
+ACTOR GlassOfMilk : Health 20000 //18810
+{
+	//$Category Health and Armor
+	//$Sprite MILKA0
+	//$Title "2% Milk"
+
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.Amount 2
+	Inventory.MaxAmount 120
+	Inventory.PickupMessage "Chugged down a glass of 2% Milk."
+	States
+	{
+	Spawn:
+		MILK ABCDCB 6 BRIGHT
+		Loop
+	}
+}
+
+/////////////////////////////////
+//@             @             @//
+//                             //
+//  QuadrumpusGuy's  Decorate  //
+//   Universal Shielding Suit  //
+//                             //
+//@             @             @//
+/////////////////////////////////
+
+
+ACTOR PowerFifthDamageChex : PowerProtection replaces PowerProtection
+{
+	Damagefactor "slime", 0.2
+	Damagefactor "normal", 0.2
+	Damagefactor "flem", 0.2
+        Damagefactor "ice", 0.2
+        Powerup.Duration -60
+}
+
+ACTOR UniversalShieldingSuit : PowerupGiver 20001 //20250
+{
+	//$Category powerups
+	//$Sprite SUITA0
+	//$Title "Universal Shielding Suit"
+	
+  Height 46
+  Radius 22
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.MaxAmount 0
+  Inventory.PickupMessage "Put on a Universal Shielding Suit!"
+  Powerup.Type "PowerFifthDamageChex"
+  Powerup.Color "88 88 FF"
+  States
+  {
+  Spawn:
+    SUIT A -1 Bright
+    Stop
+  Pickup:
+    TNT1 A 0 A_GiveInventory ("RadSuit")
+    Stop
+  }
+}
+
+
+Actor BlurSuit : Blursphere replaces Blursphere 2024
+{
+	//$Category powerups
+	//$Sprite PINSA0
+	//$Title "Blur suit"
+	Game Chex
+	Inventory.PickupMessage "Put on an experimental light ray diffusion suit!"
+}	  
+	
+Actor Freebreakfast : soulsphere 20002
+{
+	//$Category powerups
+	//$Sprite SAULA0
+	//$Title "Free Breakfast!"
+	
+	Game chex
+	
+	Inventory.PickupMessage "Picked up some pancakes, OJ, fruit, and dog food!"
+
+  Inventory.Amount 50
+  Inventory.MaxAmount 400
+  
+	states
+	{
+		Spawn:
+			SAUL ABCDB 6 Bright
+			loop
+	}
+}

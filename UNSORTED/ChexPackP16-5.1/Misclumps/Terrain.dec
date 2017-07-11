@@ -1,0 +1,26 @@
+ACTOR SlimeSpray : LavaSmoke
+{
+  RenderStyle Normal
+}
+
+ACTOR Waterspray : Watersplashbase
+{
+	Renderstyle Normal
+	States
+	{
+	Spawn:
+		SPLA ABCD 5
+		Stop
+	}
+}
+
+ACTOR HGSpray : Watersplashbase
+{
+	Renderstyle Normal
+	States
+	{
+	Spawn:
+		HGAR ABCDE 5
+		Stop
+	}
+}

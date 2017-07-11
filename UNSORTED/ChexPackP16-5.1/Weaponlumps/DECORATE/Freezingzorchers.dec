@@ -1,0 +1,251 @@
+actor rightfrez : fireright
+{}
+
+Actor FreezingZorcher : ZorchPropulsor75 11015 // alternate form of 11005
+{
+	//$Category zorchers
+	//$Sprite FZORA0
+	//$Title "Freezing Zorcher"
+	Weapon.AmmoType "FreezingZorch"
+	Game chex
+	Weapon.slotnumber 5
+	Inventory.Pickupmessage "you just slipped onto a \cvfreezing zorcher!"
+	Weapon.Ammogive 2 
+	Inventory.Icon "FZORA0"
+	States
+	{
+		Spawn:
+			FZOR A -1 
+			Stop
+		Ready:
+			FRZR A 1 A_WeaponReady
+			Loop
+		Deselect:
+			FRZR A 1 A_Lower
+			Loop
+		Select:
+			FRZR A 1 A_Raise
+			Loop
+		Fire:
+			FRZR B 8 A_GunFlash
+			FRZR B 12 A_FireCustomMissile("FreezingZorchRocket")
+			FRZR B 0 A_ReFire
+			Goto Ready
+		Flash:
+			FRMI A 3 Bright A_Light1
+			FRMI B 4 Bright
+			FRMI CD 4 Bright A_Light2
+			Goto LightDone
+	}
+}
+		
+Actor DualFreezingZorchers : DualZorchPropulsors 11005
+{
+	//$Category zorchers
+	//$Sprite DZORA0
+	//$Title "Dual Freezing Zorchers"
+	+WEAPON.NOLMS
+	Weapon.AmmoType "FreezingZorch"
+	Weapon.ammogive 2 //5 in deathmatch
+	Weapon.Selectionorder 2400
+	Inventory.PickupMessage "you now hold \cvtwo freezing zorchers!\ch Don't \cvfreeze\ch yourself!"
+	Weapon.slotnumber 5
+	Inventory.icon "DZORA0"
+	Weapon.Ammotype2 "FreezingZorch"
+	Weapon.ammouse2 1
+	
+	States
+	{
+	Spawn:
+		DZOR A -1
+		stop
+			
+	Deselect:
+		DRZR A 1 A_Lower
+		loop	
+	Select:
+		DRZR A 1 A_Raise
+		loop
+	
+	Ready:
+		DRZR A 1 A_WeaponReady
+		loop
+		
+	Altfire:
+		DRZR B 8 A_GunFlash
+		DRZR B 0 A_FireCustomMissile("FreezingZorchRocket")
+		DRZR B 0
+		DRZR B 0 A_FireCustomMissile("LeftFreezingzorchrocket")
+		DRZR B 12 
+		DRZR B 0 A_Refire
+		goto Ready
+		
+	AltFlash:
+		DFZR A 3 Bright A_Light1
+		DFZR B 4 Bright
+		DFZR CD 4 Bright A_Light2
+		goto lightdone
+		
+	Fire:
+		DRZR A 1
+		DRZR A 0 A_jumpifinventory("rightfrez",1,"fireright")
+		goto Fireleft
+	
+	Fireleft:
+		LRZR B 4 A_GunFlash
+		LRZR B 0 A_Giveinventory("rightfrez",1)
+		LRZR B 6 A_FireCustomMissile("LeftFreezingzorchrocket")
+		LRZR B 0 A_ReFire
+		goto ready
+	
+	FireRight:
+		RRZR B 4 A_GunFlash
+		RRZR B 0 A_Takeinventory("rightfrez",1)
+		RRZR B 6 A_FireCustomMissile("Freezingzorchrocket")
+		RRZR B 0 A_Refire
+		goto ready
+		
+	Flash:	
+		DRZR A 0 Bright A_JumpifInventory("rightfrez",1,"Rightflash")
+		LRMI A 3 Bright A_Light1
+		LRMI B 4 Bright
+		LRMI CD 4 Bright A_Light2
+		goto lightdone
+	
+	RightFlash:
+		RRMI A 3 Bright A_Light1
+		RRMI B 4 Bright
+		RRMI CD 4 Bright A_Light2
+		goto lightdone		
+	}
+}
+
+// pick up two of these and you'll be double weilding!
+Actor DWFreezingZorcherSpawner :  DWZorchPropulsorSpawner 11004
+{
+	//$Category zorchers
+	//$Sprite FZORA0
+	//$Title "Freezing Zorcher - Dual Wieldable"
+	Inventory.Pickupmessage ""
+	Inventory.pickupsound "misc/w_pkup"
+	states
+	{
+	Spawn:
+		FZOR A -1 
+		stop
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DualFreezingZorchers",1,"GOTIT")
+		TNT1 A 0 A_JumpifInventory("FreezingZorcher",1,"Give1")
+		TNT1 A 0 A_SpawnItem("FreezingZorcher",1)
+		stop
+	Give1:
+		TNT1 A 0 A_SpawnItem("DualFreezingZorchers",1)
+		stop
+	GOTIT:
+		TNT1 A 0
+		FAIL
+	}
+}
+
+
+
+Actor DropFreezingZorcher : DWFreezingZorcherSpawner
+{
+	States
+	{
+		Pickup:
+		TNT1 A 0 A_JumpifInventory("FreezingZorcher",1,"Give1")
+		TNT1 A 0 A_GiveInventory("FreezingZorcher",1)
+		stop
+	}
+}
+
+
+Actor DropDualFreezingzorchers : DualFreezingzorchers
+{
+	States
+	{
+			pickup:
+			TNT1 A 0 A_GiveInventory("FreezingZorcher",1)
+			TNT1 A 0 A_GiveInventory("DualFreezingZorchers",1)
+			stop
+	}
+}
+
+
+
+actor FreezingZorchRocket // right rocket
+{
+  SpawnID 127
+  Radius 11
+  Height 8
+  Speed 35
+  Damage 40
+  Projectile
+  +RANDOMIZE
+  +DEHEXPLOSION
+  -ROCKETTRAIL
+  SeeSound "weapons/rocklf"
+  DeathSound "weapons/icehit"
+  Obituary "%o couldn't withstand the cold from %k's Freezing Zorcher."
+  DamageType Ice
+  States
+  {
+  Spawn:
+    FREE A 1 bright A_SpawnItem("FreezeZorchTrail")
+    loop
+  Death:
+    FBLS BCDE 4 bright A_Explode(64,50,true)
+    stop
+  }
+}
+
+actor LeftFreezingzorchrocket : Freezingzorchrocket
+{
+	Obituary "%o was chilled by %k's dual freezing zorchers"
+	States
+	{
+	Spawn:
+		LREE A 1 bright A_SpawnItem("LeftFreezeZorchTrail")
+		loop
+	}
+
+}	
+	
+
+actor FreezeZorchTrail
+{
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+  SpawnID 51
+  Radius 13
+  Height 8
+  Speed 20
+  Damage 0
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.75
+  SeeSound "weapons/iceshot"
+  DeathSound "weapons/icehit"
+  States
+  {
+  Spawn:
+    FRTR ABC 6 bright A_FadeOut(0.2)
+    loop
+  Death:
+    FRTR ABC 4 bright
+    stop
+  }
+}
+
+actor LeftFreezezorchtrail : Freezezorchtrail
+{
+	
+	States
+	{
+		Spawn:
+		LRTR ABC 6 bright A_Fadeout(0.2)
+		loop
+	}
+}

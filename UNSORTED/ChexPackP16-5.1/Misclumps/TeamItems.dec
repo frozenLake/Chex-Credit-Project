@@ -1,0 +1,21 @@
+/*
+
+Actor RedFlag75 : RedFlag replaces RedFlag
+{
+	Inventory.pickupmessage "\cjYou picked up the \cg New Red Flag!"
+	Height 900
+}
+
+Actor BlueFlag75 : BlueFlag replaces BlueFlag
+{
+	Inventory.pickupmessage "\cjYou picked up the \cn New Blue Flag!"
+	Height 900
+}
+
+Actor WhiteFlag75 : WhiteFlag replaces WhiteFlag
+{
+	Inventory.pickupmessage "\cvYou picked up the \cj New White Flag!"
+	Height 900
+}
+
+*/

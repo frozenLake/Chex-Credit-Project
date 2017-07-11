@@ -1,0 +1,9 @@
+Actor sizecompare : Zorchclip
+{
+	States
+	{
+		spawn:
+			CLIP A -1
+			stop
+	}
+}

@@ -1,0 +1,81 @@
+actor FistSwitch : Inventory
+{
+Inventory.MaxAmount 1
+// hacky fake inventory item to make the zorchgloves work
+}
+
+actor ZGlopuff : Bulletpuff
+{
++PUFFONACTORS
+SeeSound "weapons/fisthit"
+AttackSound "Weapons/fistwal"
+Renderstyle "Normal"
+
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    PUFF B 4 bright
+    // Intentional fall-through
+  Melee:
+    PUFF CD 4 bright
+    Stop
+  }
+
+}
+
+ACTOR Zorchgloves : Weapon 11006
+{
+	Game Chex
+	Weapon.SelectionOrder 2000
+	Weapon.Kickback 100
+	+WEAPON.MELEEWEAPON
+	+WEAPON.NOLMS
+	+WEAPON.NOALERT
+	
+	Obituary "%o was smacked into another dimension by %k's zorch gloves"
+	Inventory.Pickupmessage "You picked up a pair of \cJZorch gloves!"
+
+
+	States
+	{
+
+		Spawn:
+		GLOV A -1 bright
+		Stop
+
+		Ready:
+		ZGLO AAAAFFFFGGGG 1 A_WeaponReady
+		Loop
+
+		Select: 
+
+		ZGLO A 1 A_Raise
+		loop
+
+		Deselect:
+		ZGLO A 1 A_Lower
+		loop
+
+
+	
+		Fire:
+		ZGLO B 0 A_JumpIfInventory("FistSwitch",1,"RightHand")
+		ZGLO B 0 A_GiveInventory("FistSwitch",1)
+		ZGLO B 3 A_CustomPunch(6,false,0,"ZGLopuff",64)
+		ZGLO C 9 A_CustomPunch(8,false,0,"ZGLopuff",64)
+		ZGLO B 3
+		ZGLO A 3
+		ZGLO A 0 A_ReFire
+		goto Ready
+		
+		RightHand:
+		ZGLO D 0 A_TakeInventory("FistSwitch",1)
+		ZGLO D 3 A_CustomPunch(6,false,0,"ZGLopuff",64)
+		ZGLO E 9 A_CustomPunch(8,false,0,"ZGlopuff",64)
+		ZGLO D 3 
+		ZGLO A 3 A_Refire
+		
+		goto Ready		
+	}
+}

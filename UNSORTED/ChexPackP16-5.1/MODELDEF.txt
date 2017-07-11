@@ -1,0 +1,87 @@
+////
+
+Model ZorchShell
+{
+	Path "models"
+	Model 0 "ShellModel.md3"
+	Skin 0 "ShellSkin.png"
+	
+	Scale 8 8 8
+	
+	FrameIndex SHEL A 0 0
+}
+
+Model 50ZorchClipBox
+{
+	Path "models"
+	Model 0 "AmmoBox.md3"
+	Skin 0 "Ammobox.png"
+	
+	Scale 8 8 8 
+	
+	FrameIndex AMMO A 0 0
+}
+
+Model ZorchClip
+{
+	ROTATING 
+	
+	Path "models"
+	Model 0 "Zorchdisk.md3"
+	Skin 0 "Zorchdisk.png"
+	
+	Scale 2 2 2
+	//Rotation-Speed 2.0
+	//Rotation-Vector 0 1 0
+	
+	FrameIndex CLIP A 0 0 
+
+}
+
+Model PropStool
+{
+	Path "models"
+	Model 0 "Stool.md3"
+	Skin 0 "Stool.png"
+	
+	Scale 3 3 3
+	
+	FrameIndex GOR1 D 0 0
+}
+
+
+/* UGLY - needs a better skin
+Model RapidZorcher75
+{
+	Path "models"
+	Model 0 "Rapidzorcher.md3"
+	Skin 0 "Rapidzorcher.png"
+	
+	Scale 5 5 5 
+	
+	FrameIndex MGUN A 0 0 
+}
+
+*/
+
+Model Suzie
+{
+	Path "models"
+	Model 0 "Suzanne.md3"
+	skin 0 "STONSKIN.png"
+	scale 40 40 40
+	
+	Frameindex SUZI A 0 0
+}
+
+/* WIP
+Model ChexLandingLight
+{
+	Path "models"
+	Model 0 "Landinglight.md3"
+	skin 0 "Landinglight.png"
+	scale 1 1 1
+	
+	Frameindex COLU A 0 0
+}
+*/

@@ -1,0 +1,35 @@
+// zorch gloves
+Brightmap sprite ZGLOA0
+{
+MAP "brightmaps/ZGLOMAP.png"
+}
+
+Brightmap sprite ZGLOF0
+{
+MAP "brightmaps/ZGLOMAP.png"
+}
+
+Brightmap sprite ZGLOG0
+{
+MAP "brightmaps/ZGLOMAP.png"
+}
+
+Brightmap sprite ZGLOB0
+{
+Map "brightmaps/ZGLOB0MA.png"
+}
+
+Brightmap sprite ZGLOC0
+{
+Map "brightmaps/ZGLOC0MA.png"
+}
+
+Brightmap sprite ZGLOD0
+{
+Map "brightmaps/ZGLOD0MA.png"
+}
+
+Brightmap sprite ZGLOE0
+{
+Map "brightmaps/ZGLOE0MA.png"
+}

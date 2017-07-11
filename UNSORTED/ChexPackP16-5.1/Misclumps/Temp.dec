@@ -1,0 +1,19 @@
+Actor Test
+{
+	States
+	{
+		spawn:
+		TEST ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+		loop
+	}
+}
+
+Actor Suzie
+{
+	States
+	{
+		spawn:
+			SUZI A -1
+			stop
+	}
+}

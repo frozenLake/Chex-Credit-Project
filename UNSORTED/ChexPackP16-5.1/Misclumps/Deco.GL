@@ -1,0 +1,219 @@
+// most of these assignments are short, so I just
+// stuck them all in here, I hope you don't mind
+
+
+object Hologlobe // this is the rotating holographic globe stand
+{
+frame SMBT {light lablight1}
+}
+
+
+object ChexLandingLight
+{
+FRAME COLUA {light LandingLight}
+}
+
+object FreeLandingLight
+{
+FRAME LLITA {light LandingLight}
+}
+
+object Streetlamp
+{
+FRAME CBRA {light Streetlight}
+}
+
+object Desklamp
+{
+Frame CANDA {light desklight}
+}
+
+
+
+object Chandelier75
+{
+Frame TREDA {light Candelight2}
+Frame TREDB {light Candelight3}
+Frame TREDC {light Candelight2}
+Frame TREDD {light Candelight1}
+}
+
+object ChandelierREP
+{
+Frame TREDA {light Candelight2}
+Frame TREDB {light Candelight3}
+Frame TREDC {light Candelight2}
+Frame TREDD {light Candelight1}
+}
+
+
+
+object labcoil
+{
+frame FSKUA {light lablight1}
+frame FSKUB {light lablight1}
+frame FSKUC {light lablight1}
+frame FSKUD {light lablight2}
+}
+
+object hanginglight
+{
+frame UPSIA { light hanginglightL}
+}
+
+object MusLamp
+{
+frame LAMPA {light LandingLight}
+}
+
+object HangingMuseumLamp
+{
+frame LAMPA {light LandingLight}
+}
+
+pointlight propmonitorA
+{
+color 1.0 0.2 0.2
+size 16
+offset 0 5 0
+}
+
+pointlight propmonitorB
+{
+color 1.0 0.4 0.4
+size 20
+offset 0 5 0
+}
+
+object propmonitor75
+{
+frame POL3A {light propmonitorA}
+frame POL3B {light propmonitorB}
+}
+
+Object ExplosiveGasTank
+{
+	Frame GASEA {light propulsorlight}
+	Frame GASEB {light playerpainlight}
+	Frame GASEC {light lazballexp2}
+	Frame GASED {light lazballexp3}
+	Frame GASEE {light lazballexp2}
+	Frame GASEF {light lazballexp1}
+	Frame GASEG {light propulsorlight}
+}
+
+
+
+// firelight3
+
+// firelight4
+
+// firelight2
+
+object PropFire
+{
+Frame FIREA {light Firelight2}
+Frame FIREB {light Firelight4}
+Frame FIREC {light Firelight2}
+Frame FIRED {light Firelight1}
+Frame FIREE {light Firelight2}
+Frame FIREF {light Firelight4}
+Frame FIREG {light Firelight2}
+}
+
+object shortredtorch //fireplace
+{
+Frame SMRTA {light Firelight4}
+Frame SMRTB {light Firelight2}
+Frame SMRTC {light Firelight3}
+Frame SMRTD {light Firelight4}
+}
+
+object Propshortredtorch //also the fireplace
+{
+Frame SMRTA {light Firelight4}
+Frame SMRTB {light Firelight2}
+Frame SMRTC {light Firelight3}
+Frame SMRTD {light Firelight4}
+}
+
+Object PropShortGreenTorch // short flemoid mushroom thingy
+{
+	Frame SMGTA {light mushroomlight2}
+	Frame SMGTB {light mushroomlight3}
+	Frame SMGTC {light mushroomlight2}
+	Frame SMGTD {light mushroomlight1}
+}
+Object ShortGreenTorch // also the short flemoid mushroom thingy
+{
+	Frame SMGTA {light mushroomlight2}
+	Frame SMGTB {light mushroomlight3}
+	Frame SMGTC {light mushroomlight2}
+	Frame SMGTD {light mushroomlight1}
+}
+
+Object ShortGreenTorch // tall flemoid mushroom thingy
+{
+	Frame TGRNA {light mushroomlight2}
+	Frame TGRNB {light mushroomlight3}
+	Frame TGRNC {light mushroomlight2} 
+	Frame TGRND {light mushroomlight1}
+}
+
+Object PropGreenTorch // also the tall flemoid mushroom thingy
+{
+	Frame TGRNA {light mushroomlight2}
+	Frame TGRNB {light mushroomlight3}
+	Frame TGRNC {light mushroomlight2} 
+	Frame TGRND {light mushroomlight1}
+}
+
+// Teleporter:
+
+Object TeleportFog
+{
+	Frame TFOGA {light telelight1}
+	Frame TFOGB {light telelight2}
+	Frame TFOGC {light telelight3}
+	Frame TFOGD {light telelight4}
+	Frame TFOGE {light telelight5}
+	Frame TFOGF {light telelight5}
+	Frame TFOGG {light telelight3}
+	Frame TFOGH {light telelight2}
+	Frame TFOGI {light telelight2}
+	Frame TFOGJ {light telelight1}
+}
+
+// 4 frames each -- actual torches, this is not a misname
+
+object ChexRedTorch 
+{
+Frame PYR1A {light RedTorchLight1}
+Frame PYR1B {light RedTorchLight2}
+Frame PYR1C {light RedTorchLight3}
+Frame PYR1D {light RedTorchLight4}
+}
+
+object ChexGreenTorch 
+{
+Frame PYR3A {light GreenTorchLight1}
+Frame PYR3B {light GreenTorchLight2}
+Frame PYR3C {light GreenTorchLight3}
+Frame PYR3D {light GreenTorchLight4}
+}
+
+object ChexBlueTorch 
+{
+Frame PYR2A {light BlueTorchLight1}
+Frame PYR2B {light BlueTorchLight2}
+Frame PYR2C {light BlueTorchLight3}
+Frame PYR2D {light BlueTorchLight4}
+}
+
+object ChexCandle
+{
+Frame WAXCA {light CandleStickLight1}
+Frame WAXCB {light CandleStickLight2}
+Frame WAXCC {light CandleStickLight3}
+Frame WAXCD {light CandleStickLight4}
+}

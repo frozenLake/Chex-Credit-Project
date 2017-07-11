@@ -1,0 +1,9 @@
+Actor Test
+{
+	States
+	{
+		spawn:
+		TEST ABCDEFGHIJKLMNOPQRSTUVWXYZ 1
+		loop
+	}
+}

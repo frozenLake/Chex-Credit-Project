@@ -1,0 +1,370 @@
+// ammo is 11100
+
+// maybe I should have two sets of ammo, invasion and deathmatch
+
+ACTOR ZorchCell : Ammo replaces PhasingZorch
+{
+  Game Chex
+  SpawnID 75
+  Inventory.PickupMessage "Picked up a Phasing Zorch Cell"
+  Inventory.Amount 20
+  Inventory.MaxAmount 600
+  Ammo.BackpackAmount 100
+  Ammo.BackpackMaxAmount 1200
+  Inventory.Icon "CELLA0"
+  States
+  {
+  Spawn:
+    CELL ABC 6 BRIGHT
+    loop
+  }
+}
+
+
+
+actor ZorchCellPack : ZorchCell replaces Phasingzorchpack
+{
+Inventory.PickupMessage "Picked up a Phasing Zorch Cell Pack"
+Inventory.Amount 100
+States
+	{
+	Spawn:
+	CELP ABC 6 BRIGHT
+	loop
+	}
+}
+
+actor ZorchClip : ammo replaces MiniZorchRecharge
+{
+	Game Chex
+	inventory.pickupmessage "$GOTZORCHRECHARGE"
+	Inventory.Amount 5
+	Inventory.MaxAmount 400
+	Ammo.BackpackMaxAmount 1000
+	Ammo.BackpackAmount 100
+	Inventory.Icon "CLIPA0"
+	States
+	{
+	Spawn:
+		CLIP A -1
+		loop
+	}
+
+}
+
+
+
+actor 50ZorchClipBox : ZorchClip replaces MiniZorchPack 
+{
+	Game Chex
+	Inventory.PickupMessage "Picked up a box of 50 mini zorch shots"
+	Inventory.Amount 50
+	States
+	{
+		Spawn:
+			AMMO A -1
+			Stop
+	}
+}
+
+
+// Large Zorch ----------------------------------------------------------------
+
+ACTOR ZorchShell : Ammo replaces LargeZorchRecharge
+{
+  Game Chex
+  SpawnID 12
+  Inventory.PickupMessage "Picked up 3 Large Zorch Cartridges" 
+  Inventory.Amount 3
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 30
+  Ammo.BackpackMaxAmount 200
+  Inventory.Icon "SHELA0"
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+
+
+actor 30ZorchShellBox : ZorchShell replaces LargeZorchPack
+{
+	Inventory.PickupMessage "Picked up a box of 30 large zorch cartridges"
+	Inventory.Amount 30
+	States
+	{
+		Spawn:
+			SBOX A -1
+			Stop
+	}
+}
+
+
+
+
+ACTOR ZorchRocketAmmo : Ammo replaces PropulsorZorch
+{
+  Game Chex
+  SpawnID 140
+  Inventory.PickupMessage "$GOTROCKET" // "Picked up a rocket."
+  Inventory.Amount 1
+  Inventory.MaxAmount 100
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 300
+  Inventory.Icon "ROCKA0"
+  States
+  {
+  Spawn:
+    ROCK A -1
+    stop
+  }
+}
+
+
+actor ZorchRocketBox : ZorchRocketAmmo replaces PropulsorZorchPack 
+{
+	Game Chex
+	Inventory.PickupMessage "$GOTPROPULSORPACK"
+	Inventory.Amount 5
+	States
+	{
+		Spawn:
+			BROK A -1
+			Stop
+	}
+}
+
+
+
+actor LightningAmmo : Ammo 11100
+{
+radius 20
+height 16
+inventory.amount 9
+inventory.maxamount 120
+ammo.backpackamount 18
+ammo.backpackmaxamount 360
+inventory.pickupmessage "Picked up a small case of lightning ammo"
+inventory.icon "LIGAA0"
+
+	States
+	{
+		Spawn:
+		LIGA ABC 5 BRIGHT
+		loop
+	}
+}
+
+actor LightningAmmoLarge : LightningAmmo 11101
+{
+inventory.amount 27
+inventory.pickupmessage "Picked up a large case of lightning ammo"
+
+	States
+	{
+		Spawn:
+		LIGH ABC 5 BRIGHT
+		loop
+	}
+}
+
+actor FreezingZorch : Ammo 11102
+{
+  inventory.pickupmessage "Picked up a box of \cvF\cgreezing Zorch Recharges."
+  inventory.amount 5
+  inventory.maxamount 70
+  inventory.icon "CBOXA0"
+  ammo.backpackamount 15
+  ammo.backpackmaxamount 140
+  states
+  {
+  Spawn:
+    CBOX A -1
+    stop
+  }
+}
+
+// note: if barrel respawn is off, it spawns once and doesn't
+// come back
+Actor ZorchCellSpawnerCoop 11103
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("ZorchCell",random[temp](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp](-4,4))
+		loop
+	}
+}
+	
+
+Actor ZorchClipSpawnerCoop 11104
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("ZorchClip",random[temp2](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp2](-4,4))
+		loop
+	}
+}
+
+Actor ZorchShellSpawnerCoop 11105
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("ZorchShell",random[temp3](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp3](-4,4))
+		loop
+	}
+}
+
+Actor ZorchRocketAmmoSpawnerCoop 11106
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("ZorchRocketAmmo",random[temp4](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp4](-4,4))
+		loop
+	}
+}
+
+Actor LightningAmmoSpawnerCoop 11107
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("LightningAmmo",random[temp5](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp5](-4,4))
+		loop
+	}
+}
+
+Actor FreezingzorchSpawnerCoop 11108
+{
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_BarrelDestroy
+		TNT1 A 1050 A_SpawnItem("FreezingZorch",random[temp6](-4,4))
+		TNT1 A 0 A_SpawnItem("Teleportfog",random[temp6](-4,4))
+		loop
+	}
+}
+
+actor 25ZorchClipBox : 50ZorchClipBox 11109
+{
+	//$Category ammunition
+	//$Sprite 75MOA0
+	//$Title "25 Zorch Clip Box"
+	Game chex
+	Inventory.PickupMessage "Picked up a box of 25 mini zorch shots"
+	
+	Inventory.Amount 25
+	States
+	{
+		Spawn:
+			25MO A -1
+			stop
+	}
+}
+
+actor 75CZorchlipBox : 50ZorchClipBox 11110
+{
+	//$Category ammunition
+	//$Sprite 75MOA0
+	//$Title "75 Zorch Clip Box"
+	Game chex
+	Inventory.PickupMessage "Picked up a box of 75 mini zorch shots"
+	
+	Inventory.Amount 75
+	States
+	{
+		Spawn:
+			75MO A -1
+			stop
+	}
+}
+
+Actor 10ZorchShellBox : 30ZorchShellBox 11111
+{
+	//$Category ammunition
+	//$Sprite S10XA0
+	//$Title "10 Zorch Shell Box"
+	Inventory.PickupMessage "Picked up a box of 10 large zorch shells"
+	Inventory.amount 10
+	States
+	{
+		Spawn:
+			S10X A -1
+			stop
+	}
+}
+
+Actor 20ZorchShellBox : 30ZorchShellBox 11112
+{
+	//$Category ammunition
+	//$Sprite S20XA0
+	//$Title "20 Zorch Shell Box"
+	Game chex
+	Inventory.PickupMessage "Picked up a box of 20 large zorch shells"
+	Inventory.amount 20
+	States
+	{
+		Spawn:
+			S20X A -1
+			stop
+	}
+}
+
+//-------------------------------------------------------------------------
+
+
+Actor BoxOfZorchRecharges : CustomInventory 20003
+{
+	Height 32
+	Radius 20
+	inventory.pickupmessage "You found a box filled with assorted Zorch recharges!"
+	+COUNTITEM
+	States
+	{
+	Spawn:
+		SURP ABC 4 BRIGHT
+		loop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("ZorchClip",20)
+		TNT1 A 0 A_GiveInventory("ZorchShell",8)
+		TNT1 A 0 A_GiveInventory("ZorchRocketAmmo",2)
+		TNT1 A 0 A_GiveInventory("ZorchCell",40)
+		TNT1 A 0 A_GiveInventory("LightningAmmo_BoZR",1)
+		TNT1 A 0 A_GiveInventory("ShimmeringZorchRecharge",2)
+	}
+}
+
+
+
+Actor ShimmeringZorchRecharge : FreezingZorch 20004
+//This doesn't have sprites yet. Do not use this actor - It is only mentioned for the BoxOfZorchRecharges.
+{
+  inventory.amount 1
+  inventory.maxamount 70
+}
+
+
+Actor LightningAmmo_BoZR : LightningAmmo
+//DO NOT USE. THIS ACTOR IS ONLY FOR THE BOX OF ZORCH RECHARGES!!
+{
+  inventory.amount 15
+  inventory.maxamount 120
+}
+	

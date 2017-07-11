@@ -1,0 +1,99 @@
+/*
+
+Actor CloakJuice : ammo
+{
+	Inventory.maxamount 100
+	Inventory.amount 0
+	ammo.backpackamount 0
+	ammo.Backpackmaxamount 100
+}
+
+Actor CloakWatch : Weapon
+{
+	Weapon.Ammotype "CloakJuice"
+	Weapon.AmmoUse 0
+	+WEAPON.AMMO_OPTIONAL
+	+WEAPON.NOALERT
+	+WEAPON.NOLMS
+	Weapon.Slotnumber 2
+	States
+	{
+	Spawn:
+	PIST A -1 
+	stop
+	
+	Ready:
+	WATC A 1 A_WeaponReady
+	loop
+	
+	Deselect:
+	WATC A 1 A_Lower
+	loop
+	
+	Select:
+	WATC A 1 A_Raise
+	loop
+	
+	Fire:
+	WATC A 0 A_JumpIfInventory("Init",1,"Initialized")
+	
+	// initialization, only run once.
+	WATC A 0 A_GiveInventory("Init",1)
+	WATC A 0 ACS_ExecuteAlways(301,0,0,0)	
+	
+	Initialized:
+	WATC A 0 A_JumpIfInventory("Cloaked",1,"Cloakoff")
+	WATC A 5
+	WATC A 5 A_GiveInventory(PowerWatchCloak,1)
+	goto Ready
+	
+	Cloakoff:
+	WATC A 5 A_TakeInventory(PowerWatchCloak,1)
+	WATC A 5 A_GiveInventory(PowerWatchUnCloak,1)
+	goto Ready
+	}
+}
+	
+
+	
+Actor PowerWatchCloak : CustomInventory
+{
+	Inventory.MaxAmount 1
+	
+	
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(.05,1)
+		TNT1 A 0 A_GiveInventory("Cloaked",1)
+		TNT1 A 0 A_ChangeFlag ("NOTARGET", 1) 
+		stop
+	}
+	
+}
+
+// set it back to normal
+Actor PowerWatchUnCloak : CustomInventory
+{
+	Inventory.Maxamount 1
+	-NOTARGET
+	
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SetTranslucent(1,0)
+		TNT1 A 0 A_TakeInventory("Cloaked",1)
+		TNT1 A 0 A_ChangeFlag ("NOTARGET", 0) 
+		stop
+	}
+	
+}
+	
+Actor cloaked : Inventory
+{
+	Inventory.Maxamount 1
+}
+
+Actor Init: Cloaked
+{}
+*/

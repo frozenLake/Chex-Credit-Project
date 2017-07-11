@@ -1,0 +1,159 @@
+ACTOR Maximus : FlemoidusMaximus replaces FlemoidusMaximus
+{
+	+DONTGIB
+	-NOINFIGHTING
+	
+	Game chex
+	
+	Health 2000
+	height 100
+	radius 30
+	Obituary "%o was overpowered by a maximus"
+
+	States
+	{
+		Pain:
+			BOSS H 2 bright 
+			BOSS H 2 bright A_Pain
+			goto See
+			Melee:
+		Missile:
+			BOSS EF 8 A_FaceTarget
+			BOSS G 8 A_CustomMissile("Maximusball",40,24)
+			//BOSS G 8 A_CustomComboAttack("MaximusBall", 32, random[headattack](1,8)*10, "baron/melee", "flem")
+			Goto See
+		Death:
+			BOSS I 8 bright
+			BOSS J 8 bright A_Scream
+			BOSS K 8 bright
+			BOSS L 8 bright A_NoBlocking
+			BOSS MN 8 bright
+			BOSS O -1 A_BossDeath
+			stop
+			
+		Death.Ice:
+		BOSS I 8 bright
+		BOSS J 8 bright A_Scream
+		BOSS K 8 bright
+		BOSS L 8 bright A_NoBlocking
+		BOSS MN 8 bright
+		BOSS O -1 A_BossDeath
+		stop
+
+		Raise:
+			stop
+	}
+
+}
+
+/////////////////////////////////
+//@             @             @//
+//                             //
+//  QuadrumpusGuy's  Decorate  //
+//   Dual-Launching Maximus    //
+//                             //
+//@             @             @//
+/////////////////////////////////
+
+
+ACTOR DualMaximus 22201
+{
+	//$Category Flemoids
+	//$Sprite DUALE1
+	//$Title "Dual Launching Maximus"
+	Health 2500
+	Radius 30
+	Height 100
+	Mass 1000
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0
+	Speed 16
+	PainChance 20
+	Monster
+	+FLOORCLIP
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "grumpy/see"
+	PainSound "grumpy/pain"
+	DeathSound "grumpy/zorched"
+	ActiveSound "baron/active"
+	Obituary "%o was pummeled by a Dual-Launching Maximus."
+	States
+	{
+	Spawn:
+		BOSS AB 9 A_Look 
+		Loop
+	See:
+		BOSS AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		DUAL EF 6 A_FaceTarget
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, 20)
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, -20)
+		DUAL G 8
+                DUAL EF 6 A_FaceTarget
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, 20)
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, -20)
+		DUAL G 8
+                DUAL EF 6 A_FaceTarget
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, 20)
+		DUAL G 0 A_CustomMissile("MaximusBall", 50, -20)
+		DUAL G 8
+		Goto See
+	Pain:
+		BOSS H 2 bright A_spawnitemEX("FlemDrip5", random(-10,10))
+		BOSS H 2 bright A_Pain
+		goto See
+	Death:
+		BOSS I 8 bright
+		BOSS J 8 bright A_Scream
+		BOSS K 8 bright
+		BOSS L 8 bright A_NoBlocking
+		BOSS MN 8 bright
+		BOSS O -1 A_BossDeath
+		stop
+	Death.Ice:
+		BOSS I 8 bright
+		BOSS J 8 bright A_Scream
+		BOSS K 8 bright
+		BOSS L 8 bright A_NoBlocking
+		BOSS MN 8 bright
+		BOSS O -1 A_BossDeath
+		stop
+	Raise:
+		stop
+	}
+}
+
+
+/*
+//===========================================================================
+//
+// Dual-Launching Maximus Ball
+//
+//===========================================================================
+ACTOR DualMaximusBall
+{
+	SpawnID 154
+	Radius 6
+	Height 16
+	Speed 25
+	FastSpeed 32
+	Damage 10
+	Projectile
+	DamageType Flem 
+	+RANDOMIZE
+	SeeSound "baron/attack"
+	DeathSound "baron/shotx"
+	States
+	{
+	Spawn:
+		BAL7 AB 4
+		Loop
+	Death:
+		BAL7 CDE 6 
+		Stop
+	}
+}
+*/

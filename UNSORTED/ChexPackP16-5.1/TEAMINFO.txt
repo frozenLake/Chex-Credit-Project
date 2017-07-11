@@ -1,0 +1,47 @@
+/*
+
+// this lump fixes the flag height
+// it has no other purpose
+
+clearteams
+
+// blue team needs to be first for my team weapons to work.
+Team Blue
+{
+	PlayerColor "00 00 FF"
+	TextColor "Blue"
+	Railcolor "00 00 FF"
+	//Skullitem
+	PlayerStartThingNumber 5080
+
+	// Flag icons in "Graphics"
+	SmallFlagHUDIcon "STFLA1"
+	LargeFlagHUDIcon "BFLASMAL"
+	//SmallSkullHUDIcon
+	//LargeSkullHUDIcon
+	
+	FlagItem "BlueFlag75"
+}
+
+Team Red
+{
+	//Game chex -- not supported in skulltag
+	PlayerColor "FF 00 00"
+	TextColor "Red"
+	Railcolor "FF 00 00"
+	//Skullitem
+	PlayerStartThingNumber 5081
+
+	// Flag icons in "Graphics"
+	SmallFlagHUDIcon "STFLA2"
+	LargeFlagHUDIcon "RFLASMAL"
+	//SmallSkullHUDIcon
+	//LargeSkullHUDIcon
+	
+	FlagItem "RedFlag75"
+	
+	// it would not be difficult to implement winner/loser pics,
+	// just take that screen that plays at the end of E3 and recolor the flag.
+}
+
+*/

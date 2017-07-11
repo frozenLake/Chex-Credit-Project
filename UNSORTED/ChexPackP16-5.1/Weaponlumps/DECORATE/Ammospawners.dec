@@ -1,0 +1,90 @@
+// it IS actually ZorchPACK, not "Zorchpak" as it says in the pickup message. 
+
+actor FreezingZorchSpot : CustomPickupInvasionSpot 11300 
+{
+radius 20
+height 30
+dropitem "FreezingZorchBox"
+}
+
+actor ZorchPackSpot : CustomPickupInvasionSpot 11301
+{
+radius 20
+height 30
+dropitem "ZorchPack"
+}
+
+actor LightningAmmoSpot : CustomPickupInvasionSpot 11302
+{
+radius 20
+height 16
+dropitem "LightningAmmo"
+}
+
+actor LightningAmmoLargeSpot : CustomPickupInvasionSpot 11303
+{
+radius 20
+height 16
+dropitem "LightningAmmoLarge"
+}
+
+
+// Mini Zorch -----------------------------------------------------------------
+
+actor ZorchClipSpot : CustomPickupInvasionSpot 11304
+{
+radius 20
+height 16
+dropitem "ZorchClip"
+}
+
+actor ZorchClipBoxSpot : CustomPickupInvasionSpot 11305
+{
+radius 20
+height 16
+dropitem "50ZorchClipBox"
+}
+
+// Large Zorch ----------------------------------------------------------------
+
+actor ZorchShellSpot :CustomPickupInvasionSpot 11306
+{
+radius 20
+height 16
+dropitem "ZorchShell"
+}
+
+actor ZorchShellBoxSpot : CustomPickupInvasionSpot 11307
+{
+radius 20
+height 16
+dropitem "30ZorchShellBox"
+}
+
+actor ZorchRocketAmmoSpot : CustomPickupInvasionSpot 11308
+{
+radius 20
+height 16
+dropitem "Propulsorzorch"
+}
+
+actor ZorchRocketAmmoBoxSpot : CustomPickupInvasionSpot 11309
+{
+radius 20
+height 16
+dropitem "PropulsorzorchPack"
+}
+
+actor ZorchCellSpot : CustomPickupInvasionSpot 11310
+{
+radius 20
+height 16
+dropitem "Phasingzorch"
+}
+
+actor ZorchCellPackSpot : CustomPickupInvasionSpot 11311
+{
+radius 20
+height 16
+dropitem "PhasingzorchPack"
+}

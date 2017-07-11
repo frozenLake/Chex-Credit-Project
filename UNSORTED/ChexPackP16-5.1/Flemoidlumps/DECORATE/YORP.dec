@@ -1,0 +1,17 @@
+Actor YORP 
+{
+	speed 10
+	States
+	{
+		Spawn:
+			YORP A 1 A_look
+			loop
+		
+		See:
+			YORP A 10
+			YORP B 10 A_Chase
+			YORP C 10
+			loop
+	
+	}
+}

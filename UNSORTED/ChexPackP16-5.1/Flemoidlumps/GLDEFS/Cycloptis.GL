@@ -1,0 +1,9 @@
+Object Cycloptis
+{
+	Frame CYCLH {light Cycloptispainlight}
+	Frame CYCLI {light Cycloptisdeath1}
+	Frame CYCLJ {light Cycloptisdeath2}
+	Frame CYCLK {light Cycloptisdeath3}
+	Frame CYCLL {light Cycloptisdeath2}
+	Frame CYCLM {light propulsorlight}
+}

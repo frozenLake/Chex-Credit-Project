@@ -1,0 +1,15 @@
+//F GHIJK
+// [pain] [pain, death1, death2, death1, pain]
+
+Object Larva75
+{
+	// pain
+	Frame LRVAF {light Larvapainlight}
+	
+	// death
+	Frame LRVAG {light Larvapainlight}
+	Frame LRVAH {light Larvadeath1}
+	Frame LRVAI {light Larvadeath2}
+	Frame LRVAJ {light Larvadeath1}
+	Frame LRVAK {light Larvapainlight}
+}

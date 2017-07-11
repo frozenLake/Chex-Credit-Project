@@ -1,0 +1,86 @@
+ACTOR Stridicus replaces FlemoidusStridicus
+{
+	MONSTER
+	
+	// Radius 30 (inherited)
+	Height 76
+	+DONTGIB
+    +FLOORCLIP
+	-NOINFIGHTING
+	Game Chex
+	Painchance 60
+	Speed 20
+		SeeSound "stridicus/see"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  
+	
+	Health 300
+	
+	Obituary "%o was hit by a Stridicus homing slime ball"
+	
+	States
+	{
+		Spawn:
+			SARG AB 10 A_Look
+			Loop
+		See:
+			SARG AAABBBCCCDDD 2 A_Chase
+			loop
+		
+		Melee:
+		Missile:
+			
+			SARG EF 5 A_FaceTarget
+			SARG G 2 A_CustomMissile("StridicusBall")
+			SARG G 2 A_CustomMissile("StridicusBall")
+			SARG G 2 A_CustomMissile("StridicusBall")
+			SARG G 2 A_CustomMissile("StridicusBall")
+			SARG G 2 A_CustomMissile("StridicusBall")
+			SARG FE 5
+			goto see
+
+		Pain:
+			SARG H 2 BRIGHT 
+			SARG H 2 BRIGHT A_Pain
+			Goto See
+		Death:
+			SARG I 8 BRIGHT
+			SARG J 8 BRIGHT A_Scream
+			SARG K 4 BRIGHT
+			SARG L 4 BRIGHT A_NoBlocking
+			SARG M 4 BRIGHT
+			SARG N -1
+			Stop
+		Raise:
+			SARG N 5 BRIGHT
+			SARG MLKJI 5 BRIGHT
+			Goto See
+	}
+}
+
+Actor StridicusBall : Bball
+{	
+	+NOGRAVITY
+	+SEEKERMISSILE
+	
+	Speed 15
+	
+	Damage 1
+	
+	States
+	{
+		SPAWN:
+			BBL1 AB 8 BRIGHT A_SeekerMissile(255,30)
+			BBL1 B 0 BRIGHT A_Jump(60,"NoSeek")
+			loop
+			
+		NoSeek:
+			BBL1 A -1
+			stop
+	}
+}
+

@@ -1,0 +1,116 @@
+// Editor numbers:
+
+// Weapons : 110XX
+// ammo : 111XX
+// weapon spawners: 112XX
+// ammo spawners: 113XX
+
+// monster spawners: 150XX
+
+// Zorchpuff
+
+#include Weaponlumps/DECORATE/Zorchpuff.dec
+
+// ammo definitions
+
+#include Weaponlumps/DECORATE/Ammo.dec
+#include Weaponlumps/DECORATE/Ammospawners.dec
+
+// weapon definitions
+
+#include Weaponlumps/DECORATE/Bootspoons.dec
+#include Weaponlumps/DECORATE/Minizorchers.dec
+#include Weaponlumps/DECORATE/Propulsors.dec
+#include Weaponlumps/DECORATE/Bootsporks.dec
+#include Weaponlumps/DECORATE/Skulltagweap.dec
+#include Weaponlumps/DECORATE/Freezingzorchers.dec
+#include Weaponlumps/DECORATE/Ghettoblaster.dec
+#include Weaponlumps/DECORATE/Zorchgloves.dec
+
+#include Weaponlumps/DECORATE/MiscChexWeps.dec
+
+#include Weaponlumps/DECORATE/Weaponspawners.dec
+
+#include Weaponlumps/DECORATE/CLZorcher.dec
+
+#include Weaponlumps/DECORATE/Cloakwatch.dec
+
+#include Weaponlumps/DECORATE/TeamWeps.dec
+
+// player definitions
+
+#include Misclumps/player.dec
+#include Misclumps/Skins.dec
+
+// flemoid edits - added gldefs to pain and death states, and 
+// made them BRIGHT. Also corrected some bad height assignments
+
+#include flemoidlumps/DECORATE/Flempuff.dec
+
+#include Flemoidlumps/DECORATE/Bipedicus.dec
+#include Flemoidlumps/DECORATE/Bipedicuswitharmor.dec
+#include Flemoidlumps/DECORATE/Commonus.dec
+#include Flemoidlumps/DECORATE/Cycloptis.dec
+#include Flemoidlumps/DECORATE/Flembomination.dec
+#include Flemoidlumps/DECORATE/Flembrane.dec
+#include Flemoidlumps/DECORATE/FlemMine.dec
+#include Flemoidlumps/DECORATE/Larva.dec
+
+#include Flemoidlumps/DECORATE/LordSnotfolus.dec
+
+#include Flemoidlumps/DECORATE/Maximus.dec
+#include Flemoidlumps/DECORATE/Quadrumpus.dec
+#include Flemoidlumps/DECORATE/Stridicus.dec
+#include Flemoidlumps/DECORATE/SuperCycloptis.dec
+
+#include Flemoidlumps/DECORATE/Spawners.dec
+
+#include Flemoidlumps/DECORATE/Gyro.dec
+
+#include Flemoidlumps/DECORATE/FlemPillar.dec
+
+#include Flemoidlumps/DECORATE/Cyaneus.dec
+
+#include Flemoidlumps/DECORATE/Archvile.dec
+
+#include Flemoidlumps/DECORATE/YORP.dec
+
+#include FlemoidLumps/DECORATE/Terranus.dec
+
+#include FlemoidLumps/DECORATE/TurboCycloptis.dec
+
+// Chex vanguards (rebel chex warriors)
+
+#include Misclumps/Vanguards.dec
+#include Misclumps/VanguardSpawners.dec
+
+
+// decoration
+
+#include Misclumps/Deco.dec
+#include Misclumps/Terrain.dec
+
+// pickups
+
+#include Misclumps/Pickups.dec
+#include Misclumps/PickupSpawners.dec
+
+// captives
+
+#include Misclumps/Captives.dec
+
+#include Misclumps/Modeltest.dec
+
+// temp
+
+#include Misclumps/Temp.dec
+
+actor CPInSector : inventory
+{
+	Inventory.maxamount 1
+	Inventory.amount 1
+}
+
+// flags
+
+#include Misclumps/TeamItems.dec

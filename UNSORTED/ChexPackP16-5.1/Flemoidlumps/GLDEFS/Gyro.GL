@@ -1,0 +1,24 @@
+/*
+Frame SKULF {light Cycloptispainlight}
+Frame SKULG {light Cycloptisdeath1}
+Frame SKULH {light Cycloptisdeath2}
+Frame SKULI {light Cycloptisdeath1}
+*/
+
+Object Gyro
+{
+	Frame GYROJ {light propulsorlight} // pain
+	
+	Frame GYROK {light Cycloptisdeath2}
+	Frame GYROL {light Cycloptisdeath2}
+	Frame GYROM {light Cycloptisdeath2}
+	
+	Frame GYRON {light Cycloptisdeath1}
+	Frame GYROO {light Cycloptisdeath1}
+	Frame GYROP {light Cycloptisdeath1}
+	
+	Frame GYROQ {light propulsorlight}
+	Frame GYROR {light propulsorlight}
+	Frame GYROS {light propulsorlight}
+}
+	

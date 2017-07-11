@@ -1,0 +1,224 @@
+// Flemoid specific light definitions. Flemoids of similar size
+// might use the same pain/death lights.
+
+
+////////////////////////////////////////////
+// Cycloptis
+
+	Pointlight Cycloptispainlight
+	{
+	color 1.0 .1 .1
+	size 50
+	}
+
+	Pointlight Cycloptisdeath1
+	{
+	color 1.0 .2 .2
+	size 60
+	}
+
+	Pointlight Cycloptisdeath2
+	{
+	color 1.0 .2 .2
+	size 70
+	}
+
+	Pointlight Cycloptisdeath3
+	{
+	color 1.0 .2 .2
+	size 80
+	}
+
+
+//////////////////////////////////////////////
+// Lord Snotfolus
+
+	Pointlight snotfoluspainlight
+	{
+		color 1.0 0.1 0.1
+		size 140
+		offset 0 0 0
+	}
+
+
+	Pointlight snotfolusdeathlight1
+	{
+		color 1.0 0.2 0.2
+		size 150
+		offset 0 0 0
+	}
+
+	Pointlight snotfolusdeathlight2
+	{
+		color 1.0 0.2 0.2
+		size 120
+		offset 0 0 0
+	}
+
+	Pointlight snotfolusdeathlight3
+	{
+		color 1.0 0.2 0.2
+		size 90
+		offset 0 0 0
+	}
+
+
+	Pointlight snotfolusdeathlight4
+	{
+		color 1.0 0.2 0.2
+		size 50
+		offset 0 0 0
+	}
+
+
+	Pointlight snotfolusdeathlight5
+	{
+		color 1.0 0.2 0.2
+		size 40
+		offset 0 0 0
+	}
+
+
+	Pointlight snotfolusdeathlight6
+	{
+		color 1.0 0.2 0.2
+		size 30
+		offset 0 0 0
+	}
+
+	Pointlight snotfolusdeathlight7
+	{
+		color 1.0 0.2 0.2
+		size 20
+		offset 0 0 0
+	}
+
+///////////////////////////////////////////////
+// Maximus
+
+	Pointlight maximuspainzorch
+	{
+		color 1.0 0.1 0.1
+		size 90
+		offset 0 0 0
+	}
+
+	Pointlight maximusdeathzorch1
+	{
+		color 1.0 0.3 0.3
+		size 110
+		offset 0 0 0
+	}
+
+	Pointlight maximusdeathzorch2
+	{
+		color 1.0 0.3 0.3
+		size 140
+		offset 0 0 0
+	}
+
+	Pointlight maximusdeathzorch3
+	{
+		color 1.0 0.5 0.5
+		size 190
+		offset 0 0 0
+	}
+
+///////////////////////////////////////////////
+// Smaller flemoids, BWAs, Bipedici, and Commoni
+
+
+	Pointlight Felmoidpainlight
+	{
+	color 1.0 .1 .1
+	size 25
+	}
+
+	Pointlight Felmoiddeath1
+	{
+	color 1.0 .2 .2
+	size 35
+	}
+
+	Pointlight Felmoiddeath2
+	{
+	color 1.0 .2 .2
+	size 40
+	}
+
+	Pointlight Felmoiddeath3
+	{
+	color 1.0 .2 .2
+	size 45
+	}
+	
+//////////////////////////////////////////
+// Larva
+
+
+	Pointlight Larvapainlight 
+	{
+	color 1.0 .1 .1
+	size 10
+	}
+	
+	Pointlight Larvadeath1
+	{
+	color 1.0 .2 .2
+	size 35
+	}
+
+	Pointlight Larvadeath2
+	{
+	color 1.0 .2 .2
+	size 40
+	}
+
+	Pointlight Larvadeath3
+	{
+	color 1.0 .2 .2
+	size 45
+	}
+	
+	
+/////////////////////////////////////////////
+// archvile
+
+//
+	Pointlight Archbodylight
+	{
+		color 0.0 0.0 1.0
+		size 10
+		offset 0 0 0
+	}
+	
+	// it just uses the BWA pain/death lights
+	
+	pointlight Flazlight
+	{
+		color 0.0 0.0 1.0
+		size 20
+		offset 0 0 0 
+	}
+	
+
+	Pointlight Flazexplight1
+	{
+		color 0.2 0.2 1.0
+		size 25
+		offset 0 0 0 
+	}
+
+	Pointlight Flazexplight2
+	{
+		color 0.4 0.4 1.0
+		size 30
+		offset 0 0 0 
+	}
+
+	Pointlight Flazexplight3
+	{
+		color 0.7 0.7 1.0
+		size 35
+		offset 0 0 0 
+	}

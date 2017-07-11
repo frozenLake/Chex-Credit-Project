@@ -1,0 +1,41 @@
+ACTOR SuperCycloptis75 : SuperCycloptis replaces SuperCycloptis
+{
+	+DONTGIB 
+	-NOINFIGHTING
+	Game chex
+	height 66
+	radius 40
+	
+	States
+	{
+	Pain:
+		HEAD E 3 bright 
+		HEAD E 3 bright A_Pain
+		HEAD F 6 bright
+		Goto See
+	Death:
+		HEAD G 8 bright
+		HEAD H 8 bright A_Scream
+		HEAD I 8 bright
+		HEAD J 8 bright
+		HEAD K 8 bright A_NoBlocking
+		HEAD L -1 A_SetFloorClip
+		Stop
+	Raise:
+		HEAD L 8  bright A_UnSetFloorClip
+		HEAD KJIHG 8 bright
+		Goto See
+	}
+}
+
+Actor CycloptisBall75 : CycloptisBall replaces CycloptisBall
+{
+	Deathsound "SuperCycl/SlimeExp"
+	
+	States
+	{
+		Death:
+		BAL2 CDE 6 A_SpawnitemEX("FlemDrip5", random(-20,20))
+		Stop
+	}
+}

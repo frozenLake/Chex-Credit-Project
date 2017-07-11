@@ -1,0 +1,73 @@
+//powerup spawners: 180XX
+
+actor BreakfastSpot : CustomPickupInvasionSpot 18000 
+{
+radius 20
+height 30
+dropitem "SuperChargeBreakfast75"
+}
+
+actor SlimeProofSuitSpot : CustomPickupInvasionSpot 18001
+{
+	//$Category Invasion Powerups
+	//$Sprite SUITA0
+	//$Title "Slimeproof Suit Spot"
+radius 20
+height 30
+dropitem "Slimeproofsuit"
+}
+
+// I would like to make an ultra goggles spawn, but I have no idea what that item is called
+
+/////////////////////////////////
+//@             @             @//
+//                             //
+//  QuadrumpusGuy's  Decorate  //
+//      Invasion Spots         //
+//                             //
+//@             @             @//
+/////////////////////////////////
+
+
+
+
+actor GlassOfMilkSpot : CustomPickupInvasionSpot 18003 //17552
+{
+	//$Category Invasion Health and Armor
+	//$Sprite MILKA0
+	//$Title "2% Milk Spot"
+dropitem "GlassOfMilk"
+Radius 8
+Height 17
+}
+
+actor UniversalShieldingSuitSpot : CustomPickupInvasionSpot 18004 //17554
+{
+	//$Category Invasion Powerups
+	//$Sprite SUITA0
+	//$Title "Universal Shielding Suit Spot"
+dropitem "UniversalShieldingSuit"
+Radius 22
+Height 46
+}
+
+actor ChexShieldSpot : CustomPickupInvasionSpot 18005  // 17555
+{
+	//$Category Invasion Powerups
+	//$Sprite ARMXA0
+	//$Title "Chex Shield Spot"
+dropitem "ChexShield"
+Radius 26
+Height 44
+}
+
+actor DrumstickSpot : CustomPickupInvasionSpot 18006 // 17556
+{
+	//$Category Invasion Powerups
+	//$Sprite FRYDA0
+	//$Title "Fried Chicken (Berzerk) Spot"
+dropitem "Drumstick"
+Radius 16
+Height 32
+}
+

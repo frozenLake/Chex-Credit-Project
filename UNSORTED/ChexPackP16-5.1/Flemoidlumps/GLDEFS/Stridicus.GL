@@ -1,0 +1,9 @@
+Object Stridicus
+{
+	Frame SARGH {light Cycloptispainlight}
+	Frame SARGI {light Cycloptisdeath1}
+	Frame SARGJ {light Cycloptisdeath2}
+	Frame SARGK {light Cycloptisdeath3}
+	Frame SARGL {light Cycloptisdeath2}
+	Frame SARGM {light propulsorlight}
+}

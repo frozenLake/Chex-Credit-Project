@@ -1,0 +1,265 @@
+/////////Bulletpuff
+
+
+pointlight bulletpuffflash1
+{
+color 1.0 0.1 0.1
+size 4
+offset 0 0 0
+}
+
+pointlight bulletpuffflash2
+{
+color 1.0 0.2 0.2
+size 6
+offset 0 0 0
+}
+
+pointlight bulletpuffflash3
+{
+color 1.0 0.3 0.3
+size 8
+offset 0 0 0 
+}
+
+////////////CLZorcher
+
+pointlight CLLight
+{
+color 0.9 0.9 1.0
+size 8
+offset 0 0 0
+}
+
+pointlight CLexplight1
+{
+color 0.9 0.9 1.0
+size 10
+offset 0 0 0
+}
+
+pointlight CLexplight2
+{
+color 0.9 0.9 1.0
+size 1
+offset 0 0 0 
+}
+
+///////////////Propulsor
+
+pointlight propulsorlight
+{
+color 1.0 0.2 0.2
+size 18
+offset 0 0 0
+}
+
+pointlight propulsorexp1
+{
+color 1.0 0.4 0.4
+size 30
+offset 0 0 0
+}
+
+pointlight propulsorexp2
+{
+color 1.0 0.3 0.3
+size 22
+offset 0 0 0
+}
+
+pointlight propulsorexp3
+{
+color 1.0 0.1 0.1
+size 10
+offset 0 0 0
+}
+
+////////////Freezing zorcher
+
+Pointlight Freezinglight
+{
+color 0.2 0.2 1.0
+size 18
+offset 0 0 0
+}
+
+Pointlight Freezingexp1
+{
+color 0.2 0.2 1.0
+size 22
+offset 0 0 0
+}
+
+Pointlight Freezingexp2
+{
+color 0.2 0.2 1.0
+size 16
+offset 0 0 0
+}
+
+Pointlight Freezingexp3
+{
+color 0.2 0.2 1.0
+size 12
+offset 0 0 0
+}
+
+//////////////////Phasing zorcher
+
+Pointlight Phasezorchlight
+{
+color 1.0 0.2 0.2
+size 20
+offset 0 0 0
+}
+
+Pointlight Phasezorchexplight1
+{
+color 1.0 0.2 0.2
+size 25
+offset 0 0 0 
+}
+
+Pointlight Phasezorchexplight2
+{
+color 1.0 0.2 0.2
+size 30
+offset 0 0 0 
+}
+
+Pointlight Phasezorchexplight3
+{
+color 1.0 0.2 0.2
+size 35
+offset 0 0 0 
+}
+
+//////////////////////LAZ
+
+Pointlight lazballlight
+{
+	color 1.0 0.2 0.2
+	size 80
+	offset 0 0 0
+}
+
+
+Pointlight lazballexp1
+{
+	color 1.0 0.3 0.3
+	size 90
+	offset 0 0 0
+}
+
+Pointlight lazballexp2
+{
+	color 1.0 0.3 0.3
+	size 100
+	offset 0 0 0
+}
+
+
+Pointlight lazballexp3
+{
+	color 1.0 0.3 0.3
+	size 150
+	offset 0 0 0
+}
+
+// blue team phasing zorcher
+
+Pointlight BlueTeamPhasezorchlight
+{
+color 0.2 0.2 1.0
+size 20
+offset 0 0 0
+}
+
+Pointlight BlueTeamPhasezorchexplight1
+{
+color 0.2 0.2 1.0
+size 25
+offset 0 0 0 
+}
+
+Pointlight BlueTeamPhasezorchexplight2
+{
+color 0.2 0.2 1.0
+size 30
+offset 0 0 0 
+}
+
+Pointlight BlueTeamPhasezorchexplight3
+{
+color 0.2 0.2 1.0
+size 35
+offset 0 0 0 
+}
+
+// Blue team propulsorlight
+
+pointlight blueteampropulsorlight
+{
+color 0.2 0.2 1.0
+size 18
+offset 0 0 0
+}
+
+pointlight blueteampropulsorexp1
+{
+color 0.4 0.4 1.0
+size 30
+offset 0 0 0
+}
+
+pointlight blueteampropulsorexp2
+{
+color 0.3 0.3 1.0
+size 22
+offset 0 0 0
+}
+
+pointlight blueteampropulsorexp3
+{
+color 0.1 0.1 1.0
+size 10
+offset 0 0 0
+}
+
+// blue team LAZ
+
+Pointlight BlueTeamLAZLight
+{
+	color 0.2 0.2 1.0
+	size 80
+	offset 0 0 0
+}
+
+Pointlight BlueTeamLAZLightExp1
+{
+	color 0.3 0.3 1.0
+	size 90
+	offset 0 0 0
+}
+
+Pointlight BlueTeamLAZLightExp2
+{
+	color 0.3 0.3 1.0
+	size 100
+	offset 0 0 0
+}
+
+Pointlight BlueTeamLAZLightExp3
+{
+	color 0.3 0.3 1.0
+	size 150
+	offset 0 0 0
+}
+
+pointlight BlueTeamLAZExtraLight
+{
+color 0.2 0.2 1.0
+size 18
+offset 0 0 0
+}

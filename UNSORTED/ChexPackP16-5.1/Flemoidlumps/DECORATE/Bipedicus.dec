@@ -1,0 +1,81 @@
+ACTOR Bipedicus : Shotgunguy replaces FlemoidusBipedicusV3 
+{
+	+DONTGIB
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	-NOINFIGHTING
+	Game Chex
+	Obituary "%o was too close to a bipedicus"
+	Damagefactor "flem", 0.0
+	dropitem "", 256
+	Maxtargetrange 400
+	
+	States
+	{
+	Melee:
+		SPOS E 10 A_FaceTarget
+		SPOS F 5
+		SPOS F 0 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		SPOS F 0 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		SPOS F 0 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+		SPOS F 5
+		goto See
+	
+	Missile:
+	//	SPOS E 0 A_JumpIfCloser(300,"Withinrange")
+	//	goto See
+	//Withinrange:
+		SPOS F 0 A_FaceTarget
+		SPOS F 0 A_CustomMissile("BBall", 40,0,0,CMF_AIMDIRECTION,random(0,30))
+		SPOS F 0 A_CustomMissile("BBall", 32,-8,random(-7.5,7.5),CMF_AIMDIRECTION,random(0,30))
+		SPOS F 0 A_CustomMissile("BBall", 32,8,random(-7.5,7.5),CMF_AIMDIRECTION,random(0,30))
+		SPOS F 4
+		SPOS E 4
+		Goto See
+
+	
+	Pain:
+		SPOS G 3 bright //A_CustomMissile("spinningslime",40,0,random(0,60))
+		SPOS G 3 bright A_Pain
+		Goto See
+	Death:
+		SPOS H 5 bright
+		SPOS I 5 bright A_Scream
+		SPOS J 5 bright A_NoBlocking
+		SPOS K 5 bright
+		SPOS L -1
+		Stop
+		
+	XDeath:
+		SPOS M 5 bright
+		SPOS N 5 bright A_XScream
+		SPOS O 5 bright A_NoBlocking
+		SPOS PQRST 5 bright
+		SPOS U -1
+		Stop
+	Raise:
+		SPOS L 5 bright
+		SPOS KJIH 5 bright
+		Goto See
+	}
+}
+
+Actor BBall : BipedicusBallV3
+{
+	speed 20
+	damage 1
+	-NOGRAVITY
+	gravity 1.0
+	
+	States
+	{
+	Spawn:
+		BBL1 AB 4
+		Loop
+	Death:
+		BBL1 CDE 6
+		Stop
+	}
+}
+
+// it fires hitscan attacks, sprites will follow

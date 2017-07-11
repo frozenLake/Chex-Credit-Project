@@ -1,0 +1,63 @@
+Actor Larva75 replaces Larva
+{
+
++DONTGIB
+-NOINFIGHTING
+Game chex
+radius 15
+height 45
+speed 20
+Fastspeed 20
+
+health 25
+painchance 180
+mass 20
+Obituary "%o was swarmed by larvae"
+radius 15
+
+	SpawnID 117
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Monster
+	+FLOORCLIP +FASTER +FASTMELEE
+	+DONTGIB
+	//+NOBLOODDECALS
+	SeeSound "spectre/sight"
+	AttackSound "spectre/melee"
+	PainSound "spectre/pain"
+	DeathSound "spectre/death"
+	ActiveSound "spectre/active"
+
+	States
+	{
+	Spawn:
+		LRVA AB 10 A_Look
+		Loop
+	See: 
+		LRVA AABB 1 A_Chase
+		loop
+	Melee:
+		LRVA CD 8 A_FaceTarget
+		LRVA E 8 A_CustomMeleeAttack(random[sargattack](1,10)*2, "", "", "Flem")
+		Goto See
+		
+	Pain:
+		LRVA F 2 BRIGHT 
+		LRVA F 2 BRIGHT A_Pain
+		Goto See
+	Death:
+		LRVA G 8 BRIGHT
+		LRVA H 8 BRIGHT A_Scream
+		LRVA I 4 BRIGHT
+		LRVA J 4 BRIGHT A_NoBlocking
+		LRVA K 4 BRIGHT
+		LRVA L -1
+		Stop
+	Raise:
+		LRVA L 5 BRIGHT
+		LRVA KJIHG 5 BRIGHT
+		Goto See
+
+// weaker damage, since its speed is increased
+	}
+}

@@ -1,0 +1,209 @@
+decal BipedBallSplat1
+{
+	pic BAL1C0
+	randomflipx
+	randomflipy
+	solid
+}
+
+decal BipedBallSplat2
+{
+	pic BAL1D0 
+	randomflipx
+	randomflipy
+	solid
+	animator SlimeSlide
+}
+
+decal BipedBallSplat3
+{
+	pic BAL1E0
+	randomflipx
+	randomflipy
+	solid
+	animator SlimeSlide
+}
+
+Decalgroup BipedBallSplat
+{
+	BipedBallSplat1 1
+	BipedBallSplat2 1
+	BipedBallSplat3 1
+}
+
+generator BipedicusBallV3 BipedBallSplat
+
+decal BBallSplat1
+{
+	pic BBL1C0
+	randomflipx
+	randomflipy
+	solid
+}
+
+decal BBallSplat2
+{
+	pic BBL1D0 
+	randomflipx
+	randomflipy
+	solid
+	animator SlimeSlide
+}
+
+decal BBallSplat3
+{
+	pic BBL1E0
+	randomflipx
+	randomflipy
+	solid
+	animator SlimeSlide
+}
+
+Decalgroup BBallSplat
+{
+	BBallSplat1 1
+	BBallSplat2 1
+	BBallSplat3 1
+}
+
+generator BBall BBallSplat
+generator StridicusBall BBallSplat
+
+slider SlimeSlide
+{
+	DistY 50
+	SlideTime 1	
+}
+
+
+Decal CycloptisSplat1
+{
+	pic BAL2C0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decal CycloptisSplat2
+{
+	pic BAL2D0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decalgroup CycloptisSplat
+{
+	CycloptisSplat1 1
+	CycloptisSplat2 3
+}
+generator CycloptisBall75 CycloptisSplat
+
+
+Decal QuadrumpusSplat1
+{
+	pic BAL7C0
+	randomflipx
+	randomflipy
+	//add .9
+}
+
+Decal QuadrumpusSplat2
+{
+	pic BAL7D0
+	randomflipx
+	randomflipy
+	//add .9
+}
+
+Decal QuadrumpusSplat3
+{
+	pic BAL7E0
+	randomflipx
+	randomflipy
+	//add .9
+}
+
+Decal QuadrumpusSplat4
+{
+	pic BAL7B3B7
+	randomflipx
+	randomflipy 
+	//add .9
+}
+
+Decalgroup QuadrumpusSplat
+{
+	QuadrumpusSplat1 1
+	QuadrumpusSplat2 1
+	QuadrumpusSplat3 1
+	QuadrumpusSplat4 1
+}
+
+Generator QuadrumpusBall75 QuadrumpusSplat
+
+Decal MaximusSplat1
+{
+	pic BAL7C0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decal MaximusSplat2
+{
+	pic BAL7D0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decal MaximusSplat3
+{
+	pic BAL7E0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decalgroup MaximusSplat
+{
+	MaximusSplat1 1
+	MaximusSplat2 1
+	MaximusSplat3 1
+}
+
+Generator MaximusBall MaximusSplat
+
+Decal CyaneusSplat1
+{
+	pic BBALB0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decal CyaneusSplat2
+{
+	pic BBALC0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decal CyaneusSplat3
+{
+	pic BBALD0
+	randomflipx
+	randomflipy
+	solid
+}
+
+Decalgroup CyaneusSplat
+{
+	CyaneusSplat1 1
+	CyaneusSplat2 1
+	CyaneusSplat3 1
+}
+
+Generator CyanBall CyaneusSplat

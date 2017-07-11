@@ -1,0 +1,9 @@
+Object Celerium
+{
+	Frame CYCTH {light Cycloptispainlight}
+	Frame CYCTI {light Cycloptisdeath1}
+	Frame CYCTJ {light Cycloptisdeath2}
+	Frame CYCTK {light Cycloptisdeath3}
+	Frame CYCTL {light Cycloptisdeath2}
+	Frame CYCTM {light propulsorlight}
+}

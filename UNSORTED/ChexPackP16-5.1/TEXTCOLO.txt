@@ -1,0 +1,69 @@
+OR
+{
+	#FF0000 ##EE0000 
+	
+	Console:
+	
+	#FF0000 ##EE0000
+}
+
+OW
+{
+	#FFFFFF ##EEEEEE 
+	
+	Console:
+	
+	#FFFFFF ##EEEEEE
+}
+
+OB
+{
+	#0000FF ##0000EE 
+	
+	Console:
+	
+	#0000EE ##0000EE
+}
+
+Red
+{
+	#440000 #FF0000
+	
+	Console:
+	
+	#880000 #FF0000 
+}
+
+Yellow
+{
+	#272727  #515151    0  64
+	#784918  #F3A718   65 207
+	#F3A82A  #FCD043  208 256
+Console:
+	#000000  #7F7F00    0 127
+	#FFFF00  #FFFFFF  128 256
+Flat:
+	#EEEE33
+}
+
+Gray Grey 
+{
+	#464646  #BBBBBB
+Console:
+	#000000  #646464    0 127
+	#404040  #B4B4B4  128 256
+Flat:
+	#808080
+}
+
+Gold
+{
+	#272727  #515151    0  64
+	#784918  #D38718   65 207
+	#F3A82A  #DCB043  208 256
+Console:
+	#000000  #7F7F00    0 127
+	#FFFF00  #FFFFFF  128 256
+Flat:
+	#EEEE33
+}

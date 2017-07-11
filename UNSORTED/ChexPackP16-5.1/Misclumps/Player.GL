@@ -1,0 +1,46 @@
+Pointlight playerpainlight
+{
+	color 1.0 0.1 0.1
+	size 70
+	offset 0 0 0
+}
+
+Pointlight playerdeathlight1
+{
+	color 1.0 0.2 0.2
+	size 90
+	offset 0 0 0
+}
+
+Pointlight playerdeathlight1
+{
+	color 1.0 0.2 0.2
+	size 90
+	offset 0 0 0
+}
+
+Pointlight playerdeathlight2
+{
+	color 1.0 0.2 0.2
+	size 60
+	offset 0 0 0
+}
+
+pointlight firinglight
+{
+	color 1.0 0.2 0.2
+	size 18
+	offset 0 50 0
+}
+
+Object ChexPlayer75
+{
+
+Frame PLAYO {light playerpainlight}
+Frame PLAYP {light playerdeathlight1}
+Frame PLAYQ {light playerdeathlight2}
+Frame PLAYR {light propulsorlight}
+}
+
+
+

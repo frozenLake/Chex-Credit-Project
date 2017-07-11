@@ -1,0 +1,70 @@
+// instead of the lost soul charge, it fires a homing missile copy of itself
+
+// stops the zorch death animation from playing if it
+// detonates itself or launches a homing missile of itself
+Actor FM_DontPlayZorchDeath : inventory
+{
+	inventory.amount 1
+	inventory.maxamount 1
+}
+
+ACTOR FlemMine75 : FlemMine replaces FlemMine
+{
+	+DONTGIB
+	+LOOKALLAROUND
+	-NOINFIGHTING
+	//-TOUCHY
+	
+	Damagetype "Flem"
+	Attacksound ""
+	
+	Health 40
+	
+	Mass 5
+	
+     Obituary "%o tripped a flem mine"
+	 Game Chex
+	 States
+	 {
+		Spawn:
+			SKUL AB 10 A_Look
+			Loop
+		See:
+			SKUL AB 6 A_Chase
+			Loop
+			
+		Melee:
+			BAL2 C 0 A_Explode(20,100)
+			BAL2 C 0 A_Playsound("SuperCycl/SlimeExp")
+			BAL2 C 6
+			BAL2 DE 6 
+			
+			BAL2 E 0 A_NoBlocking
+			TNT1 A 0 A_Stop
+			// needs new explosion sprites
+			TNT1 A 0 A_GiveInventory("FM_DontPlayZorchDeath",1)
+			TNT1 A 0 A_Die
+			stop
+		Pain:
+			SKUL E 3 bright
+			SKUL E 3 bright A_Pain
+			Goto See
+		Death:
+			TNT1 A 0 A_JumpIfInventory("FM_DontPlayZorchDeath",1,"FDeath")
+			SKUL F 6 bright // no explosion if zorched
+			SKUL G 6 bright A_Scream
+			SKUL H 6 bright A_Die
+			SKUL I 6 bright A_NoBlocking
+			SKUL J 6 bright
+			SKUL K 6 bright
+			Stop			
+		FDeath: 
+		// this death state is entered instead if the flem mine
+		// entered its death state by self-destructing		
+			TNT1 A 0 A_TakeInventory("FM_DontPlayZorchDeath",999)
+			stop
+			
+		Raise: 
+			stop
+	}
+}

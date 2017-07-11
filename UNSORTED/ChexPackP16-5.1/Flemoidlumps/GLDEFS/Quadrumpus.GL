@@ -1,0 +1,39 @@
+Object Quadrumpus75
+{
+	// pain
+	Frame QUADH {light Cycloptispainlight}
+	
+	// death
+	Frame QUADI {light Cycloptispainlight}
+	Frame QUADJ {light Cycloptisdeath3}
+	Frame QUADK {light Cycloptisdeath2}
+	Frame QUADL {light propulsorlight}
+	
+	//xdeath - if you get this to happen, you deserve a medal
+	
+	Frame QUADN {light Cycloptispainlight}
+	Frame QUADO {light Cycloptisdeath2}
+	Frame QUADP {light Cycloptisdeath3}
+	Frame QUADQ {light Cycloptisdeath3}
+	Frame QUADR {light Cycloptisdeath1}
+	Frame QUADS {light Cycloptispainlight}
+	Frame QUADT {light propulsorlight}
+}
+	
+
+// IJKL (pain, death3 (lg), pain, prop)
+
+// NOPQRST (pain, death2, death3, death3, death1, pain, prop)
+	
+	
+/*
+Object Cycloptis
+{
+	Frame CYCLH {light Cycloptispainlight}
+	Frame CYCLI {light Cycloptisdeath1}
+	Frame CYCLJ {light Cycloptisdeath2}
+	Frame CYCLK {light Cycloptisdeath3}
+	Frame CYCLL {light Cycloptisdeath2}
+	Frame CYCLM {light propulsorlight}
+}
+*/

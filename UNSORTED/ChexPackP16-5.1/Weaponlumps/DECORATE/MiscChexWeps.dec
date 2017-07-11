@@ -1,0 +1,88 @@
+// Chex Weapons that are only minimally changed. Every weapon
+// is redefined to allow for the new ammo sizes
+
+Actor PvPRapidZorcherPuff : ZorchPuff
+{
+	Damagetype "PvpRapidZorcherPuff"
+}
+
+actor rapidzorcher75 : rapidzorcher replaces rapidzorcher
+{
+	Weapon.Ammotype "Zorchclip"
+	Weapon.ammogive 10 
+	Inventory.PickupMessage "grabbed a \cjrapid zorcher\cg!"
+	Attacksound ""
+	
+	States
+	{
+	Fire:
+	 CHGF A 0 A_GunFlash
+     CHGF A 4 A_FireBullets(5.6, 0, 1, 5, "PvPRapidZorcherPuff")
+	 CHGF A 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
+	 CHGF B 4 A_FireBullets(5.6, 0, 1, 5, "PvPRapidZorcherPuff")
+	 CHGF B 0 A_PlaySound("weapons/chngun", CHAN_WEAPON)
+     CHGG B 0 A_ReFire
+     Goto Ready
+	Flash:
+     CHGF A 4 Bright A_Light1
+     Goto LightDone
+     CHGF B 4 Bright A_Light1
+     Goto LightDone
+	}
+}
+
+actor largezorcher75 : largezorcher replaces largezorcher
+{
+	weapon.ammotype "zorchshell"
+	Inventory.PickupMessage "you just picked up a \cjLarge Zorcher\cg!"
+	
+	States
+	{
+	Fire:
+		SHTG A 3
+		SHTG A 0 A_FireBullets (5.6, 0, 9, 5, "BulletPuff")
+		SHTG A 7 A_GunFlash
+		SHTG BC 5
+		SHTG D 4
+		SHTG CB 5
+		SHTG A 3
+		SHTG A 7 A_ReFire
+		Goto Ready
+	}
+	
+	
+	//2.5x only on the first time
+}
+
+actor phasingzorcher75 : phasingzorcher 
+{
+	weapon.ammotype "Zorchcell"
+	Inventory.PickupMessage "you just stubbed your toe on a \cjphasing zorcher\cr!"
+
+}
+
+actor LAZDevice75 : LazDevice replaces LazDevice
+{
+	weapon.ammotype "Zorchcell"
+	Inventory.PickupMessage "you discovered a \cr LAZ \cj DEVICE!"
+	Obituary "%o was caught within sight of %k's LAZ tracers."
+	Weapon.slotnumber 7
+	
+	States
+	{
+		  Fire:
+			BFGG A 20 A_BFGSound
+			BFGG B 10 A_GunFlash
+			BFGG B 10 A_FireBFG
+			BFGG B 20 A_ReFire
+			goto Ready
+	}
+
+}
+
+actor Superlargezorcher75	: Superlargezorcher replaces superlargezorcher
+{
+	Inventory.PickupMessage "You found a \cjsuper large zorcher!"
+	weapon.ammotype "Zorchshell"
+
+}

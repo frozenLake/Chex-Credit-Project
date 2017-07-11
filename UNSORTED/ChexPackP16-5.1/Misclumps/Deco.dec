@@ -1,0 +1,740 @@
+// new stuff  101XX
+
+actor HangingLight 10100
+{
+	Game Chex
+	Radius 8
+	Height 36
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+
+	States
+	{
+	Spawn:
+		UPSI A -1
+		Stop
+	}
+}
+	
+Actor ForestTree 10101
+{
+  Height 120
+  Radius 23
+  +SOLID
+  +NOGRAVITY
+	States
+	{
+	Spawn:
+		TREE J -1
+		Stop
+	}
+}
+
+Actor ChexBananaTreeFix : Chexbananatree replaces ChexBananatree // fixes this thing which was too short for its sprite.
+{
+	Height 128
+}
+
+ACTOR Propmonitor75: Propmonitor replaces Propmonitor
+{
+// just to get rid of the "bright", no point in having it fullbright
+// since I have brightmaps now. 
+	States
+	{
+		Spawn:
+		POL3 AB 6
+		loop
+	}
+}
+
+Actor BlueFloorlamp : ChexLandingLight // floor lamp
+{
+	states
+	{
+		spawn:
+		BOL3 A -1
+		stop
+	}
+}
+
+
+// For some unknown reason, my light assignments for Decorations are ignored 
+// unless I do this
+
+// I also redefined some unfitting names for decorations
+
+Actor HoloGlobe : ShortBlueTorch replaces ChexLightColumn {}
+
+Actor Streetlamp : Candelabra replaces ChexGasTank {}
+//Why did Chukker name the Street lamp actor "Gas tank"? 
+
+Actor Desklamp : Candlestick replaces PropCandleStick {}
+// how is that a candle stick?
+
+
+
+Actor Chandelier75 : RedTorch replaces Chandelier 46 
+{
+Height 56
++SPAWNCEILING
++NOGRAVITY
+}
+Actor ChandelierREP : Chandelier75 replaces RedTorch {}
+// Chex has a Chandelier actor, but it doesn't seem to do anything
+
+Actor FakeCrate 10102
+{
+	States
+	{
+		spawn:
+		CRAT A -1
+		stop
+	}
+}
+
+Actor MusLamp 10103
+{
+	//$Category Light sources
+	//$Sprite LAMPA0
+	//$Title "Museum Lamp"
+	+NOGRAVITY
+	
+	States
+	{
+		spawn:
+		LAMP A -1
+		stop
+	}
+}
+
+
+
+
+Actor Propaganda 10104
+{
+	Mass 9001
+	Radius 17
+	Height 32
+	+FLOAT +NOGRAVITY +DONTFALL
+	States
+	{
+	Spawn:
+	PROP A -1
+	Loop
+	}
+}
+
+Actor PropFire 10105
+{
+	//$Category Light sources
+	//$Sprite FIREA0
+	//$Title "Fire"
+	Mass 9001
+	Radius 21
+	Height 64
+	+Solid
+	States
+	{
+	Spawn:
+	FIRE ABCDEFG 4 BRIGHT
+	Loop
+	}
+}
+
+//Rain sources from Armageddon Invasion 2
+
+
+ACTOR RainDrop 10106
+{
+	Radius 8
+	Height 1
+	Mass 5
+	//RenderStyle ADD
+	+ALLOWCLIENTSPAWN
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+INVULNERABLE
+	+DONTSPLASH
+	+CORPSE	   
+	+NONSHOOTABLE
+	States
+	{
+		Spawn:
+			RAIN A -1  
+			Stop
+		Crash:	
+			RAIN BC 2
+			Stop
+	}
+}
+
+ACTOR RainDrop2 10107
+{
+	Radius 12
+	Height 1
+	Mass 5
+	//RenderStyle ADD
+	scale 1.5
+	+ALLOWCLIENTSPAWN
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+INVULNERABLE
+	+DONTSPLASH
+	+CORPSE	   
+	+NONSHOOTABLE
+	States
+	{
+		Spawn:
+			RAIN A -1  
+			Stop
+		Crash:	
+			RAIN BC 2
+			Stop
+	}
+}
+
+ACTOR RainBase 10108
+{
+	Radius 16
+	Height 6
+	RenderStyle NONE
+	+ALLOWCLIENTSPAWN
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+NOLIFTDROP
+	+NOTELEPORT
+	+INVULNERABLE
+	+SPAWNCEILING
+	+NONSHOOTABLE
+	+NOCLIP
+	States  
+	{
+		Spawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
+Actor SpinningSlime
+{
+	Mass 5 
+	
+	gravity 0.7
+	Projectile
+	-NOGRAVITY
+	+CLIENTSIDEONLY
+	Speed 1
+
+	
+	States
+	{
+		spawn:
+		SDRI ABCDEFGH 5
+		loop
+		
+		death:
+		SDRI A -1
+		stop
+	}
+}
+
+Actor Flemdrip1
+{
+	Mass 4
+	Gravity 1.0
+	
+	+CLIENTSIDEONLY
+	+ALLOWCLIENTSPAWN
+	//+NOBLOCKMAP
+	+NOTELEPORT
+	+INVULNERABLE
+	+DONTSPLASH
+	+CORPSE	   
+	+NONSHOOTABLE
+	
+	States
+	{
+		Spawn:
+		SDRI A -1
+		stop
+		
+		Crash:
+		TNT1 A 0
+		stop
+	}
+}
+
+Actor Flemdrip2 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI B -1
+		stop
+	}
+}
+
+Actor Flemdrip3 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI C -1
+		stop
+	}
+}
+
+Actor Flemdrip4 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI D -1
+		stop
+	}
+}
+
+Actor Flemdrip5 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI E -1
+		stop
+	}
+}
+	
+Actor Flemdrip6 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI F -1
+		stop
+	}
+}	
+
+Actor Flemdrip7 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI G -1
+		stop
+	}
+}
+
+Actor Flemdrip8 : Flemdrip1
+{
+	States
+	{
+		Spawn:
+		SDRI H -1
+		stop
+	}
+}	
+
+ACTOR SquareRainFast : RainBase 10109
+{
++ALLOWCLIENTSPAWN
+	States
+	{
+		Spawn:
+			TNT1 A 90 A_SpawnItem("RainDrop")
+			Loop
+	}
+}
+
+ACTOR BazoikMineCart : PropBazoikCart replaces PropBazoikCart 
+{
+	
+	Radius 16
+	Height 32
+}
+
+Actor ChexShip : PropSpaceship replaces PropSpaceship
+{
+	Radius 56
+}
+
+Actor Slimedripspawner 10110
+{
+	//$Category Decoration
+	//$Sprite SDRIA0
+	//$Title "Slime Drip Spawner"
+	+CLIENTSIDEONLY
+	+SPAWNCEILING
+	+NOGRAVITY
+	
+	States
+	{
+		Spawn:
+		TNT1 A 50 A_SpawnItemEX("Flemdrip5")
+		loop
+	}
+}
+
+Actor SlimePrint 10111
+{
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+	
+	States
+	{
+		Spawn:
+		FPRI A -1
+		stop
+	}
+}
+
+Actor Announcer : ChexDinerChef 10112
+{
+	//$Category Decoration
+	//$Sprite HEILA0
+	//$Title "Announcer"
+
+	States
+	{
+		Spawn:
+		HEIL A -1
+		stop
+	}
+}
+
+Actor Vase 10113
+{
+	//$Category decoration
+	//$Sprite VASEA0
+	//$Title "Villa Vase"
+	Gravity 1.0
+	+SOLID
+	
+	Height 16
+	Radius 8
+	
+	States
+	{
+		Spawn:
+		VASE A -1
+		stop
+	}
+}
+
+// Code and sprites by Quadrumpusguy
+ACTOR ExplosiveGasTank : ExplosiveBarrel replaces ExplosiveBarrel 10114
+{
+
+  	//$Category decoration
+	//$Sprite TANKA0
+	//$Title "Explosive Gas Tank"
+  Health 25
+  Radius 10
+  Height 34
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +ACTIVATEMCROSS
+  +DONTGIB
+  +NOICEDEATH
+  +OLDRADIUSDMG
+  DeathSound "GasTank/Explode"
+  Obituary "%o was caught in %k's zorch tank trap."
+  States
+  {
+  Spawn:
+    TANK AB 6
+    Loop
+  Death:
+    GASE A 5 BRIGHT
+    GASE B 5 BRIGHT A_Scream
+    GASE C 5 BRIGHT
+    GASE D 5 BRIGHT A_Explode(256)
+    GASE E 5 BRIGHT
+    GASE F 5 BRIGHT
+    GASE G 5 BRIGHT
+    GASE H 1050 BRIGHT A_BarrelDestroy
+    GASE H 5 A_Respawn
+    Wait
+  }
+}
+
+// These actors are from Chex Quest: The Lost Quest by Arch129. Used legally.
+
+ACTOR GeorgeBush 10116
+{
+  Height 48
+  Radius 24
+	States
+	{
+	Spawn:
+		PLNT F -1
+		Stop
+	}
+}
+
+ACTOR Tree_AutumnOrange 10117
+{
+Radius 20
+Height 64
+  +SOLID
+	States
+	{
+	Spawn:
+		TREE E -1
+		Stop
+	}
+}
+
+ACTOR Tree_AutumnPurple 10118
+{
+Radius 20
+Height 64
+  +SOLID
+	States
+	{
+	Spawn:
+		TREE F -1
+		Stop
+	}
+}
+
+ACTOR Tree_Bushy 10119
+{
+  Height 120
+  Radius 24
+  +SOLID
+	States
+	{
+	Spawn:
+		TREE I -1
+		Stop
+	}
+}
+
+ACTOR Tree_Bushy2 10120
+{
+  Height 120
+  Radius 24
+  +SOLID
+	States
+	{
+	Spawn:
+		TREE J -1
+		Stop
+	}
+}
+
+ACTOR Tree_AutumnGold 10121
+{
+Radius 20
+Height 64
+  +SOLID
+	States
+	{
+	Spawn:
+		TREE K -1
+		Stop
+	}
+}
+
+ACTOR HGSpray : Watersplashbase
+{
+	Renderstyle Normal
+	States
+	{
+	Spawn:
+		HGAR ABCDE 5
+		Stop
+	}
+}
+
+Actor Freeflag : Skullcolumn 10122
+{
+	//$Category decoration
+	//$Sprite FLAGA0
+	//$Title "Free Flag"
+	Height 112
+	Game chex
+	states
+	{
+		spawn: 
+			FLAG A -1 
+			stop
+	}
+}
+
+Actor FreeLandingLight : ChexLandingLight 10123
+{
+ 	//$Category decoration
+	//$Sprite LLITA0
+	//$Title "Free Landing Light"
+	
+	states
+	{
+		spawn:
+			LLIT A -1 bright
+			stop
+	}
+}
+
+Actor MuseumHangingLight : HangingLight 10124
+{
+	//$Category decoration
+	//$Sprite UPMPA0
+	//$Title "Hanging Museum Light"
+	states
+	{
+		spawn:
+		UPMP A -1 bright
+		stop
+	}
+}
+
+//QuadrumpusGuy's Torches and Candles
+
+Actor ChexCandle 10125
+{
+	//$Category decoration
+	//$Sprite WAXCA0
+	//$Title "Candle"
+	Game Chex
+	Height 16
+	Radius 8
+	States
+	{
+		Spawn:
+			WAXC ABCD 4 Bright
+			loop
+	}
+}
+
+
+Actor ChexRedTorch 10126
+{
+	//$Category decoration
+	//$Sprite PYR1A0
+	//$Title "Short Red Firestick"
+	Game Chex
+	Height 32
+	Radius 8
+	+SOLID
+	States
+	{
+		Spawn:
+			PYR1 ABCD 4 Bright
+			loop
+	}
+}
+
+
+Actor ChexBlueTorch 10127
+{
+	//$Category decoration
+	//$Sprite PYR2A0
+	//$Title "Short Blue Firestick"
+	Game Chex
+	Height 32
+	Radius 8
+	+SOLID
+	States
+	{
+		Spawn:
+			PYR2 ABCD 4 Bright
+			loop
+	}
+}
+
+Actor ChexGreenTorch 10128
+{
+	//$Category decoration
+	//$Sprite PYR3A0
+	//$Title "Short Green Firestick"
+	Game Chex
+	Height 32
+	Radius 8
+	+SOLID
+	States
+	{
+		Spawn:
+			PYR3 ABCD 4 Bright
+			loop
+	}
+}
+
+Actor IVY1 10129
+{
+	//$Category decoration
+	//$Sprite IVY1A0
+	//$Title "IVY 1"
+	Game Chex
+	Radius 0
+	Height 0
+	+NOGRAVITY
+	+SPAWNCEILING
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+
+	States
+	{
+	Spawn:
+		IVY1 A -1
+		Stop
+	}
+}
+
+Actor IVY2 : IVY1 10130
+{
+	//$Category decoration
+	//$Sprite IVY2A0
+	//$Title "IVY 2"
+	
+	States
+	{
+	Spawn:
+		IVY2 A -1
+		Stop
+	}
+}
+
+Actor IVY3 : IVY1 10131
+{
+	//$Category decoration
+	//$Sprite IVY3A0
+	//$Title "IVY 3"
+	
+	States
+	{
+	Spawn:
+		IVY3 A -1
+		Stop
+	}
+}
+
+Actor IVY4 : IVY1 10132
+{
+	//$Category decoration
+	//$Sprite IVY4A0
+	//$Title "IVY 4"
+	
+	States
+	{
+	Spawn:
+		IVY4 A -1
+		Stop
+	}
+}
+
+Actor IVY5 : IVY1 10133
+{
+	//$Category decoration
+	//$Sprite IVY5A0
+	//$Title "IVY 5"
+	
+	States
+	{
+	Spawn:
+		IVY5 A -1
+		Stop
+	}
+}

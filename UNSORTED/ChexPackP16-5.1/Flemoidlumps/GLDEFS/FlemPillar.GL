@@ -1,0 +1,10 @@
+Object FlemPillar
+{
+	Frame PIL1E {light propulsorlight}
+	Frame PIL1F {light propulsorlight}
+	Frame PIL1G {light Cycloptispainlight}
+	Frame PIL1H {light Cycloptispainlight}
+	Frame PIL1I {light propulsorlight}
+	Frame PIL1J {light Cycloptispainlight}
+	Frame PIL1K {light Cycloptisdeath1}
+}

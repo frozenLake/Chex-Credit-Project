@@ -1,0 +1,27 @@
+//
+
+object ZorchCellpack
+{
+frame CELP {light Phasezorchlight}
+}
+
+
+object ZorchCell
+{
+frame CELL {light Phasezorchlight}
+}
+
+object lightningammo
+{
+frame LIGA {light CLexplight1}
+}
+
+object LightningAmmoLarge
+{
+frame LIGH {light CLexplight1}
+}
+
+object BoxOfZorchRecharges
+{
+frame SURP {light Phasezorchlight}
+}

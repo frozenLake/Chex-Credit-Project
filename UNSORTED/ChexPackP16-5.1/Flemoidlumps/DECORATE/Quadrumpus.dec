@@ -1,0 +1,97 @@
+ACTOR Quadrumpus75 replaces Quadrumpus
+{
+	Game Chex
+	SpawnID 122
+	Health 500
+	Radius 25
+	Height 75
+	Mass 1000
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Speed 12
+	PainChance 80
+	Monster
+	+FLOORCLIP
+	+DONTGIB
+	-NOINFIGHTING
+	//+NOBLOODDECALS
+	SeeSound "Quadrumpus/sight"
+	PainSound "imp/pain"
+	DeathSound "imp/death"
+	ActiveSound "imp/active"
+	Obituary "%o collapsed under the weight of a Quadrumpus's slime attack"
+	States
+	{
+	Spawn:
+		QUAD AB 10 A_Look
+		Loop
+	See:
+		QUAD AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		QUAD EF 8 A_FatRaise
+
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",50,10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",50,-10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",30,10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",30,-10)
+		QUAD EF 8 A_FaceTarget
+		
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",50,10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",50,-10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",30,10)
+		QUAD G 4  A_CustomMissile("QuadrumpusBall75",30,-10)
+		QUAD EF 8 A_FaceTarget
+		Goto See
+	Pain:
+		QUAD H 2 BRIGHT 
+		QUAD H 2 BRIGHT A_Pain
+		Goto See
+	Death:
+		QUAD I 8 BRIGHT
+		QUAD J 8 BRIGHT A_Scream
+		QUAD K 6 BRIGHT
+		QUAD L 6 BRIGHT A_NoBlocking
+		QUAD M -1
+		Stop
+	XDeath:
+		QUAD N 5 BRIGHT
+		QUAD O 5 BRIGHT A_XScream
+		QUAD P 5 BRIGHT
+		QUAD Q 5 BRIGHT A_NoBlocking
+		QUAD RST 5 BRIGHT
+		QUAD U -1
+		Stop
+	Raise:
+		QUAD MLKJI 8 BRIGHT
+		Goto See
+	}
+}
+
+ACTOR QuadrumpusBall75
+{
+	Game chex
+	Game Doom
+    SpawnID 153
+    Damagetype Flem
+    Radius 6
+    Height 8
+    Speed 20
+    Damage 4
+    Projectile 
+    +RANDOMIZE
+   // RenderStyle Add
+    Alpha 1
+    SeeSound "fatso/attack"
+    DeathSound  "caco/shotx"
+    States
+    {
+    Spawn:
+      BAL7 AB 4 bright
+      loop
+    Death:
+      BAL7 CD 6 bright
+    stop
+  }
+}

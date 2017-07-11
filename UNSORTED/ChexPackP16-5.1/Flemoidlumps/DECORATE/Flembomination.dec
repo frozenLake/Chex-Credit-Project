@@ -1,0 +1,65 @@
+ACTOR Flembomination75 : Flembomination replaces Flembomination
+{
+	+DONTGIB
+	+LOOKALLAROUND
+	-NOINFIGHTING
+	
+	painchance 9
+	radius 80
+	Game Chex
+	Obituary "%o stood in awe of the flembomination"
+	
+	States
+	{
+	Pain:
+		SPID I 3 bright 
+		SPID I 3 bright A_Pain
+		Goto See
+	Missile:
+		SPID F 4 A_FaceTarget 
+		SPID G 4
+		SPID G 0 A_CustomMissile("BipedicusBallV3",32)
+		SPID G 0 A_CustomMissile("Cycloptisball",32,32,random(-15,15),0,random(-9,9))
+		SPID G 0 A_CustomMissile("Maximusball",32,-32,random(-15,15),0,random(-9,9))
+	//	SPID G 0 A_CustomMissile("TerranusSlimeSpawner",32,-32,random(-15,15),0,random(-9,9))
+		SPID G 0 A_CustomMissile("StridicusBall",32,-32,random(-15,15),0,random(-9,9))
+
+
+		SPID H 4 A_SpidRefire
+		Goto Missile
+	Death:
+		SPID J 20 bright A_Scream
+		SPID K 10 bright A_NoBlocking
+		SPID LMNOPQR 10 bright
+		SPID S 30 bright
+		SPID S -1 A_BossDeath    
+		Stop
+		
+	Death.Ice:
+		SPID J 20 bright A_Scream
+		SPID K 10 bright A_NoBlocking
+		SPID LMNOPQR 10 bright
+		SPID S 30 bright
+		SPID S -1 A_BossDeath    
+		Stop
+	}
+}
+
+/* A good snotfolus attack, if it were slower:
+	Missile:
+		SPID F 20 A_FaceTarget 
+		SPID G 8 
+		SPID G 0 A_CustomMissile("Cycloptisball",32)
+		SPID G 0 A_CustomMissile("CycloptisBall",32,0,15)
+		SPID G 0 A_CustomMissile("CycloptisBall",32,0,-15)
+		SPID G 0 A_CustomMissile("CycloptisBall",32,0,7.5)
+		SPID G 0 A_CustomMissile("CycloptisBall",32,0,-7.5)
+ 		SPID H 4
+		SPID H 0 A_CustomMissile("QuadrumpusBall75",32,10)
+		SPID H 0 A_CustomMissile("QuadrumpusBall75",32,-10)
+		SPID H 4
+		SPID H 0 A_CustomMissile("QuadrumpusBall75",32,10)
+		SPID H 0 A_CustomMissile("QuadrumpusBall75",32,-10)
+		SPID H 1 A_SpidRefire
+		Goto Missile
+		*/

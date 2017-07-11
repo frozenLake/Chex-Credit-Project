@@ -1,0 +1,112 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//  \   ______________________________________________________________________   /  //
+//  :::|  ____    ____    ____     _____    _____      ___    _______   ____  |:::  //
+//  \  | |  _ \  |  __|  / __ \   /  _  \  | ___ \    / _ \  |___ ___| |  __| |  /  //
+//\    | | | \ | | |__  | |  |_| |  / \  | | |_| |   / |_| \    | |    | |__  |    ///
+//:::::| | | | | |  __| | |   _  |  | |  | |  _  /   | ___ |    | |    |  __| |::::://
+//\    | | |_/ | | |__  | |__| | |  \_/  | | | \ \  / /   \ \   | |    | |__  |    ///
+//  \  | |____/  |____|  \____/   \_____/  |_|  \_\ |_|   | |   |_|    |____| |  /  //
+//  :::|______________________________________________________________________|:::  //
+//  \                                                                            /  //
+//                            -Flemoidus Maximus Cyaneus-							//
+//                           -Recolor by [IFOC]75-									//
+//         -Coding, transparency, eyes, and zorch frame fixes by: QuadrumpusGuy-    //
+//                       -Original Sprites by Charles Jacobi-                       //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+
+Actor Cyaneus 15103
+{
+	//$Category	flemoids
+	//$Sprite CYANA0
+	//$Title "Cyaneus"
+	Bloodcolor "1133FF"
+	SpawnID 3
+	Health 5000
+	Radius 30
+	Height 100
+	Mass 1500
+	damagefactor "Flem", 0.0
+	damagefactor "Slime", 0.0  //in chex3.exe the slam now has slime damagetype
+	Speed 16
+	PainChance 16
+	MONSTER
+	+BOSS
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+MISSILEMORE
+	-NOINFIGHTING
+	//+NOBLOODDECALS
+	SeeSound "DSCYAN1"
+	PainSound "DSCYAN4"
+	DeathSound "DSCYAN3"
+	ActiveSound "DSCYAN2"
+	Obituary "%o was blown away by a Cyaneus' Slime Missile."
+	States
+	{
+	Spawn:
+		cyan AB 10 A_Look 
+		Loop
+	See:
+		cyan AABBCCDD 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		cyan EF 6 A_FaceTarget
+		cyan G 12 A_CustomMissile("CyanBall", 50, 20)
+		cyan EF 6 A_FaceTarget
+		cyan G 12 A_CustomMissile("CyanBall", 50, 20)
+		cyan EF 6 A_FaceTarget
+		cyan G 12 A_CustomMissile("CyanBall", 50, 20)
+		Goto See
+	Pain:
+		cyan H  10 bright A_Pain
+		Goto See
+	Death:
+		cyan I  8 bright
+		cyan J  8 bright A_Scream
+		cyan K  8 bright
+		cyan L  8 bright A_NoBlocking
+		cyan MN 8 bright
+		cyan O -1 A_BossDeath
+		Stop
+
+	Death.Ice:
+		cyan I  8 bright
+		cyan J  8 bright A_Scream
+		cyan K  8 bright
+		cyan L  8 bright A_NoBlocking
+		cyan MN 8 bright
+		cyan O -1 A_BossDeath
+		Stop
+	}
+}
+
+Actor Cyanball
+{
+  SpawnID 160
+  Radius 11
+  Height 13
+  Speed 20
+  Damage 20
+  DamageType Flem
+  Projectile
+  +RANDOMIZE
+  SeeSound "spider/attack"
+  DeathSound "baron/shotx"
+  Obituary "%o was blown away by a Cyaneus' Slime Missile."
+  States
+  {
+  Spawn:
+    BBAL A 1
+    loop
+  Death:
+    BBAL B 8 A_Explode(128,64)
+    BBAL C 6
+    BBAL D 4
+    BBAL E 1
+    stop
+  }
+}

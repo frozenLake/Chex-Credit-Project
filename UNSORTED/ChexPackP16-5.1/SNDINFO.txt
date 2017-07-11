@@ -1,0 +1,134 @@
+weapons/zorchgloves/fisthit 	FISTHIT
+weapons/zorchgloves/fistwal 	FISTWAL
+
+weapons/ricky			 		DSRICKY
+
+weapons/minigun 				dspistol
+
+weapons/grenadelauncher 		GRENADE
+weapons/grenlf 					dsrlaunc
+weapons/grenlx 					dsbarexp
+
+weapons/liquididle				dsliqidl
+weapons/liqfir					dsliqfir
+weapons/liqdown					dsliqdow
+
+weapons/icehit					DSICEHIT
+
+weapons/CLshot					DSCLSHOT
+
+world/muck						muck
+world/water						splash
+
+pickups/breakfast				ARTIUP
+GasTank/Explode			DSGASTAN
+
+Breakage			BREAKAGE
+
+$volume BREAKAGE .25
+$rolloff BREAKAGE 200 3000
+
+grumpy/see			DSGRUMPS
+grumpy/zorched			DSGRUMPZ
+grumpy/pain			DSGRUMPP
+orb/launch			DORBLNCH
+ice/burst			DSICYHIT
+orb/idle			KORBIDLE
+misc/bonus			DBONUS
+
+//misc/bonus - Used for rewards. (This is the Extra Life sound queue from the NES Version of Galaga.)
+
+AMB01 AMB01			//TV Long Tone
+
+$AMBIENT 1  AMB01 POINT CONTINUOUS 3.0
+
+// Rebel sounds
+
+Rebel/Walk			REBSTEPS
+Rebel/Death			REBDEATH
+Rebel/Pain			REBPAIN
+Rebel/SDeath		BXSDETH
+
+// captive sounds
+
+Captive/Pain		SOFF
+Captive/Death		ZORK
+
+// I wanted the Quadrumpus to use the louder sounds
+
+BWA/sight DSBGSIT1 
+Quadrumpus/sight DSBGSIT2
+
+SuperCycl/SlimeExp TUCQSLIM
+
+Playersound/Usefail DSNOWAY
+
+DSCYAN1			DSCYAN1
+DSCYAN2			DSCYAN2
+DSCYAN3			DSCYAN3
+DSCYAN4			DSCYAN4
+
+switches/ff0			DSLEVER1
+switches/ff1			DSLEVER2
+
+Archvile/Die	ARCHDIE
+Archvile/See	ARCHSEE
+Archvile/Active	ARCHACT
+Archvile/Pain	ARCHPAIN
+Archvile/Shot	ARCHSHOT
+Flazball/Explosion FLAXEXP
+
+ChexVanguard/Death OHNO
+ChexVanguard/Pain  VANGAGH
+
+Weapons/TinyZorcher WIMPPIST
+
+Junk/zorchra ZORCHRA
+
+stridicus/see STRIDSEE
+
+
+
+
+// Player class sounds
+
+// Bipedicus
+
+$playersound BipedicusWarrior male *land DSCOMMON
+$playersound BipedicusWarrior male *grunt DSCOMMON
+$playersound BipedicusWarrior male *usefail DSPOSIT1
+$playersound BipedicusWarrior male *taunt DSPOSIT3
+
+//Commonous
+
+$playersound CommonousWarrior male *land DSCOMMON
+$playersound CommonousWarrior male *grunt DSCOMMON
+$playersound CommonousWarrior male *usefail DSPOSIT1
+$playersound CommonousWarrior male *taunt DSPOSIT2
+
+//Bipedicus With Armor
+
+$playersound BWAWarrior male *land DSCOMMON
+$playersound BWAWarrior male *grunt DSCOMMON
+$playersound BWAWarrior male *usefail DSPOSIT1
+$playersound BWAWarrior male *taunt DSBGSIT1
+
+// Quadrumpus
+
+$Playersound QuadWarrior male *grunt muck
+$Playersound QuadWarrior male *land DSCOMMON
+$playersound QuadWarrior male *usefail DSPOSIT1
+$playersound QuadWarrior male *taunt DSBGSIT2
+
+
+$mididevice OPLE2M1 opl
+$mididevice OPLE1M1 opl
+
+// Terranus
+
+Terranus/BallShot TER2
+Terranus/BallEXP TERSHOT
+Terranus/Pain	TERPAIN
+
+railload railload
+railclip railclip

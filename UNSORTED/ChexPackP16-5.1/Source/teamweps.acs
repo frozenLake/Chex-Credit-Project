@@ -1,0 +1,60 @@
+#include "zcommon.acs"
+#library "teamweps"
+
+global bool 1 : debug;
+
+Script 150 RESPAWN
+{	
+
+	if(debug)
+	{
+		print(s:"playernumber is ", d: playernumber());
+		print(s:"player team is ", d: GetPlayerinfo(Playernumber(), PLAYERINFO_TEAM));
+	}
+	switch(GetPlayerinfo(Playernumber(), PLAYERINFO_TEAM))
+	{
+		case 255:
+			terminate;
+		
+		case 0:
+			giveinventory("Blueteam",1);
+			terminate;
+		
+		case 1:
+			takeinventory("Blueteam", 99);
+			terminate;
+	
+		default:
+			if(debug)
+			{
+				print(s: "Source/Teamweps.acs Script 150: Only red and blue teams are supported");
+			}
+			terminate;
+	}
+}
+
+Script 151 (void)
+{
+	if(debug)
+	{
+		print(s:"151: debug mode deactivated");
+	}
+	
+	if(!debug)
+	{
+		print(s:"151: debug mode activated");
+	}
+	debug = !debug;
+}
+
+// trying to capture as many posssible kinds of scripts the player could call upon
+// entering the game. 
+Script 152 ENTER
+{
+	ACS_ExecuteAlways(150,0);
+}
+
+Script 153 RETURN
+{
+	ACS_ExecuteAlways(150,0);
+}

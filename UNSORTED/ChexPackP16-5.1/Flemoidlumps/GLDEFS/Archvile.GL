@@ -1,0 +1,68 @@
+/*
+	Pointlight Archbodylight
+	{
+		color 0.0 0.0 1.0
+		size 10
+		offset 0 0 0
+	}
+	
+	// it just uses the BWA pain/death lights
+	
+	pointlight Flazlight
+	{
+		color 0.0 0.0 1.0
+		size 20
+		offset 0 0 0 
+	}
+	
+
+	Pointlight Flazexplight1
+	{
+		color 0.2 0.2 1.0
+		size 25
+		offset 0 0 0 
+	}
+
+	Pointlight Flazexplight2
+	{
+		color 0.4 0.4 1.0
+		size 30
+		offset 0 0 0 
+	}
+
+	Pointlight Flazexplight3
+	{
+		color 0.7 0.7 1.0
+		size 35
+		offset 0 0 0 
+	}
+*/
+
+Object Remissus
+{
+	Frame BWARA {light Archbodylight} 
+	Frame BWARB {light Archbodylight}
+	Frame BWARC {light Archbodylight}
+	Frame BWARD {light Archbodylight}
+	Frame BWARE {light FlazLight}
+	Frame BWARF {light FlazLight}
+	
+	// BWA pain/death copy/paste
+	
+	Frame BWARG {light Felmoidpainlight}
+	
+	// death
+	
+	Frame BWARH {light Felmoiddeath1}
+	Frame BWARI {light Felmoiddeath2}
+	Frame BWARJ{light Felmoidpainlight}
+	Frame BWARK {light propulsorlight}
+}	
+
+Object FlazBall
+{
+	Frame FLAZA {light Flazlight}
+	Frame FLAZB {light Flazlight}
+	Frame FLAZC {light Flazexplight1}
+	Frame FLAZD {light Flazexplight2}
+	Frame FLAZE {light Flazexplight3}

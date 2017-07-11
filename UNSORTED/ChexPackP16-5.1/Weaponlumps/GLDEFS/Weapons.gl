@@ -1,0 +1,184 @@
+object zorchpuff
+{
+frame PUFFA {light bulletpuffflash2}
+frame PUFFB {light bulletpuffflash3}
+frame PUFFC {light bulletpuffflash2}
+frame PUFFD {light bulletpuffflash1}
+}
+
+object ChainLightning
+{
+Frame SHOKA {light CLLight}
+Frame SHOKB {light CLexplight1}
+Frame SHOKC {light CLexplight2}
+}
+
+Object propulsormissileright
+{
+frame MISLA {light propulsorlight}
+frame MISLB {light propulsorexp1}
+frame MISLC {light propulsorexp2}
+frame MISLD {light propulsorexp3}
+}
+
+Object propulsormissileleft
+{
+frame LISLA {light propulsorlight}
+frame MISLB {light propulsorexp1}
+frame MISLC {light propulsorexp2}
+frame MISLD {light propulsorexp3}
+}
+
+Object ZorchGrenade
+{
+frame MISLA {light propulsorlight}
+frame MISLB {light propulsorexp1}
+frame MISLC {light propulsorexp2}
+frame MISLD {light propulsorexp3}
+}
+
+Object FreezingZorchRocket
+{
+frame FREEA {light Freezinglight}
+frame FBLSA {light Freezingexp3}
+frame FBLSB {light Freezingexp2}
+frame FBLSC {light Freezingexp2}
+frame FBLSD {light Freezingexp1}
+frame FBLSE {light Freezingexp1}
+}
+
+Object LeftFreezingZorchRocket
+{
+frame LREEA {light Freezinglight}
+frame FBLSA {light Freezingexp3}
+frame FBLSB {light Freezingexp2}
+frame FBLSC {light Freezingexp2}
+frame FBLSD {light Freezingexp1}
+frame FBLSE {light Freezingexp1}
+}
+
+object Phasezorchmissile
+{
+frame PLSS {light Phasezorchlight}
+frame PLSEA {light Phasezorchexplight1}
+frame PLSEB {light Phasezorchexplight2}
+frame PLSEC {light Phasezorchexplight3}
+frame PLSED {light Phasezorchexplight2}
+frame PLSEE {light Phasezorchesplight1}
+}
+
+Object Liquidzorchershot
+{
+
+	Frame BFE1A {light lazballexp1}
+	Frame BFE1B {light lazballexp2}
+	Frame BFE1C {light lazballexp2}
+	Frame BFE1D {light lazballexp3}
+	Frame BFE1E {light lazballexp2}
+	Frame BFE1E {light lazballexp1}
+	Frame BFE1F {light lazballlight}
+	
+}
+
+Object BFGExtra
+{
+	frame BFE2A {light lazballexp2}
+	frame BFE2B {light lazballexp1}
+	frame BFE2C {light lazballlight}
+	frame BFE2D {light propulsorlight}
+}
+
+Object BlueTeamPhasingZorchBall
+{
+frame BLSS {light BlueTeamPhasezorchlight}
+frame BLSEA {light BlueTeamPhasezorchexplight1}
+frame BLSEB {light BlueTeamPhasezorchexplight2}
+frame BLSEC {light BlueTeamPhasezorchexplight3}
+frame BLSED {light BlueTeamPhasezorchexplight2}
+frame BLSEE {light BlueTeamPhasezorchesplight1}
+}
+
+Object blueteampropulsormissileright
+{
+frame MBSLA {light blueteampropulsorlight}
+frame MBSLB {light blueteampropulsorexp1}
+frame MBSLC {light blueteampropulsorexp2}
+frame MBSLD {light blueteampropulsorexp3}
+}
+
+Object blueteampropulsormissileleft
+{
+frame LBSLA {light blueteampropulsorlight}
+frame LBSLB {light blueteampropulsorexp1}
+frame LBSLC {light blueteampropulsorexp2}
+frame LBSLD {light blueteampropulsorexp3}
+}
+
+Object TeamLazBall
+{
+	Frame BFS1A {light lazballlight}
+	Frame BFS1B {light lazballlight}
+
+	Frame BFE1A {light lazballexp1}
+	Frame BFE1B {light lazballexp2}
+	Frame BFE1C {light lazballexp2}
+	Frame BFE1D {light lazballexp3}
+	Frame BFE1E {light lazballexp2}
+	Frame BFE1E {light lazballexp1}
+	Frame BFE1F {light lazballlight}
+	
+	Frame UFS1A {light BlueTeamLAZLight}
+	Frame UFS1B {light BlueTeamLAZLight}
+
+	Frame UFE1A {light BlueTeamLAZLightExp1}
+	Frame UFE1B {light BlueTeamLAZLightExp2}
+	Frame UFE1C {light BlueTeamLAZLightExp2}
+	Frame UFE1D {light BlueTeamLAZLightExp3}
+	Frame UFE1E {light BlueTeamLAZLightExp2}
+	Frame UFE1E {light BlueTeamLAZLightExp1}
+	Frame UFE1F {light BlueTeamLAZLight}
+}
+
+Object BlueTeamLazExtra
+{
+	frame UFE2A {light BlueTeamLAZLightExp2}
+	frame UFE2B {light BlueTeamLAZLightExp1}
+	frame UFE2C {light BlueTeamLAZLight}
+	frame UFE2D {light BlueTeamLAZExtraLight}
+}
+/*
+Pointlight BlueTeamBFGLight
+{
+	color 0.2 0.2 1.0
+	size 80
+	offset 0 0 0
+}
+
+Pointlight BlueTeamBFGLightExp1
+{
+	color 0.3 0.3 1.0
+	size 90
+	offset 0 0 0
+}
+
+Pointlight BlueTeamBFGLightExp2
+{
+	color 0.3 0.3 1.0
+	size 100
+	offset 0 0 0
+}
+
+Pointlight BlueTeamBFGLightExp3
+{
+	color 0.3 0.3 1.0
+	size 150
+	offset 0 0 0
+}
+
+pointlight BlueTeamBFGExtraLight
+{
+color 0.2 0.2 1.0
+size 18
+offset 0 0 0
+}
+*/

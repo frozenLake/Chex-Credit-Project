@@ -1,0 +1,337 @@
+WARP2 texture SQUIGWAT
+WARP2 texture SQUIGSLI
+WARP2 texture SQUIGDAR
+WARP2 texture FWATDOOM
+
+// Federal building CTF
+texture TELEFLA
+	pic TELEFLA tics 8
+	pic TELEFLB tics 8
+	pic TELEFLC tics 8
+
+texture RJSKY3A
+	pic RJSKY3A tics 3
+	pic RJSKY3B tics 3
+	pic RJSKY3C tics 3
+	pic RJSKY3D tics 3
+	pic RJSKY3E tics 3
+	pic RJSKY3F tics 3
+	pic RJSKY3G tics 3
+	pic RJSKY3H tics 3
+	
+texture WATGRIDA
+	pic WATGRIDA tics 8
+	pic WATGRIDB tics 8
+	pic WATGRIDC tics 8
+
+
+
+texture LAVA1
+	pic LAVA1 tics 8
+	pic LAVA2 tics 8
+	pic LAVA3 tics 8
+	pic LAVA4 tics 8
+
+// MAP01 city
+
+texture CITYA
+	pic CITYA tics 14
+	pic CITYB tics 14
+	pic CITYC tics 14
+	pic CITYB tics 14
+
+cameratexture B1LEFT 936 472
+
+warp2 texture MARIOGRA
+WARP2 texture MERCURY
+
+
+
+Cameratexture MUSCAM 96 50
+Cameratexture MUSCAM2 96 73
+Cameratexture MUSCAM3 100 87
+Cameratexture LAZCAM 64 64
+
+// Laz's stadium map
+cameratexture BIGTV 128 96 fit 128 96
+
+texture TNCQFALL
+	pic TNCQGOO1 tics 8
+	pic TNCQGOO2 tics 8
+	pic TNCQGOO3 tics 8
+
+
+switch IMWINDOW on sound BREAKAGE pic IMBROKEN tics 0
+switch INVERTWI on sound BREAKAGE pic INVERTBR tics 0
+
+
+
+//Switch Wall
+switch PANEL1 on sound Switch1 pic PANEL2 tics 0
+switch PANEL2 off sound Switch2 pic PANEL1 tics 0
+
+//Small Switch Box
+switch BOX1 on sound Switch1 pic BOX2 tics 0
+switch BOX2 off sound Switch2 pic BOX1 tics 0
+
+switch SW1INFO on sound Switch1 pic SW2INFO tics 0
+switch SW2INFO off sound Switch2 pic SW1INFO tics 0
+switch GREENBOX on sound Switch1 pic REDBOX tics 0
+switch REDBOX off sound Switch2 pic GREENBOX tics 0
+
+switch FREESW1 on sound Switch1 pic FREESW2 tics 0
+switch FREESW2 off sound Switch2 pic FREESW1 tics 0
+
+switch FRYSW1 on sound Switch1 pic FRYSW2 tics 0
+switch FRYSW2 off sound Switch2 pic FRYSW1 tics 0
+
+//CJCOMM and RJCOMM04 switches
+
+switch SW1RJCM on sound Switch1 pic SW2RJCM tics 0
+switch SW2RJCM off sound Switch2 pic SW1RJCM tics 0
+
+switch SW1BJCM on sound Switch1 pic SW2BJCM tics 0
+switch SW2BJCM off sound Switch2 pic SW1BJCM tics 0
+
+//Wall Switch
+switch SW1PANEL on sound Switch1 pic SW2PANEL tics 0
+//switch SW2PANEL off sound Switch2 pic SW1PANEL tics 0
+
+//Box Switch
+switch SW1SMALL on sound Switch1 pic SW2SMALL tics 0
+
+// CJCAU lift switch, SWXLIFT
+
+switch SW1LIFT on sound Switch1 pic SW2LIFT tics 0
+
+// lever switches, Code and grahpics are from Chex Quest: The Lost Quest by Arch129
+
+
+
+
+switch FORCS101
+on sound "switches/ff0"
+pic FORCY101 tics 8
+pic FORCS102 tics 8 
+pic FORCS103 tics 8 
+pic FORCS104 tics 8
+pic FORCS105 tics 8 
+pic FORCS106 tics 8 
+pic FORCS107 tics 8 
+pic FORCS108 tics 8 
+pic FORCS109 tics 8 
+pic FORCS110 tics 8
+
+off sound "switches/ff1"
+pic FORCX010 tics 8
+pic FORCX019 tics 8 
+pic FORCX018 tics 8 
+pic FORCX017 tics 8 
+pic FORCX016 tics 8
+pic FORCX015 tics 8 
+pic FORCX014 tics 8
+pic FORCX013 tics 8 
+pic FORCX012 tics 8
+pic FORCS101 tics 8 
+
+switch FORCS201
+on sound "switches/ff0"
+pic FORCY201 tics 8
+pic FORCS202 tics 8 
+pic FORCS203 tics 8 
+pic FORCS204 tics 8
+pic FORCS205 tics 8 
+pic FORCS206 tics 8 
+pic FORCS207 tics 8 
+pic FORCS208 tics 8 
+pic FORCS209 tics 8 
+pic FORCS210 tics 8
+
+off sound "switches/ff1"
+pic FORCX020 tics 8
+pic FORCX029 tics 8 
+pic FORCX028 tics 8 
+pic FORCX027 tics 8 
+pic FORCX026 tics 8
+pic FORCX025 tics 8 
+pic FORCX024 tics 8
+pic FORCX023 tics 8 
+pic FORCX022 tics 8
+pic FORCS201 tics 8 
+
+switch FORCS301
+on sound "switches/ff0" 
+pic FORCY301 tics 8
+pic FORCS302 tics 8 
+pic FORCS303 tics 8 
+pic FORCS304 tics 8
+pic FORCS305 tics 8 
+pic FORCS306 tics 8 
+pic FORCS307 tics 8 
+pic FORCS308 tics 8 
+pic FORCS309 tics 8 
+pic FORCS310 tics 8
+
+off sound "switches/ff1" 
+pic FORCX030 tics 8
+pic FORCX039 tics 8 
+pic FORCX038 tics 8 
+pic FORCX037 tics 8 
+pic FORCX036 tics 8
+pic FORCX035 tics 8 
+pic FORCX034 tics 8
+pic FORCX033 tics 8 
+pic FORCX032 tics 8
+pic FORCS301 tics 8 
+
+
+  ////////////////////////////////////////////
+////	  QuadrumpusGuy's Liquid Fixes	    ////
+  ////////////////////////////////////////////
+
+//////////
+//Slimes//
+//////////
+
+//Centered Slime
+texture GOO_M
+	pic GOO_M1 tics 8
+	pic GOO_M2 tics 8
+	pic GOO_M3 tics 8
+	pic GOO_M4 tics 8
+
+
+//Centered Slime - Glowing
+texture GOO_MGL
+	pic GOO_M1 tics 8
+	pic GOO_M2 tics 8
+	pic GOO_M3 tics 8
+	pic GOO_M4 tics 8
+
+
+//Centered Slime - Reversed Flow
+texture GOO_REV
+	pic GOO_M4 tics 8
+	pic GOO_M3 tics 8
+	pic GOO_M2 tics 8
+	pic GOO_M1 tics 8
+
+
+//Centered Slime - Reversed Glowing Flow
+texture GOO_REVG
+	pic GOO_M4 tics 8
+	pic GOO_M3 tics 8
+	pic GOO_M2 tics 8
+	pic GOO_M1 tics 8
+
+
+//Slime Flow - Northwest
+texture GOO_NW
+	pic GOO_R3 tics 8
+	pic GOO_R2 tics 8
+	pic GOO_R1 tics 8
+
+
+//Slime Flow - Northwest and Glowing
+texture GOO_NWGL
+	pic GOO_R3 tics 8
+	pic GOO_R2 tics 8
+	pic GOO_R1 tics 8
+
+
+//Slime Flow - Northeast
+texture GOO_NE
+	pic GOO_L3 tics 8
+	pic GOO_L2 tics 8
+	pic GOO_L1 tics 8
+
+
+//Slime Flow - Northeast and Glowing
+texture GOO_NEGL
+	pic GOO_L3 tics 8
+	pic GOO_L2 tics 8
+	pic GOO_L1 tics 8
+
+
+//Slime Flow - Southwest
+texture GOO_SW
+	pic GOO_L1 tics 8
+	pic GOO_L2 tics 8
+	pic GOO_L3 tics 8
+
+
+//Slime Flow - Southwest and Glowing
+texture GOO_SWGL
+	pic GOO_L1 tics 8
+	pic GOO_L2 tics 8
+	pic GOO_L3 tics 8
+
+
+//Slime Flow - Southeast
+texture GOO_SE
+	pic GOO_R1 tics 8
+	pic GOO_R2 tics 8
+	pic GOO_R3 tics 8
+
+
+//Slime Flow - Southeast and Glowing
+texture GOO_SEGL
+	pic GOO_R1 tics 8
+	pic GOO_R2 tics 8
+	pic GOO_R3 tics 8
+
+/////////
+//Water//
+/////////
+
+
+//Water - Normal Flow
+texture H20
+	pic H20_1 tics 8
+	pic H20_2 tics 8
+	pic H20_3 tics 8
+	pic H20_4 tics 8
+
+
+//Water - Reversed Flow
+texture H20_REV
+	pic H20_4 tics 8
+	pic H20_3 tics 8
+	pic H20_2 tics 8
+	pic H20_1 tics 8
+
+texture HACKER1
+	pic HACKER1 tics 1
+	pic HACKER2 tics 1
+	
+texture HYDRARGY
+	pic HYDRARG1 tics 8
+	pic HYDRARG2 tics 8
+	pic HYDRARG3 tics 8
+	
+texture NICEDOPE
+	pic NICSTON1 tics 1050
+	pic NICSTON2 tics 1050
+	pic NICSTON3 tics 1050
+	
+texture BLUEDOPE
+	pic STONER1 tics 1050
+	pic STONER2 tics 1050
+	pic STONER3 tics 1050
+
+// water without splashes	
+texture GENWATER
+	pic FWATER1 tics 8
+	pic FWATER2 tics 8
+	pic FWATER3 tics 8
+	pic FWATER4 tics 8
+	
+texture RAVE1
+	pic BROWNGRN tics 3
+	pic REDBROWN tics 3
+	pic BBROWN tics 3
+	
+texture RAVE2
+	pic CJCOMM02 tics 3
+	pic RRON02 tics 3
+	pic RRON03 tics 3

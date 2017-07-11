@@ -1,0 +1,580 @@
+
+clearepisodes 
+
+episode E1M1
+{
+	picname = "M_EPI1"
+}
+
+episode E2M1
+{
+	picname = "M_EPI2"
+}
+
+episode E3M1 
+{
+	picname = "M_EPI3"
+}
+
+Episode E4M1
+{
+	
+	name = "Episode 4 unnamed"
+	key = "E"
+}
+
+Episode E5M1
+{
+	//totalinfighting 
+	picname = "KDIPP"
+	key = "K"
+}
+
+
+episode ZM01 
+{
+	name = "Zorchmatch"
+	key = "Z"
+}
+
+
+episode DUELHUB
+{
+	name = "Duel maps"
+	key = "D"
+}
+
+episode INV01
+{
+	name = "Invasion game mode"
+	key = "I"
+}
+
+
+MAP E5M1 "Central Communications"
+{
+	//totalinfighting 
+	sky1 = MTNSKY, .01
+	next = E5M2
+}
+
+MAP E5M19 ""
+{
+	next = E5M20
+	sky1 = MTNSKY, .01
+	//outsidefog = "FF FF FF"
+}
+
+MAP E5M20 "Faunera Research Base"
+{
+	//totalinfighting 
+	sky1 = MTNSKY, .01
+	outsidefog = "FF FF FF"
+}
+
+MAP E5M2 "?"
+{
+//totalinfighting 
+	Sky1 = MTNSKY, .03
+	next = E5M3
+}
+
+MAP E5M3 "Ore Processing"
+{
+//totalinfighting 
+	Sky1 = MTNSKY, .02
+	next = E5M4
+}
+
+MAP E5M5 "Research lab"
+{
+//totalinfighting 
+	sky1 = NITSKY, .01
+	next = E5M6
+}
+
+//Some MIDI/MUS files subject to change
+
+map E4M1 "Naval Outpost"
+{
+//totalinfighting 
+	levelnum = 41
+	sky1 = BEFREE00
+	next = E4M2
+	secretnext = E4M9
+	music = D_E4M1
+//Icarus MAP16
+}
+
+
+map E4M2 "Manufacturing Plant"
+{
+//totalinfighting 
+	levelnum = 42
+	sky1 = BEFREE00
+	music = D_E4M2
+	//Give in With Pleasure - Mark Klem: Memento Mori II MAP03
+	next = E4M3
+	secretnext = E4M9
+}
+
+
+map E4M3 "The Obscured Insula"
+{
+//totalinfighting 
+	levelnum = 43
+	sky1 = BEFREE00
+	next = E4M4
+	music = D_E4M3
+	secretnext = E4M9
+}
+
+
+map E4M4 "R.S.S. Navigatus"
+{
+//totalinfighting 
+	levelnum = 44
+	next = E4M5
+	secretnext = E4M9
+	music = D_E4M4
+	//Icarus MAP04
+	sky1 = BEFREE10, 0
+}
+
+
+map E4M5 "City on the Oasis"
+{
+//totalinfighting 
+	levelnum = 45
+	next = E4M6
+	secretnext = E4M9
+	music = D_E4M5
+	//Memento Mori MAP01
+	sky1 = BEFREE10, 0
+}
+
+map E4M6 "Placeholder Control"
+{
+	next = E4M7
+	music = refuel
+	sky1 = NITSKY,0
+}
+
+
+map E4M7 "Templum Sacrorum"
+{
+//totalinfighting 
+	levelnum = 47
+	next = E4M8
+	secretnext = E4M9
+	sky1 = SKY2_1, 0
+	music = D_E4M7
+	//Icarus MAP19
+	specialaction = "Cyaneus", Generic_Floor, 255, 16, 0, 1, 2
+}
+
+map E4M8 "Placeholder Anomaly"
+{
+	next = E4END
+	music = ZORCHRA
+}
+
+
+map E4M9 "Terramorphia"
+{
+//totalinfighting 
+	levelnum = 49
+	sky1 = BEFREE00
+	next = E4M5
+	secretnext = E4M10
+	music = D_E4M9
+	//Icarus MAP25
+}
+
+map E4END "The Tower of PlaceHolder"
+{
+	next = E1M1
+	music = D_E1M5
+}
+
+
+map E4M10 "Aenigma"
+{
+//totalinfighting 
+	next = E4M5
+	secretnext = E4MWHAT
+	sky1 = SKY1, 0
+	music = D_E4M10
+	//"Donna to the Rescue" -Bobby Prince (Testing Song - Possibly going to be remixed?)
+	specialaction = "LordSnotfolus", Generic_Floor, 111, 16, 0, 2, 2
+	specialaction = "DualMaximus", Generic_Floor, 112, 16, 0, 2, 2
+}
+
+
+MAP E1M6 "?"
+{
+	sky1 = MTNSKY, .03
+}
+
+
+MAP E1M8 "The Depths of Bazoik"
+{
+//totalinfighting 
+	music = D_E1M8
+	// This song was made by Strife
+	cluster = 75
+}
+
+map DUELHUB "Welcome to Chex Skulltag Pack Duel!" 
+{
+	cluster = 99
+	islobby // stops the duel countdown and forces keepteams to 0.
+	levelnum = 0
+	music = "HUB" // don't know who made this, was it Manny?
+	next = "DUELHUB"
+	nointermission
+	sky1 = "NITSKY", .03
+}
+
+/*
+cluster 75
+{
+	pic = "NUTSHELL"
+	entertext = lookup,"SECTEXT"
+	music = "D_READ_M"
+}
+*/
+
+MAP CTF01 "Bazoik Highlands Spaceport"
+{
+	sky1 = MTNSKY, .1
+	next = CTF02
+	music = D_E3M1
+	exitpic = Ipic1
+}
+
+
+MAP CTF02 "Centrifugal Force"
+{
+	sky1 = NITSKY, 1
+	next = CTF03
+	music = D_DMSEC
+	exitpic = WIMAP2
+}
+
+MAP CTF03 "Federal Building CTF"
+{
+	sky1 = RJSKY3A
+	next = CTF04
+	music = D_E3M2
+	exitpic = PFUB2
+}
+
+MAP CTF04 "Park CTF"
+{
+	sky1 = RJSKY3A
+	next = CTF05
+	music = D_E2M4
+	exitpic = PFUB1
+}
+
+MAP CTF05 "Arboretum CTF"
+{
+	sky1 = NITSKY, .01
+	next = CTF06
+	music = D_E1M4
+	exitpic = Ipic2
+}
+
+MAP CTF06 "IFC Research and Development"
+{
+	sky1 = CITYSKY, .05
+	next = CTF01
+	music = OPLE1M1
+	exitpic = PFUB1
+}
+
+MAP DUEL01 "Water treatment plant"
+{
+	levelnum = 1
+	sky1 = CITYSKY, .01
+	music = D_E2M5
+	//intermusic  = ""
+	next = "DUELHUB"
+	exitpic = "WIMAP1"
+}
+
+MAP DUEL02 "Sandy's Pizza Parlor"
+{
+	levelnum = 2
+	sky1 = RJSKY3A
+	music = M_Crave
+	next = "DUELHUB"
+	exitpic = "PFUB2"
+}
+
+Map DUEL03 "D.O.S. Days"
+{
+	levelnum = 3
+	sky1 = OLDSKY2
+	music = OPLE2M1
+	next = "DUELHUB"
+	exitpic = "WIMAP1"
+	
+}
+
+Map DUEL04 "Bazoik research base"
+{
+	levelnum = 4
+	sky1 = MTNSKY, .02
+	music = refuel
+	next = "DUELHUB"
+	exitpic = "Ipic2"
+	
+	// music "refuel" by Strife
+	 
+}
+
+Map DUEL05 "Impact Crater"
+{
+	levelnum  = 5
+	sky1 = RJSKY3A
+	music = D_E3M5
+	next = "DUELHUB"
+	exitpic = "PFUB2"
+}
+	
+MAP DUEL06 "Mountain Villa"
+{
+	levelnum = 6
+	sky1 = BEFREE00, .03
+	music = D_E3M3
+	next = "DUELHUB"
+	exitpic = "Ipic1"
+}
+
+MAP DUEL07 "Bazoik Cavern"
+{
+	levelnum = 7
+	music = D_E1M5
+	next = "DUELHUB"
+	exitpic = "WIMAP0"
+}
+
+MAP DUEL08 "Flow Control"
+{
+	levelnum = 8
+	next = DUELHUB
+	sky1 = NITSKY, .22
+	exitpic = "WIMAP1"
+	music = "D_E2M5"
+}
+	
+MAP DUEL09 "Major Fault"
+{
+	levelnum = 9
+	next = DUELHUB
+	sky1 = RJSKY3A
+	exitpic = "pfub2"
+	music = "D_E1M8"
+}
+
+MAP DUEL10 "Sweltering Spiral"
+{
+	levelnum = 10
+	next = DUELHUB
+	sky1 = "MTNSKY", .5
+	exitpic = "WIMAP0"
+	music = D_E1M5
+}
+
+MAP DUEL11 "Consilium"
+{
+	levelnum = 11
+	next = DUELHUB
+	sky1 = BEFREE00, .2
+	exitpic = PFUB2
+	music = D_E2M4
+}
+
+// this map was made by Quadrumpusguy.
+MAP DUEL12 "Mountain Bungalo"
+{
+	levelnum = 12
+	next = DUELHUB
+	// no sky
+	exitpic = PFUB2
+	music = D_E4M3
+}
+
+MAP DUEL13 "Mysterious Lab"
+{
+	levelnum = 13
+	next = DUELHUB
+	sky1 = MTNSKY, .01
+	music = Caves
+	exitpic = Ipic2
+}
+
+MAP DUEL14 "Naval Bunker"
+{
+	levelnum = 14
+	next = DUELHUB
+	sky1 = BEFREE00
+	exitpic = PFUB2
+	music = D_E1M3
+}
+
+MAP DUEL15 "The Chef's Secret Base"
+{
+	levelnum = 15
+	next = DUELHUB
+	sky1 = MTNSKY, .10
+	exitpic = PFUB2
+	music = D_E1M3
+}
+
+MAP DUEL16 "Vexation"
+{
+	levelnum = 16
+	next = DUELHUB
+	sky1 = sky1
+	exitpic = PFUB2
+	music = refuel
+}
+
+// map by LAZ Trooper with minor edits by 75
+MAP DUEL17 "TNCQ Classic Duel"
+{
+	levelnum = 17
+	next = DUELHUB
+	sky1 = NITSKY, .01
+	music = D_ECO // from TNT
+	
+}
+
+MAP DUEL33 "Zorch!"
+{
+	levelnum = 33
+	sky1 = NITSKY,.05
+	music = Chexmix
+	next = "DUELHUB"
+	exitpic = "Ipic1"
+	// music: D_E1M1 remix by Tilple
+}
+
+MAP ZM01 "IFOC Underground Hangar"
+{
+	clipmidtextures
+// Creator: cq75
+// Quadrumpusguy added details, including the exterior and parts of the lab.
+	sky1 = BEFREE00
+	music = D_E1M2
+	next = ZM02
+	exitpic = "Ipic2"
+}
+
+MAP ZM02 "Jade Plateau"
+{
+// Creator: cq75
+// based on a track from Blast Corps (N64), Blast Corps was made by RareWare
+	sky1 = MTNSKY, .03
+	music = SKERRIES
+	next = ZM03
+	exitpic = "Ipic2"
+}
+
+MAP ZM03 "Mario Zorchmatch"
+{
+// Creator: CutmanMike
+// Converted to Chex Quest by Lucius Octavian
+// Converted to Skulltag and modified by cq75
+	sky1 = MARIOSKY
+	music = MARIOZM
+	next = ZM04
+	exitpic = "Ipic2"
+}
+
+MAP ZM04 "Subways"
+{
+// Creator: cq75
+	sky1 = CITYSKY
+	music = D_E3M2
+	next = ZM05
+	exitpic = "Ipic2"
+}
+
+MAP ZM05 "Quarry"
+{
+// creator: cq75
+	sky1 = MTNSKY, .01
+	music = M_ROC
+	next = ZM06
+	exitpic = "Ipic2"
+}
+
+MAP ZM06 "Museum"
+{
+	// Created by cq75
+	
+	sky1 = BEFREE00, .10
+	music = M_CRAVE
+	//outsidefog = "FF FF FF"
+	next = ZM07
+	exitpic = "Ipic2"
+	
+	// M_Crave, "Museum Rave" was made by Tilple. 
+}
+
+MAP ZM07 "Highlands"
+{
+
+// map by Replica and cq75
+	Sky1 = BEFREE00, .10
+	music = D_E2M4
+	next = ZM09
+	exitpic = "Ipic2"
+}
+
+// This one I'm going to skip in the map rotation, I'm not super confident
+// in this one
+map ZM08 "Abandoned Storage Facility"
+{
+	music = D_BOOM // Boomer Kuwanger's theme from Mega Man X
+	sky1 = MTNSKY,.10
+}
+
+// map by laz trooper with some edits by 75
+map ZM09 "Pro Zorchmatch Arena"
+{
+	music = M_GREY 	// Grey's theme from Mega Man ZX Advent
+					// 
+	sky1 = SKY2, .01
+	next = ZM10
+}
+
+map ZM10 "Subsurface"
+{
+	music = caves
+	sky1 = sky1
+	next = ZM01
+}
+
+
+MAP COOP01 "?"
+{
+	sky1 = NITSKY, .01
+	music = ""
+}
+
+
+MAP INV01 "Bazoik arboretum"
+{
+	sky1 = mtnsky
+	music = "D_E1M4"
+	next = ZM01
+	totalinfighting 
+}
+
+
+

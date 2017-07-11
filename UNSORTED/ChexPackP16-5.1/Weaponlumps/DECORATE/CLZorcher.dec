@@ -1,0 +1,97 @@
+
+
+ACTOR CLZorcher : Weapon 11012
+{
+  
+  +WEAPON.NOAUTOAIM
+  SpawnID 245
+  Radius 20
+  Height 16
+  Weapon.Selectionorder 1600
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 15
+  Weapon.AmmoType "LightningAmmo"
+  Weapon.SlotNumber 2
+  Inventory.Icon "CLITA0"
+  Inventory.Pickupmessage "You got the \cnChain-Lightning Zorcher!"
+  Obituary "%o was caught in the path of %k's Chain-Lightning Zorcher."
+  States
+  {
+  Ready:
+    LITA A 1 A_WeaponReady
+    Loop
+
+  Deselect:
+    LITA A 1 A_Lower
+    Loop
+
+  Select:
+    LITA A 1 A_Raise
+    Loop
+
+  Fire:
+	LITA C 0 A_GunFlash
+//A_FireCustomMissile (string missiletype [, angle angle [, bool useammo [, int spawnofs_horz [, int spawnheight [, int aim[, angle pitch]]]]]]) 
+
+	LITA C 4 A_FireCustomMissile("ChainLightning",-1,1,-8,1,0)
+
+
+	LITA C 4 A_FireCustomMissile("ChainLightning",-1,1,-8,1,0)
+
+
+	LITA C 4 A_FireCustomMissile("ChainLightning",-1,1,-8,1,0)
+	LITA B 7
+	LITA B 7 A_CheckReload
+    LITA B 8 A_Refire
+    Goto Ready
+
+  Flash:
+  
+    LITF A 2 Bright A_Light1
+	LITF A 2 Bright A_Light1
+
+	LITF B 2 Bright A_Light2
+	LITF B 2 Bright A_Light0
+
+	LITF C 2 Bright A_Light1
+	LITF C 2 Bright A_Light0
+	
+	Goto LightDone
+
+  Spawn:
+    CLIT A -1
+    Stop
+  }
+}
+
+actor ChainLightning
+{
+  SpawnID 30
+  height 3
+  radius 3
+  damage 5
+  speed 60 // 60
+  PROJECTILE
+  -NOGRAVITY
+  +RIPPER
+  +HEXENBOUNCE
+
+  gravity 0
+  bouncecount 3
+  mass 0
+  seesound "weapons/CLshot"
+  deathsound "caustic/Icehit"
+  Obituary "%o was caught in the path of %k's Chain-Lightning."
+
+  states
+  {
+  Spawn:
+    SHOK A 1000 BRIGHT A_Die
+	wait
+  Death:
+    SHOK B 3 bright 
+    SHOK C 3 bright
+    NONE A -1
+    stop
+  }
+}

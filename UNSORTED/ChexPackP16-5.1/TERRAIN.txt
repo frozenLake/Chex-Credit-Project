@@ -1,0 +1,123 @@
+splash Water
+{
+	smallclass		WaterSpray
+	smallclip		12
+	smallsound		world/water
+
+	baseclass		WaterSpray
+	
+	sound			world/water
+}
+
+
+
+
+splash Slime
+{
+
+	baseclass		SlimeSplash
+	chunkclass		SlimeSpray
+	chunkxvelshift	-1
+	chunkyvelshift	-1
+	chunkzvelshift	7
+	chunkbasezvel	1
+	sound			world/muck
+}
+
+Terrain oldslime
+{
+	splash slime
+}
+
+Terrain Squigslime
+{
+	splash slime
+	damagetype flem
+	damagetimemask 31
+	damageamount 11
+	splash Slime
+	liquid
+}
+
+terrain Water
+{
+	splash Water
+	
+	liquid
+}
+
+terrain Slime
+{
+	damagetype flem
+	damagetimemask 31
+	damageamount 11
+
+	splash Slime
+	footclip 10
+	liquid
+	friction 0.8
+}
+
+
+floor SQUIGWAT Water
+
+floor FWATER1 Water
+floor FWATER2 Water
+floor FWATER3 Water
+floor FWATER4 Water
+
+floor SQUIGSLI SquigSlime
+floor Blood1 oldSlime
+floor Blood2 oldSlime
+floor Blood3 oldSlime
+
+floor LAVA1 oldSlime
+floor LAVA2 oldSlime
+floor LAVA3 oldSlime
+floor LAVA4 oldSlime
+
+floor NUKAGE1 oldSlime
+floor NUKAGE2 oldSlime
+floor NUKAGE3 oldSlime
+
+
+floor GOO_M oldslime
+floor GOO_MGL oldslime
+floor GOO_RV oldslimeme
+floor GOO_RVG oldslime
+floor GOO_NW oldslime
+floor GOO_NWGL oldslime
+floor GOO_NE oldslime
+floor GOO_NEGL oldslime
+floor GOO_SW oldslime
+floor GOO_SWGL oldslime
+floor GOO_SE oldslime
+floor GOO_SEGL oldslime
+floor H20 Water
+floor H20_REV Water
+
+splash HG
+{
+	smallclass		HGSplash
+	smallsound		world/water
+	baseclass		HGSplash
+	chunkclass		HGSpray
+	sound			world/water
+}
+
+
+terrain MERCURY
+{
+	splash HG
+	damagetimemask 31
+	damageamount 8
+	footclip 8
+	liquid
+	friction 0.7
+}
+
+
+
+floor MERCURY MERCURY
+
+

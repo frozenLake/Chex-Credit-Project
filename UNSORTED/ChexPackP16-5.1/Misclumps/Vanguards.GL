@@ -1,0 +1,63 @@
+Pointlight vanguardcllight
+{
+	color 1.0 0.8 0.8
+	size 70
+	offset 0 0 0
+}
+
+Object RebelVanguard_Lightning
+{
+Frame BXCLE {light vanguardcllight}
+Frame BXCLF {light vanguardcllight}
+Frame BXCLO {light playerpainlight}
+Frame BXCLP {light playerpainlight}
+Frame BXCLQ {light playerdeathlight1}
+
+Frame PLZDR {light playerdeathlight2}
+}
+
+Object RebelVanguard_Rapid
+{
+Frame BXRZE {light propulsorlight}
+Frame BXRZF {light propulsorlight}
+Frame BXRZO {light playerpainlight}
+Frame BXRZP {light playerpainlight}
+Frame BXRZQ {light playerdeathlight1}
+
+Frame PLZDR {light playerdeathlight2}
+}
+
+
+Object RebelVanguard_Large
+{
+Frame BXLZE {light propulsorlight}
+Frame BXLZF {light propulsorlight}
+Frame BXLZO {light playerpainlight}
+Frame BXLZP {light playerpainlight}
+Frame BXLZQ {light playerdeathlight1}
+
+Frame PLZDR {light playerdeathlight2}
+}
+
+Object RebelVanguard_UltraRapid
+{
+Frame BXURE {light propulsorlight}
+Frame BXURF {light propulsorlight}
+Frame BXURO {light playerpainlight}
+Frame BXURP {light playerpainlight}
+Frame BXURQ {light playerdeathlight1}
+
+Frame PLZDR {light playerdeathlight2}
+}
+
+
+Object RebelVanguard_Mini
+{
+Frame BXMZE {light propulsorlight}
+Frame BXMZF {light propulsorlight}
+Frame BXMZO {light playerpainlight}
+Frame BXMZP {light playerpainlight}
+Frame BXMZQ {light playerdeathlight1}
+
+Frame PLZDR {light playerdeathlight2}
+}

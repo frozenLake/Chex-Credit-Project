@@ -1,0 +1,347 @@
+actor blueteam : inventory
+{
+	inventory.maxamount 1
+	inventory.amount 1
+}
+
+actor BlueTeamPhasingZorcher : PhasingZorcher75
+{
++WEAPON.NOLMS
+  States
+  {
+  Ready:
+    BLSG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    BLSG A 1 A_Lower
+    Loop
+  Select:
+    BLSG A 1 A_Raise
+    Loop
+  Fire:
+	//BLSG A 3 A_FirePlasma
+	BLSG A 0 A_GunFlash
+	BLSG A 3 A_FireCustomMissile("BlueTeamPhasingZorchBall")
+    BLSG B 20 A_ReFire
+    Goto Ready
+  Flash:
+    BLSF A 3 Bright A_Light1
+    Goto LightDone
+    BLSF B 3 Bright A_Light1
+    Goto LightDone
+  Spawn:
+    PLAS A -1
+    Stop
+  }
+}
+
+Actor BlueTeamPhasingZorchBall : PhaseZorchMissile
+{
+  States
+  {
+  Spawn:
+    BLSS AB 6 bright
+    loop
+  Death:
+    BLSE ABCDE 4 bright
+    stop
+  }
+}
+
+Actor PhasingZorcherSpawner : CustomInventory replaces PhasingZorcher
+{
+	States
+	{
+	Spawn:
+		PLAS A 8
+		BLAS A 8
+		loop
+	Pickup:
+		TNT1 A 0 A_Jumpifinventory("PhasingZorcher75",1,"Gotit")
+		TNT1 A 0 A_Jumpifinventory("BlueTeamPhasingZorcher",1,"Gotit")
+		
+		TNT1 A 0 A_jumpifinventory("BlueTeam",1,"IsBlueTeam")
+		
+		TNT1 A 0 A_Spawnitem("PhasingZorcher75")
+		fail
+		
+	Isblueteam:
+		TNT1 A 0 A_Spawnitem("BlueTeamPhasingZorcher",1)
+		fail
+		
+	Gotit:
+		TNT1 A 0 
+		fail 
+	}
+}	
+
+
+Actor BlueTeamZorchPropulsor : ZorchPropulsor75
+{
+	
+	Game chex
+	Weapon.slotnumber 5
+	Inventory.Pickupmessage "you picked up a \cjzorch propulsor!"
+	// no pickup message because there is a custominventory that spawns this,
+	// which has its own pickup message
+	Inventory.Icon "LAUNA0"
+	Weapon.Ammotype "ZorchRocketAmmo"
+	Weapon.AmmoGive 2
+
+	States
+	{
+		Spawn:
+			TLGL E -1
+			Stop
+			
+		  Ready:
+			MBSG A 1 A_WeaponReady
+			Loop
+		  Deselect:
+			MBSG A 1 A_Lower
+			Loop
+		  Select:
+			MBSG A 1 A_Raise
+			Loop
+		  Fire:
+			MBSG B 8 A_GunFlash
+			MBSG B 12 A_FireCustomMissile ("BlueTeamPropulsorMissileRight")
+			MBSG B 0 A_ReFire
+			Goto Ready
+		  Flash:
+			MBSF A 3 Bright A_Light1
+			MBSF B 4 Bright
+			MBSF CD 4 Bright A_Light2
+			Goto LightDone
+	}
+}
+
+Actor BlueTeamPropulsorMissileRight : PropulsorMissileRight
+{
+	  States
+	  {
+	  Spawn:
+		MBSL A 1 Bright
+		Loop
+	  Death:
+		MBSL B 8 Bright A_Explode
+		MBSL C 6 Bright
+		MBSL D 4 Bright
+		Stop
+	  }
+}
+
+Actor BlueTeamDualZorchPropulsors : DualZorchPropulsors
+{	
+	States
+	{
+			
+	Deselect:
+		DBIS A 1 A_Lower
+		loop	
+	Select:
+		DBIS A 1 A_Raise
+		loop
+	
+	Ready:
+		DBIS A 1 A_WeaponReady
+		loop
+		
+		
+	Fire:
+		DBIS A 1
+		DBIS A 0 A_jumpifinventory("rightprop",1,"fireright")
+		goto Fireleft
+		
+		// 8 12 0
+		
+	Altfire:
+		DBIS B 4
+		DBIS B 4 A_GunFlash
+		DBIS B 0 A_FireCustomMissile("BlueTeamPropulsorMissileRight")
+		DBIS B 0
+		DBIS B 0 A_FireCustomMissile("BlueTeamPropulsormissileleft")
+		DBIS B 12 
+		DBIS B 0 A_Refire
+		goto Ready
+	
+	Fireleft:
+		LBIS B 2 
+		LBIS B 2 A_GunFlash
+		LBIS B 0 A_Giveinventory("rightprop",1)
+		LBIS B 6 A_FireCustomMissile("BlueTeamPropulsormissileleft")
+		LBIS B 0 A_ReFire
+		goto ready
+		
+		// the left one fires, the right one just flashes
+	
+	FireRight:
+		RBIS B 2
+		RBIS B 4 A_GunFlash
+		RBIS B 0 A_Takeinventory("rightprop",1)
+		RBIS B 6 A_FireCustomMissile("BlueTeamPropulsormissileRight")
+		RBIS B 0 A_Refire
+		goto ready
+		
+	Flash:	
+		DBIS A 0 Bright A_JumpifInventory("rightprop",1,"Rightflash")
+		LBIF A 2 Bright A_Light1
+		LBIF B 2 Bright
+		LBIF CD 2 Bright A_Light2
+		goto lightdone
+	
+	RightFlash:
+		RBIF A 2 Bright A_Light1
+		RBIF B 2 Bright
+		RBIF CD 2 Bright A_Light2
+		goto lightdone	
+		
+	AltFlash:
+		DBIF A 2 Bright A_Light1
+		DBIF B 2 Bright
+		DBIF CD 2 Bright A_Light2
+		goto lightdone
+	}
+}
+
+Actor BlueTeamPropulsormissileLeft : BlueTeamPropulsormissileright
+{
+	Obituary "%o was overpowered by %k's dual propulsors"
+	States
+	{
+		Spawn:
+			LBSL A 1 BRIGHT
+			loop
+	}
+}
+
+Actor TeamLazDevicePickup : CustomInventory 2006
+{
+	States
+	{
+		Spawn:
+			BFUG A -1
+			stop
+		Pickup:
+			TNT1 A 0 A_JumpIfInventory("BlueTeam",1,"IsBlueTeam")
+			TNT1 A 0 A_JumpIfInventory("LazDevice75",1,"END")
+			TNT1 A 0 A_SpawnItem("LazDevice75",0)
+			FAIL
+		
+		IsBlueTeam:
+			TNT1 A 0 A_JumpIfInventory("BlueTeamLazDevice",1,"END")
+			TNT1 A 0 A_SpawnItem("BlueTeamLazDevice",0)
+			FAIL
+		
+		END:
+			TNT1 A 0
+			FAIL
+	}
+}
+
+// this is a special case because the flag that disables freelook only
+// on the BFG only works with A_FireBFG, A_FireBFG cannot specify 
+// a projectile to shoot in the current version of Skulltag and Zandronum.
+Actor TeamLAZBall : LazBall replaces BFGBall
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0 // if you don't put this here it won't jump until the next lopo.
+			TNT1 A 0 A_JumpIfInTargetInventory("BlueTeam",1,"IsBlueTeamSpawn")
+			BFS1 AB 4 Bright
+			Loop
+				
+			IsBlueTeamSpawn:
+				UFS1 AB 4 Bright
+				loop
+		
+		Death:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIfInTargetInventory("BlueTeam",1,"IsBlueTeamDeath")
+			BFE1 AB 8 Bright
+			BFE1 C 8 Bright A_BFGSpray
+			BFE1 DEF 8 Bright
+			Stop
+			
+			IsBlueTeamDeath:
+				UFE1 AB 8 Bright
+				UFE1 C 8 Bright A_BFGSpray("BlueTeamLazExtra")
+				UFE1 DEF 8 Bright
+				Stop
+	}
+}
+
+Actor BlueTeamLAZExtra : BFGExtra
+{
+	States
+	{
+	 Spawn:
+		UFE2 ABCD 8 Bright
+		Stop
+	}
+}
+
+actor BlueTeamLAZDevice : LazDevice75 
+{
+	Weapon.Slotnumber 7
+	+WEAPON.BFG
+	+WEAPON.NOAUTOAIM
+  States
+  {
+  Ready:
+    UFGG A 1 A_WeaponReady
+    loop
+  Deselect:
+    UFGG A 1 A_Lower
+    loop
+  Select:
+    UFGG A 1 A_Raise
+    loop
+  Fire:
+    UFGG A 20 A_BFGSound
+    UFGG B 10 A_GunFlash
+    UFGG B 10 A_FireBFG
+    UFGG B 20 A_ReFire
+    goto Ready
+  Flash:
+    UFGF A 11 bright A_Light1
+    UFGF B 6 bright A_Light2
+    Goto LightDone
+  Spawn:
+    UFUG A -1
+    stop
+  }
+}
+
+/*
+actor BlueTeamLAZBall : LazBall75
+{
+  States
+  {
+  Spawn:
+	UFS1  A 0 BRIGHT
+	UFS1 A 0 Bright
+  Spawn2:
+    UFS1 AB 4 bright
+    goto Spawn2
+  Death:
+    UFE1 AB 8 bright
+    UFE1 C 8 bright A_BFGSpray("BlueBFGSplash")
+    UFE1 DEF 8 bright
+    stop
+  }
+ }
+ 
+*/
+
+
+actor BlueBFGSplash : BFGExtra
+{
+	States
+	{
+	Spawn:
+		UFE2 ABCD 8 bright
+		stop
+	}
+}

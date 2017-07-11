@@ -1,0 +1,193 @@
+/*
+
+addplayerclass CrateDisguise
+addplayerclass iChexWarrior
+addplayerclass BipedicusWarrior
+addplayerclass CommonousWarrior
+addplayerclass BipedicusWithArmorWarrior
+addplayerclass QuadrumpusWarrior
+*/
+
+
+Object CrateDisguise
+{
+
+Frame CRATO {light playerpainlight}
+Frame CRATP {light playerdeathlight1}
+Frame CRATQ {light playerdeathlight2}
+Frame CRATR {light propulsorlight}
+}
+
+//ICHX
+/*	  Death: G as well
+		ICHX H 10 A_SetBlend("99 20 20", 1, 120)
+		ICHX I 10 A_PlayerScream 
+		ICHX J 10 A_NoBlocking 
+		ICHX KLM 10 
+		ICHX N -1 
+		Stop
+		
+		
+				XDeath.Flem:
+		ICHX O 5 A_SetBlend("99 20 20", 1, 120)
+		ICHX P 5 A_XScream
+		ICHX Q 5 A_NoBlocking
+		ICHX RSTUV 5
+		ICHX W -1
+		Stop
+*/
+Object iChexWarrior
+{
+
+Frame ICHXG {light playerpainlight}
+
+
+Frame ICHXO {light Felmoidpainlight}
+Frame ICHXP {light Felmoiddeath1}
+Frame ICHXQ {light Felmoiddeath2}
+Frame ICHXR {light Felmoiddeath3}
+Frame ICHXS {light Felmoiddeath2}
+Frame ICHXT {light Felmoiddeath1}
+Frame ICHXU {light propulsorlight}
+
+Frame ICHXH {light Felmoidpainlight}
+Frame ICHXI {light Felmoiddeath1}
+Frame ICHXJ {light Felmoiddeath2}
+Frame ICHXK {light Felmoiddeath3}
+Frame ICHXL {light Felmoiddeath2}
+Frame ICHXM {light propulsorlight}
+}
+
+// I forgot firing on these....
+
+/*
+	  Missile:
+		SPOS E 12
+		Goto Spawn
+		
+	  Melee:
+		SPOS F 6
+		Goto Missile
+		*/
+		
+
+Object BipedicusWarrior
+{
+	// firing
+	
+
+
+	// pain
+	
+	Frame SPOSG {light Felmoidpainlight}
+	
+	//death
+	
+	Frame SPOSH {light Felmoidpainlight}
+	Frame SPOSI {light Felmoiddeath2}
+	Frame SPOSJ {light Felmoiddeath1}
+	Frame SPOSK {light propulsorlight}
+	
+	//xdeath
+	
+	Frame SPOSM {light Felmoidpainlight}
+	Frame SPOSN {light Felmoiddeath1}
+	Frame SPOSO {light Felmoiddeath2}
+	Frame SPOSP {light Felmoiddeath3}
+	Frame SPOSQ {light Felmoiddeath2}
+	Frame SPOSR {light Felmoiddeath1}
+	Frame SPOSS {light Felmoidpainlight}
+	Frame SPOST {light propulsorlight}
+} 
+
+Object CommonousWarrior
+{
+	// firing
+	
+
+
+	// pain
+	
+	Frame POSSG {light Felmoidpainlight}
+	
+	//death
+	
+	Frame POSSH {light Felmoidpainlight}
+	Frame POSSI {light Felmoiddeath2}
+	Frame POSSJ {light Felmoiddeath1}
+	Frame POSSK {light propulsorlight}
+	
+	//xdeath
+	
+	Frame POSSM {light Felmoidpainlight}
+	Frame POSSN {light Felmoiddeath1}
+	Frame POSSO {light Felmoiddeath2}
+	Frame POSSP {light Felmoiddeath3}
+	Frame POSSQ {light Felmoiddeath2}
+	Frame POSSR {light Felmoiddeath1}
+	Frame POSSS {light Felmoidpainlight}
+	Frame POSST {light propulsorlight}
+} 
+object BipedicusWithArmorWarrior
+{
+
+	// firing
+	
+
+	
+	// pain
+	
+	Frame TROOH {light Felmoidpainlight}
+	
+	// death
+	
+	Frame TROOI {light Felmoiddeath1}
+	Frame TROOJ {light Felmoiddeath2}
+	Frame TROOK {light Felmoidpainlight}
+	Frame TROOL {light propulsorlight}
+	
+	// xdeath
+	
+	Frame TROON {light Felmoidpainlight}
+	Frame TROOO {light Felmoiddeath1}
+	Frame TROOP {light Felmoiddeath2}
+	Frame TROOQ {light Felmoiddeath3}
+	Frame TROOR {light Felmoiddeath2}
+	Frame TROOS {light Felmoidpainlight}
+	Frame TROOT {light propulsorlight}
+}	
+
+Object QuadrumpusWarrior
+{
+	// firing
+
+	
+	// pain
+	Frame QUADH {light Cycloptispainlight}
+	
+	// death
+	Frame QUADI {light Cycloptispainlight}
+	Frame QUADJ {light Cycloptisdeath3}
+	Frame QUADK {light Cycloptisdeath2}
+	Frame QUADL {light propulsorlight}
+	
+	//xdeath 
+	
+	Frame QUADN {light Cycloptispainlight}
+	Frame QUADO {light Cycloptisdeath2}
+	Frame QUADP {light Cycloptisdeath3}
+	Frame QUADQ {light Cycloptisdeath3}
+	Frame QUADR {light Cycloptisdeath1}
+	Frame QUADS {light Cycloptispainlight}
+	Frame QUADT {light propulsorlight}
+}
+
+
+Object RadsuitWarrior
+{
+	Frame SUISO {light playerpainlight}
+	Frame SUISP {light playerdeathlight1}
+	Frame SUISQ {light playerdeathlight2}
+	Frame SUISR {light propulsorlight}
+}
+	

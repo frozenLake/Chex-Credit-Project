@@ -1,0 +1,45 @@
+// Sprites by Strife
+
+Actor CycloptisLarva : LostSoul 15106
+{
+	//$Category	flemoids
+	//$Sprite FLYSA0
+	//$Title "Cycloptis Larva (lost soul)"
+
+	+NOINFIGHTING
+	
+	Painsound "Terranus/Pain"
+	 AttackSound "Terranus/BallEXP"
+	 ActiveSound  ""
+	 DeathSound "Captive/Death"
+	 Renderstyle Normal
+	 Obituary "%o was surprised by a cycloptis larva's charge attack"
+	
+	
+	States
+	{
+	  Spawn:
+		FLYS AB 10 A_Look
+		Loop
+	  See:
+		FLYS AB 6  A_Chase
+		Loop
+	  Missile:
+		FLYS C 10 A_FaceTarget
+		FLYS D 4 A_SkullAttack
+		FLYS CD 4
+		Goto Missile+2
+	  Pain:
+		FLYS E 3 Bright
+		FLYS E 3 Bright A_Pain
+		Goto See
+	  Death:
+		FLYS F 6 Bright
+		FLYS G 6 Bright A_Scream
+		FLYS H 6 Bright
+		FLYS I 6 Bright A_NoBlocking
+		FLYS J 6 BRIGHT
+		FLYS K 6 BRIGHT
+		Stop
+	}	
+}
