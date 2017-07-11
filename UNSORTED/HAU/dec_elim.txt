@@ -1,0 +1,773 @@
+ACTOR RepeatingZorcher : DoomWeapon 25640
+{
+	Weapon.SelectionOrder 1900
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+        Weapon.AmmoType "RechargePower"
+	Obituary "$OB_MPPISTOL"
+	+WEAPON.WIMPY_WEAPON
+        +DONTBOB
+        +NOAUTOFIRE
+	Inventory.Pickupmessage "OBTAINED ATTACHMENT:\
+  Repeating Zorcher"
+	States
+	{
+	Ready:
+		REPT A 1 A_WeaponReady
+		Loop
+	Deselect:
+		REPT A 1 A_Lower
+		Loop
+	Select:
+		REPT A 1 A_Raise
+		Loop
+	Fire:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel2",1,"Fire2")
+                REPT A 6
+                REPT B 6
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 6 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+                REPT A 6
+                REPT D 6
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 6 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire2:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel3",1,"Fire3")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire3:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel4",1,"Fire4")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,2,(random(8,16)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,2,(random(8,16)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire4:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel5",1,"Fire5")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,4,(random(12,24)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,4,(random(12,24)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire5:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel6",1,"Fire6")
+                REPT A 2
+                REPT B 2
+                REPT C 0 A_FireCustomMissile("EliminatorZorchParticle1",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorZorchParticle1",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT E 0 A_FireCustomMissile("EliminatorZorchParticle1",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorZorchParticle1",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire6:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel7",1,"Fire7")
+                REPT A 2
+                REPT B 2
+                REPT C 0 A_FireCustomMissile("EliminatorZorchParticle2",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorZorchParticle2",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT E 0 A_FireCustomMissile("EliminatorZorchParticle2",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorZorchParticle2",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire7:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel8",1,"Fire8")
+                REPT A 2
+                REPT B 2
+                REPT C 0 A_FireCustomMissile("EliminatorZorchParticle3",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorZorchParticle3",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT E 0 A_FireCustomMissile("EliminatorZorchParticle3",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorZorchParticle3",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire8:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel9",1,"Fire9")
+                REPT A 1
+                REPT B 1
+                REPT C 0 A_FireCustomMissile("EliminatorZorchParticle4",0,1,-4)
+                REPT C 1 A_FireCustomMissile("EliminatorZorchParticle4",0,1,-9)
+                REPT A 1
+                REPT D 1
+                REPT E 0 A_FireCustomMissile("EliminatorZorchParticle4",0,1,4)
+                REPT E 1 A_FireCustomMissile("EliminatorZorchParticle4",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	Fire9:
+                REPT A 1
+                REPT B 1
+                REPT C 0 A_FireCustomMissile("EliminatorZorchParticle5",0,1,-4)
+                REPT C 1 A_FireCustomMissile("EliminatorZorchParticle5",0,1,-9)
+                REPT A 1
+                REPT D 1
+                REPT E 0 A_FireCustomMissile("EliminatorZorchParticle5",0,1,4)
+                REPT E 1 A_FireCustomMissile("EliminatorZorchParticle5",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel2",1,"AltFire2")
+                REPT A 6
+                REPT B 6
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 6 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+                REPT A 6
+                REPT D 6
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 6 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire2:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel3",1,"AltFire3")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,2,(random(4,8)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire3:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel4",1,"AltFire4")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,2,(random(8,16)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,2,(random(8,16)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire4:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel5",1,"AltFire5")
+                REPT A 3
+                REPT B 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT C 3 A_FireBullets(10,0,4,(random(12,24)),"ZorchPuff")
+                REPT A 3
+                REPT D 3
+                REPT B 0 A_PlaySoundEx("weapons/pistol",Weapon)
+		REPT E 3 A_FireBullets(10,0,4,(random(12,24)),"ZorchPuff")
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire5:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel6",1,"AltFire6")
+                REPT A 2
+                REPT B 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT C 0 A_FireCustomMissile("EliminatorAltZorchParticle1",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorAltZorchParticle1",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT E 0 A_FireCustomMissile("EliminatorAltZorchParticle1",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorAltZorchParticle1",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire6:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel7",1,"AltFire7")
+                REPT A 2
+                REPT B 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT C 0 A_FireCustomMissile("EliminatorAltZorchParticle2",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorAltZorchParticle2",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT E 0 A_FireCustomMissile("EliminatorAltZorchParticle2",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorAltZorchParticle2",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire7:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel8",1,"AltFire8")
+                REPT A 2
+                REPT B 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT C 0 A_FireCustomMissile("EliminatorAltZorchParticle3",0,1,-4)
+                REPT C 2 A_FireCustomMissile("EliminatorAltZorchParticle3",0,1,-9)
+                REPT A 2
+                REPT D 2
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT E 0 A_FireCustomMissile("EliminatorAltZorchParticle3",0,1,4)
+                REPT E 2 A_FireCustomMissile("EliminatorAltZorchParticle3",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire8:
+                REPT A 0 A_JumpIfInventory("RepeatingZorcherUpgradeLevel9",1,"AltFire9")
+                REPT A 1
+                REPT B 1
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT C 0 A_FireCustomMissile("EliminatorAltZorchParticle4",0,1,-4)
+                REPT C 1 A_FireCustomMissile("EliminatorAltZorchParticle4",0,1,-9)
+                REPT A 1
+                REPT D 1
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT E 0 A_FireCustomMissile("EliminatorAltZorchParticle4",0,1,4)
+                REPT E 1 A_FireCustomMissile("EliminatorAltZorchParticle4",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+	AltFire9:
+                REPT B 1
+                REPT A 1
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT C 0 A_FireCustomMissile("EliminatorAltZorchParticle5",0,1,-4)
+                REPT C 1 A_FireCustomMissile("EliminatorAltZorchParticle5",0,1,-9)
+                REPT A 1
+                REPT D 1
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-4)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT B 0 A_FireCustomMissile("BlankShot",0,1,-9)
+                REPT E 0 A_FireCustomMissile("EliminatorAltZorchParticle5",0,1,4)
+                REPT E 1 A_FireCustomMissile("EliminatorAltZorchParticle5",0,1,9)
+		REPT A 0 A_Refire
+		REPT A 5
+		Goto Ready
+ 	Spawn:
+		NULL A -1
+		Stop
+	}
+}
+
+actor BlankShot
+{
+  Radius 6
+  Height 8
+  Speed 1
+  Damage 0
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  States
+  {
+  Spawn:
+    TNT1 A 1
+    stop
+  }
+}
+
+actor EliminatorZorchParticle1
+{
+  Radius 6
+  Height 8
+  Speed 35
+  Damage 20
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorZorchParticle2
+{
+  Radius 6
+  Height 8
+  Speed 40
+  Damage 30
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorZorchParticle3
+{
+  Radius 6
+  Height 8
+  Speed 45
+  Damage 36
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorZorchParticle4
+{
+  Radius 6
+  Height 8
+  Speed 50
+  Damage 50
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorZorchParticle5
+{
+  Radius 6
+  Height 8
+  Speed 50
+  Damage 70
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +RIPPER
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.2
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    MISL A 4 bright
+    loop
+  Death:
+    MISL BCDE 6 bright A_Explode(64,64)
+    stop
+  }
+}
+
+actor EliminatorAltZorchParticle1
+{
+  Radius 6
+  Height 8
+  Speed 35
+  Damage 20
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +RIPPER
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright A_Explode(10,10)
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorAltZorchParticle2
+{
+  Radius 6
+  Height 8
+  Speed 40
+  Damage 30
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +RIPPER
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright A_Explode(15,15)
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorAltZorchParticle3
+{
+  Radius 6
+  Height 8
+  ReactionTime 70
+  Speed 45
+  Damage 36
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +SEEKERMISSILE
+  +RIPPER
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 0 A_CountDown
+    PUFF A 0 A_Explode(20,20)
+    PUFF A 1 bright A_SeekerMissile(45,45,SMF_LOOK)
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorAltZorchParticle4
+{
+  Radius 6
+  Height 8
+  ReactionTime 70
+  Speed 50
+  Damage 50
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +SEEKERMISSILE
+  +RIPPER
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.5
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 0 A_CountDown
+    PUFF A 0 A_Explode(30,30)
+    PUFF A 1 bright A_SeekerMissile(45,45,SMF_LOOK)
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor EliminatorAltZorchParticle5
+{
+  Radius 6
+  Height 8
+  Speed 50
+  Damage 70
+  Damagetype "Zorch"
+  Projectile
+  +RANDOMIZE
+  +RIPPER
+  +SEEKERMISSILE
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 0.2
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    MISL A 0 A_Explode(40,40)
+    MISL A 4 bright A_SeekerMissile(45,45,SMF_LOOK)
+    loop
+  Death:
+    MISL BCDE 6 bright A_Explode(64,64)
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgrade : CustomInventory 25641
+{
+  +COUNTITEM
+  radius 36
+  height 16
+  Inventory.Pickupmessage " "
+  states
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_Execute(970,0)
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel2 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 2!\
+  Rate of fire increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel3 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 3!\
+  Firepower increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel4 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 4!\
+  Spread increased! Firepower increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel5 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 5!\
+  Basic Zorch Particle System Installed!\
+  Rate of Fire Increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel6 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 6!\
+  Particle Speed Increased!\
+  Particle Strength Increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel7 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 7!\
+  Homing Alt-Fire Particle System installed!\
+  Particle Speed Increased!\
+  Particle Strength Increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel8 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 8!\
+  Particle Strength Increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}
+
+ACTOR RepeatingZorcherUpgradeLevel9 : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon UPGRI0
+  Inventory.PickupMessage "OBTAINED UPGRADE:\
+  Repeating Zorcher increased to level 8!\
+  Particle Strength Increased!"
+  States
+  {
+  Spawn:
+    UPGR I -1
+    stop
+  }
+}

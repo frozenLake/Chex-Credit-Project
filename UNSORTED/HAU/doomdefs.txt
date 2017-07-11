@@ -1,0 +1,949 @@
+pointlight ZorchLight1
+{
+    color 0.7 0.0 0.0
+    size 64
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight2
+{
+    color 0.9 0.0 0.0
+    size 150
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight3
+{
+    color 0.7 0.0 0.0
+    size 45
+    offset 0 28 0
+    subtractive 0
+}
+
+pointlight ZorchLight4
+{
+    color 0.7 0.0 0.0
+    size 75
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight5
+{
+    color 0.7 0.0 0.0
+    size 32
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight6
+{
+    color 0.7 0.0 0.0
+    size 37
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight7
+{
+    color 0.7 0.0 0.0
+    size 200
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight8
+{
+    color 0.7 0.0 0.0
+    size 128
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight9
+{
+    color 0.7 0.0 0.0
+    size 300
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight10
+{
+    color 0.7 0.0 0.0
+    size 10
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight11
+{
+    color 0.7 0.0 0.0
+    size 8
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight12
+{
+    color 0.7 0.0 0.0
+    size 6
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchLight13
+{
+    color 0.7 0.0 0.0
+    size 4
+    offset 0 0 0
+    subtractive 0
+}
+
+flickerlight ZorchLight14
+{
+    color 0.7 0.0 0.0
+    size 56
+    secondarySize 64
+    chance 0.7
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight ZorchedLight1
+{
+    color 0.7 0.0 0.0
+    size 50
+    offset 0 0 0
+    subtractive 0
+}
+
+flickerlight2 TeleLight
+{
+    color 0.4 0.0 0.4
+    size 96
+    secondarysize 32
+    interval 0.01
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight TeleLight2
+{
+    color 0.4 0.0 0.4
+    size 64
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight WhiteLight1
+{
+    color 1.0 1.0 1.0
+    size 64
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight WhiteLight2
+{
+    color 1.0 1.0 1.0
+    size 48
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight StreetLight1
+{
+    color 1.0 1.0 1.0
+    size 92
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight RedLight1
+{
+    color 0.6 0.0 0.0
+    size 70
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight GreenLight1
+{
+    color 0.0 0.7 0.0
+    size 75
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight BlueLight1
+{
+    color 0.0 0.0 0.6
+    size 70
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight BlueLight2
+{
+    color 0.0 0.0 0.4
+    size 50
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight BlueLight3
+{
+    color 0.0 0.0 1.0
+    size 50
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight BlueLight4
+{
+    color 0.0 0.0 1.0
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight OrangeLight1
+{
+    color 1.0 0.7 0.4
+    size 64
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight OrangeLight2
+{
+    color 1.0 0.7 0.4
+    size 72
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight OrangeLight3
+{
+    color 1.0 0.7 0.4
+    size 128
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight BlackLight1
+{
+    color 0.5 0.5 0.5
+    size 255
+    offset 0 0 0
+    subtractive 1
+}
+
+pointlight BlackLight2
+{
+    color 0.5 0.5 0.5
+    size 50
+    offset 0 0 0
+    subtractive 1
+}
+
+pointlight CrystalLight1
+{
+    color 0.0 0.0 1.0
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight2
+{
+    color 1.0 0.0 0.0
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight3
+{
+    color 0.0 1.0 0.0
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight4
+{
+    color 0.9 0.9 0.9
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight5
+{
+    color 1.0 0.4 0.1
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight6
+{
+    color 0.8 0.7 0.2
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pointlight CrystalLight7
+{
+    color 0.1 0.1 0.1
+    size 100
+    offset 0 0 0
+    subtractive 1
+}
+
+pointlight CrystalLight8
+{
+    color 0.6 0.5 0.4
+    size 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pulselight WarningLight1
+{
+    color 1.0 0.0 0.0
+    size 100
+    secondarysize 25
+    interval 200
+    offset 0 0 0
+    subtractive 0
+}
+
+pulselight WarningLight2
+{
+    color 1.0 0.0 0.0
+    size 100
+    secondarysize 35
+    interval 100
+    offset 0 0 0
+    subtractive 0
+}
+
+pulselight ShieldLight1
+{
+    color 1.0 0.0 0.0
+    size 75
+    secondarysize 35
+    interval 100
+    offset 0 0 0
+    subtractive 0
+}
+
+object BlueCrystalDecor
+{
+    frame CRST { light CrystalLight1 }
+}
+
+object RedCrystalDecor
+{
+    frame CRST { light CrystalLight2 }
+}
+
+object GreenCrystalDecor
+{
+    frame CRST { light CrystalLight3 }
+}
+
+object SilverCrystalDecor
+{
+    frame CRST { light CrystalLight4 }
+}
+
+object OrangeCrystalDecor
+{
+    frame CRST { light CrystalLight5 }
+}
+
+object GoldCrystalDecor
+{
+    frame CRST { light CrystalLight6 }
+}
+
+object DarkCrystalDecor
+{
+    frame CRST { light CrystalLight7 }
+}
+
+object BrownCrystalDecor
+{
+    frame CRST { light CrystalLight8 }
+}
+
+object BFGBall
+{
+    frame BFS1 { light ZorchLight2 }
+    frame BFE1 { light ZorchLight2 }
+}
+
+object CombatPortalStream
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object PredatorPortalStream
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object ScavengerPortalStream
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object CombatPortalStream2
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object PredatorPortalStream2
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object ScavengerPortalStream2
+{
+    frame PLSS { light ZorchLight1 }
+    frame PLSE { light ZorchLight4 }
+}
+
+object Teleportus
+{
+    frame VILEQ { light ZorchedLight1 }
+    frame VILER { light ZorchedLight1 }
+    frame VILES { light ZorchedLight1 }
+    frame VILET { light ZorchedLight1 }
+    frame VILEU { light ZorchedLight1 }
+    frame VILEV { light ZorchedLight1 }
+    frame VILEW { light ZorchedLight1 }
+    frame VILEX { light ZorchedLight1 }
+    frame VILEY { light ZorchedLight1 }
+    frame TLPHA { light TeleLight }
+    frame TFOG { light TeleLight }
+}
+
+object StealthTeleportus
+{
+    frame VILEQ { light ZorchedLight1 }
+    frame VILER { light ZorchedLight1 }
+    frame VILES { light ZorchedLight1 }
+    frame VILET { light ZorchedLight1 }
+    frame VILEU { light ZorchedLight1 }
+    frame VILEV { light ZorchedLight1 }
+    frame VILEW { light ZorchedLight1 }
+    frame VILEX { light ZorchedLight1 }
+    frame VILEY { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object TeleportFog
+{
+    frame TFOG { light TeleLight }
+}
+
+object Flembrane2
+{
+    frame BOSSH { light ZorchedLight1 }
+    frame BOSSI { light ZorchedLight1 }
+    frame BOSSJ { light ZorchedLight1 }
+    frame BOSSK { light ZorchedLight1 }
+    frame BOSSL { light ZorchedLight1 }
+    frame BOSSM { light ZorchedLight1 }
+    frame BOSSN { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthFlembrane
+{
+    frame BOSSH { light ZorchedLight1 }
+    frame BOSSI { light ZorchedLight1 }
+    frame BOSSJ { light ZorchedLight1 }
+    frame BOSSK { light ZorchedLight1 }
+    frame BOSSL { light ZorchedLight1 }
+    frame BOSSM { light ZorchedLight1 }
+    frame BOSSN { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Maximus
+{
+    frame BOS2H { light ZorchedLight1 }
+    frame BOS2I { light ZorchedLight1 }
+    frame BOS2J { light ZorchedLight1 }
+    frame BOS2K { light ZorchedLight1 }
+    frame BOS2L { light ZorchedLight1 }
+    frame BOS2M { light ZorchedLight1 }
+    frame BOS2N { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthMaximus
+{
+    frame BOS2H { light ZorchedLight1 }
+    frame BOS2I { light ZorchedLight1 }
+    frame BOS2J { light ZorchedLight1 }
+    frame BOS2K { light ZorchedLight1 }
+    frame BOS2L { light ZorchedLight1 }
+    frame BOS2M { light ZorchedLight1 }
+    frame BOS2N { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Ultricus
+{
+    frame HEADE { light ZorchedLight1 }
+    frame HEADF { light ZorchedLight1 }
+    frame HEADG { light ZorchedLight1 }
+    frame HEADH { light ZorchedLight1 }
+    frame HEADI { light ZorchedLight1 }
+    frame HEADJ { light ZorchedLight1 }
+    frame HEADK { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthUltricus
+{
+    frame HEADE { light ZorchedLight1 }
+    frame HEADF { light ZorchedLight1 }
+    frame HEADG { light ZorchedLight1 }
+    frame HEADH { light ZorchedLight1 }
+    frame HEADI { light ZorchedLight1 }
+    frame HEADJ { light ZorchedLight1 }
+    frame HEADK { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Ultimus
+{
+    frame CYBRG { light ZorchedLight1 }
+    frame CYBRH { light ZorchedLight1 }
+    frame CYBRI { light ZorchedLight1 }
+    frame CYBRJ { light ZorchedLight1 }
+    frame CYBRK { light ZorchedLight1 }
+    frame CYBRL { light ZorchedLight1 }
+    frame CYBRM { light ZorchedLight1 }
+    frame CYBRN { light ZorchedLight1 }
+    frame CYBRO { light ZorchedLight1 }
+}
+
+object StealthUltimus
+{
+    frame CYBRG { light ZorchedLight1 }
+    frame CYBRH { light ZorchedLight1 }
+    frame CYBRI { light ZorchedLight1 }
+    frame CYBRJ { light ZorchedLight1 }
+    frame CYBRK { light ZorchedLight1 }
+    frame CYBRL { light ZorchedLight1 }
+    frame CYBRM { light ZorchedLight1 }
+    frame CYBRN { light ZorchedLight1 }
+    frame CYBRO { light ZorchedLight1 }
+}
+
+object Cycloptis
+{
+    frame SARGH { light ZorchedLight1 }
+    frame SARGI { light ZorchedLight1 }
+    frame SARGJ { light ZorchedLight1 }
+    frame SARGK { light ZorchedLight1 }
+    frame SARGL { light ZorchedLight1 }
+    frame SARGM { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthCycloptis
+{
+    frame SARGH { light ZorchedLight1 }
+    frame SARGI { light ZorchedLight1 }
+    frame SARGJ { light ZorchedLight1 }
+    frame SARGK { light ZorchedLight1 }
+    frame SARGL { light ZorchedLight1 }
+    frame SARGM { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object BWA
+{
+    frame TROOH { light ZorchedLight1 }
+    frame TROOI { light ZorchedLight1 }
+    frame TROOJ { light ZorchedLight1 }
+    frame TROOK { light ZorchedLight1 }
+    frame TROOL { light ZorchedLight1 }
+    frame TROON { light ZorchedLight1 }
+    frame TROOO { light ZorchedLight1 }
+    frame TROOP { light ZorchedLight1 }
+    frame TROOQ { light ZorchedLight1 }
+    frame TROOR { light ZorchedLight1 }
+    frame TROOS { light ZorchedLight1 }
+    frame TROOT { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthBWA
+{
+    frame TROOH { light ZorchedLight1 }
+    frame TROOI { light ZorchedLight1 }
+    frame TROOJ { light ZorchedLight1 }
+    frame TROOK { light ZorchedLight1 }
+    frame TROOL { light ZorchedLight1 }
+    frame TROON { light ZorchedLight1 }
+    frame TROOO { light ZorchedLight1 }
+    frame TROOP { light ZorchedLight1 }
+    frame TROOQ { light ZorchedLight1 }
+    frame TROOR { light ZorchedLight1 }
+    frame TROOS { light ZorchedLight1 }
+    frame TROOT { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Gyro
+{
+    frame SKULE { light ZorchedLight1 }
+    frame SKULF { light ZorchedLight1 }
+    frame SKULG { light ZorchedLight1 }
+    frame SKULH { light ZorchedLight1 }
+    frame SKULI { light ZorchedLight1 }
+    frame SKULJ { light ZorchedLight1 }
+    frame SKULK { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthGyro
+{
+    frame SKULE { light ZorchedLight1 }
+    frame SKULF { light ZorchedLight1 }
+    frame SKULG { light ZorchedLight1 }
+    frame SKULH { light ZorchedLight1 }
+    frame SKULI { light ZorchedLight1 }
+    frame SKULJ { light ZorchedLight1 }
+    frame SKULK { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Slimblicus
+{
+    frame SKELL { light ZorchedLight1 }
+    frame SKELM { light ZorchedLight1 }
+    frame SKELN { light ZorchedLight1 }
+    frame SKELO { light ZorchedLight1 }
+    frame SKELP { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthSlimblicus
+{
+    frame SKELL { light ZorchedLight1 }
+    frame SKELM { light ZorchedLight1 }
+    frame SKELN { light ZorchedLight1 }
+    frame SKELO { light ZorchedLight1 }
+    frame SKELP { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Bipedicus
+{
+    frame SPOSG { light ZorchedLight1 }
+    frame SPOSH { light ZorchedLight1 }
+    frame SPOSI { light ZorchedLight1 }
+    frame SPOSJ { light ZorchedLight1 }
+    frame SPOSK { light ZorchedLight1 }
+    frame SPOSM { light ZorchedLight1 }
+    frame SPOSN { light ZorchedLight1 }
+    frame SPOSO { light ZorchedLight1 }
+    frame SPOSP { light ZorchedLight1 }
+    frame SPOSQ { light ZorchedLight1 }
+    frame SPOSR { light ZorchedLight1 }
+    frame SPOSS { light ZorchedLight1 }
+    frame SPOST { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthBipedicus
+{
+    frame SPOSG { light ZorchedLight1 }
+    frame SPOSH { light ZorchedLight1 }
+    frame SPOSI { light ZorchedLight1 }
+    frame SPOSJ { light ZorchedLight1 }
+    frame SPOSK { light ZorchedLight1 }
+    frame SPOSM { light ZorchedLight1 }
+    frame SPOSN { light ZorchedLight1 }
+    frame SPOSO { light ZorchedLight1 }
+    frame SPOSP { light ZorchedLight1 }
+    frame SPOSQ { light ZorchedLight1 }
+    frame SPOSR { light ZorchedLight1 }
+    frame SPOSS { light ZorchedLight1 }
+    frame SPOST { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Commonus
+{
+    frame POSSG { light ZorchedLight1 }
+    frame POSSH { light ZorchedLight1 }
+    frame POSSI { light ZorchedLight1 }
+    frame POSSJ { light ZorchedLight1 }
+    frame POSSK { light ZorchedLight1 }
+    frame POSSM { light ZorchedLight1 }
+    frame POSSN { light ZorchedLight1 }
+    frame POSSO { light ZorchedLight1 }
+    frame POSSP { light ZorchedLight1 }
+    frame POSSQ { light ZorchedLight1 }
+    frame POSSR { light ZorchedLight1 }
+    frame POSSS { light ZorchedLight1 }
+    frame POSST { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object StealthCommonus
+{
+    frame POSSG { light ZorchedLight1 }
+    frame POSSH { light ZorchedLight1 }
+    frame POSSI { light ZorchedLight1 }
+    frame POSSJ { light ZorchedLight1 }
+    frame POSSK { light ZorchedLight1 }
+    frame POSSM { light ZorchedLight1 }
+    frame POSSN { light ZorchedLight1 }
+    frame POSSO { light ZorchedLight1 }
+    frame POSSP { light ZorchedLight1 }
+    frame POSSQ { light ZorchedLight1 }
+    frame POSSR { light ZorchedLight1 }
+    frame POSSS { light ZorchedLight1 }
+    frame POSST { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Quadrumpus
+{
+    frame QUADH { light ZorchedLight1 }
+    frame QUADI { light ZorchedLight1 }
+    frame QUADJ { light ZorchedLight1 }
+    frame QUADK { light ZorchedLight1 }
+    frame QUADL { light ZorchedLight1 }
+    frame QUADM { light ZorchedLight1 }
+    frame QUADN { light ZorchedLight1 }
+    frame QUADO { light ZorchedLight1 }
+    frame QUADP { light ZorchedLight1 }
+    frame QUADQ { light ZorchedLight1 }
+    frame QUADR { light ZorchedLight1 }
+    frame QUADS { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Larva
+{
+    frame LRVAF { light ZorchedLight1 }
+    frame LRVAG { light ZorchedLight1 }
+    frame LRVAH { light ZorchedLight1 }
+    frame LRVAI { light ZorchedLight1 }
+    frame LRVAJ { light ZorchedLight1 }
+    frame LRVAK { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object PhaseBipedicus
+{
+    frame DIMPH { light ZorchedLight1 }
+    frame DIMPI { light ZorchedLight1 }
+    frame DIMPJ { light ZorchedLight1 }
+    frame DIMPK { light ZorchedLight1 }
+    frame DIMPL { light ZorchedLight1 }
+    frame DIMPM { light ZorchedLight1 }
+    frame DIMPQ { light ZorchedLight1 }
+    frame DIMPR { light ZorchedLight1 }
+    frame DIMPS { light ZorchedLight1 }
+    frame DIMPT { light ZorchedLight1 }
+    frame TFOG { light TeleLight }
+}
+
+object Column
+{
+    frame COLU { light WhiteLight1 }
+}
+
+object HeadCandles
+{
+    frame POL3 { light WhiteLight1 }
+}
+
+object BlueTorch
+{
+    frame TBLU { light StreetLight1 }
+}
+
+object GreenTorch
+{
+    frame TGRN { light WhiteLight1 }
+    frame TGRNA { light BlueLight2 }
+    frame TGRNB { light BlueLight2 }
+    frame TGRNC { light BlueLight2 }
+    frame TGRND { light BlueLight2 }
+}
+
+object TechLamp
+{
+    frame TLMP { light BlueLight1 }
+}
+
+object TechLamp2
+{
+    frame TLP2 { light BlueLight2 }
+}
+
+object ChexChandelier
+{
+    frame CHLR { light OrangeLight2 }
+}
+
+object HearthFire
+{
+    frame FLOG { light OrangeLight3 }
+}
+
+object HangingLight
+{
+    frame LAMP { light WhiteLight1 }
+}
+
+object WarningHangingLight
+{
+    frame LAMP { light WarningLight1 }
+}
+
+object HangingLight2
+{
+    frame HANG { light WhiteLight2 }
+}
+
+object WarningHangingLight2
+{
+    frame WRNL { light WarningLight2 }
+}
+
+object CombatSmallPortal
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object PredatorSmallPortal
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object ScavengerSmallPortal
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object CombatSmallPortal2
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object PredatorSmallPortal2
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object ScavengerSmallPortal2
+{
+    frame MISLA { light ZorchLight3 }
+    frame MISLB { light ZorchLight7 }
+    frame MISLC { light ZorchLight2 }
+    frame MISLD { light ZorchLight8 }
+}
+
+object ZorchPuff
+{
+    frame PUFFA { light ZorchLight10 }
+    frame PUFFB { light ZorchLight11 }
+    frame PUFFC { light ZorchLight12 }
+    frame PUFFD { light ZorchLight13 }
+}
+
+object CombatDroid
+{
+    frame PLAYF { light ZorchLight14 }
+}
+
+object PredatorDroid
+{
+    frame PLAYF { light ZorchLight14 }
+}
+
+object ScavengerDroid
+{
+    frame PLAYF { light ZorchLight14 }
+}
+
+object EnemySpawnerLvl1
+{
+    frame TFOG { light TeleLight }
+}
+
+object EnemySpawnerLvl2
+{
+    frame TFOG { light TeleLight }
+}
+
+object EnemySpawnerLvl3
+{
+    frame TFOG { light TeleLight }
+}
+
+object EnemySpawnerLvl4
+{
+    frame TFOG { light TeleLight }
+}
+
+object EnemySpawnerLvl5
+{
+    frame TFOG { light TeleLight }
+}
+
+object MeleeEnemySpawner
+{
+    frame TFOG { light TeleLight }
+}
+
+object FlyingEnemySpawner
+{
+    frame TFOG { light TeleLight }
+}
+
+object UltimateEnemySpawner
+{
+    frame TFOG { light TeleLight }
+}

@@ -1,0 +1,294 @@
+ACTOR RechargePower : Ammo
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 100
+  Inventory.Icon CHRGA0
+  Inventory.PickupMessage "ERROR: You fail."
+  States
+  {
+  Spawn:
+    JUMP ABCD 5
+    loop
+  }
+}
+
+ACTOR ProgramLightAmp : PuzzleItem 14071
+{
+  radius 26
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon PLMPB0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Light Amplification Eyepieces"
+  States
+  {
+  Spawn:
+    PLMP A 5
+    loop
+  }
+}
+
+ACTOR ProgramInvisibility : PuzzleItem 14072
+{
+  radius 16
+  height 16
+  Renderstyle Translucent
+  Inventory.MaxAmount 1
+  Inventory.Icon PIDVA0
+  +VISIBILITYPULSE
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Cloaking Device"
+  States
+  {
+  Spawn:
+    PIDV A -1
+    loop
+  }
+}
+
+ACTOR ProgramRegeneration : PuzzleItem 14073
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon PRGNA0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Regeneration Device"
+  States
+  {
+  Spawn:
+    PRGN ABC 3
+    loop
+  }
+}
+
+ACTOR ProgramDrain : PuzzleItem 14074
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon PDRNB0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Zorch Rebounder Coil"
+  States
+  {
+  Spawn:
+    PDRN A -1
+    loop
+  }
+}
+
+ACTOR ProgramSpeedBoost : PuzzleItem 14075
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon SPEDC0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Speed Booster"
+  States
+  {
+  Spawn:
+    SPED AB 3
+    loop
+  }
+}
+
+ACTOR ProgramHighJump : PuzzleItem 14076
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon JUMPA0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Jump Booster"
+  States
+  {
+  Spawn:
+    JUMP AB 3
+    loop
+  }
+}
+
+actor PowerQuadDamage : PowerDamage
+{
+  damagefactor "normal", 4
+}
+
+ACTOR ProgramPowerBoost : PuzzleItem 14077
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon POWRA0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Power Booster"
+  States
+  {
+  Spawn:
+    POWR A -1
+    loop
+  }
+}
+
+ACTOR ProgramRepel : PuzzleItem 14078
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon REPLC0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Repulsion Device"
+  States
+  {
+  Spawn:
+    REPL AB 5
+    loop
+  }
+}
+
+ACTOR ProgramInvulnerability : PuzzleItem 14079
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon PINVD0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Shielding Device"
+  States
+  {
+  Spawn:
+    PINV ABCD 5
+    loop
+  }
+}
+
+ACTOR ProgramTimeFreeze : PuzzleItem 14080
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon PINVD0
+  Inventory.PickupMessage "OBTAINED ATTACHMENT:\
+  Temporal Rift Device"
+  States
+  {
+  Spawn:
+    TEMP ABCD 5
+    loop
+  }
+}
+
+ACTOR ProgramHyperMode : PuzzleItem 14082
+{
+  radius 36
+  height 16
+  Inventory.MaxAmount 1
+  Inventory.Icon HYPRD0
+  Inventory.PickupMessage "Obtained HyperMode capability!"
+  States
+  {
+  Spawn:
+    HYPR ABC 5
+    loop
+  }
+}
+
+actor PowerDoubleDamage : PowerDamage
+{
+  damagefactor "normal", 2
+  powerup.duration -120
+}
+
+actor PowerDoubleFiringSpeed2 : PowerDoubleFiringSpeed
+{
+  powerup.duration -120
+}
+
+ACTOR UpgradeTreads : CustomInventory 14081
+{
+  inventory.pickupmessage "OBTAINED UPGRADE:\
+  Improved Treads"
+  +COUNTITEM
+  ConversationID 8
+  states
+  {
+  Spawn:
+    TRED A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_Execute(663,0)
+    stop
+  }
+}
+
+actor UpgradeStamina2 : UpgradeStamina 14083
+{
+  Inventory.MaxAmount 900
+  Inventory.PickupMessage "You found a Shield Boost! Maximum health increased by 10!"
+  +COUNTITEM
+  +BRIGHT
+  Renderstyle Translucent
+  Alpha 0.7
+}
+
+actor UpgradeStamina3 : UpgradeStamina 244
+{
+  Inventory.MaxAmount 900
+  Inventory.Amount 50
+  Inventory.PickupMessage "You found a Shield Upgrade! Maximum health increased by 50!"
+  +COUNTITEM
+  +VISIBILITYPULSE
+  +FLOATBOB
+  Renderstyle Translucent
+  Alpha 0.7
+  states
+  {
+  Spawn:
+    TOKN BCD 5
+    loop
+  }
+}
+
+ACTOR ShieldAmplifier : Health 245
+{
+	+COUNTITEM
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.FANCYPICKUPSOUND
+	Inventory.Amount 200
+	Inventory.MaxAmount 1000
+	Inventory.PickupMessage "Obtained a Shield Amplifier!"
+	Inventory.PickupSound "misc/p_pkup"
+	States
+	{
+	Spawn:
+		AMPL ABCD 6
+		Loop
+	}
+}
+
+actor PowerSensorInput : PowerScanner
+{
+  powerup.duration 0xfffffff
+}
+
+actor SensorLink : CustomInventory 14094
+{
+  inventory.pickupmessage "Real-time link to planetory sensor array\
+  established for this area."
+  +COUNTITEM
+  +VISIBILITYPULSE
+  Renderstyle Translucent
+  states
+  {
+  Spawn:
+    SENS A -1 bright
+    stop
+  Pickup:
+    TNT1 A 0 A_GiveInventory("MapRevealer",1)
+    TNT1 A 0 A_GiveInventory("PowerSensorInput",1)
+    stop
+  }
+}

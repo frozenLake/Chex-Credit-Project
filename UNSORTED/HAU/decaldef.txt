@@ -1,0 +1,914 @@
+/***** Animators ***********************************************************/
+
+fader GoAway
+{
+	DecayStart	0.5
+	DecayTime	1.0
+}
+
+fader GoAway2
+{
+	DecayStart	1.0
+	DecayTime	3.0
+}
+
+colorchanger ToBlack
+{
+	FadeStart	0.5
+	FadeTime	1.0
+}
+
+stretcher BloodStretcher
+{
+	StretchTime	35
+	GoalY		2.0
+}
+
+slider BloodSlider
+{
+	SlideTime	35
+	DistY		-5
+}
+
+combiner BloodSmearer
+{
+	BloodStretcher
+	BloodSlider
+}
+
+/***** Bullet Chips *****/
+
+decal FlemChip
+{
+        pic SLIME3
+        shade "6F EF 67"
+        translucent 1.0
+        x-scale 1
+        y-scale 1
+        randomflipx
+        randomflipy
+}
+
+decal BulletChip1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip3
+{
+	pic CHIP3
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip4
+{
+	pic CHIP4
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip5
+{
+	pic CHIP5
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decalgroup BulletChip
+{
+	BulletChip1	1
+	BulletChip2	1
+	BulletChip3	1
+	BulletChip4	1
+	BulletChip5	1
+}
+
+/***** Blood Decals ********************************************************/
+/*
+ * Blood splats just stick to the walls.
+ * Blood smears crawl down walls a bit like in Blood.
+ *
+ * These do not need generators; the engine will create them automatically
+ * when something bleeds. In the future, the shade color will be ignored,
+ * and the actor's blood color will be used instead.
+ */
+decal BloodSplat1
+{
+	pic BSPLAT1
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat4
+{
+	pic BSPLAT4
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat5
+{
+	pic BSPLAT5
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat6
+{
+	pic BSPLAT6
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat7
+{
+	pic BSPLAT7
+	shade "6F EF 67"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+// The smaller blood splats are more common than the big ones.
+
+decalgroup BloodSplat
+{
+	BloodSplat1	2
+	BloodSplat2	1
+	BloodSplat3	5
+	BloodSplat4	5
+	BloodSplat5	5
+	BloodSplat6	5
+	BloodSplat7	6
+}
+
+decal BloodSmear1
+{
+	pic BSMEAR1
+	x-scale 0.625
+	y-scale 0.625
+	shade "6F EF 67"
+	randomflipx
+	animator BloodSmearer
+}
+
+decal BloodSmear2
+{
+	pic BSMEAR1
+	x-scale 0.625
+	y-scale 0.625
+	shade "6F EF 67"
+	randomflipx
+	animator BloodSmearer
+}
+
+decalgroup BloodSmear
+{
+	BloodSmear1	1
+	BloodSmear2	1
+}
+
+/***** Rocket Scorches *****************************************************/
+
+decal Scorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BigScorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BigFrigginScorch
+{
+	pic SCORCH1
+	shade "6F EF 67"
+	x-scale 1.5
+	y-scale 1.5
+	randomflipx
+	randomflipy
+	animator BloodSmearer
+}
+
+decal HugeFrigginScorch
+{
+	pic SCORCH1
+	shade "6F EF 67"
+	x-scale 1.8
+	y-scale 1.8
+	randomflipx
+	randomflipy
+	animator BloodSmearer
+}
+
+/***** Plasma Rifle Scorches ***********************************************/
+
+decal PlasmaScorchLower1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorch1
+{
+	pic PLSSA0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower1
+}
+
+decal PlasmaScorchLower2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorch2
+{
+	pic PLSSB0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower2
+}
+
+decalgroup PlasmaScorchLower
+{
+	PlasmaScorchLower1	1
+	PlasmaScorchLower2	1
+}
+
+decalgroup PlasmaScorch
+{
+	PlasmaScorch1	1
+	PlasmaScorch2	1
+}
+
+/***** Zorch Cannon Scorches ***********************************************/
+
+decal CannonScorchLower1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal CannonScorch1
+{
+	pic CANNE0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal CannonScorchLower1
+}
+
+decal CannonScorchLower2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.3
+	y-scale 0.3
+	randomflipx
+	randomflipy
+}
+
+decal CannonScorch2
+{
+	pic CANNE0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal CannonScorchLower2
+}
+
+decalgroup CannonScorchLower
+{
+	CannonScorchLower1	1
+	CannonScorchLower2	1
+}
+
+decalgroup CannonScorch
+{
+	CannonScorch1	1
+	CannonScorch2	1
+}
+
+/***** Zorch Mini-Cannon Scorches ***********************************************/
+
+decal MiniCannonScorchLower1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal MiniCannonScorch1
+{
+	pic CANNE0
+	add 1.0
+        x-scale 0.6
+        y-scale 0.6
+	fullbright
+	animator GoAway
+	lowerdecal MiniCannonScorchLower1
+}
+
+decal MiniCannonScorchLower2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal MiniCannonScorch2
+{
+	pic CANNE0
+	add 1.0
+        x-scale 0.6
+        y-scale 0.6
+	fullbright
+	animator GoAway
+	lowerdecal CannonScorchLower2
+}
+
+decalgroup MiniCannonScorchLower
+{
+	MiniCannonScorchLower1	1
+	MiniCannonScorchLower2	1
+}
+
+decalgroup MiniCannonScorch
+{
+	MiniCannonScorch1	1
+	MiniCannonScorch2	1
+}
+
+/***** BFG Scorches ********************************************************/
+
+decal BFGScorch1
+{
+	pic BFGSCRC1
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+}
+
+decal BFGScorch2
+{
+	pic BFGSCRC2
+	shade "00 00 00"
+	randomflipx
+	randomflipy
+}
+
+decalgroup BFGScorch
+{
+	BFGScorch1	1
+	BFGScorch2	1
+}
+
+decal BFGLightning1
+{
+	pic BFGLITE1
+	shade "EB 97 97"
+	fullbright
+	randomflipx
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decal BFGLightning2
+{
+	pic BFGLITE2
+	shade "EB 97 97"
+	fullbright
+	randomflipy
+	animator GoAway2
+	lowerdecal BFGScorch
+}
+
+decalgroup BFGLightning
+{
+	BFGLightning1	1
+	BFGLightning2	1
+}
+
+/***** Zorch Propulsor Scorches ********************************************************/
+
+decal PropulsorScorch1
+{
+	pic BFGSCRC1
+	shade "00 00 00"
+        x-scale 0.5
+        y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal PropulsorScorch2
+{
+	pic BFGSCRC2
+	shade "00 00 00"
+        x-scale 0.5
+        y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decalgroup PropulsorScorch
+{
+	PropulsorScorch1	1
+	PropulsorScorch2	1
+}
+
+decal PropulsorLightning1
+{
+	pic BFGLITE1
+	shade "EB 97 97"
+	fullbright
+        x-scale 0.5
+        y-scale 0.5
+	randomflipx
+	animator GoAway2
+	lowerdecal PropulsorScorch
+}
+
+decal PropulsorLightning2
+{
+	pic BFGLITE2
+	shade "EB 97 97"
+	fullbright
+        x-scale 0.5
+        y-scale 0.5
+	randomflipy
+	animator GoAway2
+	lowerdecal PropulsorScorch
+}
+
+decalgroup PropulsorLightning
+{
+	PropulsorLightning1	1
+	PropulsorLightning2	1
+}
+
+/***** Zorch Particle Scorches ********************************************************/
+
+decal ParticleScorch1
+{
+	pic BFGSCRC1
+	shade "00 00 00"
+        x-scale 0.2
+        y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal ParticleScorch2
+{
+	pic BFGSCRC2
+	shade "00 00 00"
+        x-scale 0.2
+        y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decalgroup ParticleScorch
+{
+	ParticleScorch1	1
+	ParticleScorch2	1
+}
+
+decal ParticleLightning1
+{
+	pic BFGLITE1
+	shade "EB 97 97"
+	fullbright
+        x-scale 0.2
+        y-scale 0.2
+	randomflipx
+	animator GoAway2
+	lowerdecal ParticleScorch
+}
+
+decal ParticleLightning2
+{
+	pic BFGLITE2
+	shade "EB 97 97"
+	fullbright
+        x-scale 0.2
+        y-scale 0.2
+	randomflipy
+	animator GoAway2
+	lowerdecal ParticleScorch
+}
+
+decalgroup ParticleLightning
+{
+	ParticleLightning1	1
+	ParticleLightning2	1
+}
+
+/***** Rail Gun Scorches - contributed by Nigel Rowand *********************/
+
+decal RailScorchLower1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal RailScorchLower2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decalgroup RailScorchLower
+{
+	RailScorchLower1 1
+	RailScorchLower2 1
+}
+
+
+
+decal RailScorch1
+{
+	pic CBALSCR1
+	shade "FF 1F 1F"
+	fullbright
+	x-scale 0.4
+	y-scale 0.4
+	animator GoAway
+	lowerdecal RailScorchLower
+}
+
+decal RailScorch2
+{
+	pic CBALSCR2
+	shade "FF 1F 1F"
+	fullbright
+	x-scale 0.4
+	y-scale 0.4
+	animator GoAway
+	lowerdecal RailScorchLower
+}
+
+decalgroup RailScorch
+{
+	RailScorch1 1
+	RailScorch2 1
+}
+
+/***** Arachnotron Plasma Scorches *****************************************/
+
+decal ArachScorch1
+{
+	pic APLSA0
+	add 1.0
+	animator GoAway
+	lowerdecal PlasmaScorchLower1
+}
+
+decal ArachScorch2
+{
+	pic APLSB0
+	add 1.0
+	animator GoAway
+	lowerdecal PlasmaScorchLower2
+}
+
+decalgroup ArachnotronScorch
+{
+	ArachScorch1	1
+	ArachScorch2	1
+}
+
+/***** Baron of Hell/Hell Knight Scorches **********************************/
+
+decal BaronScorch1
+{
+	pic SLIME1
+	shade "67 DF 00"
+	x-scale 1
+	y-scale 1
+        translucent 1.0
+	randomflipx
+	randomflipy
+}
+
+decal BaronScorch2
+{
+	pic SLIME1
+	shade "67 DF 00"
+	x-scale 1
+	y-scale 1
+        translucent 1.0
+	randomflipx
+	randomflipy
+}
+
+decalgroup BaronScorch
+{
+	BaronScorch1	1
+	BaronScorch2	1
+}
+
+/***** Cacodemon Scorches **************************************************/
+
+decal CacoScorch1
+{
+	pic SLIME2
+	shade "67 DF 00"
+	x-scale 0.78125
+	y-scale 0.78125
+        translucent 1.0
+	randomflipx
+	randomflipy
+}
+
+decal CacoScorch2
+{
+	pic SLIME2
+	shade "67 DF 00"
+	x-scale 0.78125
+	y-scale 0.78125
+        translucent 1.0
+	randomflipx
+	randomflipy
+}
+
+decalgroup CacoScorch
+{
+	CacoScorch1	1
+	CacoScorch2	1
+}
+
+/***** Doom Imp Scorches ***************************************************/
+
+decal DImpScorch1
+{
+	pic SLIME1
+	shade "6F EF 67"
+	x-scale 0.78125
+	y-scale 0.78125
+        translucent 1.0
+        randomflipx
+        randomflipy
+}
+
+decal DImpScorch2
+{
+	pic SLIME1
+	shade "6F EF 67"
+	x-scale 0.78125
+	y-scale 0.78125
+        translucent 1.0
+        randomflipx
+        randomflipy
+}
+
+decalgroup DoomImpScorch
+{
+	DImpScorch1	1
+	DImpScorch2	1
+}
+
+/***** Gyro Scorches ***************************************************/
+
+decal GyroScorch1
+{
+	pic SLIME1
+	shade "6F EF 67"
+	x-scale 0.5
+	y-scale 0.5
+        translucent 1.0
+        randomflipx
+        randomflipy
+}
+
+decal GyroScorch2
+{
+	pic SLIME1
+	shade "6F EF 67"
+	x-scale 0.5
+	y-scale 0.5
+        translucent 1.0
+        randomflipx
+        randomflipy
+}
+
+decalgroup GyroScorch
+{
+	GyroScorch1	1
+	GyroScorch2	1
+}
+
+/***** Teleportus Scorches ***************************************************/
+
+decal TeleportusScorch1
+{
+	pic SLIME1
+	shade "FF 1F 1F"
+	x-scale 1.8
+	y-scale 1.8
+        translucent 0.7
+        randomflipx
+        randomflipy
+}
+
+decal TeleportusScorch2
+{
+	pic SLIME1
+	shade "FF 1F 1F"
+	x-scale 1.8
+	y-scale 1.8
+        translucent 0.7
+        randomflipx
+        randomflipy
+}
+
+decalgroup TeleportusScorch
+{
+	TeleportusScorch1	1
+	TeleportusScorch2	1
+}
+
+/***** Revenant ************************************************************/
+
+decal RevenantScorch
+{
+	pic BLAST1
+	shade "EB 97 97"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+/***** Generators **********************************************************/
+
+generator CombatMiniZorcherAttachment	BulletChip
+generator PredatorMiniZorcherAttachment	BulletChip
+generator ScavengerMiniZorcherAttachment	BulletChip
+generator CombatLargeZorcherAttachment	BulletChip
+generator PredatorLargeZorcherAttachment	BulletChip
+generator ScavengerLargeZorcherAttachment	BulletChip
+generator CombatMegaZorcherAttachment	BulletChip
+generator PredatorMegaZorcherAttachment	BulletChip
+generator ScavengerMegaZorcherAttachment	BulletChip
+generator CombatRapidZorcherAttachment	BulletChip
+generator PredatorRapidZorcherAttachment	BulletChip
+generator ScavengerRapidZorcherAttachment	BulletChip
+generator CombatChainZorcherAttachment	BulletChip
+generator PredatorChainZorcherAttachment	BulletChip
+generator ScavengerChainZorcherAttachment	BulletChip
+
+generator CombatMiniZorchPellet		ParticleScorch
+generator PredatorMiniZorchPellet	ParticleScorch
+generator ScavengerMiniZorchPellet	ParticleScorch
+generator CombatPortalStream		PlasmaScorch
+generator PredatorPortalStream		PlasmaScorch
+generator ScavengerPortalStream		PlasmaScorch
+generator CombatPortalStream2		PlasmaScorch
+generator PredatorPortalStream2		PlasmaScorch
+generator ScavengerPortalStream2	PlasmaScorch
+generator CombatSmallPortal		PropulsorLightning
+generator PredatorSmallPortal		PropulsorLightning
+generator ScavengerSmallPortal		PropulsorLightning
+generator CombatSmallPortal2		PropulsorLightning
+generator PredatorSmallPortal2		PropulsorLightning
+generator ScavengerSmallPortal2		PropulsorLightning
+generator CombatCannonShot      	CannonScorch
+generator PredatorCannonShot      	CannonScorch
+generator ScavengerCannonShot      	CannonScorch
+generator CombatCannonShot2      	CannonScorch
+generator PredatorCannonShot2      	CannonScorch
+generator ScavengerCannonShot2      	CannonScorch
+generator CombatCannonExtra1      	MiniCannonScorch
+generator PredatorCannonExtra1      	MiniCannonScorch
+generator ScavengerCannonExtra1      	MiniCannonScorch
+generator CombatCannonExtra2      	MiniCannonScorch
+generator PredatorCannonExtra2      	MiniCannonScorch
+generator ScavengerCannonExtra2      	MiniCannonScorch
+generator BFGBall			BFGLightning
+
+generator Commonus			BulletChip
+generator Bipedicus			BulletChip
+generator Perforatus			FlemChip
+
+generator FlembraneBall			BaronScorch
+generator MaximusBall			BaronScorch
+generator UltricusBall			CacoScorch
+generator SuperCycloptisFlemMissile	BigFrigginScorch
+generator BWABall			DoomImpScorch
+generator GyroBall			GyroScorch
+generator PerforatusBall                DoomImpScorch
+generator SlimblicusBall		RevenantScorch
+generator TeleportusBall                TeleportusScorch
+generator FlembominationBall1		CacoScorch
+generator FlembominationBall2		DoomImpScorch
+generator UltimusBall			BigFrigginScorch
+generator SnotfolusBall1		DoomImpScorch
+generator SnotfolusBall2		CacoScorch
+generator SnotfolusBall3		BaronScorch
+generator SnotfolusBall4		BigFrigginScorch

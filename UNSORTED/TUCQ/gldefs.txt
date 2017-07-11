@@ -1,0 +1,311 @@
+// Dynamic light definitions for The Ultimate Chex Quest
+
+// ##########################################################################
+// Weapons fire
+// ##########################################################################
+
+
+// Zorcher Spark (Bullet puff)
+
+pointlight spark1
+{
+   color 1 0.0625 0.0625
+   size 3
+}
+
+pointlight spark2
+{
+   color 1 0.0625 0.0625
+   size 5
+}
+
+pointlight spark3
+{
+   color 1 0.0625 0.0625
+   size 8
+}
+
+pointlight spark4
+{
+   color 1 0.0625 0.0625
+   size 10
+}
+
+object ZorchFlash
+{
+    frame SPRKA { light spark1 }
+	frame SPRKB { light spark2 }
+	frame SPRKC { light spark3 }
+	frame SPRKD { light spark4 }
+	frame SPRKE { light spark3 }
+	frame SPRKF { light spark2 }
+	frame SPRKG { light spark1 }
+}
+
+// Propulsor Zorch (Rocket Launcher)
+
+pointlight PropulsorZorch
+{
+    color 1 0 0
+	size 20
+}
+
+pointlight PropulsorZorchHit1
+{
+    color 1 0 0
+	size 30
+}
+
+pointlight PropulsorZorchHit3
+{
+   color 1 0.0625 0.0625
+   size 10
+}
+
+
+object PropulsorShot
+{
+    frame MISLA { light PropulsorZorch }
+	frame MISLB { light PropulsorZorchHit1 }
+	frame MISLC { light PropulsorZorch }
+	frame MISLD { light PropulsorZorchHit3 }
+}
+
+// Phasing Zorch (Plasma gun)
+
+pointlight PhaseZorch
+{
+    color 1 0 0
+	size 25
+}
+
+pointlight PhaseZorchHit
+{
+    color 1 0 0
+	size 40
+}
+
+object PhaseZorchShot 
+{
+    frame PLSS { light PhaseZorch }
+	frame PLSE { Light PhaseZorchHit }
+}
+
+// LAZ Device
+
+pointlight LAZBall1
+{
+    color 1 0 0
+	size 40
+}
+
+pointlight LAZHit1
+{
+    color 1 0 0
+	size 45
+}
+pointlight LAZHit2
+{
+    color 1 0 0
+	size 52
+}
+pointlight LAZHit3
+{
+    color 1 0 0
+	size 60
+}
+pointlight LAZHit4
+{
+    color 1 0 0
+	size 65
+}
+pointlight LAZHit5
+{
+    color 1 0 0
+	size 50
+}
+pointlight LAZHit6
+{
+    color 1 0 0
+	size 25
+}
+
+object BFGBall
+{
+    frame BFS1 { light LAZBall1 }
+	frame BFE1A { light LAZHit1 }
+	frame BFE1B { light LAZHit2 }
+	frame BFE1C { light LAZHit3 }
+	frame BFE1D { light LAZHit4 }
+	frame BFE1E { light LAZHit5 }
+	frame BFE1F { light LAZHit6 }
+}
+
+pointlight LAZRayHit1
+{
+    color 1 0 0
+	size 40
+}
+
+pointlight LAZRayHit2
+{
+    color 1 0 0
+	size 35
+}
+
+pointlight LAZRayHit3
+{
+    color 1 0 0
+	size 25
+}
+
+pointlight LAZRayHit4
+{
+    color 1 0 0
+	size 10
+}
+
+object BFGExtra
+{
+    frame BFE2A { light LAZRayHit1 }
+    frame BFE2B { light LAZRayHit2 }
+    frame BFE2C { light LAZRayHit3 }
+    frame BFE2D { light LAZRayHit4 }
+}
+
+
+// ##########################################################################
+// Lights
+// ##########################################################################
+
+// Landing Light
+
+pointlight Landing01
+{
+    color 0.95 0.9 0.4
+	size 40
+	offset 0 28 0
+}
+
+object LandingLight
+{
+    frame LLIT { light Landing01 }
+}
+
+// Pulsating Electrical Thingie
+
+pointlight ThingieLight1
+{
+    color 0.5 0.5 0.0
+	size 30
+	offset 0 53 0
+}
+
+pointlight ThingieLight2
+{
+    color 0.25 0.25 1
+	size 35
+	offset 0 27 0
+}
+
+pointlight ThingieLight3
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 36 0
+}
+
+pointlight ThingieLight4
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 45 0
+}
+
+pointlight ThingieLight5
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 55 0
+}
+
+pointlight ThingieLight6
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 64 0
+}
+
+pointlight ThingieLight7
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 73 0
+}
+
+pointlight ThingieLight8
+{
+    color 0.25 0.25 1
+	size 34
+	offset 0 83 0
+}
+
+object PulsatingElectricalThingie
+{
+    frame ELEC { light ThingieLight1 }
+	frame ELECA 
+	{
+	    light ThingieLight2
+        light ThingieLight6
+    }
+	frame ELECB 
+	{
+	    light ThingieLight3
+        light ThingieLight7
+	}
+	frame ELECC 
+	{
+	    light ThingieLight4
+        light ThingieLight8
+	}
+	frame ELECD { light ThingieLight5 }
+}
+
+
+// Wall Lamp (museum)
+
+pointlight WallLight01
+{
+    color 0.953 0.827 0.53
+    size 40
+    offset 0 75 0
+}
+
+object WallLamp01
+{
+    frame WLIT { light WallLight01 }
+}
+
+// Runway Lights (Spaceport)
+
+pointlight Runway01
+{
+    color 1 1 0.5
+	size 40
+	offset 0 8 0
+}
+
+object RunwayLight1
+{
+    frame LLITB { light Runway01 }
+}
+
+object RunwayLight2
+{
+    frame LLITB { light Runway01 }
+}
+
+object RunwayLight3
+{
+    frame LLITB { light Runway01 }
+}

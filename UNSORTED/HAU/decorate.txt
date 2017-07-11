@@ -1,0 +1,400 @@
+#include "DEC_WEAP"
+#include "DEC_ELIM"
+#include "DEC_POWR"
+#include "DEC_ARMR"
+#include "DEC_FLEM"
+#include "DEC_SFLM"
+#include "DEC_INVS"
+#include "DEC_CHEX"
+#include "DEC_INVN"
+#include "DEC_REPR"
+#include "DEC_DECR"
+#include "DEC_PUZZ"
+#include "DEC_SPWN"
+#include "DEC_HAZD"
+#include "DEC_FX"
+
+ACTOR CombatDroid : PlayerPawn
+{
+  Speed 1.25
+  Health 100
+  Player.MaxHealth 100
+  Player.DamageScreenColor "green"
+  Radius 16
+  Height 56
+  damagefactor "Zorch",0
+  damagefactor "PhaseBeam",0
+  damagefactor "ArmorPiercingZorch",0
+  Mass 100
+  PainChance 255
+  Player.SpawnClass 1
+  Player.ColorRange 112, 127
+  Player.DisplayName "Combat Droid"
+  Player.CrouchSprite "PLYC"
+  Player.WeaponSlot 2,CombatMiniZorcherAttachment
+  Player.WeaponSlot 3,CombatLargeZorcherAttachment,CombatMegaZorcherAttachment
+  Player.WeaponSlot 4,CombatRapidZorcherAttachment,CombatChainZorcherAttachment
+  Player.WeaponSlot 5,CombatPortalWeaponAttachment
+  Player.WeaponSlot 6,CombatPhasingZorcherAttachment
+  Player.WeaponSlot 7,CombatBeamZorcherAttachment
+  Player.WeaponSlot 8,CombatFusionZorcherAttachment
+  Player.WeaponSlot 9,CombatZorchCannonAttachment
+  
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    COMB A 1
+    Loop
+  See2:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 10 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}
+
+ACTOR ScavengerDroid : PlayerPawn
+{
+  Speed 1
+  Health 100
+  Player.MaxHealth 100
+  Player.DamageScreenColor "green"
+  Radius 16
+  Height 56
+  damagefactor "Zorch",0
+  damagefactor "PhaseBeam",0
+  damagefactor "ArmorPiercingZorch",0
+  damagefactor 0.6
+  Mass 100
+  PainChance 255
+  Player.SpawnClass 2
+  Player.ColorRange 112, 127
+  Player.DisplayName "Scavenger Droid"
+  Player.CrouchSprite "PLYC"
+  Player.WeaponSlot 2, ScavengerMiniZorcherAttachment
+  Player.WeaponSlot 3, ScavengerLargeZorcherAttachment, ScavengerMegaZorcherAttachment
+  Player.WeaponSlot 4, ScavengerRapidZorcherAttachment, ScavengerChainZorcherAttachment
+  Player.WeaponSlot 5, ScavengerPortalWeaponAttachment
+  Player.WeaponSlot 6, ScavengerPhasingZorcherAttachment
+  Player.WeaponSlot 7, ScavengerBeamZorcherAttachment
+  Player.WeaponSlot 8, ScavengerFusionZorcherAttachment
+  Player.WeaponSlot 9, ScavengerZorchCannonAttachment
+  
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    SCAV A 1
+    Loop
+  See2:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 10 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}
+
+ACTOR PredatorDroid : PlayerPawn
+{
+  Speed 2
+  Player.SpawnClass 3
+  Health 100
+  Player.MaxHealth 100
+  Player.DamageScreenColor "green"
+  Radius 16
+  Height 56
+  damagefactor "Zorch",0
+  damagefactor "PhaseBeam",0
+  damagefactor "ArmorPiercingZorch",0
+  damagefactor 2
+  Mass 100
+  PainChance 255
+  Player.ColorRange 112, 127
+  Player.DisplayName "Predator Droid"
+  Player.CrouchSprite "PLYC"
+  Player.WeaponSlot 2, PredatorMiniZorcherAttachment
+  Player.WeaponSlot 3, PredatorLargeZorcherAttachment, PredatorMegaZorcherAttachment
+  Player.WeaponSlot 4, PredatorRapidZorcherAttachment, PredatorChainZorcherAttachment
+  Player.WeaponSlot 5, PredatorPortalWeaponAttachment
+  Player.WeaponSlot 6, PredatorPhasingZorcherAttachment
+  Player.WeaponSlot 7, PredatorBeamZorcherAttachment
+  Player.WeaponSlot 8, PredatorFusionZorcherAttachment
+  Player.WeaponSlot 9, PredatorZorchCannonAttachment
+  
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    PRED A 1
+    Loop
+  See2:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 10 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}
+
+ACTOR EliminatorDroid : PlayerPawn
+{
+  Speed 1
+  Player.SpawnClass 4
+  Health 100
+  Player.MaxHealth 100
+  damagefactor 1.5
+  Radius 16
+  Height 56
+  damagefactor "Zorch",0
+  Mass 100
+  PainChance 255
+  Player.ColorRange 112, 127
+  Player.DisplayName "Eliminator Droid"
+  Player.CrouchSprite "PLYC"
+  Player.WeaponSlot 2, RepeatingZorcher
+  Player.StartItem "RepeatingZorcher"
+  
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    ELIM A 1
+    Loop
+  See2:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 10 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}
+
+ACTOR IndomitableDroid : PlayerPawn
+{
+  Speed 2
+  Health 100
+  Player.MaxHealth 100
+  Player.DamageScreenColor "green"
+  Radius 16
+  Height 56
+  damagefactor "Zorch",0
+  damagefactor "PhaseBeam",0
+  damagefactor "ArmorPiercingZorch",0
+  damagefactor 0.2
+  Mass 100
+  PainChance 255
+  Player.SpawnClass 5
+  Player.ColorRange 112, 127
+  Player.DisplayName "Indomitable Droid"
+  Player.CrouchSprite "PLYC"
+  Player.WeaponSlot 2, IndomitableMiniZorcherAttachment
+  Player.WeaponSlot 3, IndomitableLargeZorcherAttachment, IndomitableMegaZorcherAttachment
+  Player.WeaponSlot 4, IndomitableRapidZorcherAttachment, IndomitableChainZorcherAttachment
+  Player.WeaponSlot 5, IndomitablePortalWeaponAttachment
+  Player.WeaponSlot 6, IndomitablePhasingZorcherAttachment
+  Player.WeaponSlot 7, IndomitableBeamZorcherAttachment
+  Player.WeaponSlot 8, IndomitableFusionZorcherAttachment
+  Player.WeaponSlot 9, IndomitableZorchCannonAttachment
+  
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    INDM A 1
+    Loop
+  See2:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 10 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}

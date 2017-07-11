@@ -1,0 +1,67 @@
+actor SmallRepairKit : HealthPickup replaces StimPack
+{
+  Health 10
+  +COUNTITEM
+  +INVENTORY.FANCYPICKUPSOUND
+  HealthPickup.AutoUse 2
+  Inventory.Icon REPRB0
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Obtained a small repair kit."
+  States
+  {
+  Spawn:
+    REPR A -1
+    Loop
+  }
+}
+
+actor MediumRepairKit : HealthPickup replaces Medikit
+{
+  Health 25
+  +COUNTITEM
+  +INVENTORY.FANCYPICKUPSOUND
+  HealthPickup.AutoUse 2
+  Inventory.Icon REP2B0
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Obtained a medium repair kit."
+  States
+  {
+  Spawn:
+    REP2 A -1
+    Loop
+  }
+}
+
+actor LargeRepairKit : HealthPickup replaces Berserk
+{
+  Health 50
+  +COUNTITEM
+  +INVENTORY.FANCYPICKUPSOUND
+  HealthPickup.AutoUse 2
+  Inventory.Icon REP3B0
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Obtained a large repair kit."
+  States
+  {
+  Spawn:
+    REP3 A -1
+    Loop
+  }
+}
+
+actor ExtraLargeRepairKit : HealthPickup replaces SoulSphere
+{
+  Health 1000
+  +COUNTITEM
+  +INVENTORY.FANCYPICKUPSOUND
+  Inventory.Icon REP4B0
+  Inventory.PickupSound "misc/p_pkup"
+  Inventory.PickupMessage "Obtained an industrial-strength\
+  extra-large repair kit."
+  States
+  {
+  Spawn:
+    REP4 A -1
+    Loop
+  }
+}

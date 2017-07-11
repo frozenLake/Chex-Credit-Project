@@ -1,0 +1,131 @@
+// Decal Definitions for The Ultimate Chex Quest
+
+Decal LargeFlemSplat1
+{
+   pic SPLTA0
+   x-scale 1
+   y-scale 1
+   randomflipx
+   randomflipy
+}
+Decal MediumFlemSplat1
+{
+   pic SPLTA0
+   x-scale 0.6
+   y-scale 0.6
+   randomflipx
+   randomflipy
+}
+
+Decal MediumFlemSplat2
+{
+   pic BAL1C0
+   x-scale 0.75
+   y-scale 0.75
+   randomflipx
+   randomflipy
+}
+
+Decal MediumFlemSplat3
+{
+   pic BAL7C0
+   x-scale 0.75
+   y-scale 0.75
+   randomflipx
+   randomflipy
+}
+
+Decal MediumFlemSplat4
+{
+   pic BAL7D0
+   x-scale 1
+   y-scale 1
+   randomflipx
+}
+
+
+Decalgroup MediumFlemSplat
+{
+   MediumFlemSplat1		3
+   MediumFlemSplat2		1
+   MediumFlemSplat3		1
+   MediumFlemSplat4		2
+}
+
+Decal SmallFlemSplat1
+{
+   pic SPLTA0
+   x-scale 0.3
+   y-scale 0.3
+   randomflipx
+   randomflipy
+}
+
+Decal SmallFlemSplat2
+{
+   pic BAL1C0
+   x-scale 0.375
+   y-scale 0.375
+   randomflipx
+   randomflipy
+}
+
+Decal SmallFlemSplat3
+{
+   pic BAL7C0
+   x-scale 0.375
+   y-scale 0.375
+   randomflipx
+   randomflipy
+}
+
+Decal SmallFlemSplat4
+{
+   pic BAL7D0
+   x-scale 0.5
+   y-scale 0.5
+   randomflipx
+}
+
+Decalgroup SmallFlemSplat
+{
+   SmallFlemSplat1		3
+   SmallFlemSplat2		1
+   SmallFlemSplat3		1
+   SmallFlemSplat4		2
+}
+
+
+Generator BWABall MediumFlemSplat
+
+Generator MaximusBall LargeFlemSplat1
+
+Generator MiniBall1 SmallFlemSplat
+
+Generator MiniBall2 SmallFlemSplat
+
+Generator MiniBall2a SmallFlemSplat
+
+// Turn off bullet Chips
+
+Decal Nothing
+{
+	pic BLNKA0
+}
+
+generator Pistol			Nothing
+generator Chainsaw			Nothing
+generator Shotgun			Nothing
+generator SuperShotgun		Nothing
+generator Chaingun			Nothing
+
+generator PlasmaBall		Nothing
+generator Rocket			Nothing
+generator BFGBall			Nothing
+
+generator MarinePistol		Nothing
+generator MarineShotgun		Nothing
+generator MarineSSG			Nothing
+generator MarineChaingun	Nothing
+generator MarineRailgun		Nothing
+

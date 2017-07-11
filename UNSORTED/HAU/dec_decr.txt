@@ -1,0 +1,715 @@
+ACTOR Ship replaces TechPillar
+{
+  radius 16
+  height 26
+  +SOLID
+  +USESPECIAL
+  states
+  {
+  Spawn:
+    ELEC A -1
+    stop
+  }
+}
+
+ACTOR EmptyHydroponicContainer 31413
+{
+	Radius 16
+	Height 45
+	+SOLID
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		EMPT B -1
+		Stop
+	}
+}
+
+ACTOR Stool2 31414
+{
+	Radius 16
+	Height 41
+	+SOLID
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		STOL A -1
+		Stop
+	}
+}
+
+ACTOR BeechTree 31415
+{
+	Radius 20
+	Height 64
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		TREE C -1
+		Stop
+	}
+}
+
+ACTOR EmptyBurner replaces FloatingSkull
+{
+  radius 16
+  height 26
+  +SOLID
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    FSKU A -1
+    stop
+  }
+}
+
+actor PropulsorFX
+{
+  radius 10
+  height 10
+  states
+  {
+  Spawn:
+	MISL B 6 A_Explode(100,128)
+	MISL CD 6
+	stop
+  }
+}
+
+ACTOR GlobeStand 25323
+{
+	Radius 16
+	Height 64
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		GLBE A -1
+		Stop
+	}
+}
+
+ACTOR Monitor 30412
+{
+	Radius 16
+	Height 51
+	+SOLID
+	States
+	{
+	Spawn:
+		COMP A 6
+		COMP B 6 BRIGHT
+		Loop
+	}
+}
+
+ACTOR Monitor2 30413
+{
+	Radius 16
+	Height 51
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		COMP C -1
+		Stop
+	}
+}
+
+ACTOR Phone 32412
+{
+	Radius 16
+	Height 26
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		PHNE A -1
+		Stop
+	}
+}
+
+ACTOR HangingPots 31362
+{
+	Radius 20
+	Height 64
+	+NOGRAVITY
+	+SPAWNCEILING
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		PANS A -1
+		Stop
+	}
+}
+
+ACTOR HangingSlime 32521
+{
+	Radius 16
+	Height 68
+	+NOGRAVITY
+	+SPAWNCEILING
+	States
+	{
+	Spawn:
+		SLMD A -1
+		Stop
+	}
+}
+
+ACTOR SmallLamp 23397
+{
+	Radius 20
+	Height 18
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		SMLL A -1 BRIGHT
+		Stop
+	}
+}
+
+ACTOR DeactivatedSmallLamp 17397
+{
+	Radius 20
+	Height 18
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		SMLL B -1
+	Stop
+	}
+}
+
+ACTOR EmptyFlask 23398
+{
+	Radius 20
+	Height 14
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		EMPT A -1
+		Stop
+	}
+}
+
+ACTOR SlimeyStatue 29387
+{
+	Radius 16
+	Height 83
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		STTE A -1
+		Stop
+	}
+}
+
+ACTOR HearthFire 32323
+{
+	Radius 16
+	Height 26
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		FLOG ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR ShortSlimeBulb 23983
+{
+	Radius 16
+	Height 55
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		SLMP ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR TallSlimeBulb 32144
+{
+	Radius 16
+	Height 68
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		SLMP EFGH 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR GlobeHologram 23462
+{
+	Radius 16
+	Height 26
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		GLBE BCDE 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR TurnedOffGlobeHologram 23463
+{
+	Radius 20
+	Height 18
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		GOFF A -1
+		stop
+	}
+}
+
+ACTOR ChexChandelier 23487
+{
+	Radius 16
+	Height 68
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		CHLR ABCD 4 BRIGHT
+		Loop
+	}
+}
+
+ACTOR HangingLight 224
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		LAMP A -1 BRIGHT
+		stop
+	}
+}
+
+ACTOR DeactivatedHangingLight 6224
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		LAMP B -1
+		stop
+	}
+}
+
+ACTOR WarningHangingLight 225
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		LAMP A -1
+		stop
+	}
+}
+
+ACTOR HangingLight2 241
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		HANG A -1
+		stop
+	}
+}
+
+ACTOR DeactivatedHangingLight2 6241
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		HANG B -1
+		stop
+	}
+}
+
+ACTOR WarningHangingLight2 242
+{
+	Radius 16
+	Height 16
+	+SOLID
+	+SPAWNCEILING
+	+NOGRAVITY
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		WRNL A -1
+		stop
+	}
+}
+
+ACTOR SlimeContainer 13244
+{
+	Radius 16
+	Height 128
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		SLMP I -1
+		Stop
+	}
+}
+
+ACTOR ChexBarrel 23468
+{
+	Radius 16
+	Height 36
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		BARL A -1
+		Stop
+	}
+}
+
+ACTOR Rock 19283
+{
+	Radius 16
+	Height 36
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		ROCK B -1
+		Stop
+	}
+}
+
+ACTOR SlimedPineTree 32423
+{
+	Radius 16
+	Height 130
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		TREE A -1
+		Stop
+	}
+}
+
+ACTOR PineTree 32424
+{
+	Radius 16
+	Height 130
+	+SOLID
+        +THRUGHOST
+	States
+	{
+	Spawn:
+		TREE B -1
+		Stop
+	}
+}
+
+actor RadarDish : SwitchableDecoration 2435
+{
+	Radius 20
+	Height 121
+	+SOLID
+        +THRUGHOST
+        +USESPECIAL
+	States
+	{
+        Inactive:
+                RADA A -1
+                Stop
+	Spawn:
+		RADA A -1
+		Stop
+        Active:
+                RADA A 10
+                RADA A 10 bright
+                loop
+	}
+}
+
+ACTOR SlimedBananaTree 31285
+{
+  Radius 32
+  Height 108
+  +SOLID
+  +THRUGHOST
+  States
+  {
+  Spawn:
+    TREE D -1
+    Stop
+  }
+}
+
+ACTOR SlimeFountain replaces ShortRedTorch
+{
+	Radius 16
+	Height 37
+	+SOLID
+	States
+	{
+	Spawn:
+		SLMF ABCD 4
+		Loop
+	}
+}
+
+ACTOR DeactivatedLamp 6029
+{
+	Radius 16
+	Height 42
+	+SOLID
+	States
+	{
+	Spawn:
+		POL3 C -1
+		stop
+	}
+}
+
+ACTOR DeactivatedStreetLamp 6044
+{
+	Radius 16
+	Height 68
+	+SOLID
+	States
+	{
+	Spawn:
+		TBLU E -1
+		Stop
+	}
+}
+
+ACTOR SlimeUrn 3086
+{
+	Radius 16
+	Height 83
+	+SOLID
+	States
+	{
+	Spawn:
+		TPL2 ABCD 6
+		Loop
+	}
+}
+
+ACTOR BigBowl 3051
+{
+	Radius 40
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		BOWL A -1
+		Stop
+	}
+}
+
+ACTOR Dinosaur1 3076
+{
+	Radius 60
+	Height 120
+	+SOLID
+	States
+	{
+	Spawn:
+		DINO A -1
+		Stop
+	}
+}
+
+ACTOR Dinosaur2 3077
+{
+	Radius 60
+	Height 120
+	+SOLID
+	States
+	{
+	Spawn:
+		DINO B -1
+		Stop
+	}
+}
+
+ACTOR StatueDavid 12051
+{
+	SpawnID 118
+	Radius 20
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU A -1
+		Stop
+	}
+}
+
+ACTOR StatueThinker 12052
+{
+	SpawnID 100
+	Radius 20
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU B -1
+		Stop
+	}
+}
+
+ACTOR StatueRamses 12053
+{
+	SpawnID 119
+	Radius 20
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU C -1
+		Stop
+	}
+}
+
+ACTOR StatueKingTut 12054
+{
+	SpawnID 120
+	Radius 20
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU D -1
+		Stop
+	}
+}
+
+
+ACTOR StatueChexWarrior 12055
+{
+	SpawnID 121
+	Radius 20
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU E -1
+		Stop
+	}
+}	
+	
+ACTOR StatueSpoon 12056
+{
+	SpawnID 101
+	Radius 60
+	Height 64
+	+SOLID
+	States
+	{
+	Spawn:
+		STTU F -1
+		Stop
+	}
+}
+
+ACTOR EmptyMiningCart 130
+{
+	Radius 16
+	Height 40
+	ProjectilePassHeight -16
+	+SOLID
+	States
+	{
+	Spawn:
+		COL4 B -1
+		Stop
+	}
+}
+
+actor ChexRocket 246
+{
+	Radius 20
+	Height 106
+	+SOLID
+	States
+	{
+	Spawn:
+		MROC A -1
+		Stop
+	}
+}

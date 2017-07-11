@@ -1,0 +1,95 @@
+Cloud Spawner
+
+Argument 1 controls the size of the area in which it spawns, times 2. 128 would make it a
+256x256 square.
+
+Argument 2 controls the vertical size of the area in which it spawns.
+
+Argument 3 is the chance every 30 tics in which it spawns. The lower the number, the more
+likely it will spawn, with 0 being always and 255 being never.
+
+Argument 4 controls the size of the dust cloud spawned. 0 is smallest, 1 is small, 2 is
+medium and 3 and up is large.
+
+
+
+Rain Spawner
+
+Place the RainDropSpawner on your map, and use values set on the specials tab to modify it
+
+The first argument controls it's area. 128, for example makes it a 256x256 square or 256-radius
+circle (See fourth argument)
+
+The second argument controls it's frequency. The lower the number, the heavier the rainfall
+
+The third argument controls whether or not it plays it's ambient sound. 0 will play the sound,
+1 will not
+
+The fourth argument controls the area type. 0 is a square, 1 is a circle
+
+
+Snow Spawner
+
+Place on map and use the first three arguments to control the intensity and area of the 
+spawner.
+
+First argument controls the size of the area. 128, for example, spawns in a 256x256 square ( 
+or 256 diameter circle. See third argument).
+
+Second argument controls the frequency of which it spawns snow. The lower the number, the more 
+frequent (0 for always).
+
+Third argument controls the type of area it spawns in. 0 is square, 1 is circle.
+
+
+Sparkle Spawner
+
+Place on map and use the first two arguments to control the intensity and area of the 
+spawner. The original was a 64x64 square.
+
+
+First argument controls the size of the area. 32, for example, spawns in a 64x64 square (or
+64 diameter circle. See second argument).
+
+Second argument controls the type of area it spawns in. 0 is square, 1 is circle.
+
+
+It should be noted that pngs can't be translated like normal graphics. Because of this, if
+you convert the SPFXA0 sprite to a png, the spawners will spawn white effects. Use Doom's
+lmp format, instead.
+
+
+
+Steam Spawner
+
+Place on map and use the first four arguments to change behavior.
+
+First argument controls direction. 0 is up, 1 is down, 2 is forward. For best results,
+down-pointing spawners should be placed 2 or 3 map units below the ceiling.
+
+Second argument chooses if it's a constant spawner, or spawns in bursts. Burst spawners use the
+third argument and play a different sound.
+
+Third argument controls the frequency of the bursts (divided by 16. I.e, 128 will end up as 8).
+This is only used by the second argument.
+
+Fourth argument silences the spawner. 0 will play the sound, 1 will not.
+
+
+
+
+Line Spawner
+
+Place on map and use the first two arguments to control the intensity and area of the 
+spawner. The original was a 64x64 square.
+
+
+First argument controls the size of the area. 32, for example, spawns in a 64x64 square (or
+64 diameter circle. See second argument).
+
+Second argument controls the type of area it spawns in. 0 is square, 1 is circle.
+
+
+It should be noted that pngs can't be translated like normal graphics. Because of this, if
+you convert the SPFXA0 sprite to a png, the spawners will spawn white effects. Use Doom's
+lmp format, instead.

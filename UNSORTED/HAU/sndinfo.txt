@@ -1,0 +1,17 @@
+captive/two			dscapti2
+captive/three			dscaptiv
+
+world/watersplash		dssplash
+world/sludgegloop		dsploosh
+world/lavasizzle		dslvsiz
+world/drip			dsdrip
+world/hotsiz			dshtsiz
+world/bombbeep			dsbombbp
+
+weapon/portalfire		dsportl2
+weapon/portalhit		dsportal
+
+Steam/Loop	STEMLOOP
+Steam/Fire	STEMFIRE
+
+Ambient/Rain	AMBRAIN

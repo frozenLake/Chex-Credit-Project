@@ -1,0 +1,99 @@
+Actor GreenEnergyShield : BasicArmorPickup 10495
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Obtained a Green Energy Shield."
+  Inventory.Icon "GSHDA0"
+  Armor.Savepercent 33
+  Armor.Saveamount 100
+  Renderstyle Translucent
+  Alpha 0.7
+  +COUNTITEM
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    GSHD AB 5
+    loop
+  }
+}
+
+Actor BlueEnergyShield : BasicArmorPickup 10496
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Obtained a Blue Energy Shield."
+  Inventory.Icon "BSHDA0"
+  Armor.Savepercent 50
+  Armor.Saveamount 200
+  Renderstyle Translucent
+  Alpha 0.7
+  +COUNTITEM
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    BSHD AB 5
+    loop
+  }
+}
+
+Actor RedEnergyShield : BasicArmorPickup 10497
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Obtained a Red Energy Shield!"
+  Inventory.Icon "RSHDA0"
+  Armor.Savepercent 66
+  Armor.Saveamount 300
+  Renderstyle Translucent
+  Alpha 0.7
+  +COUNTITEM
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    RSHD AB 5
+    loop
+  }
+}
+
+Actor GoldEnergyShield : BasicArmorPickup 10498
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Obtained a Gold Energy Shield!"
+  Inventory.Icon "ASHDA0"
+  Armor.Savepercent 75
+  Armor.Saveamount 400
+  Renderstyle Translucent
+  Alpha 0.7
+  +COUNTITEM
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    ASHD AB 5
+    loop
+  }
+}
+
+Actor WhiteEnergyShield : BasicArmorPickup 10499
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Obtained a White Energy Shield!"
+  Inventory.Icon "WSHDA0"
+  Armor.Savepercent 100
+  Armor.Saveamount 500
+  Renderstyle Translucent
+  Alpha 0.7
+  +COUNTITEM
+  +FLOATBOB
+  States
+  {
+  Spawn:
+    WSHD AB 5
+    loop
+  }
+}

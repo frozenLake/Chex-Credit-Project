@@ -1,0 +1,807 @@
+actor EnemySpawnerLvl1 25637
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 70
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 70
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 44
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 70
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 44
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 67
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 70
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 44
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 67
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl1")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlemoidSpawnerLvl1 : RandomSpawner
+{
+    DropItem "Commonus" 255 10
+    DropItem "Bipedicus" 255 8
+    DropItem "Larva" 255 4
+    DropItem "Cycloptis" 255 1
+}
+
+actor EnemySpawnerLvl2 25639
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 75
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 75
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 40
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 75
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 40
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 78
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 75
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 40
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 78
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl2")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlemoidSpawnerLvl2 : RandomSpawner
+{
+    DropItem "Cycloptis" 255 10
+    DropItem "Stridicus" 255 8
+    DropItem "BWA" 255 6
+    DropItem "Quadrumpus" 255 3
+}
+
+actor EnemySpawnerLvl3 25660
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl3")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlemoidSpawnerLvl3 : RandomSpawner
+{
+    DropItem "BWA" 255 15
+    DropItem "Quadrumpus" 255 10
+    DropItem "FlemMine" 255 8
+    DropItem "Ultricus" 255 6
+    DropItem "Maximus" 255 6
+    DropItem "Gyro" 255 5
+    DropItem "Perforatus" 255 3
+}
+
+actor EnemySpawnerLvl4 25661
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl4")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlemoidSpawnerLvl4 : RandomSpawner
+{
+    DropItem "Maximus" 255 15
+    DropItem "Ultricus" 255 10
+    DropItem "Perforatus" 255 6
+    DropItem "PhaseBipedicus" 255 6
+    DropItem "Flembrane2" 255 3
+}
+
+actor EnemySpawnerLvl5 25662
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlemoidSpawnerLvl5")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlemoidSpawnerLvl5 : RandomSpawner
+{
+    DropItem "Perforatus" 255 15
+    DropItem "PhaseBipedicus" 255 10
+    DropItem "FlemStalker" 255 6
+    DropItem "Flembrane2" 255 6
+}
+
+
+actor MeleeEnemySpawner 25638
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 53
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 53
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor MeleeFlemoidSpawner : RandomSpawner
+{
+    DropItem "Larva" 255 30
+    DropItem "Cycloptis" 255 24
+    DropItem "Stridicus" 255 12
+    DropItem "FissionLarva" 255 3
+    DropItem "FissionStridicus" 255 1
+}
+
+actor UltimateEnemySpawner 25663
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 73
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 60
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 72
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("UltimateFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor UltimateFlemoidSpawner : RandomSpawner
+{
+    DropItem "PerforatusWithArmor" 255 60
+    DropItem "FissionMaximus" 255 30
+    DropItem "Teleportus" 255 18
+    DropItem "Ultimus" 255 1
+}
+
+actor FlyingEnemySpawner 25664
+{
+  height 1
+  radius 1
+  health 100
+  speed 0
+  MONSTER
+  +LOOKALLAROUND
+  -COUNTKILL
+  +INVULNERABLE
+  states
+  {
+  Spawn:
+    TNT1 A 6
+    TNT1 A 10 A_Look
+    loop
+  See:
+    TNT1 A 1 A_JumpIf(args[0]==0,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==1,"Spawn1")
+    TNT1 A 1 A_JumpIf(args[0]==2,"Spawn2")
+    TNT1 A 1 A_JumpIf(args[0]==3,"Spawn3")
+    TNT1 A 1 A_JumpIf(args[0]==4,"Spawn4")
+    TNT1 A 1 A_JumpIf(args[0]==5,"Spawn5")
+    stop
+  Spawn1:
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn2:
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn3:
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn4:
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 53
+    TNT1 A 0 A_SpawnItemEx("MeleeFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  Spawn5:
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 80
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 47
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 53
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    TNT1 A 130
+    TNT1 A 0 A_SpawnItemEx("FlyingFlemoidSpawner")
+    TNT1 A 0 A_PlaySoundEx("misc/teleport",Auto)
+    TFOG ABABCDEFGHIJ 6 Bright
+    stop
+  }
+}
+
+actor FlyingFlemoidSpawner : RandomSpawner
+{
+    DropItem "FlemMine" 255 10
+    DropItem "HomingFlemMine" 255 8
+    DropItem "ExplodingFlemMine" 255 8
+    DropItem "HomingExplodingFlemMine" 255 5
+    DropItem "Gyro" 255 6
+    DropItem "Ultricus" 255 8
+}

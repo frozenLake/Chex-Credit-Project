@@ -1,0 +1,184 @@
+// Vilecore for The Ultimate Chex Quest MAPINFO lump
+
+// ##########################################################################
+// #                                                                        #
+// #                          Episode Definitions                           #
+// #                                                                        #
+// ##########################################################################
+
+
+episode VCMAP01
+{
+    name = "Vilecore"
+	picname = "VILETITl"
+	key = "v"
+}
+
+// Episode
+
+map VCMAP01 "EVILZONE"
+{
+    levelnum = 51
+    titlepatch = "VCLV01"
+    next = "VCMAP02"
+    secretnext = "VCMAP02"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP02 "HALLS OF DOOM"
+{
+    levelnum = 52
+    titlepatch = "VCLV02"
+    next = "VCMAP03"
+    secretnext = "VCMAP03"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP03 "QUADRUMPUS COURT"
+{
+    levelnum = 53
+    titlepatch = "VCLV03"
+    next = "VCMAP05"
+    secretnext = "VCMAP05"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP05 "HELLKNIGHT'S TEMPLE"
+{
+    levelnum = 55
+    titlepatch = "VCLV05"
+    next = "VCMAP09"
+    secretnext = "VCMAP09"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP09 "THE VILE COMPLEX"
+{
+    levelnum = 59
+    titlepatch = "VCLV09"
+    next = "VCMAP11"
+    secretnext = "VCMAP11"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP11 "ALCACHEX"
+{
+    levelnum = 61
+    titlepatch = "VCLV11"
+    next = "VCMAP12"
+    secretnext = "VCMAP12"
+    sky1 = "CLOUDSKY", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+	outsidefog = DarkGrey
+    noinfighting
+}
+
+map VCMAP12 "THE CHAOS SITE"
+{
+    levelnum = 62
+    titlepatch = "VCLV12"
+    next = "VCMAP13"
+    secretnext = "VCMAP13"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP13 "THE MORBID ARENA"
+{
+    levelnum = 63
+    titlepatch = "VCLV13"
+    next = "VCMAP14"
+    secretnext = "VCMAP14"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP14 "THE MAXIMUS CAUSEWAY"
+{
+    levelnum = 64
+    titlepatch = "VCLV14"
+    next = "VCMAP15"
+    secretnext = "VCMAP15"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP15 "ASHWALL PLAZA"
+{
+    levelnum = 65
+    titlepatch = "VCLV15"
+    next = "VCMAP22"
+    secretnext = "VCMAP22"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+map VCMAP22 "DOOMHENGE"
+{
+    levelnum = 72
+    titlepatch = "VCLV22"
+    next = "EndGame2"
+    secretnext = "EndGame2"
+    sky1 = "SKY1", 0
+    cluster = 5
+    music = "D_E1M1"
+    intermusic = "D_INTER"
+    exitpic = "$INTERM01"
+    noinfighting
+}
+
+// Clusters (correspond with same-numbered episode)
+
+cluster 5
+{
+    pic = "GRADED"
+    music = "D_VICTOR"
+	entertext = lookup, "STARTTEXT"
+    exittext = lookup, "STARTTEXT"
+
+}
+

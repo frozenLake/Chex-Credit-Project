@@ -1,0 +1,388 @@
+// ##########################################################################
+// #                                                                        #
+// #                                Weapons                                 #
+// #                                                                        #
+// ##########################################################################
+
+ACTOR SuperLargeZorcher : SuperShotgun replaces SuperShotgun
+{
+  Obituary "%o was zorched by %k."
+  Inventory.PickupMessage "You got the Super Large Zorcher!"
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                               Flemoids                                 #
+// #                                                                        #
+// ##########################################################################
+
+ACTOR Dervish : ChaingunGuy replaces ChaingunGuy
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  scale  1.25
+  DropItem None
+  States
+  {
+  Spawn:
+    FLEM AB 10 A_Look
+    Loop
+  See:
+    FLEM AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    FLEM E 20 A_FaceTarget
+    FLEM F 20 A_CustomMissile("MiniBall1",40,0)
+    FLEM E 20 A_CPosRefire
+    Goto Missile+1
+  Pain:
+    FLEM G 3 Bright
+    FLEM G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLEM H 5 Bright
+    FLEM I 5 Bright A_Scream
+    FLEM J 5 Bright A_NoBlocking
+    FLEM KLMNOP 5 Bright
+    Stop
+  }
+}
+
+ACTOR FlemKnight : HellKnight replaces HellKnight
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  scale  0.6
+}
+
+ACTOR QuadrumpuswithArmor : Revenant replaces Revenant
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Speed 10
+  SeeSound "QWA/sight"
+  PainSound "QWA/pain"
+  DeathSound "QWA/death"
+  ActiveSound "QWA/active"
+  MeleeSound "QWA/melee"
+  HitObituary "%o was SLIMED by a quadrumpus with armour."
+  Obituary "%o couldn't evade a quadrumpus with armour's homing flemball."
+  States
+  {
+  Spawn:
+    QUAD AB 10 A_Look
+    Loop
+  See:
+    QUAD AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+    QUAD E 0 A_FaceTarget
+    QUAD E 6 A_SkelWhoosh
+    QUAD F 6 A_FaceTarget
+    QUAD G 6 A_SkelFist
+    Goto See
+  Missile:
+    QUAD E 5 A_FaceTarget
+    QUAD F 5 A_FaceTarget
+    QUAD G 10 A_SkelMissile
+    QUAD E 10 A_FaceTarget
+    Goto See
+  Pain:
+    QUAD H 2 Bright
+    QUAD H 2 Bright A_Pain
+    Goto See
+  Death:
+    QUAD I 5 Bright
+    QUAD J 5 Bright A_Scream
+    QUAD K 5 Bright
+    QUAD L 5 Bright A_NoBlocking
+    QUAD MNOPQRS 5 Bright
+	BLNK A -1 
+    Stop
+  }
+}
+
+ACTOR QuadrumpusTracer : RevenantTracer replaces RevenantTracer
+{
+  DamageType Flemoid
+  SeeSound "QWA/attack"
+  DeathSound "QWA/tracex"
+  RenderStyle Normal
+  States
+  {
+  Spawn:
+    FATB AB 2 A_Tracer
+    Loop
+  Death:
+    FBXP A 8 
+    FBXP B 6 
+    FBXP C 4 
+    Stop
+  }
+}
+
+ACTOR QuadrumpusTracerFlem : RevenantTracerSmoke replaces RevenantTracerSmoke
+{
+  +NOBLOCKMAP
+  -NOGRAVITY
+  +NOTELEPORT
+  RenderStyle Normal 
+  Alpha 1
+  States
+  {	
+  Spawn:
+    BLUD ABABC 4
+    Stop
+  }
+}
+
+ACTOR Tubby replaces Fatso
+{
+  Health 600
+  Radius 48
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 80
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH
+  SeeSound "fatso/sight"
+  PainSound "fatso/pain"
+  DeathSound "fatso/death"
+  ActiveSound "fatso/active"
+  Obituary "$OB_FATSO"
+  Scale 0.25
+  States
+  {
+  Spawn:
+    FATT A 15 A_Look
+    Loop
+  See:
+    FATT AB 4 A_Chase
+    Loop
+  Missile:
+    FATT A 20 A_FatRaise
+    FATT B 10 A_FatAttack1
+    FATT AB 5 A_FaceTarget
+    FATT A 10 A_FatAttack2
+    FATT BA 5 A_FaceTarget
+    FATT B 10 A_FatAttack3
+    FATT AB 5 A_FaceTarget
+    Goto See
+  Pain:
+    FATT J 3 Bright
+    FATT J 3 Bright A_Pain
+    Goto See
+  Death:
+    FATT K 6 Bright
+    FATT L 6 Bright A_Scream
+    FATT M 6 Bright A_NoBlocking
+    FATT NOPQRS 6 Bright
+    BLNK A -1 A_BossDeath
+    Stop
+  Raise:
+    FATT R 5
+    FATT QPONMLK 5
+    Goto See
+  }
+}
+
+ACTOR Flempod: ExplosiveBarrel replaces ExplosiveBarrel
+{
+  Health 20
+  Radius 10
+  Height 42
+  +SOLID
+  +SHOOTABLE
+  +NOBLOOD
+  +ACTIVATEMCROSS
+  +DONTGIB
+  +NOICEDEATH
+  +OLDRADIUSDMG
+  +FLOATBOB
+  DeathSound "world/barrelx"
+  Obituary "%o was too close to a flempod."
+  scale 0.4
+  States
+  {
+  Spawn:
+    BAR1 A 6
+    Loop
+  Death:
+    BEXP A 5 Bright
+    BEXP B 5 Bright A_Scream
+    BEXP C 5 Bright
+    BEXP D 5 Bright A_Explode
+    BEXP E 10 Bright
+    TNT1 A 1050 Bright A_BarrelDestroy
+    TNT1 A 5 A_Respawn
+    Wait
+  }
+}
+
+// Dummies to prevent the cyberdemon and archville from appearing
+// until proper replacements are made.
+
+ACTOR Cyberdummy: Cyberdemon replaces Cyberdemon
+{
+  -SOLID
+  -SHOOTABLE
+  -ISMONSTER
+  States
+  {
+  Spawn:
+    FATB AB 2
+    Loop
+  See:
+    FATB AB 2
+    Loop
+  Missile:
+    FATB AB 2
+    Loop
+  Pain:
+    FATB AB 2
+    Loop
+  Death:
+    FATB AB 2
+    Loop
+  }
+}
+
+ACTOR Viledummy: Archvile replaces Archvile
+{
+  -SOLID
+  -SHOOTABLE
+  -ISMONSTER
+  States
+  {
+  Spawn:
+    FATB AB 2
+    Loop
+  See:
+    FATB AB 2
+    Loop
+  Missile:
+    FATB AB 2
+    Loop
+  Pain:
+    FATB AB 2
+    Loop
+  Death:
+    FATB AB 2
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                                 Props                                  #
+// #                                                                        #
+// #  Props are added in the order in which they first appear in the game.  #
+// #                                                                        #
+// ##########################################################################
+
+// MAP01
+
+ACTOR TallLamp1 : TechLamp replaces Techlamp
+{
+ States
+  {
+  Spawn:
+    TLMP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR ShortLamp1: TechLamp2 replaces TechLamp2
+{
+ States
+  {
+  Spawn:
+    TECL A -1 Bright
+    Loop
+  }
+}
+
+ACTOR ShortRedLamp 121
+{
+  Radius 16
+  Height 37
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SRLP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR ShortGreenLamp 122
+{
+  Radius 16
+  Height 37
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SGLP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR ShortBlueLamp 123
+{
+  Radius 16
+  Height 37
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SBLP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR RedLamp 124
+{
+  Radius 16
+  Height 68
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TRLP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR GreenLamp 125
+{
+  Radius 16
+  Height 68
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TGLP A -1 Bright
+    Loop
+  }
+}
+
+ACTOR BlueLamp 126
+{
+  Radius 16
+  Height 68
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TBLP A -1 Bright
+    Loop
+  }
+}

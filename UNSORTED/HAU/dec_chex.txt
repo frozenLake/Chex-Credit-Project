@@ -1,0 +1,427 @@
+actor ChexZorchPuff
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.5
+  VSpeed 1
+  Mass 5
+  Damagetype "Chex"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    PUFF B 4
+    // Intentional fall-through
+  Melee:
+    PUFF CD 4
+    stop
+  }
+}
+
+actor ChexFootSoldier 10287
+{
+  obituary "%o got in the way of a Chex Foot Soldier."
+  health 70
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  DropItem "MiniZorch2" 230
+  DropItem "LargeZorch2" 50
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    CHEX A 3 A_Look
+    Loop
+  See:
+    CHEX ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    CHEX E 8
+    CHEX F 4 bright A_CustomBulletAttack(3, 0, 1,5.6,"ChexZorchPuff")
+    Goto See
+  Pain:
+    CHEX G 4 
+    CHEX G 4 A_Pain
+    Goto See
+  Death:
+    CHEX H 10
+    CHEX I 10 A_PlayerScream
+    CHEX J 10 A_NoBlocking
+    CHEX KLM 10
+    CHEX N -1
+    Stop
+  XDeath:
+    CHEX O 5
+    CHEX P 5 A_XScream
+    CHEX Q 5 A_NoBlocking
+    CHEX RSTUV 5
+    CHEX W -1
+    Stop
+  }
+}
+
+actor ChexWarrior 10288
+{
+  obituary "%o got in the way of a Chex Warrior."
+  health 150
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  DropItem "MiniZorch2" 250
+  DropItem "LargeZorch2" 150
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    PLAY A 3 A_Look
+    Loop
+  See:
+    PLAY ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    PLAY E 4
+    PLAY F 4 bright A_CustomBulletAttack(3, 0, 1,5.6,"ChexZorchPuff")
+    Goto See
+  Pain:
+    PLAY G 4 
+    PLAY G 4 A_Pain
+    Goto See
+  Death:
+    PLAY H 10
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  }
+}
+
+actor ChexShadowWarrior 10388
+{
+  obituary "%o got in the way of a Chex Shadow Warrior."
+  health 125
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  RenderStyle Translucent
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    PLAY A 1
+    PLAY A 3 A_SetTranslucent(args[0]*1.0/256,args[1])
+    Goto Spawn2
+  Spawn2:
+    PLAY A 3 A_Look
+    Loop
+  See:
+    PLAY ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    PLAY E 4
+    PLAY F 4 bright A_CustomBulletAttack(3,0,1,3.6,"ChexZorchPuff")
+    Goto See
+  Pain:
+    PLAY G 4 
+    PLAY G 4 A_Pain
+    Goto See
+  Death:
+    PLAY H 10
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 5
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  }
+}
+
+actor FrostedChexFootSoldier 10289
+{
+  obituary "%o got in the way of a Frosted Chex Foot Soldier."
+  health 500
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  DropItem "TimeBombPickup" 245
+  DropItem "MiniZorchBox" 200
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    FCH2 A 3 A_Look
+    Loop
+  See:
+    FCH2 ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    FCH2 F 1
+    FCH2 F 1 bright A_CustomMissile("FrostedSoldierShot",39,6,(random(-32,32)))
+    FCH2 E 1 A_SpidRefire
+    Goto Missile+1
+  Pain:
+    FCH2 G 4 
+    FCH2 G 4 A_Pain
+    Goto See
+  Death:
+    FCH2 H 10
+    FCH2 I 10 A_PlayerScream
+    FCH2 J 10 A_NoBlocking
+    FCH2 KLM 10
+    FCH2 N -1
+    Stop
+  XDeath:
+    FCH2 O 5
+    FCH2 P 5 A_XScream
+    FCH2 Q 5 A_NoBlocking
+    FCH2 RSTUV 5
+    FCH2 W -1
+    Stop
+  }
+}
+
+actor FrostedSoldierShot
+{
+  Radius 6
+  Height 8
+  Speed 10
+  Damage 1
+  Damagetype "Chex"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor FrostedChexWarrior 10290
+{
+  obituary "%o got in the way of a Frosted Chex Warrior."
+  health 700
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  DropItem "TimeBombPickUp" 255
+  DropItem "LargeZorchBox" 235
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    FCHX A 3 A_Look
+    Loop
+  See:
+    FCHX ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    FCHX F 1
+    FCHX F 1 bright A_CustomMissile("FrostedWarriorShot",39,6,(random(-32,32)))
+    FCHX E 1 A_SpidRefire
+    Goto Missile+1
+  Pain:
+    FCHX G 4 
+    FCHX G 4 A_Pain
+    Goto See
+  Death:
+    FCHX H 10
+    FCHX I 10 A_PlayerScream
+    FCHX J 10 A_NoBlocking
+    FCHX KLM 10
+    FCHX N -1
+    Stop
+  XDeath:
+    FCHX O 5
+    FCHX P 5 A_XScream
+    FCHX Q 5 A_NoBlocking
+    FCHX RSTUV 5
+    FCHX W -1
+    Stop
+  }
+}
+
+actor FrostedWarriorShot
+{
+  Radius 6
+  Height 8
+  Speed 10
+  Damage 3
+  Damagetype "Chex"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+actor FrostedShadowWarrior 10390
+{
+  obituary "%o got in the way of a Frosted Shadow Warrior."
+  health 600
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  painchance 255
+  attacksound "weapons/pistol"
+  painsound "player/male/pain100_1"
+  deathsound "player/male/death1"
+  damagefactor "Zorch",0
+  damagefactor "Chex",0
+  Renderstyle Fuzzy
+  MONSTER
+  +FLOORCLIP
+  +FRIENDLY
+  +NEVERRESPAWN
+  states
+  {
+  Spawn:
+    FCHX A 3 A_Look
+    Loop
+  See:
+    FCHX ABCD 4 A_Chase("Missile","Missile")
+    Loop
+  Missile:
+    FCHX F 1
+    FCHX F 1 bright A_CustomMissile("FrostedShadowWarriorShot",39,6,(random(-32,32)))
+    FCHX E 1 A_SpidRefire
+    Goto Missile+1
+  Pain:
+    FCHX G 4 
+    FCHX G 4 A_Pain
+    Goto See
+  Death:
+    FCHX H 10
+    FCHX I 10 A_PlayerScream
+    FCHX J 10 A_NoBlocking
+    FCHX KLM 10
+    FCHX N -1
+    Stop
+  XDeath:
+    FCHX O 5
+    FCHX P 5 A_XScream
+    FCHX Q 5 A_NoBlocking
+    FCHX RSTUV 5
+    FCHX W -1
+    Stop
+  }
+}
+
+actor FrostedShadowWarriorShot
+{
+  Radius 6
+  Height 8
+  Speed 10
+  Damage 4
+  Damagetype "Chex"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.7
+  SeeSound "weapons/chngun"
+  States
+  {
+  Spawn:
+    PUFF A 4 bright
+    loop
+  Death:
+    PUFF BCD 6 bright
+    stop
+  }
+}
+
+ACTOR Technician 10300
+{
+  radius 32
+  height 56
+  +SOLID
+  states
+  {
+  Spawn:
+    TCHN A -1
+    loop
+  }
+}

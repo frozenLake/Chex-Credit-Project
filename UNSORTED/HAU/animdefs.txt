@@ -1,0 +1,553 @@
+switch BASESW01 on sound switch/lever2 pic BASESW02 tics 0
+switch BASESW02 off sound switch/lever2 pic BASESW01 tics 0
+
+switch BASESW03 on sound switch/lever2 pic BASESW04 tics 0
+switch BASESW04 off sound switch/lever2 pic BASESW03 tics 0
+
+switch BASESW05 on sound switch/lever2 pic BASESW06 tics 0
+switch BASESW06 off sound switch/lever2 pic BASESW05 tics 0
+
+switch BASESW07 on sound switch/lever2 pic BASESW08 tics 0
+switch BASESW08 off sound switch/lever2 pic BASESW07 tics 0
+
+switch BASESW09 on sound switch/lever2 pic BASESW10 tics 0
+switch BASESW10 off sound switch/lever2 pic BASESW09 tics 0 
+
+switch BASESW11 on sound switch/lever2 pic BASESW12 tics 0
+switch BASESW12 off sound switch/lever2 pic BASESW11 tics 0 
+
+switch BASESW13 on sound switch/lever2 pic BASESW14 tics 0
+switch BASESW14 off sound switch/lever2 pic BASESW13 tics 0 
+
+switch BASESW15 on sound switch/lever2 pic BASESW16 tics 0
+switch BASESW16 off sound switch/lever2 pic BASESW15 tics 0 
+
+switch BASESW17 on sound switch/lever2 pic BASESW18 tics 0
+switch BASESW18 off sound switch/lever2 pic BASESW17 tics 0 
+
+switch CAVESW01 on sound switch/lever2 pic CAVESW02 tics 0
+switch CAVESW02 off sound switch/lever2 pic CAVESW01 tics 0
+
+switch CAVESW03 on sound switch/lever2 pic CAVESW04 tics 0
+switch CAVESW04 off sound switch/lever2 pic CAVESW03 tics 0
+
+switch CAVESW05 on sound switch/lever2 pic CAVESW06 tics 0
+switch CAVESW06 off sound switch/lever2 pic CAVESW05 tics 0
+
+switch CAVESW07 on sound switch/lever2 pic CAVESW08 tics 0
+switch CAVESW08 off sound switch/lever2 pic CAVESW07 tics 0
+
+switch CAVESW09 on sound switch/lever2 pic CAVESW10 tics 0
+switch CAVESW10 off sound switch/lever2 pic CAVESW09 tics 0
+
+switch CAVESW11 on sound switch/lever2 pic CAVESW12 tics 0
+switch CAVESW12 off sound switch/lever2 pic CAVESW11 tics 0
+
+switch CAVESW13 on sound switch/lever2 pic CAVESW14 tics 0
+switch CAVESW14 off sound switch/lever2 pic CAVESW13 tics 0
+
+switch CITYSW01 on sound switch/lever2 pic CITYSW02 tics 0
+switch CITYSW02 off sound switch/lever2 pic CITYSW01 tics 0
+
+switch CITYSW03 on sound switch/lever2 pic CITYSW04 tics 0
+switch CITYSW04 off sound switch/lever2 pic CITYSW03 tics 0
+
+switch CITYSW05 on sound switch/lever2 pic CITYSW06 tics 0
+switch CITYSW06 off sound switch/lever2 pic CITYSW05 tics 0
+
+switch CITYSW07 on sound switch/lever2 pic CITYSW08 tics 0
+switch CITYSW08 off sound switch/lever2 pic CITYSW07 tics 0
+
+switch CITYSW09 on sound switch/lever2 pic CITYSW10 tics 0
+switch CITYSW10 off sound switch/lever2 pic CITYSW09 tics 0
+
+switch CITYSW11 on sound switch/lever2 pic CITYSW12 tics 0
+switch CITYSW12 off sound switch/lever2 pic CITYSW11 tics 0
+
+switch CITYSW13 on sound switch/lever2 pic CITYSW14 tics 0
+switch CITYSW14 off sound switch/lever2 pic CITYSW13 tics 0
+
+switch CITYSW15 on sound switch/lever2 pic CITYSW16 tics 0
+switch CITYSW16 off sound switch/lever2 pic CITYSW15 tics 0
+
+switch CITYSW17 on sound switch/lever2 pic CITYSW18 tics 0
+switch CITYSW18 off sound switch/lever2 pic CITYSW17 tics 0
+
+switch CITYSW19 on sound switch/lever2 pic CITYSW20 tics 0
+switch CITYSW20 off sound switch/lever2 pic CITYSW19 tics 0
+
+switch CITYSW21 on sound switch/lever2 pic CITYSW22 tics 0
+switch CITYSW22 off sound switch/lever2 pic CITYSW21 tics 0
+
+switch CITYSW23 on sound switch/lever2 pic CITYSW24 tics 0
+switch CITYSW24 off sound switch/lever2 pic CITYSW23 tics 0
+
+switch CITYSW25 on sound switch/lever2 pic CITYSW26 tics 0
+switch CITYSW26 off sound switch/lever2 pic CITYSW25 tics 0
+
+switch CITYSW27 on sound switch/lever2 pic CITYSW28 tics 0
+switch CITYSW28 off sound switch/lever2 pic CITYSW27 tics 0
+
+switch CITYSW29 on sound switch/lever2 pic CITYSW30 tics 0
+switch CITYSW30 off sound switch/lever2 pic CITYSW29 tics 0
+
+switch CITYSW31 on sound switch/lever2 pic CITYSW32 tics 0
+switch CITYSW32 off sound switch/lever2 pic CITYSW31 tics 0
+
+switch CITYSW33 on sound switch/lever2 pic CITYSW34 tics 0
+switch CITYSW34 off sound switch/lever2 pic CITYSW33 tics 0
+
+switch CITYSW35 on sound switch/lever2 pic CITYSW36 tics 0
+switch CITYSW36 off sound switch/lever2 pic CITYSW35 tics 0
+
+switch COMMSW01 on sound switch/lever2 pic COMMSW02 tics 0
+switch COMMSW02 off sound switch/lever2 pic COMMSW01 tics 0
+
+switch COMMSW03 on sound switch/lever2 pic COMMSW04 tics 0
+switch COMMSW04 off sound switch/lever2 pic COMMSW03 tics 0
+
+switch COMMSW05 on sound switch/lever2 pic COMMSW06 tics 0
+switch COMMSW06 off sound switch/lever2 pic COMMSW05 tics 0
+
+switch COMMSW07 on sound switch/lever2 pic COMMSW08 tics 0
+switch COMMSW08 off sound switch/lever2 pic COMMSW07 tics 0
+
+switch COMMSW09 on sound switch/lever2 pic COMMSW10 tics 0
+switch COMMSW10 off sound switch/lever2 pic COMMSW09 tics 0
+
+switch COMMSW11 on sound switch/lever2 pic COMMSW12 tics 0
+switch COMMSW12 off sound switch/lever2 pic COMMSW11 tics 0
+
+switch COMMSW13 on sound switch/lever2 pic COMMSW14 tics 0
+switch COMMSW14 off sound switch/lever2 pic COMMSW13 tics 0
+
+switch COMMSW15 on sound switch/lever2 pic COMMSW16 tics 0
+switch COMMSW16 off sound switch/lever2 pic COMMSW15 tics 0
+
+switch COMMSW17 on sound switch/lever2 pic COMMSW18 tics 0
+switch COMMSW18 off sound switch/lever2 pic COMMSW17 tics 0
+
+switch COMMSW19 on sound switch/lever2 pic COMMSW20 tics 0
+switch COMMSW20 off sound switch/lever2 pic COMMSW19 tics 0
+
+switch COMMSW21 on sound switch/lever2 pic COMMSW22 tics 0
+switch COMMSW22 off sound switch/lever2 pic COMMSW21 tics 0
+
+switch COMMSW23 on sound switch/lever2 pic COMMSW24 tics 0
+switch COMMSW24 off sound switch/lever2 pic COMMSW23 tics 0
+
+switch COMMSW25 on sound switch/lever2 pic COMMSW26 tics 0
+switch COMMSW26 off sound switch/lever2 pic COMMSW25 tics 0
+
+switch COMMSW27 on sound switch/lever2 pic COMMSW28 tics 0
+switch COMMSW28 off sound switch/lever2 pic COMMSW27 tics 0
+
+switch COMMSW29 on sound switch/lever2 pic COMMSW30 tics 0
+switch COMMSW30 off sound switch/lever2 pic COMMSW29 tics 0
+
+switch FLEMSW01 on sound switch/lever2 pic FLEMSW02 tics 0
+switch FLEMSW02 off sound switch/lever2 pic FLEMSW01 tics 0
+
+switch LABSW01 on sound switch/lever2 pic LABSW02 tics 0
+switch LABSW02 off sound switch/lever2 pic LABSW01 tics 0
+
+switch LABSW03 on sound switch/lever2 pic LABSW04 tics 0
+switch LABSW04 off sound switch/lever2 pic LABSW03 tics 0
+
+switch LABSW05 on sound switch/lever2 pic LABSW06 tics 0
+switch LABSW06 off sound switch/lever2 pic LABSW05 tics 0
+
+switch LABSW07 on sound switch/lever2 pic LABSW08 tics 0
+switch LABSW08 off sound switch/lever2 pic LABSW07 tics 0
+
+switch LABSW09 on sound switch/lever2 pic LABSW10 tics 0
+switch LABSW10 off sound switch/lever2 pic LABSW09 tics 0
+
+switch LABSW11 on sound switch/lever2 pic LABSW12 tics 0
+switch LABSW12 off sound switch/lever2 pic LABSW11 tics 0
+
+switch LABSW13 on sound switch/lever2 pic LABSW14 tics 0
+switch LABSW14 off sound switch/lever2 pic LABSW13 tics 0
+
+switch LABSW15 on sound switch/lever2 pic LABSW16 tics 0
+switch LABSW16 off sound switch/lever2 pic LABSW15 tics 0
+
+switch LABSW17 on sound switch/lever2 pic LABSW18 tics 0
+switch LABSW18 off sound switch/lever2 pic LABSW17 tics 0
+
+switch LABSW19 on sound switch/lever2 pic LABSW20 tics 0
+switch LABSW20 off sound switch/lever2 pic LABSW19 tics 0
+
+switch LABSW21 on sound switch/lever2 pic LABSW22 tics 0
+switch LABSW22 off sound switch/lever2 pic LABSW21 tics 0
+
+switch LABSW23 on sound switch/lever2 pic LABSW24 tics 0
+switch LABSW24 off sound switch/lever2 pic LABSW23 tics 0
+
+switch LABSW25 on sound switch/lever2 pic LABSW26 tics 0
+switch LABSW26 off sound switch/lever2 pic LABSW25 tics 0
+
+switch LABSW27 on sound switch/lever2 pic LABSW28 tics 0
+switch LABSW28 off sound switch/lever2 pic LABSW27 tics 0
+
+switch LABSW29 on sound switch/lever2 pic LABSW30 tics 0
+switch LABSW30 off sound switch/lever2 pic LABSW29 tics 0
+
+switch LABSW31 on sound switch/lever2 pic LABSW32 tics 0
+switch LABSW32 off sound switch/lever2 pic LABSW31 tics 0
+
+switch LABSW33 on sound switch/lever2 pic LABSW34 tics 0
+switch LABSW34 off sound switch/lever2 pic LABSW33 tics 0
+
+switch LABSW35 on sound switch/lever2 pic LABSW36 tics 0
+switch LABSW36 off sound switch/lever2 pic LABSW35 tics 0
+
+switch LIFTSW01 on sound switch/lever2 pic LIFTSW02 tics 0
+switch LIFTSW02 off sound switch/lever2 pic LIFTSW01 tics 0
+
+switch LIFTSW03 on sound switch/lever2 pic LIFTSW04 tics 0
+switch LIFTSW04 off sound switch/lever2 pic LIFTSW03 tics 0
+
+switch LIFTSW05 on sound switch/lever2 pic LIFTSW06 tics 0
+switch LIFTSW06 off sound switch/lever2 pic LIFTSW05 tics 0
+
+switch LODGSW01 on sound switch/lever2 pic LODGSW02 tics 0
+switch LODGSW02 off sound switch/lever2 pic LODGSW01 tics 0
+
+switch LODGSW03 on sound switch/lever2 pic LODGSW04 tics 0
+switch LODGSW04 off sound switch/lever2 pic LODGSW03 tics 0
+
+switch LODGSW05 on sound switch/lever2 pic LODGSW06 tics 0
+switch LODGSW06 off sound switch/lever2 pic LODGSW05 tics 0
+
+switch MUSESW01 on sound switch/lever2 pic MUSESW02 tics 0
+switch MUSESW02 off sound switch/lever2 pic MUSESW01 tics 0
+
+switch MUSESW03 on sound switch/lever2 pic MUSESW04 tics 0
+switch MUSESW04 off sound switch/lever2 pic MUSESW03 tics 0
+
+switch MUSESW05 on sound switch/lever2 pic MUSESW06 tics 0
+switch MUSESW06 off sound switch/lever2 pic MUSESW05 tics 0
+
+switch MUSESW07 on sound switch/lever2 pic MUSESW08 tics 0
+switch MUSESW08 off sound switch/lever2 pic MUSESW07 tics 0
+
+switch MUSESW09 on sound switch/lever2 pic MUSESW10 tics 0
+switch MUSESW10 off sound switch/lever2 pic MUSESW09 tics 0
+
+switch MUSESW11 on sound switch/lever2 pic MUSESW12 tics 0
+switch MUSESW12 off sound switch/lever2 pic MUSESW11 tics 0
+
+switch SEWRSW01 on sound switch/lever2 pic SEWRSW02 tics 0
+switch SEWRSW02 off sound switch/lever2 pic SEWRSW01 tics 0
+
+switch SEWRSW03 on sound switch/lever2 pic SEWRSW04 tics 0
+switch SEWRSW04 off sound switch/lever2 pic SEWRSW03 tics 0
+
+switch SEWRSW05 on sound switch/lever2 pic SEWRSW06 tics 0
+switch SEWRSW06 off sound switch/lever2 pic SEWRSW05 tics 0
+
+switch SEWRSW07 on sound switch/lever2 pic SEWRSW08 tics 0
+switch SEWRSW08 off sound switch/lever2 pic SEWRSW07 tics 0
+
+switch SEWRSW09 on sound switch/lever2 pic SEWRSW10 tics 0
+switch SEWRSW10 off sound switch/lever2 pic SEWRSW09 tics 0
+
+switch SEWRSW11 on sound switch/lever2 pic SEWRSW12 tics 0
+switch SEWRSW12 off sound switch/lever2 pic SEWRSW11 tics 0
+
+switch SEWRSW13 on sound switch/lever2 pic SEWRSW14 tics 0
+switch SEWRSW14 off sound switch/lever2 pic SEWRSW13 tics 0
+
+switch SEWRSW15 on sound switch/lever2 pic SEWRSW16 tics 0
+switch SEWRSW16 off sound switch/lever2 pic SEWRSW15 tics 0
+
+switch SEWRSW17 on sound switch/lever2 pic SEWRSW18 tics 0
+switch SEWRSW18 off sound switch/lever2 pic SEWRSW17 tics 0
+
+switch SEWRSW19 on sound switch/lever2 pic SEWRSW20 tics 0
+switch SEWRSW20 off sound switch/lever2 pic SEWRSW19 tics 0
+
+switch SEWRSW21 on sound switch/lever2 pic SEWRSW22 tics 0
+switch SEWRSW22 off sound switch/lever2 pic SEWRSW21 tics 0
+
+switch SEWRSW23 on sound switch/lever2 pic SEWRSW24 tics 0
+switch SEWRSW24 off sound switch/lever2 pic SEWRSW23 tics 0
+
+switch SEWRSW25 on sound switch/lever2 pic SEWRSW26 tics 0
+switch SEWRSW26 off sound switch/lever2 pic SEWRSW25 tics 0
+
+switch SKIPSW01 on sound switch/lever2 pic SKIPSW02 tics 0
+switch SKIPSW02 off sound switch/lever2 pic SKIPSW01 tics 0
+
+switch UNTESW01 on sound switch/lever2 pic UNTESW02 tics 0
+switch UNTESW02 off sound switch/lever2 pic UNTESW01 tics 0
+
+switch UNTESW03 on sound switch/lever2 pic UNTESW04 tics 0
+switch UNTESW04 off sound switch/lever2 pic UNTESW03 tics 0
+
+switch UNTESW05 on sound switch/lever2 pic UNTESW06 tics 0
+switch UNTESW06 off sound switch/lever2 pic UNTESW05 tics 0
+
+switch UNTESW07 on sound switch/lever2 pic UNTESW08 tics 0
+switch UNTESW08 off sound switch/lever2 pic UNTESW07 tics 0
+
+switch UNTESW09 on sound switch/lever2 pic UNTESW10 tics 0
+switch UNTESW10 off sound switch/lever2 pic UNTESW09 tics 0
+
+switch UNTESW11 on sound switch/lever2 pic UNTESW12 tics 0
+switch UNTESW12 off sound switch/lever2 pic UNTESW11 tics 0
+
+switch VILLSW01 on sound switch/lever2 pic VILLSW02 tics 0
+switch VILLSW02 off sound switch/lever2 pic VILLSW01 tics 0
+
+switch VILLSW03 on sound switch/lever2 pic VILLSW04 tics 0
+switch VILLSW04 off sound switch/lever2 pic VILLSW03 tics 0
+
+switch VILLSW05 on sound switch/lever2 pic VILLSW06 tics 0
+switch VILLSW06 off sound switch/lever2 pic VILLSW05 tics 0
+
+switch VILLSW07 on sound switch/lever2 pic VILLSW08 tics 0
+switch VILLSW08 off sound switch/lever2 pic VILLSW07 tics 0
+
+switch VILLSW09 on sound switch/lever2 pic VILLSW10 tics 0
+switch VILLSW10 off sound switch/lever2 pic VILLSW09 tics 0
+
+switch VILLSW11 on sound switch/lever2 pic VILLSW12 tics 0
+switch VILLSW12 off sound switch/lever2 pic VILLSW11 tics 0
+
+switch VILLSW13 on sound switch/lever2 pic VILLSW14 tics 0
+switch VILLSW14 off sound switch/lever2 pic VILLSW13 tics 0
+
+switch VILLSW15 on sound switch/lever2 pic VILLSW16 tics 0
+switch VILLSW16 off sound switch/lever2 pic VILLSW15 tics 0
+
+switch VILLSW17 on sound switch/lever2 pic VILLSW18 tics 0
+switch VILLSW18 off sound switch/lever2 pic VILLSW17 tics 0
+
+switch VILLSW19 on sound switch/lever2 pic VILLSW20 tics 0
+switch VILLSW20 off sound switch/lever2 pic VILLSW19 tics 0
+
+switch VILLSW21 on sound switch/lever2 pic VILLSW22 tics 0
+switch VILLSW22 off sound switch/lever2 pic VILLSW21 tics 0
+
+switch VILLSW23 on sound switch/lever2 pic VILLSW24 tics 0
+switch VILLSW24 off sound switch/lever2 pic VILLSW23 tics 0
+
+switch ELEC01 on sound switch/lever2 pic ELEC04 tics 0
+switch ELEC04 off sound switch/lever2 pic ELEC01 tics 0
+
+
+
+texture BASE12
+    pic BASE12 rand 5 12
+    pic BASE13 rand 5 12
+    pic BASE14 rand 5 12
+
+texture BGFORC01
+    pic BGFORC01 tics 7
+    pic BGFORC02 tics 7
+    pic BGFORC03 tics 7
+    pic BGFORC04 tics 7
+    pic BGFORC05 tics 7
+    pic BGFORC06 tics 7
+    pic BGFORC07 tics 7
+    pic BGFORC08 tics 7
+    pic BGFORC09 tics 7
+    
+texture BGFORC21
+    pic BGFORC21 tics 7
+    pic BGFORC22 tics 7
+    pic BGFORC23 tics 7
+    pic BGFORC24 tics 7
+    pic BGFORC25 tics 7
+    pic BGFORC26 tics 7
+    pic BGFORC27 tics 7
+    pic BGFORC28 tics 7
+    pic BGFORC29 tics 7
+    
+texture BGFORC31
+    pic BGFORC31 tics 7
+    pic BGFORC32 tics 7
+    pic BGFORC33 tics 7
+    pic BGFORC34 tics 7
+    pic BGFORC35 tics 7
+    pic BGFORC36 tics 7
+    pic BGFORC37 tics 7
+    pic BGFORC38 tics 7
+    pic BGFORC39 tics 7
+    
+texture BGFORC41
+    pic BGFORC41 tics 7
+    pic BGFORC42 tics 7
+    pic BGFORC43 tics 7
+    pic BGFORC44 tics 7
+    pic BGFORC45 tics 7
+    pic BGFORC46 tics 7
+    pic BGFORC47 tics 7
+    pic BGFORC48 tics 7
+    pic BGFORC49 tics 7
+
+texture CAVE05
+    allowdecals
+    pic CAVE05 rand 5 12
+    pic CAVE06 rand 5 12
+    pic CAVE07 rand 5 12
+    pic CAVE08 rand 5 12
+
+texture CAVE09
+    pic CAVE09 rand 5 12
+    pic CAVE10 rand 5 12
+    pic CAVE11 rand 5 12
+
+texture FORCE01
+    pic FORCE01 tics 7
+    pic FORCE02 tics 7
+    pic FORCE03 tics 7
+    pic FORCE04 tics 7
+    pic FORCE05 tics 7
+    pic FORCE06 tics 7
+    pic FORCE07 tics 7
+    pic FORCE08 tics 7
+    pic FORCE09 tics 7
+
+texture FORCE21
+    pic FORCE21 tics 7
+    pic FORCE22 tics 7
+    pic FORCE23 tics 7
+    pic FORCE24 tics 7
+    pic FORCE25 tics 7
+    pic FORCE26 tics 7
+    pic FORCE27 tics 7
+    pic FORCE28 tics 7
+    pic FORCE29 tics 7
+
+texture FORCE31
+    pic FORCE31 tics 7
+    pic FORCE32 tics 7
+    pic FORCE33 tics 7
+    pic FORCE34 tics 7
+    pic FORCE35 tics 7
+    pic FORCE36 tics 7
+    pic FORCE37 tics 7
+    pic FORCE38 tics 7
+    pic FORCE39 tics 7
+    
+texture FORCE41
+    pic FORCE41 tics 7
+    pic FORCE42 tics 7
+    pic FORCE43 tics 7
+    pic FORCE44 tics 7
+    pic FORCE45 tics 7
+    pic FORCE46 tics 7
+    pic FORCE47 tics 7
+    pic FORCE48 tics 7
+    pic FORCE49 tics 7
+
+texture SLME01
+    pic SLME01 rand 5 12
+    pic SLME02 rand 5 12
+    pic SLME03 rand 5 12
+
+texture SLMEF01
+    pic SLMEF01 rand 5 12
+    pic SLMEF02 rand 5 12
+    pic SLMEF03 rand 5 12
+
+texture SLMEF04
+    pic SLMEF04 rand 5 12
+    pic SLMEF05 rand 5 12
+    pic SLMEF06 rand 5 12
+
+texture SLMEF07
+    pic SLMEF07 rand 5 12
+    pic SLMEF08 rand 5 12
+    pic SLMEF09 rand 5 12
+    pic SLMEF10 rand 5 12
+
+texture SLMEF11
+    pic SLMEF11 rand 5 12
+    pic SLMEF12 rand 5 12
+    pic SLMEF13 rand 5 12
+
+texture SLMEF14
+    pic SLMEF14 rand 5 12
+    pic SLMEF15 rand 5 12
+    pic SLMEF16 rand 5 12
+
+texture SLMEF17
+    pic SLMEF17 rand 5 12
+    pic SLMEF18 rand 5 12
+    pic SLMEF19 rand 5 12
+
+texture SLMEF20
+    pic SLMEF20 rand 5 12
+    pic SLMEF21 rand 5 12
+    pic SLMEF22 rand 5 12
+
+texture SLMEF23
+    pic SLMEF23 rand 5 12
+    pic SLMEF24 rand 5 12
+    pic SLMEF25 rand 5 12
+
+texture THEAT11
+    allowdecals
+    pic THEAT11 rand 5 12
+    pic THEAT12 rand 5 12
+    pic THEAT13 rand 5 12
+
+texture THEAT14
+    allowdecals
+    pic THEAT14 rand 5 12
+    pic THEAT15 rand 5 12
+    pic THEAT16 rand 5 12
+    pic THEAT17 rand 5 12
+
+texture THEAT18
+    allowdecals
+    pic THEAT18 rand 5 12
+    pic THEAT19 rand 5 12
+    pic THEAT20 rand 5 12
+    pic THEAT21 rand 5 12
+
+texture THEAT22
+    allowdecals
+    pic THEAT22 rand 5 12
+    pic THEAT23 rand 5 12
+    pic THEAT24 rand 5 12
+
+texture TLPT06
+    allowdecals
+    pic TLPT06 rand 5 12
+    pic TLPT07 rand 5 12
+    pic TLPT08 rand 5 12
+    pic TLPT07 rand 5 12
+
+texture TRAIN05
+    pic TRAIN05 tics 3
+    pic TRAIN06 tics 3
+    pic TRAIN07 tics 3
+    pic TRAIN08 tics 3
+
+texture TRAIN09
+    pic TRAIN09 tics 3
+    pic TRAIN10 tics 3
+    pic TRAIN11 tics 3
+    pic TRAIN12 tics 3
+
+texture WATER01
+    pic WATER01 rand 5 12
+    pic WATER02 rand 5 12
+    pic WATER03 rand 5 12
+    pic WATER04 rand 5 12
+
+texture WFALL01
+    pic WFALL01 rand 5 12
+    pic WFALL02 rand 5 12
+    pic WFALL03 rand 5 12
+
+texture ELEC01
+    allowdecals
+    pic ELEC01 rand 1 6
+    pic ELEC02 rand 1 6
+    pic ELEC03 rand 1 6

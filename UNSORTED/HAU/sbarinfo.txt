@@ -1,0 +1,125 @@
+height 0;
+monospacefonts true, "0";
+interpolatearmor true;
+interpolatehealth true;
+
+statusbar fullscreen, fullscreenoffsets // ZDoom HUD
+{
+    //health
+    drawimage "MEDIA0", 20, -2, centerbottom;
+    drawnumber 3, HUDFONT_DOOM, untranslated, health, drawshadow, 82, -20;
+
+    //armor
+    DrawGem "", "ARMRCNT3", 15, 23, 16, 50, 191;
+    DrawImage "ARMRCNT1",-50,50;
+    DrawImage "ARMRCNT2",50,50;
+
+    //ammo
+    drawimage ammoicon1, -14, -4, centerbottom;
+    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, drawshadow, -25, -20;
+
+    usesammo
+    {
+        //secondary ammo and inventory
+        usessecondaryammo
+        {
+            drawimage ammoicon2, -14, -22, centerbottom;
+            drawnumber 3, HUDFONT_DOOM, untranslated, ammo2, drawshadow, -25, -38;
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -39, -26, -56, untranslated;
+            }
+        }
+        //no secondary ammo
+        usessecondaryammo not
+        {
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -21, -26, -38, untranslated;
+            }
+        }
+    }
+    
+    // no ammo but inventory
+    usesammo not
+    {
+        inventorybarnotvisible
+        {
+            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -3, -26, -20, untranslated;
+        }
+    }
+
+    gamemode deathmatch
+    {
+        drawnumber 2, HUDFONT_DOOM, untranslated, frags, drawshadow, -3, 1;
+    }
+    gamemode singleplayer, cooperative, teamgame
+    {
+        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+    }
+}
+
+statusbar normal, fullscreenoffsets // Standard Doom Status bar... NOT ANYMORE! ~The Slimeinator
+{
+    //health
+    drawimage "MEDIA0", 20, -2, centerbottom;
+    drawnumber 3, HUDFONT_DOOM, untranslated, health, drawshadow, 82, -20;
+
+    //armor
+    drawimage armoricon, 20, -24, centerbottom;
+    drawnumber 3, HUDFONT_DOOM, untranslated, armor, drawshadow, whennotzero, 82, -39;
+
+    //ammo
+    drawimage ammoicon1, -14, -4, centerbottom;
+    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, drawshadow, -25, -20;
+
+    usesammo
+    {
+        //secondary ammo and inventory
+        usessecondaryammo
+        {
+            drawimage ammoicon2, -14, -22, centerbottom;
+            drawnumber 3, HUDFONT_DOOM, untranslated, ammo2, drawshadow, -25, -38;
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -39, -26, -56, untranslated;
+            }
+        }
+        //no secondary ammo
+        usessecondaryammo not
+        {
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -21, -26, -38, untranslated;
+            }
+        }
+    }
+    
+    // no ammo but inventory
+    usesammo not
+    {
+        inventorybarnotvisible
+        {
+            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -3, -26, -20, untranslated;
+        }
+    }
+
+    gamemode deathmatch
+    {
+        drawnumber 2, HUDFONT_DOOM, untranslated, frags, drawshadow, -3, 1;
+    }
+    gamemode singleplayer, cooperative, teamgame
+    {
+        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+    }
+}
+
+statusbar inventory // Standard bar overlay (ZDoom Addition)
+{
+    drawinventorybar Doom, noartibox, 7, INDEXFONT, 50, 170;
+}
+
+statusbar inventoryfullscreen // ZDoom HUD overlay.
+{
+    drawinventorybar Doom, noartibox, translucent, 7, INDEXFONT, 50, 170;
+}

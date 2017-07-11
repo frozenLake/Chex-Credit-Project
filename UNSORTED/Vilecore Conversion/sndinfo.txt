@@ -1,0 +1,14 @@
+// Quadrumpus with armour Sounds
+
+$random QWA/sight		{ QWA/sight1  QWA/sight2 }
+$random QWA/death		{ QWA/death1  QWA/death2 }
+QWA/sight1				dsbgsit1
+QWA/sight2				dsbgsit2
+QWA/active				dsbgact
+QWA/pain				dspopain
+QWA/melee				dsclaw
+QWA/death1				dsbgdth1
+QWA/death2				dsbgdth2
+QWA/attack				dsfirsht
+QWA/tracex				dsfirxpl
+$limit QWA/active 4

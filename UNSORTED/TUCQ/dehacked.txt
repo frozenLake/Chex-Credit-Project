@@ -1,0 +1,1737 @@
+Patch File for DeHackEd v3.0
+
+# Note: Use the pound sign ('#') to start comment lines.
+
+Doom version = 21
+Patch format = 6
+
+
+Thing 2 (Commonus)
+Exploding frame = 0
+Respawn frame = 0
+
+Thing 3 (Bipedicus)
+Exploding frame = 0
+Respawn frame = 0
+
+Thing 12 (Suited Bipedicus)
+Exploding frame = 0
+Respawn frame = 0
+
+Thing 13 (Cycloptis)
+Respawn frame = 0
+
+Thing 14 (Larva)
+Initial frame = 242
+First moving frame = 255
+Injury frame = 265
+Close attack frame = 259
+Death frame = 268
+Width = 1310720
+Height = 3145728
+Bits = 4194310
+Respawn frame = 0
+
+Thing 16 (Flembrane)
+Respawn frame = 0
+
+Thing 19 (Gyro)
+Initial frame = 502
+First moving frame = 503
+Injury frame = 0
+Close Attack frame = 0
+Far attack frame = 0
+Death frame = 0
+Exploding frame = 0
+Respawn frame = 0
+
+
+Thing 17 (Flembrane Shot)
+Initial frame = 1907
+Death frame = 1909
+
+Thing 25 (Maximus)
+Initial frame = 556
+Hit points = 750
+First moving frame = 558
+Alert sound = 43
+Injury frame = 569
+Pain chance = 50
+Pain sound = 26
+Close attack frame = 566
+Far attack frame = 566
+Death frame = 571
+Death sound = 67
+Speed = 8
+Width = 1572864
+Height = 4194304
+Mass = 1000
+Action sound = 77
+Bits = 4194310
+
+Thing 32 (BWA Shot)
+Initial frame = 1820
+Death frame = 1822
+
+Thing 35 (Plasma Bullet)
+Death sound = 2
+
+Thing 51 (Yellow Crystal Key)
+
+Thing 52 (Red Crystal Key)
+
+Thing 53 (Blue Crystal Key)
+
+Thing 68 (energy Cell)
+Initial frame = 863
+
+Thing 69 (Large Cell Pack)
+Initial frame = 874
+
+Thing 82 (Short Lamp)
+Height = 2293760
+
+Thing 92 (Pad Light)
+Bits = 0
+Bits2 = 524288
+
+Thing 100 (Bunson Burner)
+Initial frame = 946
+Height = 0
+
+Thing 101 (Street Lamp)
+Height = 9830400
+
+Thing 114 (Flask)
+Initial frame = 203
+
+Thing 115 (No Ammo Bipedicus)
+Initial frame = 207
+Hit points = 50
+First moving frame = 209
+Alert sound = 37
+Attack sound = 1
+Injury frame = 220
+Pain chance = 128
+Pain sound = 27
+Far attack frame = 217
+Death frame = 222
+Death sound = 60
+Speed = 10
+Height = 3670016
+Action sound = 75
+Bits = 4194310
+
+Thing 116 (Chef)
+Initial frame = 204
+Height = 3670016
+
+Thing 117 (No Ammo Commonus)
+Initial frame = 174
+Hit points = 40
+First moving frame = 176
+Alert sound = 36
+Attack sound = 1
+Injury frame = 187
+Pain chance = 128
+Pain sound = 27
+Far attack frame = 184
+Death frame = 189
+Death sound = 59
+Speed = 10
+Reaction time = 6 
+Height = 3670016
+Action sound = 75
+Bits = 4194310
+
+Thing 118 (Tyranosaurus Chex)
+Initial frame = 206
+Width = 6291456
+Height = 8388608
+Bits = 2
+
+Thing 119 (Tricerealtops)
+Initial frame = 205
+Width = 8388608
+Height = 8388608
+Bits = 2
+
+Thing 120 (Giant Spoon)
+Initial frame = 951
+Width = 8388608
+Height = 5242880
+Bits = 2
+
+Thing 124 (Slime Fountain)
+ID = 29
+Initial frame = 823
+
+Thing 126 (Slime Pillar)
+Initial frame = 498
+Hit points = 150
+Height = 7208960
+Mass = 10000
+Bits = 6
+
+Thing 129 (Quadrumpus)
+Initial frame = 241
+Hit points = 100
+First moving frame = 244
+Alert sound = 39
+Injury frame = 269
+Pain chance = 200
+Pain sound = 27
+Close attack frame = 252
+Far attack frame = 252
+Death frame = 271
+Death sound = 62
+Speed = 8
+Width = 1310720
+Height = 3670016
+Action sound = 76
+Bits = 4194310
+
+Thing 130 (Oxygen cylinder)
+Initial frame = 806
+Bits = 2
+
+Thing 131 (Statue of David)
+Bits = 2
+
+Thing 132 (Statue of Thinker)
+Bits = 2
+
+Thing 133 (Nefertiti Statue)
+Bits = 2
+
+Thing 134 (Ramses Statue)
+Bits = 2
+
+Thing 137 (Chex Guy Statue)
+Initial frame = 950
+
+Thing 152 (Bag of Holding)
+ID # = 6008
+Bits2 = 0
+
+Thing 161 (Cereal Munch)
+ID # = 6032
+Bits = 1
+Bits2 = 0
+
+Thing 191 (Wall lamp)
+ID # = 6050
+Width = 65536
+
+Thing 200 (Tel. Spark Red 1)
+ID # = 6074
+
+Thing 201 (Tel. Spark Blue 1)
+ID # = 6052
+
+Thing 246 (Low Ammo Commonus)
+ID # = 6068
+Initial frame = 174
+Hit points = 30
+First moving frame = 176
+Alert sound = 36
+Attack sound = 1
+Injury frame = 187
+Pain chance = 128
+Pain sound = 27
+Far attack frame = 184
+Close attack frame = 0
+Death frame = 189
+Death sound = 59
+Speed = 9
+Reaction time = 7
+Height = 3670016
+Action sound = 75
+Bits = 4194310
+
+
+Thing 266 (Cycloptis Tenacious)
+ID # = 6015
+Initial frame = 475
+Hit points = 200
+First moving frame = 477
+Alert sound = 41
+Injury frame = 488
+Pain chance = 180
+Pain sound = 26
+Attack sound = 31
+Close attack frame = 0
+Far attack frame = 736
+Death frame = 490
+Death sound = 64
+Speed = 10
+Mass = 250
+Action sound = 77
+Bits = 4211206
+
+Thing 267 (Triple Snot Shot)
+Alert sound = 16
+Death sound = 17
+Speed = 14
+
+Thing 273 (Low Ammo Bipedicus)
+ID # = 6064
+Initial frame = 207
+Hit points = 40
+First moving frame = 209
+Alert sound = 37
+Attack sound = 1
+Injury frame = 220
+Pain chance = 128
+Pain sound = 27
+Far attack frame = 217
+Close attack frame = 0
+Death frame = 222
+Death sound = 60
+Speed = 9
+Height = 3670016
+Action sound = 75
+Bits = 4194310
+
+Thing 291 (Wand Crystal)
+ID # = 6010
+
+Thing 292 (Mini Zorcher)
+ID # = 6012
+
+Thing 295 (Ethereal Arrows)
+ID # = 6018
+
+Thing 296 (Eth. Arrow Quiver)
+ID # = 6019
+
+Thing 297 (Lesser Runes)
+ID # = 6020
+
+Thing 298 (Greater Runes)
+ID # = 6021
+
+Thing 301 (+10 plasma)
+ID # = 6054
+
+Thing 302 (+25 plasma)
+ID # = 6055
+
+Thing 303 (Wind Sound)
+ID # = 6042
+
+Thing 304 (Waterfall Sound)
+ID # = 6041
+
+
+############################ Frames #############################
+
+
+Frame 189
+Sprite subnumber = 32775
+Duration = 3
+
+Frame 190
+Sprite subnumber = 32776
+Duration = 3
+
+Frame 191
+Sprite subnumber = 32777
+Duration = 3
+
+Frame 192
+Sprite subnumber = 32778
+Duration = 3
+
+Frame 193
+Sprite subnumber = 32779
+Duration = 3
+Next frame = 194
+
+Frame 194
+Sprite subnumber = 32780
+Duration = 3
+Next frame = 197
+
+Frame 197
+Sprite subnumber = 32781
+Duration = 3
+
+Frame 198
+Sprite subnumber = 32782
+Duration = 3
+
+Frame 199
+Sprite subnumber = 32783
+Duration = 3
+
+Frame 200
+Sprite number = 17
+Sprite subnumber = 0
+Duration = -1
+Next frame = 0
+
+Frame 201
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 202
+Sprite number = 137
+Sprite subnumber = 0
+Duration = -1
+
+Frame 203
+Sprite number = 98
+Sprite subnumber = 1
+Duration = -1
+Next frame = 0
+
+Frame 204
+Sprite number = 130
+Sprite subnumber = 0
+Duration = -1
+Next frame = 0
+
+Frame 205
+Sprite number = 128
+Sprite subnumber = 0
+Duration = -1
+Next frame = 0
+
+Frame 206
+Sprite number = 128
+Sprite subnumber = 1
+Duration = -1
+Next frame = 0
+
+Frame 218
+Sprite subnumber = 5
+
+Frame 222
+Sprite subnumber = 32775
+Duration = 3
+
+Frame 223
+Sprite subnumber = 32776
+Duration = 3
+
+Frame 224
+Sprite subnumber = 32777
+Duration = 3
+
+Frame 225
+Sprite subnumber = 32778
+Duration = 3
+
+Frame 226
+Sprite subnumber = 32779
+Duration = 3
+Next frame = 227
+
+Frame 227
+Sprite subnumber = 32780
+Duration = 3
+Next frame = 230
+
+Frame 230
+Sprite subnumber = 32781
+Duration = 3
+
+Frame 231
+Sprite subnumber = 32782
+Duration = 3
+
+Frame 232
+Sprite subnumber = 32783
+Duration = 3
+
+Frame 233
+Sprite subnumber = 32784
+Duration = 3
+
+Frame 234
+Sprite subnumber = 32785
+Duration = 3
+
+Frame 235
+Sprite subnumber = 32786
+Duration = 3
+Next frame = 200
+
+Frame 236
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+
+Frame 241
+Next frame = 241
+
+Frame 242
+Sprite number = 135
+Sprite subnumber = 0
+Next frame = 242
+
+Frame 244
+Duration = 3
+
+Frame 245
+Sprite subnumber = 0
+Duration = 3
+
+Frame 246
+Duration = 3
+
+Frame 247
+Sprite subnumber = 1
+Duration = 3
+
+Frame 248
+Duration = 3
+
+Frame 249
+Sprite subnumber = 2
+Duration = 3
+
+Frame 250
+Duration = 3
+
+Frame 251
+Sprite subnumber = 3
+Duration = 3
+Next frame = 244
+
+Frame 252
+Duration = 7
+
+Frame 253
+Duration = 7
+
+Frame 254
+Sprite subnumber = 6
+Duration = 7
+Next frame = 244
+
+Frame 255
+Sprite number = 135
+Sprite subnumber = 0
+Duration = 2
+
+Frame 256
+Sprite number = 135
+Sprite subnumber = 0
+Duration = 2
+
+Frame 257
+Sprite number = 135
+Sprite subnumber = 1
+Duration = 2
+
+Frame 258
+Sprite number = 135
+Sprite subnumber = 1
+Duration = 2
+Next frame = 255
+
+Frame 259
+Sprite number = 135
+Sprite subnumber = 2
+
+Frame 260
+Sprite number = 135
+Sprite subnumber = 3
+
+Frame 261
+Sprite number = 135
+Sprite subnumber = 4
+Next frame = 255
+
+Frame 262
+Sprite number = 135
+Sprite subnumber = 5
+Duration = 5
+Next frame = 255
+
+Frame 263
+Sprite number = 135
+Sprite subnumber = 32775
+Duration = 6
+Next frame = 267
+
+Frame 264
+Sprite number = 135
+Sprite subnumber = 32777
+Duration = 6
+Next frame = 266
+
+Frame 265
+Sprite number = 135
+Sprite subnumber = 5
+Duration = 5
+Next frame = 262
+
+Frame 266
+Sprite number = 135
+Sprite subnumber = 32778
+Duration = 6
+Next frame = 495
+
+Frame 267
+Sprite number = 135
+Sprite subnumber = 32776
+Duration = 6
+Next frame = 264
+
+Frame 268
+Sprite number = 135
+Sprite subnumber = 32774
+Duration = 6
+Next frame = 263
+
+Frame 269
+Sprite subnumber = 7
+
+Frame 270
+Sprite subnumber = 7
+Next frame = 244
+
+Frame 271
+Sprite subnumber = 32776
+Duration = 5
+
+Frame 272
+Sprite subnumber = 32777
+Duration = 5
+
+Frame 273
+Sprite subnumber = 32778
+Duration = 5
+
+Frame 274
+Sprite subnumber = 32779
+Duration = 5
+
+Frame 275
+Sprite subnumber = 32780
+Duration = 5
+
+Frame 276
+Sprite subnumber = 32781
+Duration = 5
+
+Frame 277
+Sprite subnumber = 32782
+Duration = 5
+
+Frame 278
+Sprite subnumber = 32783
+
+Frame 279
+Sprite subnumber = 32784
+
+Frame 280
+Sprite subnumber = 32785
+Duration = 3
+Next frame = 470
+
+Frame 441
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 457
+Sprite subnumber = 32776
+
+Frame 458
+Sprite subnumber = 32777
+Duration = 6
+
+Frame 459
+Sprite subnumber = 32778
+
+Frame 460
+Sprite subnumber = 32779
+Duration = 3
+
+Frame 461
+Sprite subnumber = 32780
+Duration = 3
+Next frame = 462
+
+Frame 462
+Sprite subnumber = 32781
+Duration = 3
+Next frame = 464
+
+Frame 464
+Sprite subnumber = 32782
+Duration = 3
+Next frame = 466
+
+Frame 465
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 466
+Sprite subnumber = 32783
+Duration = 3
+
+Frame 467
+Sprite subnumber = 32784
+Duration = 3
+
+Frame 468
+Sprite subnumber = 32785
+Duration = 3
+
+Frame 469
+Sprite subnumber = 32786
+Duration = 3
+Next frame = 472
+
+Frame 470
+Sprite number = 31
+Sprite subnumber = 32786
+Duration = 5
+Next frame = 200
+
+Frame 471
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 472
+Sprite subnumber = 19
+Duration = 3
+Next frame = 200
+
+Frame 475
+Next frame = 475
+
+Frame 476
+Sprite number = 39
+Sprite subnumber = 6
+Duration = 10
+Next frame = 477
+
+Frame 490
+Sprite subnumber = 32776
+Duration = 6
+
+Frame 491
+Sprite subnumber = 32777
+Duration = 6
+
+Frame 492
+Sprite subnumber = 32778
+Duration = 6
+
+Frame 493
+Sprite subnumber = 32779
+Duration = 6
+
+Frame 494
+Sprite subnumber = 32780
+Duration = 6
+
+Frame 495
+Sprite number = 17
+Sprite subnumber = 0
+Duration = 15
+Next frame = 200
+
+Frame 498
+Sprite number = 102
+Sprite subnumber = 0
+Duration = 10
+
+Frame 499
+Sprite number = 102
+Sprite subnumber = 1
+Duration = 10
+
+Frame 500
+Sprite number = 102
+Sprite subnumber = 2
+Duration = 10
+
+Frame 501
+Sprite number = 102
+Sprite subnumber = 3
+Next frame = 498
+Duration = 10
+
+Frame 506
+Sprite subnumber = 3
+
+Frame 522
+Sprite subnumber = 0
+
+Frame 523
+Sprite subnumber = 1
+
+Frame 524
+Sprite subnumber = 2
+
+Frame 525
+Sprite subnumber = 3
+
+Frame 526
+Sprite subnumber = 4
+
+Frame 542
+Sprite subnumber = 32776
+
+Frame 543
+Sprite subnumber = 32777
+
+Frame 544
+Sprite subnumber = 32778
+
+Frame 545
+Sprite subnumber = 32779
+
+Frame 546
+Sprite subnumber = 32780
+
+Frame 547
+Sprite subnumber = 32781
+Next frame = 200
+
+Frame 548
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+
+Frame 549
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 550
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 551
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 552
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 553
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 554
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 555
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+Next frame = 0
+
+Frame 571
+Sprite subnumber = 32776
+
+Frame 572
+Sprite subnumber = 32777
+
+Frame 573
+Sprite subnumber = 32778
+
+Frame 574
+Sprite subnumber = 32779
+
+Frame 575
+Sprite subnumber = 32780
+
+Frame 576
+Sprite subnumber = 32781
+Next frame = 200
+
+Frame 577
+Sprite number = 137
+Sprite subnumber = 0
+Duration = 0
+
+Frame 578
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 579
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 580
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 581
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 582
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 583
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 584
+Sprite number = 137
+Sprite subnumber = 0
+Next frame = 0
+
+Frame 736
+Sprite number = 39
+Sprite subnumber = 4
+Duration = 14
+
+Frame 737
+Sprite number = 39
+Sprite subnumber = 5
+Duration = 10
+Next frame = 476
+
+Frame 822
+Duration = -1
+Next frame = 822
+
+Frame 823
+Sprite number = 100
+Sprite subnumber = 0
+Duration = 4
+
+Frame 824
+Sprite number = 100
+Sprite subnumber = 1
+Duration = 4
+
+Frame 825
+Sprite number = 100
+Sprite subnumber = 2
+Duration = 4
+
+Frame 826
+Sprite number = 100
+Sprite subnumber = 3
+Duration = 4
+Next frame = 823
+
+Frame 862
+Duration = -1
+Next frame = 862
+
+Frame 863
+Sprite number = 82
+Sprite subnumber = 0
+Duration = 4
+
+Frame 864
+Sprite number = 82
+Sprite subnumber = 1
+Duration = 4
+
+Frame 865
+Sprite number = 82
+Sprite subnumber = 2
+Duration = 4
+Next frame = 863
+
+Frame 867
+Sprite number = 17
+Sprite subnumber = 0
+Duration = -1
+Next frame = 0
+
+Frame 868
+Sprite number = 83
+Sprite subnumber = 2
+Duration = 4
+Next frame = 874
+
+Frame 874
+Sprite number = 83
+Sprite subnumber = 0
+Duration = 4
+Next frame = 875
+
+Frame 875
+Sprite number = 83
+Sprite subnumber = 1
+Duration = 4
+Next frame = 868
+
+Frame 919
+Next frame = 917
+
+Frame 926
+Sprite subnumber = 4
+Duration = -1
+
+Frame 948
+Next frame = 946
+
+Frame 949
+Sprite subnumber = 3
+Duration = -1
+Next frame = 0
+
+Frame 950
+Sprite number = 129
+Sprite subnumber = 4
+
+Frame 951
+Sprite number = 129
+Sprite subnumber = 5
+
+Frame 953
+Sprite number = 129
+Sprite subnumber = 1
+
+Frame 954
+Sprite number = 129
+Sprite subnumber = 2
+
+Frame 955
+Sprite number = 129
+Sprite subnumber = 3
+
+Frame 972
+Duration = 0
+Next frame = 1095
+
+Frame 1016
+Duration = 100
+
+Frame 1820
+Sprite subnumber = 0
+
+Frame 1821
+Sprite subnumber = 1
+
+Frame 1822
+Sprite subnumber = 2
+
+Frame 1823
+Sprite subnumber = 3
+
+Frame 1824
+Sprite subnumber = 4
+
+Frame 1825
+Sprite subnumber = 5
+
+Frame 1826
+Sprite subnumber = 6
+
+Frame 1907
+Sprite subnumber = 0
+
+Frame 1908
+Sprite subnumber = 1
+
+Frame 1909
+Sprite subnumber = 2
+
+Frame 1910
+Sprite subnumber = 3
+
+Frame 1911
+Sprite subnumber = 4
+
+Frame 2103
+Duration = -1
+Next frame = 2103
+
+Frame 2109
+Duration = -1
+Next frame = 2109
+
+
+####################### Pointers #############################
+
+
+Pointer 92 (Frame 195)
+Codep Frame = 176
+
+Pointer 93 (Frame 196)
+Codep Frame = 176
+
+Pointer 109 (Frame 228)
+Codep Frame = 176
+
+Pointer 110 (Frame 229)
+Codep Frame = 190
+
+Pointer 113 (Frame 243)
+Codep Frame = 157
+
+Pointer 114 (Frame 244)
+Codep Frame = 176
+
+Pointer 115 (Frame 245)
+Codep Frame = 176
+
+Pointer 116 (Frame 246)
+Codep Frame = 176
+
+Pointer 117 (Frame 247)
+Codep Frame = 176
+
+Pointer 118 (Frame 248)
+Codep Frame = 176
+
+Pointer 119 (Frame 249)
+Codep Frame = 176
+
+Pointer 120 (Frame 250)
+Codep Frame = 176
+
+Pointer 121 (Frame 251)
+Codep Frame = 176
+
+Pointer 122 (Frame 252)
+Codep Frame = 184
+
+Pointer 123 (Frame 253)
+Codep Frame = 184
+
+Pointer 124 (Frame 254)
+Codep Frame = 454
+
+Pointer 125 (Frame 255)
+Codep Frame = 176
+
+Pointer 126 (Frame 256)
+Codep Frame = 176
+
+Pointer 127 (Frame 257)
+Codep Frame = 176
+
+Pointer 128 (Frame 258)
+Codep Frame = 176
+
+Pointer 131 (Frame 261)
+Codep Frame = 487
+
+Pointer 132 (Frame 262)
+Codep Frame = 157
+
+Pointer 133 (Frame 263)
+Codep Frame = 190
+
+Pointer 134 (Frame 264)
+Codep Frame = 160
+
+Pointer 240 (Frame 430)
+Codep Frame = 157
+
+Pointer 241 (Frame 431)
+Codep Frame = 176
+
+Pointer 258 (Frame 463)
+Codep Frame = 190
+
+Pointer 261 (Frame 476)
+Codep Frame = 1809
+
+####################### Text #############################
+
+Text 440 440
+Once you beat the big badasses and
+clean out the moon base you're supposed
+to win, aren't you? Aren't you? Where's
+your fat reward and ticket home? What
+the hell is this? It's not supposed to
+end this way!
+
+It stinks like rotten meat, but looks
+like the lost Deimos base.  Looks like
+you're stuck on The Shores of Hell.
+The only way out is through.
+
+To continue the DOOM experience, play
+The Shores of Hell and its amazing
+sequel, Inferno!
+With a brilliant flash of light, the evil
+flembrane is bannished from our universe.
+Bazoik is safe.
+You leave the grateful population of
+Bazoik, and rocket back to your home of
+Chex City, ...
+
+but something is wrong.
+
+As you land at the spaceport, everything is
+quiet--too quiet. Could the flemoids be
+here in Chex City?
+If so, are you hero enough to face them
+again and free your beloved home?
+
+Play "Terror in Chex City" and find out!
+   
+
+Text 466 467
+You've done it! The hideous cyber-
+demon lord that ruled the lost Deimos
+moon base has been slain and you
+are triumphant! But ... where are
+you? You clamber to the edge of the
+moon and look down to see the awful
+truth.
+
+Deimos floats above Hell itself!
+You've never heard of anyone escaping
+from Hell, but you'll make the bastards
+sorry they ever heard of you! Quickly,
+you rappel down to  the surface of
+Hell.
+
+Now, it's on to the final chapter of
+DOOM! -- Inferno.Thanks for playing this beta version of The
+Ultimate Chex Quest Phase II.
+
+Episodes I and II are incomplete at the
+moment, and episodes III and IV do not
+exist yet. Please be sure to check at
+doomlegends.com for future developments.
+
+Chex Quest and Chex Quest 2 were created
+by the wonderful folks at Digital Cafe for
+Ralston foods in 1996.
+
+Work on The Ultimate Chex Quest was done
+by Mark Quinn (a.k.a. Boingo the Clown)
+      
+I hope you enjoyed playing.          
+
+Text 405 407
+YOU HAVE ENTERED DEEPLY INTO THE INFESTED
+STARPORT. BUT SOMETHING IS WRONG. THE
+MONSTERS HAVE BROUGHT THEIR OWN REALITY
+WITH THEM, AND THE STARPORT'S TECHNOLOGY
+IS BEING SUBVERTED BY THEIR PRESENCE.
+
+AHEAD, YOU SEE AN OUTPOST OF HELL, A
+FORTIFIED ZONE. IF YOU CAN GET PAST IT,
+YOU CAN PENETRATE INTO THE HAUNTED HEART
+OF THE STARBASE AND FIND THE CONTROLLING
+SWITCH WHICH HOLDS EARTH'S POPULATION
+HOSTAGE.Thanks for playing this beta version of The
+Ultimate Chex Quest Phase II.
+
+Please be sure to check at doomlegends.com
+for future developments.
+
+Chex Quest and Chex Quest 2 were created
+by the wonderful folks at Digital Cafe for
+Ralston foods in 1996.
+
+Work on The Ultimate Chex Quest was done
+by Mark Quinn (a.k.a. Boingo the Clown)
+
+I hope you enjoyed playing this beta version
+of the game.               
+
+Text 46 46
+are you sure you want to
+quit this great game?   Don't Quit now!   
+   We need your help!   
+
+Text 49 49
+please don't leave, there's more
+demons to toast!    Don't Quit now!    
+    We need your help!   
+ 
+
+Text 50 50
+let's beat it -- this is turning
+into a bloodbath!Please don't quit in our
+ hour of greatest need!  
+
+Text 50 50
+i wouldn't leave if i were you.
+dos is much worse.  Don't give up now!   
+Do you still wish to quit?
+
+Text 56 56
+you're trying to say you like dos
+better than me, right?   Admit it. You just love   
+eating chex cereal, right?
+
+Text 54 54
+don't leave yet -- there's a
+demon around that corner!Don't leave yet -- there's
+ still more zorching to do!
+
+Text 55 55
+ya know, next time you come in here
+i'm gonna toast ya.Are you going to leave with 
+all these flemoids around?
+
+Text 34 34
+go ahead and leave. see if i care.Don't quit now! We need your help!
+
+
+Text 72 72
+don't go now, there's a 
+dimensional shambler waiting
+at the dos prompt!The flemoids are still on the loose.
+  Are you sure you want to quit?   
+
+
+Text 51 51
+get outta here and go back
+to your boring programs.You can be a hero, or you
+can press Y and wimp out. 
+
+Text 53 53
+if i were your boss, i'd 
+ deathmatch ya in a minute!I hope you're not up
+       past your bed time!      
+
+Text 57 57
+look, bud. you leave now
+and you forfeit your body count!Chex Quest and Chex Quest 2
+were created by digital cafe.
+
+Text 59 59
+just leave. when you come
+back, i'll be waiting with a bat. The Galactic Federation of 
+Cereals still needs your help!
+
+Text 58 58
+you're lucky i don't smack
+you for thinking about leaving.   Boingo the Clown says,  
+"Keep right on zorching dude!"
+
+Text 6 6
+CREDITLURKER
+
+Text 71 68
+are you sure? this skill level
+isn't even remotely fair.
+
+press y or n.Careful. This will be tough.
+Do you wish to continue?
+Press y or n.
+
+
+Text 20 23
+Picked up the armor.Got the Chex(r) Armour.
+
+Text 24 29
+Picked up the MegaArmor!Got the super Chex(r) Armour!
+
+Text 25 27
+Picked up a health bonus.Picked up a glass of water.
+
+Text 25 26
+Picked up an armor bonus.Picked up slime repellent.
+
+Text 12 22
+Supercharge!Supercharge breakfast!
+
+Text 11 10
+MegaSphere!SuperChex!
+
+Text 25 27
+Picked up a blue keycard.Picked up a blue key.      
+
+Text 27 27
+Picked up a yellow keycard.Picked up a yellow key.   
+
+Text 24 27
+Picked up a red keycard.Picked up a red key.       
+
+Text 27 29
+Picked up a blue skull key.Picked up a blue crystal key.
+
+Text 29 31
+Picked up a yellow skull key.Picked up a yellow crystal key.
+
+Text 26 27
+Picked up a red skull key.Picked up a red crystal key
+
+Text 21 26
+Picked up a stimpack.Picked up a bowl of fruit.
+
+Text 41 43
+Picked up a medikit that you REALLY need!Vegetables are REALLY good for you!        
+
+Text 20 31
+Picked up a medikit.Picked up a bowl of vegetables.
+
+Text 16 16
+Invulnerability!invulnerability!
+
+Text 8 11
+Berserk!SPOOOON!!!!
+
+Text 20 23
+Partial InvisibilitySemi-invisibility suit.
+
+Text 24 29
+Radiation Shielding SuitYou put on a slimeproof suit.
+
+Text 17 17
+Computer Area MapComputer Area Map
+
+Text 25 27
+Light Amplification VisorLight amplification goggles
+
+Text 17 32
+Picked up a clip.Picked up a Mini zorch recharge.
+
+Text 27 28
+Picked up a box of bullets.Picked up a mini zorch pack.
+
+Text 19 31
+Picked up a rocket.Picked up a Propulsor recharge.
+
+Text 27 38
+Picked up a box of rockets.Picked up a 5 pack of propulsor zorch.
+
+Text 25 37
+Picked up an energy cell.Picked up a Phasing zorcher recharge.
+
+Text 30 33
+Picked up an energy cell pack.Picked up a phasing zorcher pack.
+
+Text 27 36
+Picked up 4 shotgun shells.Picked up 4 large zorcher recharges.
+
+Text 34 35
+Picked up a box of shotgun shells.Picked up a large zorcher pack (20)
+
+Text 34 35
+Picked up a backpack full of ammo!Picked up a zorchpack.             
+
+Text 30 31
+You got the BFG9000!  Oh, yes.You got the LAZ device!        
+
+Text 21 24
+You got the chaingun!You got a rapid zorcher!
+
+Text 28 28
+A chainsaw!  Find some meat!You got the super bootspork!
+
+Text 28 28
+You got the rocket launcher!You got the zorch propulsor!
+
+Text 23 28
+You got the plasma gun!You got the phasing zorcher!
+
+Text 20 26
+You got the shotgun!You got the large zorcher!
+
+Text 26 25
+You got the super shotgun!You got the mega-zorcher!
+
+Text 22 23
+Degreelessness Mode OnInvincible mode on.    
+
+Text 23 23
+Degreelessness Mode OffInvincible mode off.   
+
+Text 20 23
+Ammo (no keys) AddedZorch Added.           
+
+Text 21 23
+Very Happy Ammo AddedZorch and keys added.  
+
+Text 21 23
+... doesn't suck - GMEat Chex!              
+
+Text 12 15
+E1M1: HangarLanding Zone   
+
+Text 19 19
+E1M2: Nuclear PlantStorage Facility   
+
+Text 20 23
+E1M3: Toxin RefineryLaboratory             
+
+Text 21 23
+E1M4: Command ControlArboretum              
+
+Text 16 19
+E1M5: Phobos LabCaverns of Bazoik  
+
+Text 24 27
+E1M6: Central ProcessingThe Flembrane              
+
+Text 20 23
+E2M1: Deimos AnomalySpaceport              
+
+Text 22 23
+E2M2: Containment AreaCinema                 
+
+Text 14 15
+E2M3: RefineryChex Museum    
+
+Text 16 19
+E2M4: Deimos LabCity Streets       
+
+Text 20 23
+E2M5: Command CenterSewer System           
+
+Text 6 6
+dbloadbuddy1
+
+Text 6 5
+mnpainsplat
+
+Text 4 4
+TROOSUTF
+
+Text 4 4
+POSSFLEM
+
+Text 4 4
+SPOSFLE2
+
+Text 4 4
+VILEQUAD
+
+Text 4 4
+SARGCYCL
+
+Text 4 4
+POL5FLSK
+
+Text 4 4
+POL6PIL1
+
+Text 4 4
+CBRALAMP
+
+Text 4 4
+HDB2DINO
+
+Text 4 4
+HDB3STTU
+
+Text 4 4
+HDB4CHEF
+
+Text 4 4
+BRS1LRVA
+
+Text 4 4
+TLP2NONE
+
+Text 14 22
+BAG OF HOLDINGPicked up A ZORCHPACK.
+
+Text 9 19
+GREEN KEYPicked up a red key
+
+Text 10 11
+MYSTIC URNYum! Yum!  
+
+Text 12 31
+WAND CRYSTALPicked up a mini zorch recharge
+
+Text 13 25
+CRYSTAL GEODEYou got the MINI ZORCHER!
+
+Text 15 35
+ETHEREAL ARROWSPicked up 5 large zorcher recharges
+
+Text 25 35
+QUIVER OF ETHEREAL ARROWSPicked up a LARGE ZORCHER PACK (20)
+
+Text 8 40
+CLAW ORBPicked up a small PHASing ZORCH recharge
+
+Text 10 36
+ENERGY ORBPicked up a small phasing zorch pack
+
+Text 12 38
+LESSER RUNESPicked up a 20 pack of propulsor zorch
+
+Text 13 15
+GREATER RUNESPicked up a full stock of propulsor zorch!
+
+Text 12 19
+%s suicides
+%s zorched himself
+
+Text 24 25
+%s was telefraged by %s
+%s was telezorched by %s
+
+Text 30 30
+%s was beaten to a pulp by %s
+%s was spoon fed by %s       
+
+Text 20 21
+%s was gunned by %s
+%s was zorched by %s
+
+Text 23 23
+%s was shot down by %s
+%s was zorched by %s  
+
+Text 28 28
+%s was machine-gunned by %s
+%s was rapid zorched by %s 
+
+Text 33 33
+%s was catched up by %s's rocket
+%s was zorched by %s's propulsor
+
+Text 29 29
+%s was gibbed by %s's rocket
+%s was hit by %s's propulsor
+
+Text 21 27
+%s eats %s's toaster
+%s was phase zorched by %s
+
+Text 32 32
+%s enjoys %s's big fraggin' gun
+%s fell prey to %s's LAZ device
+
+Text 54 54
+%s was divided up into little pieces by %s's chainsaw
+%s was thouroughly mixed with %s's bootspork         
+
+Text 32 32
+%s ate 2 loads of %s's buckshot
+%s was hit by %s's mega-zorcher
+
+Text 20 21
+%s was killed by %s
+%s was zorched by %s
+
+Text 21 25
+%s dies in hellslime
+%s sinks into some slime
+
+Text 27 27
+%s gulped a load of nukage
+%s sinks into some slime  
+
+Text 39 41
+%s dies in super hellslime/strobe hurt
+%s was glued to the floor with some snot
+
+Text 26 26
+%s dies in special sector
+%s gets slimed once again
+
+Text 28 28
+%s was barrel-fragged by %s
+%s was zorched by %s       
+
+Text 32 32
+%s dies from a barrel explosion
+%s was hit by a flem explosion 
+
+Text 27 27
+%s was shot by a possessed
+%s WAS SLIMED BY A FLEMOID
+
+Text 30 30
+%s was shot down by a shotguy
+%s was slimed by a bipedicus 
+
+Text 31 32
+%s was blasted by an Arch-vile
+%s got gooed by a nasty flemoid
+
+Text 30 30
+%s was exploded by a Mancubus
+%s was slimed with supersnot 
+
+Text 31 31
+%s was punctured by a Chainguy
+%s was slimed by a gattlingus 
+
+Text 23 39
+%s was fried by an Imp
+%s was slimed by an Armoured Bipedicus
+
+Text 30 30
+%s was eviscerated by a Demon
+%s was slimed by a cycloptis 
+
+Text 32 32
+%s was mauled by a Shadow Demon
+%s was boogered on by a larva  
+
+Text 29 30
+%s was fried by a Caco-demon
+%s was slimed by an acrobatus
+
+Text 32 32
+%s was slain by a Baron of Hell
+%s fell victim to the flembrane
+
+Text 29 29
+%s was smashed by a Revenant
+%s was slimed               
+
+Text 30 30
+%s was slain by a Hell-Knight
+%s was slimed by a maximus   
+
+Text 29 29
+%s was killed by a Lost Soul
+%s was slimed by flemoidus gyro
+
+Text 41 41
+%s was killed by a The Spider Mastermind
+%s was boogered in place by a dekarhinus
+
+Text 31 31
+%s was killed by a Arachnotron
+%s was slimed by a sputum     
+
+Text 34 34
+%s was crushed by the Cyber-demon
+%s was defeated by ultimus       
+
+Text 34 34
+%s was killed by a Pain Elemental
+%s encountered a flem balloon    
+
+Text 26 26
+%s was killed by a WolfSS
+%s was slimed yet again  
+
+Text 8 14
+%s died
+%s got slimed

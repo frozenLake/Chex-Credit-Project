@@ -1,0 +1,27 @@
+// The Ultimate Chex Quest LANGUAGE lump
+
+[enc default] 
+
+// ##########################################################################
+// #                                                                        #
+// #                        Cluster Exposition Text                         #
+// #                                                                        #
+// ##########################################################################
+
+
+STARTTEXT = 
+	"Thanks for playing this interm release of\n"
+	"Vilecore for The Ultimate Chex Quest.\n"
+	"\n"
+	"This conversion of Darren Finch's classic\n"
+	"megawad 'Vilecore' is a work in progress.\n"
+	"(The green snowman is just a temp folks.)\n"
+	"\n"
+	"When complete, the megawad will contain\n"
+	"32 levels of frantic zorching action, and\n"
+	"a host of new flemoids replacing the DooM\n"
+	"monsters.\n"
+	"\n"
+	"Please check back at doomlegends.com, or\n"
+	"the Chex Quest Fan Forums for the latest\n"
+	"developments.";

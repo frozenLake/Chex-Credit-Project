@@ -1,0 +1,2535 @@
+// DECORATE lump for The Ultimate Chex Quest
+
+// ##########################################################################
+// #                                                                        #
+// #                               Player Pawn                              #
+// #                                                                        #
+// ##########################################################################
+
+ACTOR ChexPlayer : PlayerPawn
+{
+  Damagefactor "Flemoid", 1.0 
+  BloodColor 111 239 103
+  Speed 1
+  Health 100
+  Radius 16
+  Height 56
+  Mass 100
+  PainChance 255
+  +FORCEXYBILLBOARD
+  Player.DisplayName "Chex Warrior"
+  Player.DamageScreenColor "60 b0 58"
+  Player.StartItem "MiniZorcher"
+  Player.StartItem "Bootspoon"
+  Player.StartItem "Clip", 50
+  Player.WeaponSlot 1, Bootspoon, Bootspork
+  Player.WeaponSlot 2, MiniZorcher
+  Player.WeaponSlot 3, LargeZorcher
+  Player.WeaponSlot 4, RapidZorcher
+  Player.WeaponSlot 5, Propulsor
+  Player.WeaponSlot 6, PhasingZorcher
+  Player.WeaponSlot 7, LAZDevice
+  Player.ColorRange 192, 207 
+//  Player.ColorSet 0, "Light Blue",    0xC0, 0xCF,  0xC2
+//  Player.ColorSet 1, "Green",         0x70, 0x7F,  0x72
+//  Player.ColorSet 2, "Gray",          0x60, 0x6F,  0x62
+//  Player.ColorSet 3, "Brown",         0x40, 0x4F,  0x42
+//  Player.ColorSet 4, "Red",           0x20, 0x2F,  0x22
+//  Player.ColorSet 5, "Light Gray",    0x58, 0x67,  0x5A
+//  Player.ColorSet 6, "Light Brown",   0x38, 0x47,  0x3A
+//  Player.ColorSet 7, "Light Red",     0xB0, 0xBF,  0xB2
+
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12 
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    PLAY H 10
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    PLAY O 5
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                                Weapons                                 #
+// #                                                                        #
+// ##########################################################################
+
+Actor Bootspoon : Fist
+{
+  Weapon.SelectionOrder 3700
+  Weapon.Kickback 100
+  Obituary "%o was spoon fed by %k."
+  +WEAPON.WIMPY_WEAPON
+  +WEAPON.MELEEWEAPON
+  States
+  {
+  Ready:
+    PUNG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PUNG A 1 A_Lower
+    Loop
+  Select:
+    PUNG A 1 A_Raise
+    Loop
+  Fire:
+    PUNG B 4
+    PUNG C 4 A_Punch
+    PUNG D 5
+    PUNG C 4
+    PUNG B 5 A_ReFire
+    Goto Ready
+  }
+}
+
+Actor Bootspork : Chainsaw 2005
+{
+  SpawnID 32
+  Weapon.Kickback 0
+  Weapon.SelectionOrder 2200
+  Weapon.UpSound "weapons/sawup"
+  Weapon.ReadySound "weapons/sawidle"
+  Obituary "%o was thouroughly mixed with %k's bootspork."
+  Inventory.PickupMessage "You got the super bootspork!"
+  +WEAPON.MELEEWEAPON
+  States
+  {
+  Ready:
+    SAWG CD 4 A_WeaponReady
+    Loop
+  Deselect:
+    SAWG C 1 A_Lower
+    Loop
+  Select:
+    SAWG C 1 A_Raise
+    Loop
+  Fire:
+    SAWG AB 4 A_Saw
+    SAWG B 0 A_ReFire
+    Goto Ready
+  Spawn:
+    CSAW A -1
+    Stop
+  }
+}
+
+Actor MiniZorcher : Pistol
+{
+  Weapon.SelectionOrder 1900
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "Clip"
+  Obituary "%o was zorched by %k."
+  Inventory.PickupMessage "Picked up a Mini Zorcher."
+  +WEAPON.WIMPY_WEAPON
+  States
+  {
+  Ready:
+    PISG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PISG A 1 A_Lower
+    Loop
+  Select:
+    PISG A 1 A_Raise
+    Loop
+  Fire:
+    PISG A 4
+    PISG B 6 A_FirePistol
+    PISG C 4
+    PISG B 5 A_ReFire
+    Goto Ready
+  Flash:
+    PISF A 7 Bright A_Light1
+    Goto LightDone
+    PISF A 7 Bright A_Light1
+    Goto LightDone
+  Spawn:
+    PIST A -1
+    Stop
+  }
+}
+
+Actor LargeZorcher : Shotgun 2001
+{
+  SpawnID 27
+  Weapon.SelectionOrder 1300
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 8
+  Weapon.AmmoType "Shell"
+  Obituary "%o was zorched by %k."
+  Inventory.PickupMessage "You got the Large Zorcher!"
+  States
+  {
+  Ready:
+    SHTG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    SHTG A 1 A_Lower
+    Loop
+  Select:
+    SHTG A 1 A_Raise
+    Loop
+  Fire:
+    SHTG A 3
+    SHTG A 7 A_FireShotgun
+    SHTG BC 5
+    SHTG D 4
+    SHTG CB 5
+    SHTG A 3
+    SHTG A 7 A_ReFire
+    Goto Ready
+  Flash:
+    SHTF A 4 Bright A_Light1
+    SHTF B 3 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    SHOT A -1
+    Stop
+  }
+}
+
+Actor RapidZorcher : Chaingun 2002
+{
+  SpawnID 28
+  Weapon.SelectionOrder 700
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "Clip"
+  Obituary "%o was rapid zorched by %k."
+  Inventory.PickupMessage "You got the Rapid Zorcher!"
+   States
+   {
+   Ready:
+     CHGG A 1 A_WeaponReady
+     Loop
+   Deselect:
+     CHGG A 1 A_Lower
+     Loop
+   Select:
+     CHGG A 1 A_Raise
+     Loop
+   Fire:
+     CHGG AB 4 A_FireCGun
+     CHGG B 0 A_ReFire
+     Goto Ready
+   Flash:
+     CHGF A 5 Bright A_Light1
+     Goto LightDone
+     CHGF B 5 Bright A_Light1
+     Goto LightDone
+   Spawn:
+     MGUN A -1
+     Stop
+   }
+}
+
+Actor Propulsor : RocketLauncher 2003
+{
+  SpawnID 29
+  Weapon.SelectionOrder 2500
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 2
+  Weapon.AmmoType "RocketAmmo"
+  +WEAPON.NOAUTOFIRE
+  Obituary "%o was hit by %k's propulsor"
+  Inventory.PickupMessage "You got the Zorch Propulsor!"
+  States
+  {
+  Ready:
+    MISG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    MISG A 1 A_Lower
+    Loop
+  Select:
+    MISG A 1 A_Raise
+    Loop
+  Fire:
+    MISG B 8 A_GunFlash
+    MISG B 12 A_FireMissile
+    MISG B 0 A_ReFire
+    Goto Ready
+  Flash:
+    MISF A 3 Bright A_Light1
+    MISF B 4 Bright
+    MISF CD 4 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    LAUN A -1
+    Stop
+  }
+}
+
+Actor PhasingZorcher : PlasmaRifle 2004
+{
+  SpawnID 30
+  Weapon.SelectionOrder 100
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 40
+  Weapon.AmmoType "Cell"
+  Obituary "%o was phase zorched by %k"
+  Inventory.PickupMessage "You got the Phasing Zorcher!"
+  States
+  {
+  Ready:
+    PLSG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PLSG A 1 A_Lower
+    Loop
+  Select:
+    PLSG A 1 A_Raise
+    Loop
+  Fire:
+    PLSG A 3 A_FirePlasma
+    PLSG B 20 A_ReFire
+    Goto Ready
+  Flash:
+    PLSF A 4 Bright A_Light1
+    Goto LightDone
+    PLSF B 4 Bright A_Light1
+    Goto LightDone
+  Spawn:
+    PLAS A -1
+    Stop
+  }
+}
+
+Actor LAZDevice : BFG9000 2006
+{
+  Height 20
+  SpawnID 31
+  Weapon.SelectionOrder 2800
+  Weapon.AmmoUse 40
+  Weapon.AmmoGive 40
+  Weapon.AmmoType "Cell"
+  +WEAPON.NOAUTOFIRE
+  Obituary "%o fell prey to %k's LAZ device"
+  Inventory.PickupMessage "You got the LAZ device! Oh yeah!"
+  States
+  {
+  Ready:
+    BFGG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    BFGG A 1 A_Lower
+    Loop
+  Select:
+    BFGG A 1 A_Raise
+    Loop
+  Fire:
+    BFGG A 20 A_BFGSound
+    BFGG B 10 A_GunFlash
+    BFGG B 10 A_FireBFG
+    BFGG B 20 A_ReFire
+    Goto Ready
+  Flash:
+    BFGF A 11 Bright A_Light1
+    BFGF B 6 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    BFUG A -1
+    Stop
+  }
+}
+
+//..............................................................................
+
+ACTOR ZorchFlash replaces BulletPuff
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  Mass 5
+  States
+  {
+  Spawn:
+    SPRK AB 2 Bright
+    // Intentional fall-through
+  Melee:
+    SPRK CDEFG 2 Bright
+    Stop
+  }
+}
+
+ACTOR PropulsorShot replaces Rocket
+{
+  Radius 11
+  Height 8
+  Speed 20
+  Damage 20
+  Projectile
+  +RANDOMIZE
+  +DEHEXPLOSION
+  +FORCEXYBILLBOARD
+  SeeSound "weapons/rocklf"
+  DeathSound "weapons/rocklx"
+  Obituary "%o was hit by %k's Propulsor."
+  States
+  {
+  Spawn:
+    MISL A 1 Bright
+    Loop
+  Death:
+    MISL B 8 Bright A_Explode
+    MISL C 6 Bright
+    MISL D 4 Bright
+    Stop
+  }
+}
+
+ACTOR PhaseZorchShot replaces PlasmaBall
+{
+  Radius 13
+  Height 8
+  Speed 25
+  Damage 5
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Add
+  Alpha 0.75
+  SeeSound "weapons/phaseshot"
+  DeathSound "weapons/phasehit"
+  Obituary "%o was phase zorched by %k."
+  States
+  {
+  Spawn:
+    PLSS AB 6 Bright
+    Loop
+  Death:
+    PLSE ABCDE 4 Bright
+    Stop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                              Ammunition                                #
+// #                                                                        #
+// ##########################################################################
+
+Actor MiniZorchRecharge : Clip 2007
+{
+  Inventory.PickupMessage "Picked up a mini zorch recharge"
+  Inventory.Amount 10
+  Inventory.MaxAmount 200
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 400
+  Inventory.Icon "CLIPA0"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    CLIP A -1
+    Stop
+  }
+
+}
+
+Actor MiniZorchPack : Clip 2048
+{
+  Inventory.PickupMessage "Picked up a mini zorch pack"
+  Inventory.Amount 50
+  +FORCEXYBILLBOARD
+  States
+  {
+    Spawn:
+      AMMO A -1
+      Stop
+  }
+}
+
+ACTOR MiniZorcherPickup : Clip 6012
+{
+  Inventory.PickupMessage "Picked up a minizorcher"
+  Inventory.Amount 50
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    MINI A -1
+    Stop
+  }
+}
+
+
+// .............................................................................
+
+Actor LargeZorchRecharge : Shell 2008
+{
+  Inventory.PickupMessage "Picked up a large zorcher recharge"
+  Inventory.Amount 4
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 4
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "SHELA0"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+
+}
+
+ACTOR LargeZorchRecharge5 : Shell 6018
+{
+  Inventory.PickupMessage "Picked up 5 Large Zorch charges"
+  Inventory.Amount 5
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    LZR5 A -1
+    Stop
+  }
+}
+
+Actor LargeZorchPack : Shell 2049
+{
+  Inventory.PickupMessage "Picked up a large zorcher pack"
+  Inventory.Amount 20
+  +FORCEXYBILLBOARD
+  States
+  {
+    Spawn:
+      SBOX A -1
+      Stop
+  }
+}
+
+//..............................................................................
+
+Actor PropulsorZorch : RocketAmmo 2010
+{
+  Inventory.PickupMessage "Picked up a zorch propulsor recharge"
+  Inventory.Amount 1
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "ROCKA0"
+  States
+  {
+  Spawn:
+    ROCK A -1
+    Stop
+  }
+}
+
+Actor PropulsorZorchPack : RocketAmmo 2046
+{
+  Inventory.PickupMessage "Picked up a zorch propulsor pack"
+  Inventory.Amount 5
+  States
+  {
+  Spawn:
+    BROK A -1
+    Stop
+  }
+}
+
+//..............................................................................
+ACTOR MiniPhasingZorchRecharge : Cell 6054
+{
+  Inventory.PickupMessage "Picked up a mini phasing zorcher recharge "
+  Inventory.Amount 10
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    MPZR ABC 4 Bright
+    Loop
+  }
+}
+
+Actor PhasingZorch : Cell 2047
+{
+  Inventory.PickupMessage "Picked up a phasing zorcher recharge"
+  Inventory.Amount 20
+  Inventory.MaxAmount 300
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 600
+  Inventory.Icon "CELLA0"
+  States
+  {
+  Spawn:
+    CELL ABC 4  Bright
+    Loop
+  }
+}
+
+ACTOR LargePhasingZorchRecharge : Cell 6055
+{
+  Inventory.PickupMessage "Picked up a large phasing zorcher recharge "
+  Inventory.Amount 25
+  +FORCEXYBILLBOARD
+  SCALE 0.5
+  States
+  {
+  Spawn:
+    LPZR ABC 4 Bright
+    Loop
+  }
+}
+
+ACTOR LargePhasingZorchRecharge : Cell 5055
+{
+  Inventory.PickupMessage "Picked up a large phasing zorcher recharge "
+  Inventory.Amount 50
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    LPZR ABC 4 Bright
+    Loop
+  }
+}
+
+Actor PhasingZorchPack : Cell 17
+{
+  SpawnID 142
+  Inventory.PickupMessage "Picked up a phasing zorcher pack"
+  Inventory.Amount 100
+  States
+  {
+    Spawn:
+      CELP ABC 4 Bright
+      Loop
+  }
+}
+
+//..............................................................................
+
+Actor Zorchpack : Backpack 8
+{
+  SpawnID 144
+  Height 26
+  Inventory.PickupMessage "Picked up a Zorchpak!"
+    States
+  {
+  Spawn:
+    BPAK A -1
+    Stop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                             Flem Splatter                              #
+// #                                                                        #
+// ##########################################################################
+
+
+ACTOR FlemDrop replaces Blood
+{
+  SpawnID 130
+  Mass 5
+  +NOBLOCKMAP
+  +MISSILE
+  +DROPOFF
+  +NOTELEPORT
+  +ALLOWPARTICLES
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    BLUD CBA 16
+    Stop
+  Death:
+	BLUD D 350
+    Stop
+  }
+}
+
+ACTOR FlemSplater replaces BloodSplatter
+{
+  Radius 2
+  Height 4
+  +NOBLOCKMAP
+  +MISSILE
+  +DROPOFF
+  +NOTELEPORT
+  +CANNOTPUSH
+  +FORCEXYBILLBOARD
+  Mass 5
+  States
+  {
+  Spawn:
+    BLUD CBA 16
+    Stop
+  Death:
+	BLUD D 350
+    Stop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                                 Keys                                   #
+// #                                                                        #
+// ##########################################################################
+
+
+ACTOR BlueCard : DoomKey 5
+{
+  SpawnID 85
+  Inventory.PickupMessage "Picked up a blue key."
+  Inventory.Icon "STKEYS0"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    BKEY A 10
+    BKEY B 10 Bright
+    Loop
+  }
+}
+
+ACTOR BlueSkull : DoomKey 40
+{
+  SpawnID 90
+  Inventory.PickupMessage "Picked up a blue industrial key"
+  Inventory.Icon "STKEYS3"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    BSKU A 10
+    BSKU B 10 Bright
+    Loop
+  }
+}
+
+ACTOR YellowCard : DoomKey 6
+{
+  SpawnID 87
+  Inventory.PickupMessage "Picked up a yellow key"
+  Inventory.Icon "STKEYS1"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    YKEY A 10
+    YKEY B 10 Bright
+    Loop
+  }
+}
+
+ACTOR YellowSkull : DoomKey 39
+{
+  SpawnID 88
+  Inventory.PickupMessage "Picked up a yellow industrial key"
+  Inventory.Icon "STKEYS4"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    YSKU A 10
+    YSKU B 10 Bright
+    Loop
+  }
+}
+
+ACTOR RedCard : DoomKey 13
+{
+  SpawnID 86
+  Inventory.PickupMessage "Picked up a red key"
+  Inventory.Icon "STKEYS2"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    RKEY A 10
+    RKEY B 10 Bright
+    Loop
+  }
+}
+
+ACTOR RedSkull : DoomKey 38
+{
+  SpawnID 89
+  Inventory.PickupMessage "Picked up a red industrial key"
+  Inventory.Icon "STKEYS5"
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    RSKU A 10
+    RSKU B 10 Bright
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                         Health and Powerups                            #
+// #                                                                        #
+// ##########################################################################
+
+Actor GlassOfWater : HealthBonus 2014
+{
+  SpawnID 152
+  Inventory.PickupMessage "Picked up a glass of water"
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 200
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    BON1 ABCDCB 6
+    Loop
+  }
+}
+
+Actor BowlOfFruit : Stimpack 2011
+{
+  SpawnID 23
+  Inventory.PickupMessage "Picked up a bowl of fruit"
+  Inventory.Amount 10
+  +FORCEXYBILLBOARD
+  Scale 0.57
+  States
+  {
+  Spawn:
+    STIM A -1
+    Stop
+  }
+}
+
+Actor BowlOfVegetables : Medikit 2012
+{
+  SpawnID 24
+  Inventory.PickupMessage "Picked up a bowl of vegetables"
+  Health.LowMessage 25, "Vegetables are REALLY good for you!"
+  Inventory.Amount 25
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    MEDI A -1
+    Stop
+  }
+
+}
+
+ACTOR SuperchargeBreakfast : Health 2013
+{
+  SpawnID 25
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  +INVENTORY.FANCYPICKUPSOUND
+  +FORCEXYBILLBOARD
+  Inventory.Amount 100
+  Inventory.MaxAmount 200
+  Inventory.PickupMessage "Supercharge Breakfast!"
+  Inventory.PickupSound "misc/breakfast"
+  States
+  {
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                                Armour                                  #
+// #                                                                        #
+// ##########################################################################
+
+Actor SlimeRepellent : ArmorBonus 2015
+{
+  SpawnID 22
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up slime repellent"
+    Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 1
+  Armor.MaxSaveAmount 200
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  States
+  {
+  Spawn:
+    BON2 A -1
+    Stop
+  }
+}
+
+Actor ChexArmor : GreenArmor 2018
+{
+  SpawnID 68
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up the Chex(R) Armor."
+    Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 100
+  States
+  {
+  Spawn:
+    ARM1 A 6
+    ARM1 B 7 Bright
+    Loop
+  }
+}
+
+Actor SuperChexArmor : BlueArmor 2019
+{
+  SpawnID 69
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up the Super Chex(R) Armor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 50
+  Armor.SaveAmount 200
+  States
+  {
+  Spawn:
+    ARM2 A 6
+    ARM2 B 6 Bright
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                               Flemoids                                 #
+// #                                                                        #
+// ##########################################################################
+
+ACTOR EasyCommonus 3004
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 20
+  Radius 20
+  Height 56
+  Speed 8
+  Reactiontime 8
+  PainChance 255
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "commonus/sight"
+  AttackSound "commonus/attack"
+  PainSound "commonus/pain"
+  DeathSound "commonus/death"
+  ActiveSound "commonus/active"
+  Obituary "%o was slimed by a flemoid." 
+  States
+  {
+  Spawn:
+    FLEM AB 10 A_Look
+    Loop
+  See:
+    FLEM AABBCCDD 4 A_Chase
+    Loop
+  Melee:
+    FLEM E 10 A_FaceTarget
+    FLEM F 10 A_CustomMeleeAttack(random (1,5)*3, "", "", "Flemoid", true)
+    FLEM E 10  
+    Goto See
+  Pain:
+    FLEM G 3 Bright
+    FLEM G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLEM H 3 Bright 
+    FLEM I 3 Bright  A_Scream
+    FLEM J 3 Bright  A_NoBlocking
+    FLEM KLMNOP 3 Bright 
+    Stop
+  }
+}
+
+ACTOR MediumCommonus 6068
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 25
+  Radius 20
+  Height 56
+  Speed 10
+  Reactiontime 70
+  PainChance 255
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "commonus/sight"
+  AttackSound "commonus/attack"
+  PainSound "commonus/pain"
+  DeathSound "commonus/death"
+  ActiveSound "commonus/active"
+  Obituary "%o was slimed by a flemoid." 
+  States
+  {
+  Spawn:
+    FLEM AB 10 A_Look
+    Loop
+  See:
+    FLEM AABBCCDD 4 A_Chase
+    Loop
+  Missile:
+    FLEM E 10 A_FaceTarget
+    FLEM F 10 A_CustomMissile("MiniBall1",40,0)
+  Melee:
+    FLEM E 10 A_FaceTarget
+    FLEM F 10 A_CustomMeleeAttack(random(1,5)*4, "", "", "Flemoid", true)
+    FLEM E 5  
+    Goto See
+  Pain:
+    FLEM G 3 Bright
+    FLEM G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLEM H 3 Bright 
+    FLEM I 3 Bright  A_Scream
+    FLEM J 3 Bright  A_NoBlocking
+    FLEM KLMNOP 3 Bright 
+    Stop
+  }
+}
+
+ACTOR HardCommonus 20
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 30
+  Radius 20
+  Height 56
+  Speed 12
+  Reactiontime 35
+  PainChance 255
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "commonus/sight"
+  AttackSound "commonus/attack"
+  PainSound "commonus/pain"
+  DeathSound "commonus/death"
+  ActiveSound "commonus/active"
+  Obituary "%o was slimed by a flemoid." 
+  States
+  {
+  Spawn:
+    FLEM AB 10 A_Look
+    Loop
+  See:
+    FLEM AABBCCDD 4 A_Chase
+    Loop
+  Missile:
+    FLEM E 10 A_FaceTarget
+    FLEM F 10 A_CustomMissile("MiniBall2",40,0)
+  Melee:
+    FLEM E 10 A_FaceTarget
+    FLEM F 10 A_CustomMeleeAttack(random(1,5)*5, "", "", "Flemoid", true)
+    Goto See
+  Pain:
+    FLEM G 3 Bright
+    FLEM G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLEM H 3 Bright 
+    FLEM I 3 Bright  A_Scream
+    FLEM J 3 Bright  A_NoBlocking
+    FLEM KLMNOP 3 Bright 
+    Stop
+  }
+}
+
+ACTOR EasyBipedicus 9
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 30
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "bipedicus/sight"
+  AttackSound "bipedicus/attack"
+  PainSound "bipedicus/pain"
+  DeathSound "bipedicus/death"
+  ActiveSound "bipedicus/active"
+  Obituary "%o was slimed by a bipedicus."
+  States
+  {
+  Spawn:
+    FLE2 AB 10 A_Look
+    Loop
+  See:
+    FLE2 AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+    FLE2 E 10 A_FaceTarget
+    FLE2 F 10 A_CustomMeleeAttack(random(3,15)*3, "", "", "Flemoid", true)
+    FLE2 E 5
+    Goto See
+  Pain:
+    FLE2 G 3 Bright
+    FLE2 G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLE2 H 3 Bright
+    FLE2 I 3 Bright A_Scream
+    FLE2 J 3 Bright A_NoBlocking
+    FLE2 KLMNOPQRS 3 Bright
+    Stop
+  }
+}
+
+ACTOR MediumBipedicus 6064
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 40
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 9
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "bipedicus/sight"
+  AttackSound "bipedicus/attack"
+  PainSound "bipedicus/pain"
+  DeathSound "bipedicus/death"
+  ActiveSound "bipedicus/active"
+  Obituary "%o was slimed by a bipedicus."
+  States
+  {
+  Spawn:
+    FLE2 AB 10 A_Look
+    Loop
+  See:
+    FLE2 AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    FLE2 E 10 A_FaceTarget
+    FLE2 F 10 A_CustomMissile("MiniBall1",45,0)
+	Goto See
+  Melee:
+    FLE2 E 10 A_FaceTarget
+    FLE2 F 10 A_CustomMeleeAttack(random(3,15)*3, "", "", "Flemoid", true)
+    FLE2 E 5
+    Goto See
+  Pain:
+    FLE2 G 3 Bright
+    FLE2 G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLE2 H 3 Bright
+    FLE2 I 3 Bright A_Scream
+    FLE2 J 3 Bright A_NoBlocking
+    FLE2 KLMNOPQRS 3 Bright
+    Stop
+  }
+}
+
+ACTOR HardBipedicus 21
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 50
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 10
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "bipedicus/sight"
+  AttackSound "bipedicus/attack"
+  PainSound "bipedicus/pain"
+  DeathSound "bipedicus/death"
+  ActiveSound "bipedicus/active"
+  Obituary "%o was slimed by a bipedicus."
+  States
+  {
+  Spawn:
+    FLE2 AB 10 A_Look
+    Loop
+  See:
+    FLE2 AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    FLE2 E 10 A_FaceTarget
+    FLE2 F 0 A_CustomMissile("MiniBall2",45,0)
+    FLE2 F 0 A_CustomMissile("MiniBall2a",23,0,3)
+	FLE2 F 10 A_CustomMissile("MiniBall2a",25,0,-3)
+Goto See
+  Melee:
+    FLE2 E 10 A_FaceTarget
+    FLE2 F 10 A_CustomMeleeAttack(random(3,15)*3, "", "", "Flemoid", true)
+    Goto See
+  Pain:
+    FLE2 G 3 Bright
+    FLE2 G 3 Bright A_Pain
+    Goto See
+  Death:
+    FLE2 H 3 Bright
+    FLE2 I 3 Bright A_Scream
+    FLE2 J 3 Bright A_NoBlocking
+    FLE2 KLMNOPQRS 3 Bright
+    Stop
+  }
+}
+
+ACTOR BipedicusWithArmor 3001
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 60
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "BWA/sight"
+  PainSound "BWA/pain"
+  DeathSound "BWA/death"
+  ActiveSound "BWA/active"
+  Obituary "%o was slimed by an Armoured Bipedicus"
+  States
+  {
+  Spawn:
+    SUTF AB 10 A_Look
+    Loop
+  See:
+    SUTF AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    SUTF EF 8 A_FaceTarget
+    SUTF G 6 A_TroopAttack
+    Goto See
+  Pain:
+    SUTF H 2 Bright
+    SUTF H 2 Bright A_Pain
+    Goto See
+  Death:
+    SUTF I 8 Bright
+    SUTF J 6 Bright A_Scream
+    SUTF K 6 Bright
+    SUTF L 6 Bright A_NoBlocking
+    SUTF MNOPQRST 3 Bright
+	BLNK A -1
+    Stop
+  }
+}
+
+ACTOR Cycloptis 3002
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 150
+  PainChance 180
+  Speed 10
+  Radius 30
+  Height 56
+  Mass 400
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "cycloptis/sight"
+  AttackSound "cycloptis/melee"
+  PainSound "cycloptis/pain"
+  DeathSound "cycloptis/death"
+  ActiveSound "cycloptis/active"
+  Obituary "%o was slimed by a cycloptis."
+  States
+  {
+  Spawn:
+    CYCL AB 10 A_Look
+    Loop
+  See:
+    CYCL AABBCCDD 2 A_Chase
+    Loop
+  Melee:
+    CYCL EF 8 A_FaceTarget
+    CYCL G 8 A_SargAttack
+    Goto See
+  Pain:
+    CYCL H 2 Bright
+    CYCL H 2 Bright A_Pain
+    Goto See
+  Death:
+    CYCL I 8 Bright
+    CYCL J 8 Bright A_Scream
+    CYCL K 4 Bright
+    CYCL L 4 Bright A_NoBlocking
+    CYCL M 4 Bright
+    CYCL N 4 Bright
+	BLNK A -1 
+    Stop
+  }
+}
+
+ACTOR Larva 58
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 150
+  PainChance 180
+  Speed 10
+  Radius 20
+  Height 48
+  Mass 400
+  Monster
+  +FLOORCLIP
+  +FORCEXYBILLBOARD
+  SeeSound "larva/sight"
+  AttackSound "larva/melee"
+  PainSound "larva/pain"
+  DeathSound "larva/death"
+  ActiveSound "larva/active"
+  Obituary "%o was boogered by a Larva."
+  States
+  {
+  Spawn:
+    LRVA AB 10 A_Look
+    Loop
+  See:
+    LRVA AABB 2 A_Chase
+    Loop
+  Melee:
+    LRVA CD 8 A_FaceTarget
+    LRVA E 8 A_SargAttack
+    Goto See
+  Pain:
+    LRVA F 2 Bright
+    LRVA F 2 Bright A_Pain
+    Goto See
+  Death:
+    LRVA G 6 Bright
+    LRVA H 6 Bright A_Scream
+    LRVA I 6 Bright A_NoBlocking
+    LRVA J 6 Bright
+    LRVA K 6 Bright
+	BLNK A -1 
+    Stop
+  }
+}
+
+ACTOR Quadrumpus 73
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 100
+  Radius 25
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "quadrumpus/sight"
+  PainSound "quadrumpus/pain"
+  DeathSound "quadrumpus/death"
+  ActiveSound "quadrumpus/active"
+  Obituary "$OB_IMP"
+  States
+  {
+  Spawn:
+    QUAD AB 10 A_Look
+    Loop
+  See:
+    QUAD AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 6 A_TroopAttack
+    Goto See
+  Pain:
+    QUAD H 2 Bright
+    QUAD H 2 Bright A_Pain
+    Goto See
+  Death:
+    QUAD I 5 Bright
+    QUAD J 5 Bright A_Scream
+    QUAD K 5 Bright
+    QUAD L 5 Bright A_NoBlocking
+    QUAD MNOPQRS 5 Bright
+	BLNK A -1 
+    Stop
+  }
+}
+
+ACTOR Maximus 72
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 1000
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 8
+  PainChance 50
+  Monster
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "maximus/sight"
+  PainSound "maximus/pain"
+  DeathSound "maximus/death"
+  ActiveSound "maximus/active"
+  Obituary "%o was slimed by a Maximus"
+  States
+  {
+  Spawn:
+    BOS2 AB 10 A_Look
+    Loop
+  See:
+    BOS2 AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    BOS2 EF 8 A_FaceTarget
+    BOS2 G 8 A_BruisAttack
+    Goto See
+  Pain:
+    BOS2 H 2 Bright
+    BOS2 H 2 Bright A_Pain
+    Goto See
+  Death:
+    BOS2 I 8 Bright
+    BOS2 J 8 Bright A_Scream
+    BOS2 K 8 Bright
+    BOS2 L 8 Bright A_NoBlocking
+    BOS2 MN 8 Bright
+    BOS2 O 8 Bright A_BossDeath
+	BLNK A -1 
+    Stop
+  }
+}
+
+ACTOR ClassicFlembrane 3003
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 1000
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 0
+  PainChance 50
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH
+  +FORCEXYBILLBOARD
+  SeeSound "flembrane/sight"
+  PainSound "flembrane/pain"
+  DeathSound "flembrane/death"
+  ActiveSound "flembrane/active"
+  Obituary "%o fell victim to the Flembrane"
+  States
+  {
+  Spawn:
+    BOSS AB 10 A_Look
+    Loop
+  See:
+    BOSS AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    BOSS EF 8 A_FaceTarget
+    BOSS G 8 A_BruisAttack
+    Goto See
+  Pain:
+    BOSS H 2 Bright
+    BOSS H 2 Bright A_Pain
+    Goto See
+  Death:
+    BOSS I 8 Bright
+    BOSS J 8 Bright A_Scream
+    BOSS K 8 Bright
+    BOSS L 8 Bright A_NoBlocking
+    BOSS MNO 8 Bright
+	BLNK A -1 
+    Stop
+ }
+}
+
+ACTOR SlimePillar1 26
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 150
+  Radius 16
+  Height 128
+  Mass 5000
+  Painchance 0
+  Monster
+  +SOLID
+  States
+  {
+  Spawn:
+    PIL1 ABCD 8
+	Loop
+  Death:
+    BLNK A 1 A_NoBlocking
+	BLNK A -1
+	Stop
+  }
+}
+
+ACTOR Gyro replaces LostSoul
+{
+  DamageType "Flemoid"
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  SpawnID 110
+  Health 100
+  Radius 16
+  Height 56
+  Mass 50
+  Speed 8
+  Damage 3
+  PainChance 255
+  PainChance "Flemoid" , 0
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +MISSILEMORE
+  +DONTFALL
+  +NOICEDEATH
+  +FORCEXYBILLBOARD
+  //+FLOATBOB
+  AttackSound "gyro/attack"
+  PainSound "gyro/pain"
+  DeathSound "gyro/death"
+//ActiveSound "gyro/active"
+  RenderStyle Normal
+  Obituary "%o was slimed by Flemoidus Gyro."
+  States
+  {
+  Spawn:
+    GYRO A 0 A_PlaySound("gyro/active", 1, true)
+    GYRO A 10  A_Look
+    Loop
+  See:
+    GYRO A 0 A_PlaySound("gyro/active", 1, true)
+    GYRO AB 6  A_Chase
+	GYRO B 0 A_SpawnItemEx ("Smoke",0,0,0,-1,0,2,0,0)
+    Loop
+  Missile:
+    GYRO C 10  A_FaceTarget
+    GYRO D 4  A_SkullAttack
+    GYRO CD 4 
+	GYRO D 9 A_PlaySound("gyro/active", 1, true)
+    Goto Missile+2
+  Pain:
+    GYRO E 3 
+    GYRO E 3  A_Pain
+    Goto See
+  Death:
+    GYRO F 6 
+    GYRO LG 6  A_Scream
+    GYRO H 6 
+    GYRO I 6  A_NoBlocking
+    GYRO J 6
+    GYRO K 6
+    Stop
+  }
+}
+
+ACTOR Smoke 1051
+{
+  +FLOAT
+  +NOGRAVITY
+  +FORCEXYBILLBOARD
+  RenderStyle Translucent
+  Alpha 0.667
+  States
+  {
+  Spawn:
+	 SMOK ABCDE 4
+     Stop
+  }
+}
+
+ACTOR FlemBalloon 71
+{
+  DamageType Flemoid
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  SpawnID 115
+  Health 400
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 8
+  PainChance 128
+  Monster
+  Scale 0.4
+  +FLOAT
+  +NOGRAVITY
+  +FLOATBOB
+  +FORCEXYBILLBOARD
+  SeeSound "pain/sight"
+  PainSound "pain/pain"
+  DeathSound "pain/death"
+  ActiveSound "pain/active"
+  States
+  {
+  Spawn:
+    BLON A 10 A_Look
+    Loop
+  See:
+    BLON AABBCC 3 A_Chase
+    Loop
+  Missile:
+    BLON D 5 A_FaceTarget
+    BLON E 5 A_FaceTarget
+    BLON F 4  A_FaceTarget
+    BLON F 1  A_PainAttack
+    Goto See
+  Pain:
+    BLON G 6
+    BLON G 6 A_Pain
+    Goto See
+  Death:
+    BLON H 8 Bright
+    BLON I 8 Bright A_Scream
+    BLON JK 8 Bright
+    BLON L 8 Bright A_PainDie
+    BLON M 8 Bright
+    Stop
+  }
+}
+
+ACTOR CycloptisTenacious 6015
+{
+  DamageFactor "Flemoid" , 0
+  BloodColor 111 239 103
+  Health 150
+  PainChance 180
+  Speed 10
+  Radius 30
+  Height 56
+  Mass 400
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +FLOATBOB
+  +FLOORCLIP
+  +FASTER
+  +FORCEXYBILLBOARD
+  SeeSound "cycloptis/sight"
+  AttackSound "cycloptis/melee"
+  PainSound "cycloptis/pain"
+  DeathSound "cycloptis/death"
+  ActiveSound "cycloptis/active"
+  Obituary "%o was slimed by a cycloptis."
+  States
+  {
+  Spawn:
+    CYCL AB 10 A_Look
+    Loop
+  See:
+    CYCL AABBCCDD 2 A_Chase
+    Loop
+  Missile:
+    CYCL EF 8 A_FaceTarget
+    CYCL G 2 A_CustomMissile("BWABall",30,0)
+    CYCL G 0 A_CustomMissile("BWABall",30,0,5)
+	CYCL G 5 A_CustomMissile("BWABall",30,0,-5)
+	Goto See
+  Melee:
+    CYCL EF 8 A_FaceTarget
+    CYCL G 8 A_SargAttack
+    Goto See
+  Pain:
+    CYCL H 2 Bright
+    CYCL H 2 Bright A_Pain
+    Goto See
+  Death:
+    CYCL I 8 Bright
+    CYCL J 8 Bright A_Scream
+    CYCL K 4 Bright
+    CYCL L 4 Bright A_NoBlocking
+    CYCL M 4 Bright
+    CYCL N 4 Bright
+	BLNK A -1 
+    Stop
+  }
+}
+
+// ##########################################################################
+// #                                                                        #
+// #                               Missiles                                 #
+// #                                                                        #
+// ##########################################################################
+
+ACTOR MiniBall1
+{
+  DamageType Flemoid
+  Radius 4
+  Height 4
+  Speed 15
+  FastSpeed 20
+  Damage 1
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  Scale 0.4
+  States
+  {
+  Spawn:
+    BAL1 AB 4 
+    Loop
+  Death:
+    BAL1 CDE 6
+    Stop
+  }
+}
+
+ACTOR MiniBall2
+{
+  DamageType Flemoid
+  Radius 4
+  Height 4
+  Speed 20
+  FastSpeed 30
+  Damage 1
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  Scale 0.4
+  States
+  {
+  Spawn:
+    BAL1 AB 4 
+    Loop
+  Death:
+    BAL1 CDE 6
+    Stop
+  }
+}
+
+ACTOR MiniBall2a // Same as Miniball2 except no SeeSound
+{
+  DamageType Flemoid
+  Radius 4
+  Height 4
+  Speed 20
+  FastSpeed 30
+  Damage 1
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  DeathSound "imp/shotx"
+  Scale 0.4
+  States
+  {
+  Spawn:
+    BAL1 AB 4 
+    Loop
+  Death:
+    BAL1 CDE 6
+    Stop
+  }
+}
+
+ACTOR BWABall replaces DoomImpBall
+{
+  DamageType Flemoid
+  Radius 6
+  Height 8
+  Speed 10
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    BAL1 AB 4 
+    Loop
+  Death:
+    BAL1 CDE 6
+    Stop
+  }
+}
+
+ACTOR MaximusBall replaces BaronBall
+{
+  DamageType Flemoid
+  Radius 6
+  Height 16
+  Speed 15
+  FastSpeed 20
+  Damage 8
+  Projectile
+  +RANDOMIZE
+  +FORCEXYBILLBOARD
+  RenderStyle Normal
+  SeeSound "baron/attack"
+  DeathSound "baron/shotx"
+  States
+  {
+  Spawn:
+    BAL7 AB 4
+    Loop
+  Death:
+    BAL7 CDE 6
+    Stop
+  }
+}
+
+// Museum Items
+
+ACTOR WallLamp01 6050
+{
+  Radius 6
+  Height 16
+  +NOGRAVITY
+  +FORCEXYBILLBOARD
+//  +FIXMAPTHINGPOS
+  States
+  {
+  Spawn:
+    WLIT A -1 Bright
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                            Teleport Items                              #
+// ##########################################################################
+
+
+ACTOR TeleGlitterGenerator1 6052
+{
+  SpawnID 166
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +DONTSPLASH
+  +MOVEWITHSECTOR
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    TNT1 A 8 A_SpawnItemEx("TeleGlitter1", random[TeleGlitter](0,31)-16, random[TeleGlitter](0,31)-16, 0, 0, 0, 1)
+    Loop
+  }
+}
+
+ACTOR TeleGlitter1
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +FORCEXYBILLBOARD
+  +MISSILE
+  RenderStyle Add
+  Damage 0
+
+//  action native A_AccTeleGlitter();
+
+  States
+  {
+  Spawn:
+    TGLT F 2 Bright
+    TGLT G 2 Bright // A_AccTeleGlitter
+    TGLT H 2 Bright
+    TGLT I 2 Bright // A_AccTeleGlitter
+    TGLT J 2 Bright
+    Loop
+  }
+}
+
+// ##########################################################################
+// #                                 Props                                  #
+// #                                                                        #
+// #  Props are added in the order in which they first appear in the game.  #
+// #                                                                        #
+// ##########################################################################
+
+// E1M1
+
+Actor SpaceShip 48
+{
+  Radius 30
+  Height 58
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    SHIP A -1
+	Stop
+  }
+}
+
+ACTOR LandingLight 2028
+{
+  Radius 16
+  Height 48
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    LLIT A -1 Bright
+    Stop
+  }
+}
+
+Actor OxygenCylinder 74
+{
+  Radius 16
+  Height 46
+  ProjectilePassHeight -16
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    CYLN A -1
+    Stop
+  }
+}
+
+Actor Flag 37
+{
+  Radius 12
+  Height 126
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    FLAG A -1
+    Stop
+  }
+}
+
+Actor PulsatingElectricalThingie 55
+{
+  Radius 16
+  Height 90
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    ELEC ABCD 4 Bright
+	loop
+  }
+}
+
+// E1M3
+
+ACTOR BeakerLiquid 41
+{
+  Radius 8
+  Height 28
+  ProjectilePassHeight -16
+  RenderStyle add
+  States
+  {
+  Spawn:
+    BEAK ABC 6
+    Loop
+  }
+}
+
+ACTOR BunsonBurner 34
+{
+  Radius 8
+  Height 28
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    BUNS ABC 6 Bright
+    Loop
+  }
+}
+
+ACTOR RedFlask 18
+{
+  Radius 8
+  Height 15
+  ProjectilePassHeight -16
+  States
+  {
+  Spawn:
+    FLSK B -1
+    Loop
+  }
+}
+
+// E1M4
+
+ACTOR OrangeTree 43
+{
+  Radius 16
+  Height 110
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TRE1 A -1
+    Stop
+  }
+}
+
+ACTOR BananaTree 54
+{
+  Radius 16
+  Height 110
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TRE2 A -1
+    Stop
+  }
+}
+
+ACTOR AppleTree 47
+{
+  Radius 16
+  Height 110
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TRE3 A -1
+    Stop
+  }
+}
+
+ACTOR BirchTree 5050 // Not actually used in the game
+{
+  Radius 16
+  Height 110
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    TRE4 A -1
+    Stop
+  }
+}
+
+ACTOR Lily 25  // Not actually used in the game
+{
+  Radius 15
+  Height 45
+  ProjectilePassHeight -16
+  States
+  {
+  Spawn:
+    LILY A -1
+    Stop
+  }
+}
+
+ACTOR TigerLily 28
+{
+  Radius 16
+  Height 58
+  ProjectilePassHeight -16
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    LIL2 A -1
+    Stop
+  }
+}
+
+ACTOR HangingPlant1Blocking 50
+{
+  Radius 16
+  Height 80
+  +SOLID
+  +NOGRAVITY
+  +SPAWNCEILING
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    PLNT A -1
+    Stop
+  }
+}
+
+ACTOR HangingPlant2Blocking 51
+{
+  Radius 16
+  Height 80
+  +SOLID
+  +NOGRAVITY
+  +SPAWNCEILING
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    PLNT B -1
+    Stop
+  }
+}
+
+ACTOR HangingPlant1 59
+{
+  Radius 16
+  Height 80
+  +NOGRAVITY
+  +SPAWNCEILING
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    PLNT A -1
+    Stop
+  }
+}
+
+ACTOR HangingPlant2 61
+{
+  Radius 16
+  Height 80
+  +NOGRAVITY
+  +SPAWNCEILING
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    PLNT B -1
+    Stop
+  }
+}
+
+ACTOR PlantInAJar 31
+{
+  Radius 16
+  Height 45
+  ProjectilePassHeight -16
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    PJAR A -1
+    Stop
+  }
+} 
+
+// E1M5
+
+ACTOR Minecart 33
+{
+  Radius 25
+  Height 35
+  ProjectilePassHeight -16
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    MCAR A -1
+    Stop
+  }
+} 
+
+ACTOR Stalagmite 30
+{
+  Radius 16
+  Height 70
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SMIT A -1
+    Stop
+  }
+}
+
+ACTOR StalagtiteBlocking 53
+{
+  Radius 16
+  Height 44
+  +SOLID
+  +NOGRAVITY
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+    STIT A -1
+    Stop
+  }
+}
+
+ACTOR Stalagtite 62
+{
+  Radius 16
+  Height 44
+  +NOGRAVITY
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+    STIT A -1
+    Stop
+  }
+}
+
+ACTOR Bat1Blocking 49
+{
+  Radius 7
+  Height 27
+  +SOLID
+  +NOGRAVITY
+  +SPAWNCEILING
+  States
+  {
+  Spawn:
+    BAT1 A 10
+    BAT1 B 15
+    BAT1 C 8
+    BAT1 B 6
+    Loop
+  }
+}
+
+ACTOR Bat1 63
+{
+  Radius 7
+  Height 27
+  +NOGRAVITY
+  +SPAWNCEILING
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    BAT1 A 10
+    BAT1 B 15
+    BAT1 C 8
+    BAT1 B 6
+    Loop
+  }
+}
+
+ACTOR CaveColumn 32
+{
+  Radius 16
+  Height 52
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    COL1 A -1
+    Stop
+  }
+}
+
+ACTOR SlimeFountain 29
+{
+  Radius 16
+  Height 58
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    SFON ABCD 6 
+    Loop
+  }
+}
+
+ACTOR MistGenerator1 1001
+{
+  SpawnID 101
+  Radius 1
+  Height 1
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +DONTSPLASH
+  +MOVEWITHSECTOR
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    NONE A 8 A_SpawnItemEx("Mist1", random[TeleGlitter](0,31)-16, random[TeleGlitter](0,31)-16, 0, 0, 0, 1)
+    Loop
+  }
+}
+
+ACTOR Mist1 1002
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +FORCEXYBILLBOARD
+  +MISSILE
+  RenderStyle Translucent
+  Alpha 0.4
+  Damage 0
+  States
+  {
+  Spawn:
+     MIST ABCDE 5
+	 Stop
+  }
+}
+
+// E2M1
+
+ACTOR StreetLamp 35
+{
+  Radius 16
+  Height 128
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    LAMP A -1 Bright
+    Stop
+  }
+}
+
+ACTOR FryCook 23
+{
+  Radius 22
+  Height 60
+  ProjectilePassHeight -16
+  +SOLID
+  +FORCEXYBILLBOARD
+  States
+  {
+  Spawn:
+    CHEF A -1
+    Stop
+  }
+}
+
+ACTOR RunwayLight1 500
+{
+  States
+  {
+  Spawn:
+    LLIT B 5 Bright
+    LLIT CC 5
+	loop
+  }
+}
+
+ACTOR Runwaylight2 501
+{
+  States
+  {
+  Spawn:
+    LLIT C 5
+    LLIT B 5 Bright
+	LLIT C 5
+	loop
+  }
+}
+
+ACTOR Runwaylight3 502
+{
+  States
+  {
+  Spawn:
+    LLIT CC 5
+	LLIT B 5 Bright
+	loop
+  }
+}
+
+ACTOR LandingTower 503
+{
+  scale 0.25
+  States
+  {
+  Spawn:
+    TOWR A -1
+	stop
+  }
+}
+
+// E2M2
+
+ACTOR StatueChexWarrior 36
+{
+  Radius 25
+  Height 128
+  ProjectilePassHeight -16
+  +SOLID
+  States
+  {
+  Spawn:
+    STTU E -1
+    Stop
+  }
+}
+
+// E2M3
+
+ACTOR StatueSpoon 12
+{
+  Radius 110
+  Height 70
+  +SOLID
+  States
+  {
+  Spawn:
+    STTU F -1
+    Stop
+  }
+}
+
+ACTOR Tricerealtops 10
+{
+  Radius 120
+  Height 115
+  +SOLID
+  States
+  {
+  Spawn:
+    DINO A -1
+    Stop
+  }
+}
+
+ACTOR TyranosaurusChex 19
+{
+  Radius 120
+  Height 120
+  +SOLID
+  States
+  {
+  Spawn:
+    DINO B -1
+    Stop
+  }
+}
+
+ACTOR StatueThinker 76
+{
+  States
+  {
+  Spawn:
+    STTU B -1
+    Stop
+  }
+}
+
+ACTOR StatueDavid 75
+{
+  States
+  {
+  Spawn:
+    STTU A -1
+    Stop
+  }
+}
+
+ACTOR StatuePharoh 78
+{
+  Radius 16
+  Height 104
+  +SOLID
+  States
+  {
+  Spawn:
+    STTU D -1
+    Stop
+  }
+}
+
+ACTOR StatueHatshepsut 77
+{
+  Radius 40
+  Height 112
+  +SOLID
+  States
+  {
+  Spawn:
+    STTU C -1
+    Stop
+  }
+}
+

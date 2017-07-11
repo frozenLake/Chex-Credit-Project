@@ -1,0 +1,35 @@
+clearplayerclasses
+
+addplayerclass CombatDroid
+addplayerclass PredatorDroid
+addplayerclass ScavengerDroid
+addplayerclass EliminatorDroid
+addplayerclass IndomitableDroid
+
+addkeysection "Hardware" chexbot_keysection
+addmenukey "Toggle Light Amplification" chexbotlightamp
+addmenukey "Invisibility Device" chexbotinvisibility
+addmenukey "Regeneration Device" chexbotregeneration
+addmenukey "Zorch Rebounder Coil" chexbotdrain
+addmenukey "Speed Booster" chexbotspeedboost
+addmenukey "Jump Booster" chexbothighjump
+addmenukey "Power Booster" chexbotpowerboost
+addmenukey "Repulsion Device" chexbotrepel
+addmenukey "Shield" chexbotinvulnerability
+addmenukey "Temporal Rift Device" chexbottimefreeze
+addmenukey "Activate Hypermode" chexbothypermode
+
+addkeysection "HAU General" chexbot_generalkeysection
+addmenukey "Trigger Help Screen" chexbothelpscreen
+
+alias chexbotlightamp "puke 668"
+alias chexbotinvisibility "puke 669"
+alias chexbotregeneration "puke 670"
+alias chexbotdrain "puke 671"
+alias chexbotspeedboost "puke 672"
+alias chexbothighjump "puke 673"
+alias chexbotpowerboost "puke 674"
+alias chexbotrepel "puke 675"
+alias chexbotinvulnerability "puke 676"
+alias chexbottimefreeze "puke 677"
+alias chexbothypermode "puke 678"

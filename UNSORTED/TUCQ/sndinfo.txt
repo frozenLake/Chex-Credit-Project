@@ -1,0 +1,105 @@
+// Pickup Sounds
+
+misc/breakfast			artiup
+
+// Weapon Sounds
+
+weapons/phaseshot		dsphasez
+weapons/phasehit		dsphzhit
+
+// Flemoidus Commonus Sounds
+
+$random commonus/sight 		{ commonus/sight1  commonus/sight2  commonus/sight3 }
+$random commonus/death		{ commonus/death1  commonus/death2  commonus/death3 }
+commonus/sight1			dsposit1
+commonus/sight2			dsposit2
+commonus/sight3			dsposit3
+commonus/active			dsposact
+commonus/pain			dspopain
+commonus/death1			dspodth1
+commonus/death2			dspodth2
+commonus/death3			dspodth3
+commonus/attack			dspistol
+
+
+// Flemoidus Bipedicus Sounds
+
+$random bipedicus/sight 	{ bipedicus/sight1  bipedicus/sight2  bipedicus/sight3 }
+$random bipedicus/death		{ bipedicus/death1  bipedicus/death2  bipedicus/death3 }
+bipedicus/sight1		dsposit1
+bipedicus/sight2		dsposit2
+bipedicus/sight3		dsposit3
+bipedicus/active		dsposact
+bipedicus/pain			dspopain
+bipedicus/death1		dspodth1
+bipedicus/death2		dspodth2
+bipedicus/death3		dspodth3
+bipedicus/attack		dspistol
+
+
+// BWA
+
+$random BWA/sight		{ BWA/sight1  BWA/sight2 }
+$random BWA/death		{ BWA/death1  BWA/death2 }
+BWA/sight1				dsbgsit1
+BWA/sight2				dsbgsit2
+BWA/active				dsbgact
+BWA/pain				dspopain
+BWA/melee				dsclaw
+BWA/death1				dsbgdth1
+BWA/death2				dsbgdth2
+BWA/attack				dsfirsht
+BWA/shotx				dsfirxpl
+$limit BWA/active 4
+
+
+// Flemoidus Cycloptis Sounds
+
+cycloptis/sight			dssgtsit
+cycloptis/active		dsdmact
+cycloptis/pain			dsdmpain
+cycloptis/melee			dssgtatk
+cycloptis/death			dssgtdth
+$limit cycloptis/melee 4
+
+// Flemoidus Larva Sounds
+
+larva/sight			dssgtsit
+larga/active		dsdmact
+larva/pain			dsdmpain
+larva/melee			dssgtatk
+larva/death			dssgtdth
+$limit larva/melee 4
+
+// Flemoidus Quadrumpus Sounds
+
+$random quadrumpus/sight	{ quadrumpus/sight1  quadrumpus/sight2 }
+$random quadrumpus/death	{ quadrumpus/death1  quadrumpus/death2 }
+quadrumpus/sight1			dsbgsit1
+quadrumpus/sight2			dsbgsit2
+quadrumpus/active			dsbgact
+quadrumpus/pain				dspopain
+quadrumpus/melee			dsclaw
+quadrumpus/death1			dsbgdth1
+quadrumpus/death2			dsbgdth2
+$limit quadrumpus/active 4
+
+// Flemoidus Maximus Sounds
+
+maximus/sight			dsbrssit
+maximus/active			dsdmact
+maximus/pain			dsdmpain
+maximus/melee			dsclaw
+maximus/death			dsbrsdth
+maximus/attack			dsfirsht
+maximus/shotx			dsfirxpl
+
+// Flemoidus Gyro Sounds
+
+gyro/sight				dssgtsit
+gyro/active				dssawidl
+gyro/pain				dspopain
+gyro/melee				dssgtatk
+gyro/attack				dssgtsit
+gyro/death				dsbgdth2
+

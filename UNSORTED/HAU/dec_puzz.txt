@@ -1,0 +1,344 @@
+ACTOR BlueCrystal : PuzzleItem 19293
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 18
+  Inventory.Icon CRSTA
+  Inventory.PickupMessage "Picked up a Blue Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST A -1
+    Stop
+  }
+}
+
+ACTOR BlueCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST A -1
+    Stop
+  }
+}
+
+ACTOR BlueCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR RedCrystal : PuzzleItem 19294
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 19
+  Inventory.Icon CRSTB
+  Inventory.PickupMessage "Picked up a Red Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST B -1
+    Stop
+  }
+}
+
+ACTOR RedCrystalZeroGrav : CustomInventory 19302
+{
+  radius 36
+  height 16
+  gravity 0
+  Inventory.PickupMessage "Picked up a Red Crystal."
+  States
+  {
+  Spawn:
+    CRST B -1
+    Stop
+  Pickup:
+    TNT1 A 0 A_GiveInventory("RedCrystal",1)
+    stop
+  }
+}
+
+ACTOR RedCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST B -1
+    Stop
+  }
+}
+
+ACTOR RedCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR GreenCrystal : PuzzleItem 19295
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 20
+  Inventory.Icon CRSTC
+  Inventory.PickupMessage "Picked up a Green Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST C -1
+    Stop
+  }
+}
+
+ACTOR GreenCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST C -1
+    Stop
+  }
+}
+
+ACTOR GreenCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR SilverCrystal : PuzzleItem 19296
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 21
+  Inventory.Icon CRSTD
+  Inventory.PickupMessage "Picked up a Silver Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST D -1
+    Stop
+  }
+}
+
+ACTOR SilverCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST D -1
+    Stop
+  }
+}
+
+ACTOR SilverCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR OrangeCrystal : PuzzleItem 19297
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 22
+  Inventory.Icon CRSTE
+  Inventory.PickupMessage "Picked up an Orange Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST E -1
+    Stop
+  }
+}
+
+ACTOR OrangeCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST E -1
+    Stop
+  }
+}
+
+ACTOR OrangeCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR GoldCrystal : PuzzleItem 19298
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 23
+  Inventory.Icon CRSTF
+  Inventory.PickupMessage "Picked up a Gold Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST F -1
+    Stop
+  }
+}
+
+ACTOR GoldCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST F -1
+    Stop
+  }
+}
+
+ACTOR GoldCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR DarkCrystal : PuzzleItem 19299
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 24
+  Inventory.Icon CRSTG
+  Inventory.PickupMessage "Picked up a Dark Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST G -1
+    Stop
+  }
+}
+
+ACTOR DarkCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST G -1
+    Stop
+  }
+}
+
+ACTOR DarkCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}
+
+ACTOR BrownCrystal : PuzzleItem 19300
+{
+  radius 36
+  height 16
+  PuzzleItem.Number 25
+  Inventory.Icon CRSTH
+  Inventory.PickupMessage "Picked up a Brown Crystal."
+  +KEEPDEPLETED
+  States
+  {
+  Spawn:
+    CRST H -1
+    Stop
+  }
+}
+
+ACTOR BrownCrystalDecor
+{
+  radius 16
+  height 16
+  States
+  {
+  Spawn:
+    CRST H -1
+    Stop
+  }
+}
+
+ACTOR BrownCrystalCounter : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
+  Inventory.Icon CRSTA
+  States
+  {
+  Spawn:
+    NULL A -1
+    Stop
+  }
+}

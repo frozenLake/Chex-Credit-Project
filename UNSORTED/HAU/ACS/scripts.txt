@@ -1,0 +1,780 @@
+#library "HAU.acs"
+#include "zcommon.acs"
+
+int supercharge=0;
+
+script 254 (void)
+{
+  delay(14 - GameSkill());
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 255 (void)
+{
+  Thing_Remove(9999);
+  Thing_Remove(9996);
+}
+
+script 256 (int increase)
+{
+  SetActorProperty(0,APROP_Damage,(GetActorProperty(0,APROP_Damage) + increase));
+  SetActorProperty(0,APROP_Health,(GetActorProperty(0,APROP_Health) + increase));
+}
+
+script 655 (void)
+{
+  delay(45 - (GameSkill() * 2));
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 656 (void)
+{
+  delay(28 - (GameSkill() * 3/2));
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 657 OPEN
+{
+  if(PlayerClass(0) == 0)
+  {
+    ACS_Execute(659,0);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    ACS_Execute(660,0);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    ACS_Execute(658,0);
+  }
+  else
+  if(PlayerClass(0) == 3)
+  {
+    ACS_Execute(656,0);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    ACS_Execute(655,0);
+  }
+}
+
+script 658 (void)
+{
+  delay(20 - (GameSkill() * 3/2));
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 659 (void)
+{
+  delay(38 - (GameSkill() * 2));
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 660 (void)
+{
+  delay(70 - (GameSkill() * 2));
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 661 (void)
+{
+  Thing_Remove(9999);
+  Thing_Remove(9996);
+  Thing_Destroy(9998,0);
+  Thing_Destroy(9997,0);
+}
+
+script 663 (void)
+{
+  SetActorProperty(0,APROP_SPEED,GetActorProperty(0,APROP_SPEED) * 11/10);
+}
+
+script 665 (void)
+{
+	SetAmmoCapacity("RechargePower", GetAmmoCapacity("RechargePower") + 50);
+        GiveInventory("RechargePower",50);
+}
+
+Script 666 (int mtid, int mmaxhp)
+{
+int monhp;
+int hdisp;
+monhp = getactorproperty(MTID, APROP_Health);
+setfont("NORMAL");
+hdisp = (monhp * 100 / mmaxhp);
+sethudsize(800,600,0);
+if (hdisp <= 0)
+hdisp = 0;
+hudmessage(i:hdisp; 1, 0, CR_WHITE, 120.1, 10.1, 1);
+int acounter;
+int bcounter;
+setfont ("MONHPBAR");
+hudmessagebold(s:"a"; 1, 101, CR_GREEN, 0.1, 1.1, 1);
+for (acounter = 0; acounter <= hdisp; acounter++)
+{
+if (hdisp <= 0)
+break;
+bcounter = bcounter + 2.0;
+setfont ("FILLNORM"); //By default, the bar shows as a blue bar.
+if (hdisp < 75) //If the hp is at a caution level (75%) Display a yellow bar.
+setfont ("FILLCAUT");
+if (hdisp < 50) //If the hp is at a dangerous level (50%) Display an orange bar.
+setfont ("FILLDANG"); 
+if (hdisp < 25) // If the hp is at a critical level (25%) Display a red bar.
+setfont ("FILLCRIT");
+hudmessagebold(s:"a"; 1, acounter, CR_GREEN, 23.1 + bcounter, 7.1, 1);
+}
+bcounter = 0;
+acounter = 0;
+delay(1);
+restart;
+}
+
+script 667 (void)
+{
+   if(GameSkill() == 0)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 1/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 6/10));
+   }
+   else if(GameSkill() == 1)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 2/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 7/10));
+   }
+   else if(GameSkill() == 2)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 3/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 8/10));
+   }
+   else if(GameSkill() == 3)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 1));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 1));
+   }
+   else if(GameSkill() == 4)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 5/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 12/10));
+   }
+   else if(GameSkill() == 5)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 6/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 13/10));
+   }
+   else if(GameSkill() == 6)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 2));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 14/10));
+   }
+   else if(GameSkill() == 7)
+   {
+      SetActorProperty(0,APROP_HEALTH,(GetActorProperty(0,APROP_HEALTH) * 10/4));
+      SetActorProperty(0,APROP_SPEED,(GetActorProperty(0,APROP_SPEED) * 15/10));
+   }
+   else
+     print(s: "Try again.");
+}
+
+script 668 (void)
+{
+  if(CheckInventory("ProgramLightAmp"))
+  {
+    if(CheckInventory("RechargePower") > 9)
+    {
+      if(CheckInventory("PowerLightAmp"))
+      {
+        print(s: "Light Amplification deactivated.");
+        TakeInventory("PowerLightAmp",1);
+      }
+      else
+      {
+        print(s: "Light Amplification activated.");
+        TakeInventory("RechargePower",10);
+        GiveInventory("PowerLightAmp",1);
+      }
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 669 (void)
+{
+  if(CheckInventory("ProgramInvisibility"))
+  {
+    if(CheckInventory("RechargePower") > 24)
+    {
+      print(s: "Invisibility activated.");
+      TakeInventory("RechargePower",25);
+      GiveInventory("PowerInvisibility",1);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 670 (void)
+{
+  if(CheckInventory("ProgramRegeneration"))
+  {
+    if(CheckInventory("RechargePower") > 49)
+    {
+      print(s: "Health Regeneration activated.");
+      TakeInventory("RechargePower",50);
+      GiveInventory("PowerRegeneration",1);
+      FadeTo(1.0,0,0,0.5,0.5);
+      delay(35 * 120);
+      FadeTo(1.0,0,0,0,0.5);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 671 (void)
+{
+  if(CheckInventory("ProgramDrain"))
+  {
+    if(CheckInventory("RechargePower") > 69)
+    {
+      print(s: "Health Drain activated.");
+      TakeInventory("RechargePower",70);
+      GiveInventory("PowerDrain",1);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 672 (void)
+{
+  if(CheckInventory("ProgramSpeedBoost"))
+  {
+    if(CheckInventory("RechargePower") > 39)
+    {
+      print(s: "Speed Boost activated.");
+      TakeInventory("RechargePower",40);
+      GiveInventory("PowerSpeed",1);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 673 (void)
+{
+  if(CheckInventory("ProgramHighJump"))
+  {
+    if(CheckInventory("RechargePower") > 39)
+    {
+      print(s: "Jump Boost activated.");
+      TakeInventory("RechargePower",40);
+      GiveInventory("PowerHighJump",1);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 674 (void)
+{
+  if(CheckInventory("ProgramPowerBoost"))
+  {
+    if(CheckInventory("RechargePower") > 99)
+    {
+      print(s: "Power Boost activated.");
+      TakeInventory("RechargePower",100);
+      GiveInventory("PowerQuadDamage",1);
+      FadeTo(0.1,1.0,1.0,0.3,0.5);
+      delay(35 * 25);
+      FadeTo(0.1,1.0,1.0,0,0.5);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 675 (void)
+{
+  if(CheckInventory("ProgramRepel"))
+  {
+    if(CheckInventory("RechargePower") > 79)
+    {
+      print(s: "Repel activated.");
+      TakeInventory("RechargePower",80);
+      GiveInventory("PowerFrightener",1);
+      FadeTo(0.8,0.7,0,0.4,0.5);
+      delay(35 * 60);
+      FadeTo(0.8,0.7,0,0,0.5);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 676 (void)
+{
+  if(CheckInventory("ProgramInvulnerability"))
+  {
+    if(CheckInventory("RechargePower") > 299)
+    {
+      print(s: "Invulnerability activated.");
+      TakeInventory("RechargePower",300);
+      GiveInventory("InvulnerabilitySphere",1);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 677 (void)
+{
+  if(CheckInventory("ProgramTimeFreeze"))
+  {
+    if(CheckInventory("RechargePower") > 99)
+    {
+      print(s: "Time Freeze activated.");
+      TakeInventory("RechargePower",100);
+      GiveInventory("PowerTimeFreezer",1);
+      FadeTo(0,1.0,0,0.6,0.5);
+      delay(35 * 12);
+      FadeTo(0,1.0,0,0,0.5);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 678 (void)
+{
+  if(CheckInventory("ProgramHyperMode"))
+  {
+    if(CheckInventory("RechargePower") > 499)
+    {
+      print(s: "Hypermode activated!");
+      TakeInventory("RechargePower",500);
+      GiveInventory("PowerDoubleFiringSpeed",1);
+      GiveInventory("PowerRegeneration",1);
+      GiveInventory("PowerDoubleDamage",1);
+      ACS_Execute(679,0);
+      FadeTo(1.0,1.0,1.0,0.4,0.5);
+      delay(35 * 120);
+      ACS_Terminate(679,0);
+      FadeTo(1.0,1.0,1.0,0,0.5);
+    }
+    else
+    
+    print(s: "You have insufficient battery power.");
+  }
+  else
+  print(s: "You have not yet obtained the required hardware.");
+}
+
+script 679 (void)
+{
+  delay(35/4);
+  GiveInventory("RechargePower",1);
+  restart;
+}
+
+script 970 (void)
+{
+  if(CheckInventory("RepeatingZorcherUpgradeLevel8"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel9",1);
+    Print(s: "Repeating Zorcher upgraded to Level 9!\nDZP installed!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel7"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel8",1);
+    Print(s: "Repeating Zorcher upgraded to Level 8!\nParticle Strength increased!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel6"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel7",1);
+    Print(s: "Repeating Zorcher upgraded to Level 7!\nAlt-Fire Special installed!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel5"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel6",1);
+    Print(s: "Repeating Zorcher upgraded to Level 6!\nParticle speed and strength increased!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel4"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel5",1);
+    Print(s: "Repeating Zorcher upgraded to Level 5!\nZorch Particle System installed!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel3"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel4",1);
+    Print(s: "Repeating Zorcher upgraded to Level 4!\nSpread increased! Firepower increased!");
+  }
+  else if(CheckInventory("RepeatingZorcherUpgradeLevel2"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel3",1);
+    Print(s: "Repeating Zorcher upgraded to Level 3!\nFirepower increased!");
+  }
+  else if(CheckInventory("RepeatingZorcher"))
+  {
+    GiveInventory("RepeatingZorcherUpgradeLevel2",1);
+    Print(s: "Repeating Zorcher upgraded to Level 2!\nRate of Fire increased!");
+  }
+  else
+  {
+    Print(s: "You couldn't have picked this up!");
+  }
+}
+
+script 982 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatMiniZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorMiniZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerMiniZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableMiniZorcherAttachment",1);
+  }
+}
+
+script 983 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatLargeZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorLargeZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerLargeZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableLargeZorcherAttachment",1);
+  }
+}
+
+script 984 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatMegaZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorMegaZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerMegaZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableMegaZorcherAttachment",1);
+  }
+}
+
+script 985 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatRapidZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorRapidZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerRapidZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableRapidZorcherAttachment",1);
+  }
+}
+
+script 986 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatChainZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorChainZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerChainZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableChainZorcherAttachment",1);
+  }
+}
+
+script 987 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatPortalWeaponAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorPortalWeaponAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerPortalWeaponAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitablePortalWeaponAttachment",1);
+  }
+}
+
+script 988 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatPhasingZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorPhasingZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerPhasingZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitablePhasingZorcherAttachment",1);
+  }
+}
+
+script 989 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatBeamZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorBeamZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerBeamZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableBeamZorcherAttachment",1);
+  }
+}
+
+script 991 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatFusionZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorFusionZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerFusionZorcherAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableFusionZorcherAttachment",1);
+  }
+}
+
+script 992 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    GiveInventory("CombatZorchCannonAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    GiveInventory("PredatorZorchCannonAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    GiveInventory("ScavengerZorchCannonAttachment",1);
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    GiveInventory("IndomitableZorchCannonAttachment",1);
+  }
+}
+
+script 993 (int increase)
+{
+  SetActorProperty(0,APROP_SPEED,GetActorProperty(0,APROP_SPEED) + increase);
+}
+
+script 990 ENTER
+{
+  Thing_ChangeTID(0,256);
+}
+
+script 994 (void)
+{
+	SetAmmoCapacity("RechargePower", GetAmmoCapacity("RechargePower") + 10);
+        GiveInventory("RechargePower",10);
+}
+
+script 995 (void)
+{
+  if(supercharge == 1)
+  {
+    ACS_Execute(997,0);
+  }
+  else
+  {
+    ACS_Execute(996,0);
+  }
+}
+
+script 996 (void)
+{
+  supercharge=1;
+  SetLineTexture(256,SIDE_FRONT,TEXTURE_MIDDLE,"LABSW38");
+  AmbientSound("switch/lever2",127);
+  ACS_Execute(998,0);
+  SetPlayerProperty(1,1,0);
+}
+
+script 997 (void)
+{
+  supercharge=0;
+  SetLineTexture(256,SIDE_FRONT,TEXTURE_MIDDLE,"LABSW37");
+  AmbientSound("switch/lever2",127);
+  ACS_Terminate(998,0);
+  SetPlayerProperty(1,0,0);
+}
+
+script 998 (void)
+{
+  if(PlayerClass(0) == 0)
+  {
+    delay(38 - (GameSkill() * 2));
+    GiveInventory("RechargePower",1);
+    restart;
+  }
+  else
+  if(PlayerClass(0) == 1)
+  {
+    delay(70 - (GameSkill() * 2));
+    GiveInventory("RechargePower",1);
+    restart;
+  }
+  else
+  if(PlayerClass(0) == 2)
+  {
+    delay(20 - (GameSkill() * 3/2));
+    GiveInventory("RechargePower",1);
+    restart;
+  }
+  else
+  if(PlayerClass(0) == 3)
+  {
+    delay(28 - (GameSkill() * 3/2));
+    GiveInventory("RechargePower",1);
+    restart;
+  }
+  else
+  if(PlayerClass(0) == 4)
+  {
+    delay(45 - (GameSkill() * 2));
+    GiveInventory("RechargePower",1);
+    restart;
+  }
+}

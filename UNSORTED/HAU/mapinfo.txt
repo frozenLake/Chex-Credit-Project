@@ -1,0 +1,223 @@
+defaultmap
+{
+  airsupply = 0
+  fallingdamage
+  keepfullinventory
+  noinfighting
+  checkswitchrange
+}
+
+clearepisodes
+
+episode map01
+{
+  name = "Canticle I"
+}
+
+episode map00
+{
+  name = "Tutorial"
+}
+
+map MAP00 "Tutorial"
+{
+	levelnum = 0
+	titlepatch = "WILV00"
+	next = "MAP01"
+	secretnext = "MAP31"
+	sky1 = "SKY01"
+	cluster = 1
+	par = 240
+	music = "MP01TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP01 "Canto I: Final Training"
+{
+	levelnum = 1
+	titlepatch = "WILV01"
+	next = "MAP02"
+	secretnext = "MAP31"
+	sky1 = "SKY01"
+	cluster = 1
+	par = 240
+	music = "MP01TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP02 "Canto II: The Way Out"
+{
+	levelnum = 2
+	titlepatch = "WILV02"
+	next = "MAP03"
+	secretnext = "MAP31"
+	sky1 = "SKY01"
+	cluster = 1
+	par = 240
+	music = "MP02TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP03 "Canto III: Antiquity"
+{
+	levelnum = 3
+	titlepatch = "WILV03"
+	next = "MAP04"
+	secretnext = "MAP31"
+	sky1 = "SKY01"
+	cluster = 1
+	par = 240
+	music = "MP03TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP04 "Canto IV: Close Encounters of the Fourth Kind"
+{
+	levelnum = 4
+	titlepatch = "WILV04"
+	next = "MAP05"
+	secretnext = "MAP31"
+	sky1 = "TITLEPIC"
+	cluster = 1
+	par = 240
+	music = "MP04TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP05 "Canto V: Drums in the Deep"
+{
+	levelnum = 5
+	titlepatch = "WILV05"
+	next = "MAP06"
+	secretnext = "MAP31"
+	sky1 = "SKY02"
+	cluster = 1
+	par = 240
+	music = "MP05TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP06 "Canto VI: Rescue in the Volcanic City, Part 1"
+{
+	levelnum = 6
+	titlepatch = "WILV06"
+	next = "MAP07"
+	secretnext = "MAP31"
+	sky1 = "SKY03"
+	cluster = 1
+	par = 240
+	music = "MP06TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+map MAP07 "Canto VII: Rescue in the Volcanic City, Part 2"
+{
+	levelnum = 7
+	titlepatch = "WILV07"
+	next = "MAP08"
+	secretnext = "MAP31"
+	sky1 = "SKY03"
+	cluster = 1
+	par = 240
+	music = "MP07TRAK"
+        enterpic = "INTER01"
+        exitpic = "INTER01"
+}
+
+clearskills
+
+skill HOJ
+{
+  ammofactor = 2.0
+  damagefactor = 0.5
+  spawnfilter = 1
+  acsreturn = 0
+  name = "Hunk of Junk"
+  textcolor = "Green"
+}
+
+skill SM
+{
+  ammofactor = 1.0
+  damagefactor = 0.7
+  spawnfilter = 2
+  acsreturn = 1
+  name = "Scrap Metal"
+  textcolor = "Green"
+}
+
+skill MO
+{
+  ammofactor = 1.0
+  damagefactor = 0.9
+  spawnfilter = 3
+  acsreturn = 2
+  aggressiveness = 0.2
+  name = "Microwave Oven"
+  textcolor = "Green"
+}
+
+skill PC
+{
+  ammofactor = 1.0
+  damagefactor = 1.0
+  spawnfilter = 4
+  acsreturn = 3
+  aggressiveness = 0.3
+  name = "Pocket Calculator"
+  textcolor = "Green"
+}
+
+skill PeC
+{
+  ammofactor = 1.0
+  damagefactor = 1.3
+  spawnfilter = 5
+  acsreturn = 4
+  aggressiveness = 0.4
+  name = "Petite Computer"
+  textcolor = "Green"
+}
+
+skill DT
+{
+  ammofactor = 1.0
+  damagefactor = 1.6
+  spawnfilter = 6
+  acsreturn = 5
+  aggressiveness = 0.6
+  name = "Desktop"
+  textcolor = "Green"
+}
+
+skill SC
+{
+  ammofactor = 2.0
+  damagefactor = 2.0
+  spawnfilter = 7
+  acsreturn = 6
+  aggressiveness = 0.8
+  name = "Supercomputer"
+  mustconfirm = "Are you sure? This will be tough."
+  textcolor = "Green"
+}
+
+skill HAU
+{
+  ammofactor = 3.0
+  fastmonsters
+  damagefactor = 2.5
+  spawnfilter = 8
+  acsreturn = 7
+  aggressiveness = 1.0
+  name = "H. A. U."
+  mustconfirm = "Warning: This skill level made our beta testers cry."
+  textcolor = "White"
+}

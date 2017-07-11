@@ -1,0 +1,284 @@
+// The Ultimat Chex Quest MAPINFO lump
+
+clearepisodes
+
+episode E1M1
+picname M_EPI1
+
+episode E2M1
+picname M_EPI2
+
+episode E3M1
+picname M_EPI3
+
+episode E4M1
+picname M_EPI4
+
+// Episode 1
+
+map CSINTRO "Cutscene"
+levelnum 0
+next E1M1
+secretnext E1M1
+sky1 BLACK 0
+music D_E1M5
+nofreelook
+nointermission
+
+map E1M1 "Landing Zone"
+levelnum 1
+titlepatch WILV00
+next E1M2
+secretnext E1M2
+sky1 SKY1 0
+cluster 1
+par 75
+music D_E1M1
+intermusic D_INTER
+exitpic $INTERM01
+noinfighting
+
+map E1M2 "Storage Facility"
+levelnum 2
+titlepatch WILV01
+next E1M3
+secretnext E1M3
+sky1 SKY1 0
+cluster 1
+par 180
+music D_E1M2
+intermusic D_INTER
+exitpic $INTERM01
+enterpic $INTERM01
+noinfighting
+
+map E1M3 "Laboratory"
+levelnum 3
+titlepatch WILV02
+next E1M4
+secretnext E1M4
+sky1 SKY1 0
+cluster 1
+par 180
+music D_E1M3
+intermusic D_INTER
+exitpic $INTERM01
+enterpic $INTERM01
+noinfighting
+
+map E1M4 "Arboretum"
+levelnum 4
+titlepatch WILV03
+next E1M5
+secretnext E1M5
+sky1 SKY1 0
+cluster 1
+par 180
+music D_E1M4
+intermusic D_INTER
+exitpic $INTERM01
+enterpic $INTERM01
+noinfighting
+
+map E1M5 "Caverns of Bazoik"
+levelnum 5
+titlepatch WILV04
+next EndPIC LURKER
+secretnext Endpic LURKER
+sky1 SKY1 0
+cluster 1
+par 240
+music D_E1M5
+enterpic $INTERM01
+noinfighting
+nointermission
+
+
+
+// Episode 2
+
+map E2M1 "Spaceport"
+levelnum 11
+titlepatch WILV10
+exitpic DINERPIC
+next E2M3
+secretnext E2M3
+sky1 SKY2 0
+cluster 2
+par 90
+music D_E2M1
+intermusic D_INTER
+noinfighting
+NoJump
+
+map E2M2 "Cinema"
+levelnum 12
+titlepatch WILV11
+enterpic DINERPIC
+exitpic DINERPIC
+next E2M3
+secretnext E2M3
+sky1 SKY2 0
+cluster 2
+par 210
+music D_E2M2
+intermusic D_INTER
+noinfighting
+
+map E2M3 "Chex Museum"
+levelnum 13
+titlepatch WILV12
+enterpic DINERPIC
+next E2M4
+secretnext E2M4
+sky1 SKY2 0
+cluster 2
+par 180
+music D_E2M3
+intermusic D_INTER
+exitpic $INTERM02
+noinfighting
+
+map E2M4 "City Streets"
+levelnum 14
+titlepatch WILV13
+exitpic HALLWAY
+enterpic $INTERM02
+next E2M5
+secretnext E2M5
+sky1 SKY2 0
+cluster 2
+par 120
+music D_E2M4
+intermusic D_INTER
+noinfighting
+evenlighting
+
+map E2M5 "Sewer System"
+levelnum 15
+titlepatch WILV14
+enterpic HALLWAY
+next Endpic HERO
+secretnext Endpic HERO
+sky1 SKY2 0
+cluster 2
+par 240
+music D_E2M5
+noinfighting
+nointermission
+
+
+// Registered/Retail Episode 3
+
+map E3M1 "No Episode Yet"
+levelnum 21
+titlepatch WILV20
+next EndGame2
+secretnext EndGame2
+sky1 SKY3 0
+cluster 3
+par 90
+music D_E1M1
+noinfighting
+nointermission
+
+
+
+// Retail Episode 4
+
+map E4M1 "No Episode Yet"
+levelnum 31
+titlepatch WILV30
+next EndGame2
+secretnext EndGame2
+sky1 SKY4 0
+cluster 4
+music D_E1M1
+nointermission
+
+map E4M2 "Test Level"
+levelnum 32
+titlepatch WILV30
+next EndGame2
+secretnext EndGame2
+sky1 SKY4 0
+cluster 4
+music D_E1M1
+noinfighting
+nointermission
+
+
+
+// Clusters (correspond with same-numbered episode)
+
+clusterdef 1
+pic GRADED
+music D_VICTOR
+exittext "With the rescue of the hostages and the
+bannishment of the last flemoids back to 
+their own dimension Bazoik is now safe.
+
+You leave the grateful population of
+Bazoik, and rocket back to your home of
+Chex City, ...
+
+but something is wrong.
+
+As you land at the spaceport, everything is
+quiet--too quiet. Could the flemoids be
+here in Chex City?
+
+If so, are you hero enough to face them
+again and free your beloved home?
+
+Find out in the next exciting episode!"
+
+clusterdef 2
+pic GRADED
+music D_VICTOR
+exittext "You emerge from the sewers on the wrong
+side of town and discover an abandoned
+laboratory. You enter the code from the
+sewer into one of the computers and are
+shocked to discover information on
+flemoids and how to teleport them into
+our dimension. The flemoid invasion was
+no accident!
+
+Time is running out. You must find the
+person responsible before he puts his
+full invasion plans into effect!
+
+You are on the trail of a cereal killer.
+
+The fate of the galaxy is in your hands!"
+
+clusterdef 3
+pic GRADED
+music D_E1M5
+exittext "
+
+
+This episode has not been created yet,
+but the work continues ...
+
+
+Please check doomlegends.com for new
+developments as they happen."
+// .........................................
+
+
+
+
+clusterdef 4
+pic GRADED
+music D_E1M5
+exittext "
+
+
+This episode has not been created yet,
+but the work continues ...
+
+
+Please check doomlegends.com for new
+developments as they happen."

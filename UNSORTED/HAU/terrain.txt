@@ -1,0 +1,181 @@
+splash Water
+{
+	smallclass		WaterSplash
+	smallclip		12
+	smallsound		world/drip
+
+	baseclass		WaterSplashBase
+	chunkclass		WaterSplash
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			world/watersplash
+}
+
+splash Blood
+{
+	smallclass		BloodSplash
+	smallclip		12
+	smallsound		world/sludgegloop
+
+	baseclass		BloodSplashBase
+	chunkclass		BloodSplash
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	1
+	sound			world/sludgegloop
+}
+
+splash Nuke
+{
+	smallclass		LavaSmoke
+	smallclip		12
+	smallsound		world/lavasizzle
+
+	baseclass		SlimeSplash
+	chunkclass		LavaSmoke
+	chunkxvelshift	-1
+	chunkyvelshift	-1
+	chunkzvelshift	7
+	chunkbasezvel	1
+	sound			world/lavasizzle
+}
+
+splash Lava
+{
+	smallclass		LavaSmoke
+	smallclip		12
+	smallsound		world/lavasizzle
+
+	baseclass		LavaSplash
+	chunkclass		LavaSmoke
+	chunkxvelshift	-1
+	chunkyvelshift	-1
+	chunkzvelshift	7
+	chunkbasezvel	1
+	sound			world/lavasizzle
+}
+
+splash Slime
+{
+	smallclass		SludgeChunk
+	smallclip		12
+	smallsound		world/sludgegloop
+
+	baseclass		SludgeSplash
+	chunkclass		SludgeChunk
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	1
+	sound			world/sludgegloop
+}
+
+splash Hot
+{
+	smallclass		LavaSmoke
+	smallclip		12
+	smallsound		world/hotsiz
+
+	baseclass		SlimeChunk
+	chunkclass		LavaSmoke
+	chunkxvelshift	-1
+	chunkyvelshift	-1
+	chunkzvelshift	7
+	chunkbasezvel	1
+	sound			world/hotsiz
+}
+
+terrain Lava
+{
+	splash			Lava
+	footclip		10
+	liquid
+	friction		0.7
+
+        damagetype              Flem
+        damageamount            4
+        damagetimemask          15
+}
+
+terrain Blood
+{
+	splash			Blood
+	footclip		10
+	liquid
+}
+
+terrain Nuke
+{
+	splash			Nuke
+	footclip		10
+	liquid
+
+	friction		0.8
+
+        damagetype              Flem
+        damageamount            2
+        damagetimemask          15
+}
+
+terrain Slime
+{
+	splash			Slime
+	footclip		10
+	liquid
+}
+
+terrain Hot
+{
+	splash			Hot
+	footclip		10
+	liquid
+}
+
+ifdoom
+floor BLOOD1 Blood
+floor BLOOD2 Blood
+floor BLOOD3 Blood
+floor SLME01 Nuke
+floor SLME02 Nuke
+floor SLME03 Nuke
+floor SLMEF01 Nuke
+floor SLMEF02 Nuke
+floor SLMEF03 Nuke
+floor SLMEF04 Nuke
+floor SLMEF05 Nuke
+floor SLMEF06 Nuke
+floor SLMEF11 Nuke
+floor SLMEF12 Nuke
+floor SLMEF13 Nuke
+floor SLMEF14 Nuke
+floor SLMEF15 Nuke
+floor SLMEF16 Nuke
+floor SLMEF17 Nuke
+floor SLMEF18 Nuke
+floor SLMEF19 Nuke
+floor SLMEF20 Nuke
+floor SLMEF21 Nuke
+floor SLMEF22 Nuke
+floor SLMEF23 Nuke
+floor SLMEF24 Nuke
+floor SLMEF25 Nuke
+floor WATER01 Water
+floor WATER02 Water
+floor WATER03 Water
+floor WATER04 Water
+floor SLMEF07 Lava
+floor SLMEF08 Lava
+floor SLMEF09 Lava
+floor SLMEF10 Lava
+floor RROCK05 Hot
+floor RROCK06 Hot
+floor RROCK07 Hot
+floor RROCK08 Hot
+floor SLIME09 Hot
+floor SLIME10 Hot
+floor SLIME11 Hot
+floor SLIME12 Hot
+endif

@@ -1,0 +1,3367 @@
+actor FlemPuff : BulletPuff
+{
+  damagetype Flem
+  states
+  {
+  Spawn:
+    NULL A 4 bright
+    NULL A 4
+  Melee:
+    NULL AA 4
+    stop
+  }
+}
+
+actor Commonus replaces Zombieman
+{
+  spawnid 4
+  health 20
+  radius 20
+  height 56
+  mass 100
+  speed 8
+  Species "Flemoid"
+  Obituary "%o was slimed by a Flemoid." 
+  damagefactor "Flem",0
+  painchance 200
+  seesound "grunt/sight"
+  attacksound "grunt/attack"
+  painsound "grunt/pain"
+  deathsound "grunt/death"
+  activesound "grunt/active"
+  MONSTER
+  +NOTARGET
+  +FLOORCLIP
+  +FASTER
+  states
+  {
+  Spawn:
+    POSS A 1
+    POSS A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    POSS AB 10 A_Look
+    loop
+  See:
+    POSS AABBCCDD 4 A_Chase
+    loop
+  Melee:
+    POSS E 10 A_FaceTarget
+    POSS F 10 A_CustomMeleeAttack(random[posattack](1,5)*3, "", "", "Flem")
+    POSS E 8
+    goto See
+  Pain:
+    POSS G 3 Bright
+    POSS G 3 Bright A_Pain
+    goto See
+  Pain.Ice:
+    POSS A 0
+    goto Missile
+  Death:
+    POSS H 5 Bright
+    POSS I 5 Bright A_Scream
+    POSS J 5 Bright A_NoBlocking
+    POSS K 5 Bright
+    POSS L -1
+    stop
+  XDeath:
+    POSS M 5
+    POSS N 5 Bright A_XScream
+    POSS O 5 Bright A_NoBlocking
+    POSS PQRST 5 Bright
+    POSS U -1
+    stop
+  Ice:
+    POSS A 5 A_GenericFreezeDeath
+    POSS A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor Bipedicus replaces ShotgunGuy
+{
+  spawnid 1
+  obituary "$OB_SHOTGUY"
+  health 30
+  radius 20
+  height 56
+  mass 100
+  speed 12
+  Species "Flemoid"
+  painchance 170
+  damagefactor "Flem",0
+  damagetype Flem
+  seesound "shotguy/sight"
+  attacksound "shotguy/attack"
+  painsound "shotguy/pain"
+  deathsound "shotguy/death"
+  activesound "shotguy/active"
+  MONSTER
+  +NOTARGET
+  +FLOORCLIP
+  +FASTER
+  states
+  {
+  Spawn:
+    SPOS A 1
+    SPOS A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    SPOS AB 10 A_Look
+    loop
+  See:
+    SPOS AABBCCDD 3 A_Chase
+    loop
+  Melee:
+    SPOS E 10 A_FaceTarget
+    SPOS F 10 A_CustomMeleeAttack(random[posattack](3,8)*3, "", "", "Flem")
+    SPOS E 10
+    goto See
+  Pain:
+    SPOS G 3
+    SPOS G 3 A_Pain
+    goto See
+  Pain.Ice:
+    SPOS A 0
+    goto Missile
+  Death:
+    SPOS M 5 Bright
+    SPOS G 5 Bright A_Scream
+    SPOS H 5 Bright A_NoBlocking
+    SPOS NOJPIQRSKT 5 Bright
+    NULL A -1
+    stop
+  Ice:
+    SPOS A 5 A_GenericFreezeDeath
+    SPOS A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+ACTOR PhaseBipedicus 24105
+{
+    Health 250
+    Radius 20
+    Height 56
+    Mass 120
+    Speed 8
+    Species "Flemoid"
+    DamageFactor "Flem",0
+    PainChance 125
+    MeleeDamage 7
+    MONSTER
+    +FLOORCLIP
+    +FASTER
+    +THRUGHOST
+    seesound "shotguy/sight"
+    attacksound "shotguy/attack"
+    painsound "shotguy/pain"
+    deathsound "shotguy/death"
+    activesound "shotguy/active"
+    Obituary "%o was slimed by a Phase Bipedicus."
+    HitObituary "%o was slimed by a Phase Bipedicus."
+    MissileType PhaseBipedicusBall
+    States
+    {
+    Spawn:
+      SPOS A 1
+      SPOS A 3 ACS_ExecuteAlways(667,0)
+      goto Spawn2
+    Spawn2:
+      SPOS AB 10 A_Look
+      loop
+    See:
+        SPOS AABBCCDD 3 A_Chase
+        Loop
+    See2:
+        SPOS AABBCCDD 3 A_Chase("Missile2","Missile2")
+        Loop
+    Melee:
+        SPOS E 8 A_FaceTarget
+        SPOS F 6 A_ComboAttack
+        Goto See
+    Missile:
+        SPOS A 8 Bright A_FaceTarget
+        SPOS A 0 A_FaceTarget
+        SPOS A 1 Bright A_SetTranslucent(0.9)
+        SPOS A 1 Bright A_SetTranslucent(0.8)
+        SPOS A 1 Bright A_SetTranslucent(0.7)
+        SPOS A 1 Bright A_SetTranslucent(0.6)
+        SPOS A 1 Bright A_SetTranslucent(0.5)
+        SPOS A 1 Bright A_SetTranslucent(0.4)
+        SPOS A 1 Bright A_SetTranslucent(0.3)
+        SPOS A 1 Bright A_SetTranslucent(0.2)
+        SPOS A 1 Bright A_SetTranslucent(0.1)
+        SPOS A 0 A_HideThing
+        Goto See2
+    Missile2:
+        SPOS EF 8 A_FaceTarget
+        SPOS E 6 A_ComboAttack
+        Goto See2
+    Pain:
+        SPOS G 0 A_UnHideThing
+        SPOS G 2 A_SetTranslucent(1)
+        SPOS G 2 A_Pain
+        Goto See
+    Death:
+	SPOS M 0 Bright A_UnHideThing
+	SPOS M 5 Bright A_SetTranslucent(1)
+	SPOS G 5 Bright A_Scream
+	SPOS H 5 Bright A_NoBlocking
+	SPOS NOJPIQRSKT 5 Bright
+	NULL A -1
+        Stop
+    Raise:
+	TFOG ABABCDEFGHIJ 6 Bright
+        Goto See
+    }
+}
+
+ACTOR PhaseBipedicusBall
+{
+    Radius 6
+    Height 8
+    Speed 15
+    FastSpeed 25
+    Damage 7
+    DamageType "Flem"
+    PROJECTILE
+    +SEEKERMISSILE
+    +VISIBILITYPULSE
+    SeeSound "imp/attack"
+    DeathSound "imp/shotx"
+    RenderStyle Add
+    States
+    {
+    Spawn:
+        BAL1 A 1 A_BishopMissileWeave
+        BAL1 A 1 A_BishopMissileWeave
+        Loop
+    Death:
+        BAL1 CD 6
+        BAL1 E 6 A_Mushroom("BWABall",5)
+        Stop
+    }
+}
+
+actor Perforatus replaces ChaingunGuy
+{
+  obituary "%o was speed-slimed by a Perforatus."
+  health 90
+  radius 20
+  height 56
+  mass 100
+  speed 12
+  painchance 150
+  damagetype Flem
+  damagefactor "Flem",0
+  Species "Flemoid"
+  seesound "chainguy/sight"
+  attacksound "chainguy/attack"
+  painsound "chainguy/pain"
+  deathsound "chainguy/death"
+  activesound "chainguy/active"
+  MONSTER
+  +FLOORCLIP
+  states
+  {
+  Spawn:
+    GATT A 1
+    GATT A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    GATT AB 10 A_Look
+    loop
+  See:
+    GATT AABBCCDD 3 A_Chase
+    loop
+  Missile:
+    GATT E 9 A_FaceTarget
+    GATT FE 3 A_CustomBulletAttack(5.6,0,1,2,"FlemPuff")
+    GATT F 1 A_CPosRefire
+    goto Missile+1
+  Pain:
+    GATT G 3 Bright
+    GATT G 3 Bright A_Pain
+    goto See
+  Pain.Ice:
+    GATT A 0
+    goto Missile
+  Death:
+    GATT H 5 Bright
+    GATT I 5 Bright A_Scream
+    GATT J 5 Bright A_NoBlocking
+    GATT K 5
+    GATT L -1
+    stop
+  Ice:
+    GATT A 5 A_GenericFreezeDeath
+    GATT A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor PerforatusWithArmor replaces Arachnotron
+{
+  obituary "%o was super-slimed by a Perforatus wearing armor."
+  health 650
+  radius 20
+  height 56
+  mass 100
+  speed 16
+  scale 1.0
+  Species "Flemoid"
+  painchance 110
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  BloodColor "Red"
+  seesound "chainguy/sight"
+  attacksound "chainguy/attack"
+  painsound "chainguy/pain"
+  deathsound "chainguy/death"
+  activesound "chainguy/active"
+  MONSTER
+  +FLOORCLIP
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    GAT2 A 1
+    GAT2 A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    GAT2 AB 10 A_Look
+    loop
+  See:
+    GAT2 AABBCCDD 3 A_Chase
+    loop
+  Missile:
+    GAT2 E 9 A_FaceTarget
+    GAT2 FE 0 A_CustomMissile("PerforatusBall",32,20,0,0)
+    GAT2 FE 0 A_CustomMissile("PerforatusBall",32,-20,0,0)
+    GAT2 F 12 A_CPosRefire
+    goto Missile+1
+  Pain:
+    GAT2 G 3 Bright
+    GAT2 G 3 Bright A_Pain
+    goto See
+  Pain.Ice:
+    GAT2 A 0
+    goto Missile
+  Death:
+    GAT2 H 5 Bright
+    GAT2 I 5 Bright A_Scream
+    GAT2 J 5 Bright A_NoBlocking
+    GAT2 K 5 Bright
+    GAT2 LMNOPQ 5 Bright
+    NULL A -1
+    stop
+  Ice:
+    GAT2 A 5 A_GenericFreezeDeath
+    GAT2 A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor PerforatusBall
+{
+  Radius 13
+  Height 8
+  Speed 25
+  Damage 2
+  RenderStyle Normal
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  Projectile
+  +RANDOMIZE
+  +STRIFEDAMAGE
+  states
+  {
+  Spawn:
+    BAL1 AB 5
+    loop
+  Death:
+    BAL1 ABCDE 5
+    stop
+  }
+}
+
+actor Teleportus replaces Archvile
+{
+  spawnid 111
+  obituary "$OB_VILE"
+  health 900
+  radius 20
+  height 56
+  mass 500
+  speed 15
+  scale 1.3
+  painchance 10
+  Species "Flemoid"
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  seesound "vile/sight"
+  painsound "vile/pain"
+  deathsound "vile/death"
+  activesound "vile/active"
+  bloodcolor "FF 1F 1F"
+  MONSTER
+  +FLOORCLIP
+  +FASTER
+  +NOTARGET
+  +QUICKTORETALIATE
+  +SHORTMISSILERANGE
+  +THRUGHOST
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    VILE A 1
+    VILE A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    VILE AB 10 A_Look
+    loop
+  See:
+    VILE AABBCCDDEEFF 2 A_VileChase
+    loop
+  See2:
+    VILE AABBCCDDEEFF 1 A_Chase("Missile3","Missile3",9)
+    loop
+  Missile:
+    VILE G 0 A_Jump(64,"Missile2")
+    VILE G 0 A_Jump(64,"Hide")
+    VILE GH 5 A_FaceTarget
+    VILE I 10 A_CustomMissile("TeleportusBall",36)
+    goto See
+  Missile2:
+    VILE G 0 bright A_VileStart
+    VILE G 10 bright A_FaceTarget
+    VILE H 8 bright A_VileTarget
+    VILE IJKLMN 8 bright A_FaceTarget
+    VILE O 8 bright A_VileAttack("vile/stop",random(20,75),0,0,0,"Flem")
+    VILE P 20 bright
+    goto See
+  Missile3:
+    VILE G 0 A_Jump(64,"Missile4")
+    VILE A 0 A_FaceTarget
+    VILE A 0 A_UnHideThing
+    VILE A 2 A_SetTranslucent(0.1,0)
+    VILE A 2 A_SetTranslucent(0.2,0)
+    VILE A 2 A_SetTranslucent(0.3,0)
+    VILE A 2 A_SetTranslucent(0.4,0)
+    VILE A 2 A_SetTranslucent(0.5,0)
+    VILE A 2 A_SetTranslucent(0.6,0)
+    VILE A 2 A_SetTranslucent(0.7,0)
+    VILE A 2 A_SetTranslucent(0.8,0)
+    VILE A 2 A_SetTranslucent(0.9,0)
+    VILE A 0 A_UnSetInvulnerable 
+    VILE GH 5 A_FaceTarget
+    VILE I 10 A_CustomMissile("TeleportusBall",36)
+    goto See
+  Missile4:
+    VILE A 0 A_FaceTarget
+    VILE A 0 A_UnHideThing
+    VILE A 2 A_SetTranslucent(0.1,0)
+    VILE A 2 A_SetTranslucent(0.2,0)
+    VILE A 2 A_SetTranslucent(0.3,0)
+    VILE A 2 A_SetTranslucent(0.4,0)
+    VILE A 2 A_SetTranslucent(0.5,0)
+    VILE A 2 A_SetTranslucent(0.6,0)
+    VILE A 2 A_SetTranslucent(0.7,0)
+    VILE A 2 A_SetTranslucent(0.8,0)
+    VILE A 2 A_SetTranslucent(0.9,0)
+    VILE A 0 A_UnSetInvulnerable
+    VILE G 0 bright A_VileStart
+    VILE G 10 bright A_FaceTarget
+    VILE H 8 bright A_VileTarget
+    VILE IJKLMN 8 bright A_FaceTarget
+    VILE O 8 bright A_VileAttack("vile/stop",random(20,75),0,0,0,"Flem")
+    VILE P 20 bright
+    goto See
+  Hide:
+    VILE A 0 A_FaceTarget
+    VILE A 0 A_SetInvulnerable
+    VILE A 2 A_SetTranslucent(0.9,0)
+    VILE A 2 A_SetTranslucent(0.8,0)
+    VILE A 2 A_SetTranslucent(0.7,0)
+    VILE A 2 A_SetTranslucent(0.6,0)
+    VILE A 2 A_SetTranslucent(0.5,0)
+    VILE A 2 A_SetTranslucent(0.4,0)
+    VILE A 2 A_SetTranslucent(0.3,0)
+    VILE A 2 A_SetTranslucent(0.2,0)
+    VILE A 2 A_SetTranslucent(0.1,0)
+    VILE A 2 A_HideThing
+    goto See2
+  Heal:
+    TLPH AB 10 bright
+    TLPH A 0 A_JumpIf(alpha < 1,"See2")
+    goto See
+  Pain:
+    VILE Q 5 Bright
+    VILE Q 5 Bright A_Pain
+    goto See
+  Pain.Ice:
+    VILE A 0
+    goto Missile
+  Death:
+    VILE Q 7 Bright
+    VILE R 7 Bright A_Scream
+    VILE S 7 Bright A_NoBlocking
+    VILE TUVW 7 Bright
+    VILE XY 5 Bright
+    VILE Z -1
+    stop
+  Ice:
+    VILE A 5 A_GenericFreezeDeath
+    VILE A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor TeleportusBall
+{
+  Radius 26
+  Height 16
+  Speed 30
+  Damage 17
+  RenderStyle Translucent
+  Alpha 0.7
+  Scale 2.0
+  Translation "112:127=176:191"
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  Projectile
+  +RANDOMIZE
+  states
+  {
+  Spawn:
+    BAL1 AB 5
+    loop
+  Death:
+    BAL1 ABCDE 5
+    stop
+  }
+}
+
+actor TeleportusFire replaces ArchvileFire
+{
+  SpawnID 98
+  RenderStyle Translucent
+  Alpha 0.7
+  +NOBLOCKMAP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    FIRE A 2 A_StartFire
+    FIRE BAB 2 A_Fire
+    FIRE C 2 A_FireCrackle
+    FIRE BCBCDCDCDEDED 2 A_Fire
+    FIRE E 2 A_FireCrackle
+    FIRE FEFEFGHGHGH 2 A_Fire
+    Stop
+  }
+}
+
+actor Flembrane2 replaces BaronOfHell
+{
+Health 1500
+Radius 64
+Height 64
+Mass 10000
+Speed 0
+painchance 75
+seesound "baron/sight"
+painsound "baron/pain"
+deathsound "baron/death"
+activesound "baron/active"
+damagefactor "Flem",0
+Species "Flemoid"
+obituary "$OB_BARON"
+hitobituary "$OB_BARONHIT"
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++THRUGHOST
++DONTRIP
+States
+{
+   Spawn:
+    BOSS A 1
+    BOSS A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    BOSS AB 10 A_Look
+    loop
+  See:
+    BOSS AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    BOSS E 0 A_Jump(250 - health/10,"Missile2")
+    BOSS E 3
+    BOSS F 3 A_FaceTarget
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,20,-5)
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,0)
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,-40,5)
+    BOSS E 3 A_FaceTarget
+    BOSS F 3 A_FaceTarget
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,20,-10)
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,-40,10)
+    Goto See
+  Missile2:
+    BOSS E 3
+    BOSS F 3 A_FaceTarget
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 0 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    BOSS G 6 A_CustomMissile("FlembraneBall",57,0,random(-50,50))
+    goto Missile+2
+  Pain:
+    BOSS H  2
+    BOSS H  2 A_Pain
+    Goto Missile
+  Death:
+    BOSS I  8
+    BOSS J  8 A_Scream
+    BOSS K  8
+    BOSS L  8 A_NoBlocking
+    BOSS MN 8
+    BOSS O -1
+    Stop
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  Ice:
+    BOSS A 5 A_GenericFreezeDeath
+    BOSS A 1 A_FreezeDeathChunks
+    wait
+  }
+}
+
+actor FlembraneBall replaces BaronBall
+{
+  spawnid 154
+  radius 6
+  height 16
+  speed 15
+  fastspeed 20
+  damage 8
+  renderstyle Normal
+  seesound "baron/attack"
+  deathsound "baron/shotx"
+  damagetype Flem
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL7 AB 4
+    loop
+  Death:
+    BAL7 CDE 6
+    stop
+  }
+}
+
+actor Maximus : Flembrane replaces HellKnight
+{
+  spawnid 113
+  obituary "$OB_KNIGHT"
+  hitobituary "$OB_KNIGHTHIT"
+  health 1000
+  radius 24
+  height 64
+  mass 1000
+  speed 8
+  Species "Flemoid"
+  painchance 50
+  damagefactor "Flem",0
+  seesound "knight/sight"
+  painsound "knight/pain"
+  deathsound "knight/death"
+  activesound "knight/active"
+  missiletype "MaximusBall"
+  MONSTER
+  +FLOORCLIP
+  +FASTER
+  +THRUGHOST
+  +DONTRIP
+  states
+  {
+  Spawn:
+    BOS2 A 1
+    BOS2 A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    BOS2 AB 10 A_Look
+    loop
+  See:
+    BOS2 AABBCCDD 3 A_Chase
+    loop
+  Melee:
+  Missile:
+    BOS2 EF 8 A_FaceTarget
+    BOS2 G 8 A_MissileAttack
+    goto See
+  Pain:
+    BOS2 H 2 Bright
+    BOS2 H 2 Bright A_Pain
+    goto See
+  Pain.Ice:
+    BOS2 A 0
+    goto Missile
+  Death:
+    BOS2 I 8 Bright
+    BOS2 J 8 Bright A_Scream
+    BOS2 K 8 Bright
+    BOS2 L 8 Bright A_NoBlocking
+    BOS2 MN 8 Bright
+    BOS2 O -1 A_BossDeath
+    stop
+  Ice:
+    BOS2 A 5 A_GenericFreezeDeath
+    BOS2 A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor MaximusBall
+{
+  spawnid 154
+  radius 6
+  height 16
+  speed 15
+  fastspeed 20
+  damage 8
+  renderstyle Normal
+  seesound "baron/attack"
+  deathsound "baron/shotx"
+  damagetype Flem
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL7 AB 4
+    loop
+  Death:
+    BAL7 CDE 6
+    stop
+  }
+}
+
+actor Ultricus replaces Cacodemon
+{
+  spawnid 19
+  obituary "%o was slimeified by an Ultricus."
+  hitobituary "%o got too close to an Ultricus."
+  health 400
+  radius 31
+  height 56
+  mass 400
+  speed 15
+  Species "Flemoid"
+  painchance 128
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  seesound "caco/sight"
+  painsound "caco/pain"
+  deathsound "caco/death"
+  activesound "caco/active"
+  attacksound "caco/melee"
+  missiletype "UltricusBall"
+  MONSTER
+  +FLOAT
+  +NOGRAVITY
+  +DONTFALL
+  +FASTER
+  +THRUGHOST
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    HEAD A 1
+    HEAD A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    HEAD AB 10 A_Look
+    loop
+  See:
+    HEAD A 3 A_FastChase
+    loop
+  Melee:
+    HEAD BC 1 A_FaceTarget
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 1 A_CustomMeleeAttack(random(10,15) * random(1,5),"demon/melee","demon/melee","Flem",1)
+    goto Missile
+  Missile:
+    HEAD A 0 A_Jump(32,"Missile2")
+    HEAD A 0 A_Jump(64,"Tractor")
+    HEAD BC 5 A_FaceTarget
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 5 A_MissileAttack
+    goto See
+  Missile2:
+    HEAD B 0 A_FaceTarget
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    HEAD D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,192)
+    Head B 5 A_CustomMissile("SuperCycloptisFlemMissile",25)
+    goto See
+  Tractor:
+    HEAD AA 5 A_FaceTarget
+    HEAD A 0 A_FaceTarget
+    HEAD A 5 A_CustomMissile("SuperCycloptisTractorBeam")
+    HEAD A 35
+    goto See
+  Pain:
+    HEAD E 3 Bright
+    HEAD E 3 Bright A_Pain
+    HEAD F 6 Bright
+    goto See
+  Pain.Ice:
+    HEAD A 0
+    goto Missile
+  Death:
+    HEAD G 8 Bright
+    HEAD H 8 Bright A_Scream
+    HEAD IJ 8 Bright
+    HEAD K 8 Bright A_NoBlocking
+    HEAD L -1 Bright A_SetFloorClip
+    stop
+  Ice:
+    HEAD A 5 A_GenericFreezeDeath
+    HEAD A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    HEAD A 6 A_UnSetFloorClip
+    TFOG BABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor UltricusBall replaces CacodemonBall
+{
+  spawnid 126
+  radius 6
+  height 8
+  speed 13
+  fastspeed 20
+  damage 5
+  renderstyle Normal
+  damagetype Flem
+  seesound "caco/attack"
+  deathsound "caco/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL2 AB 4
+    loop
+  Death:
+    BAL2 CDE 5
+    stop
+  }
+}
+
+actor SuperCycloptisFlemMissile
+{
+  radius 6
+  height 8
+  speed 16
+  fastspeed 25
+  damage 20
+  renderstyle Normal
+  damagetype Flem
+  seesound "caco/attack"
+  deathsound "caco/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL8 A 4
+    loop
+  Death:
+    BAL2 CDE 5 A_Explode(64,64)
+    stop
+  }
+}
+
+actor SuperCycloptisTractorBeam : LoreShot
+{
+  Damage 2
+  Renderstyle Translucent
+  Alpha 0.7
+  Speed 40
+  +BRIGHT
+}
+
+actor BigFlemGas
+{
+  radius 1
+  height 1
+  mass 100
+  speed 0
+  gravity 0.5
+  renderstyle Translucent
+  alpha 0.65
+  damagetype Flem
+  PROJECTILE
+  -NOGRAVITY
+  +NOEXPLODEFLOOR
+  +RANDOMIZE
+  states
+  {
+  Spawn:
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS ABCDE 5 A_Explode(1,64,1,1,64)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    FGAS FGHIJ 5 A_Explode(1,32,1,1,32)
+    stop
+  }
+}
+
+actor Ultimus replaces Cyberdemon
+{
+  spawnid 114
+  obituary "%o was blasted with flem by an Ultimus."
+  health 10000
+  radius 24
+  height 64
+  mass 1000
+  speed 16
+  painchance 20
+  Species "Flemoid"
+  scale 1.2
+  missiletype "UltimusBall"
+  damagefactor "Flem",0
+  damagefactor 0.5
+  seesound "cyber/sight"
+  painsound "cyber/pain"
+  deathsound "cyber/death"
+  activesound "cyber/active"
+  MONSTER
+  +BOSS
+  +FLOORCLIP
+  +DONTMORPH
+  +MISSILEMORE
+  +DONTFALL
+  +FASTER
+  +NEVERRESPAWN
+  +DONTRIP
+  states
+  {
+  Spawn:
+    CYBR A 1
+    CYBR A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    CYBR AB 10 A_Look
+    loop
+  See:
+    CYBR A 3 A_Hoof
+    CYBR ABBCC 3 A_Chase
+    CYBR D 3 A_Metal
+    CYBR D 3
+    loop
+  Missile:
+    CYBR E 0 A_Jump(128,"Missile2")
+    CYBR E 0 A_Jump(128,"Missile3")
+    CYBR E 6 A_FaceTarget
+    CYBR F 12 A_CustomMissile("UltimusBall",68,38)
+    CYBR E 12 A_FaceTarget
+    CYBR F 12 A_CustomMissile("UltimusBall",68,38)
+    CYBR E 12 A_FaceTarget
+    CYBR F 12 A_CustomMissile("UltimusBall",68,38)
+    goto See
+  Missile2:
+    CYBR E 0 A_JumpIf(health>9000,"Missile")
+    CYBR E 0 A_JumpIf(health<8000,"Missile2A")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    goto See
+  Missile2A:
+    CYBR E 0 A_JumpIf(health<7000,"Missile2B")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("BWABall",68,38)
+    goto See
+  Missile2B:
+    CYBR E 0 A_JumpIf(health<6000,"Missile2C")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    goto See
+  Missile2A:
+    CYBR E 0 A_JumpIf(health<5000,"Missile2D")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltricusBall",68,38)
+    goto See
+  Missile2D:
+    CYBR E 0 A_JumpIf(health<4000,"Missile2E")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    goto See
+  Missile2E:
+    CYBR E 0 A_JumpIf(health<3000,"Missile2F")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("FlembraneBall",68,38)
+    goto See
+  Missile2F:
+    CYBR E 0 A_JumpIf(health<2000,"Missile2G")
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    goto See
+  Missile2G:
+    CYBR E 6 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    CYBR F 2 A_CustomMissile("UltimusBall",68,38)
+    CYBR F 0 A_FaceTarget
+    goto See
+  Missile3:
+    CYBR E 0 A_JumpIf(health>6000,"Missile")
+    CYBR E 0 A_JumpIf(health<4000,"Missile3A")
+    CYBR E 6 A_FaceTarget
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 6 A_CustomMissile("BWABall",68,38,random(-30,30))
+    goto See
+  Missile3A:
+    CYBR E 0 A_JumpIf(health<2000,"Missile3B")
+    CYBR E 6 A_FaceTarget
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("BWABall",68,38,random(-30,30))
+    CYBR F 6 A_CustomMissile("BWABall",68,38,random(-30,30))
+    goto See
+  Missile3B:
+    CYBR E 6 A_FaceTarget
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 0 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    CYBR F 6 A_CustomMissile("FlembraneBall",68,38,random(-30,30))
+    goto See
+  Pain:
+    CYBR G 10 Bright A_Pain
+    goto See
+  Pain.Ice:
+    CYBR A 0
+    goto Missile
+  Death:
+    CYBR H 10 Bright
+    CYBR I 10 Bright A_Scream
+    CYBR JKL 10 Bright
+    CYBR M 10 Bright A_NoBlocking
+    CYBR NO 10 Bright
+    CYBR P 30
+    CYBR P 0 A_BossDeath
+    stop
+  Ice:
+    CYBR A 5 A_GenericFreezeDeath
+    CYBR A 1 A_FreezeDeathChunks
+    wait
+  }
+}
+
+actor UltimusBall
+{
+  spawnid 127
+  radius 11
+  height 8
+  speed 20
+  damage 20
+  scale 1.2
+  obituary "%o was blasted with flem by an Ultimus."
+  damagetype Flem
+  seesound "baron/attack"
+  deathsound "baron/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    ULTI A 1
+    loop
+  Death:
+    ULTI B 8 A_Explode(100,128,0)
+    ULTI C 6
+    ULTI D 4
+    stop
+  }
+}
+
+actor Cycloptis replaces Demon
+{
+  spawnid 8
+  hitobituary "%o got gooped by a Cycloptis."
+  health 150
+  painchance 180
+  speed 10
+  radius 30
+  height 56
+  Species "Flemoid"
+  mass 400
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  seesound "demon/sight"
+  attacksound "demon/melee"
+  painsound "demon/pain"
+  deathsound "demon/death"
+  activesound "demon/active"
+  MONSTER
+  +FLOORCLIP
+  +FASTER
+  +THRUGHOST
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    SARG A 1
+    SARG A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    SARG AB 10 A_Look
+    loop
+  See:
+    SARG AABBCCDD 2 A_Chase
+    loop
+  Melee:
+    SARG EF 8 A_FaceTarget
+    SARG D 0 A_SpawnItemEx("BigFlemGas",random(60,120),random(60,120),0,random(1,3),random(1,3),0,0,SXF_TRANSFERPOINTERS,240)
+    SARG G 8 A_CustomMeleeAttack(random(1,8)*5,attacksound,attacksound,"Flem",1) 
+    goto See
+  Pain:
+    SARG H 2 Bright
+    SARG H 2 Bright A_Pain
+    goto See
+  Pain.Ice:
+    SARG A 0
+    goto Melee
+  Death:
+    SARG I 8 Bright
+    SARG J 8 Bright A_Scream
+    SARG K 4 Bright
+    SARG L 4 Bright A_NoBlocking
+    SARG M 4 Bright
+    SARG N -1
+    stop
+  Ice:
+    SARG A 5 A_GenericFreezeDeath
+    SARG A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor BWA replaces DoomImp
+{
+  spawnid 5
+  obituary "%o got gooed by a Bipedicus with Armor."
+  hitobituary "%o was totally gooed by a Bipedicus with Armor."
+  health 100
+  radius 20
+  height 56
+  mass 100
+  speed 6
+  painchance 200
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  missiletype "BWABall"
+  seesound "imp/sight"
+  painsound "imp/pain"
+  deathsound "imp/death"
+  activesound "imp/active"
+  Species "Flemoid"
+  MONSTER
+  +FLOORCLIP
+  +FASTER
+  +THRUGHOST
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    TROO A 1
+    TROO A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    TROO AB 10 A_Look
+    loop
+  See:
+    TROO AABBCCDD 3 A_Chase
+    loop
+  Melee:
+  Missile:
+    TROO E 0 A_Jump(164 - health,"DualMissile")
+    TROO EF 8 A_FaceTarget
+    TROO G 6 A_MissileAttack
+    goto See
+  DualMissile:
+    TROO EF 8 A_FaceTarget
+    TROO G 0 A_CustomMissile("BWABall",23,-19)
+    TROO G 6 A_CustomMissile("BWABall",23,16)
+    goto See
+  Pain:
+    TROO H 2 Bright
+    TROO H 2 Bright A_Pain
+    goto See
+  Pain.Ice:
+    TROO A 0
+    goto Missile
+  Death:
+    TROO H 8 Bright
+    TROO I 8 Bright A_Scream
+    TROO N 6 Bright
+    TROO O 6 Bright A_NoBlocking
+    TROO PQJRKSTL 6 Bright
+    TROO M -1
+    stop
+  Ice:
+    TROO A 5 A_GenericFreezeDeath
+    TROO A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor BWABall replaces DoomImpBall
+{
+  spawnid 10
+  radius 6
+  height 8
+  speed 14
+  fastspeed 20
+  damagetype Flem
+  damage 3
+  renderstyle Normal
+  seesound "imp/attack"
+  deathsound "imp/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL1 AB 4
+    loop
+  Death:
+    BAL1 CDE 6
+    stop
+  }
+}
+
+actor Gyro replaces LostSoul
+{
+  obituary "%o was flem-pacted by a Gyro."
+  health 140
+  radius 16
+  height 41
+  mass 50
+  speed 8
+  damage 3
+  damagetype "Flem"
+  painchance 230
+  damagefactor "Flem",0
+  damagefactor "ArmorPiercingZorch",2.5
+  damagefactor "PhaseBeam",0.1
+  seesound "demon/sight"
+  attacksound "skull/melee"
+  painsound "skull/pain"
+  deathsound "demon/death"
+  activesound "skull/active"
+  Species "Flemoid"
+  MONSTER
+  +FLOAT
+  +NOGRAVITY
+  +MISSILEMORE
+  +DONTFALL
+  +NOTARGET
+  +FASTER
+  +THRUGHOST
+  +NOBLOOD
+  +DONTRIP
+  states
+  {
+  Spawn:
+    SKUL A 1
+    SKUL A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    SKUL AB 10 A_Look
+    loop
+  See:
+    SKUL AB 6 A_FastChase
+    loop
+  Missile:
+    SKUL C 0 A_Jump(256 - health*2,"Missile2")
+    SKUL C 10 A_FaceTarget
+    SKUL D 4 A_SkullAttack(30)
+    SKUL CD 4
+    goto Missile+3
+  Missile2:
+    SKUL C 0 A_FaceTarget
+    SKUL CDCDC 3 A_CustomMissile("GyroBall",4)
+    goto See
+  Pain:
+    SKUL E 3 Bright
+    SKUL E 3 Bright A_Pain
+    goto See
+  Death:
+    SKUL F 6 Bright
+    SKUL G 6 Bright A_Scream
+    SKUL H 6 Bright
+    SKUL I 6 Bright A_NoBlocking
+    SKUL JK 6 Bright
+    stop
+  Pain.Ice:
+    SKUL A 0
+    goto Missile
+  Ice:
+    SKUL A 5 A_GenericFreezeDeath
+    SKUL A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor GyroBall
+{
+  spawnid 10
+  radius 6
+  height 8
+  speed 10
+  fastspeed 16
+  damagetype Flem
+  damage 3
+  scale 0.6
+  renderstyle Normal
+  seesound "imp/attack"
+  deathsound "imp/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    BAL1 AB 4
+    loop
+  Death:
+    BAL1 CDE 6
+    stop
+  }
+}
+
+actor Slimblicus replaces Revenant
+{
+  spawnid 20
+  obituary "%o couldn't evade a slimblicus' slimeball."
+  hitobituary "%o let a slimblicus sneak up on %h."
+  health 300
+  radius 20
+  height 56
+  mass 500
+  speed 10
+  scale 1.4
+  painchance 100
+  damagefactor "Flem",0
+  bloodcolor "FF 1F 1F"
+  missiletype "SlimblicusBall"
+  seesound "skeleton/sight"
+  painsound "skeleton/pain"
+  deathsound "skeleton/death"
+  activesound "skeleton/active"
+  Species "Dittto"
+  MONSTER
+  +FLOORCLIP
+  +LONGMELEERANGE
+  +FASTER
+  +MISSILEMORE
+  +THRUGHOST
+  +NOINFIGHTING
+  +NOTARGET
+  states
+  {
+  Spawn:
+    SKEL A 1
+    SKEL A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    SKEL AB 10 A_Look
+    loop
+  See:
+    SKEL AABBCCDDEEFF 2 A_Chase
+    loop
+  Melee:
+    SKEL G 0 A_FaceTarget
+    SKEL G 6 A_SkelWhoosh
+    SKEL H 6 A_FaceTarget
+    SKEL I 6 A_SkelFist
+    goto See
+  Missile:
+    SKEL J 0 A_FaceTarget
+    SKEL J 10 A_FaceTarget
+    SKEL K 10 A_MissileAttack
+    SKEL K 10 A_FaceTarget
+    goto See
+  Pain:
+    SKEL L 5 Bright
+    SKEL L 5 Bright A_Pain
+    goto See
+  Pain.Ice:
+    SKEL A 0
+    goto Missile
+  Death:
+    SKEL LM 7 Bright
+    SKEL N 7 Bright A_Scream
+    SKEL O 7 Bright A_NoBlocking
+    SKEL P 7 Bright
+    SKEL Q -1
+    stop
+  Ice:
+    SKEL A 5 A_GenericFreezeDeath
+    SKEL A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor SlimblicusBall replaces RevenantTracer
+{
+  spawnid 53
+  radius 11
+  height 8
+  speed 15
+  fastspeed 25
+  damage 10
+  renderstyle Add
+  damagetype Dittto
+  seesound "skeleton/attack"
+  deathsound "skeleton/tracex"
+  PROJECTILE
+  +SEEKERMISSILE
+  +RANDOMIZE
+  +THRUGHOST
+  states
+  {
+  Spawn:
+    FATB AB 2 bright A_Tracer
+    loop
+  Death:
+    FBXP A 8 bright
+    FBXP B 6 bright
+    FBXP C 4 bright
+    stop
+  }
+}
+
+actor SlimblicusTracerSmoke replaces RevenantTracerSmoke
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +NOTELEPORT
+  RenderStyle Translucent 
+  Alpha 0.5
+  States
+  {	
+  Spawn:
+    NULL A 4
+    Stop
+  }
+}
+
+ACTOR FlemSporeSummonBall
+{
+   Radius 20
+   scale 1.4
+   Height 3
+   Speed 32
+   Damage 0
+   PROJECTILE
+   RENDERSTYLE Normal
+   ALPHA 1.0
+   States
+   {
+   Spawn:
+      BAL1 A 7
+      BAL1 A 1 A_Gravity
+   Death:
+      TNT1 A 1 A_SpawnItemEx (FlemSpore,0,0,0,0,0,0,0,28,0)
+      stop
+   }
+}
+
+actor FlemSpore
+{
+obituary "%o was killed by a Flem Spore?!?!?"
+  health 1000
+  radius 20
+  height 5
+  mass 5
+  speed 20
+  PainChance 0
+  bloodcolor "green"
+  RenderStyle Normal
+  MONSTER
+  +NORADIUSDMG
+  -COUNTKILL
+  +INVULNERABLE
+  -FLOORCLIP
+  +DONTMORPH
+  +FRIGHTENED
+  -DROPOFF
+  +LOOKALLAROUND
+    states
+  {
+  Spawn:
+        SLPU A 4 A_Look
+        Loop
+  See:
+  	SLPU AAAAA 16 A_Chase
+  Death:
+  	TNT1 A 0 A_Jump(18, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Commonus",0,0)
+	Stop
+	TNT1 A 0 A_Jump(24, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Bipedicus",0,0)
+	Stop
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Larva",0,0)
+	Stop
+  }
+}
+
+actor FlemSpore2
+{
+obituary "%o was killed by a Flem Spore?!?!?"
+  health 1000
+  radius 20
+  height 5
+  mass 5
+  speed 20
+  PainChance 0
+  scale 2.0
+  bloodcolor "green"
+  RenderStyle Normal
+  MONSTER
+  +NORADIUSDMG
+  -COUNTKILL
+  +INVULNERABLE
+  -FLOORCLIP
+  +DONTMORPH
+  +FRIGHTENED
+  -DROPOFF
+  +LOOKALLAROUND
+    states
+  {
+  Spawn:
+        SLPU A 4 A_Look
+        Loop
+  See:
+  	SLPU AAAAA 16 A_Chase
+  Death:
+  	TNT1 A 0 A_Jump(18, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Larva",0,0)
+	Stop
+	TNT1 A 0 A_Jump(24, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Stridicus",0,0)
+	Stop
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Quadrumpus",0,0)
+	Stop
+  }
+}
+
+ACTOR Flembomination 32341
+{
+	Health 9000
+	Radius 100
+	Height 100
+	Mass 1000
+	damagefactor "Flem", 0.0
+        DamageFactor "Zorch",0.3
+        DamageFactor "PhaseBeam",0.3
+        DamageFactor "ArmorPiercingZorch",0.3
+	Speed 12
+	FastSpeed 24
+	PainChance 40
+	Monster
+	MinMissileChance 140
+        Species "Flemoid"
+	+BOSS
+	+MISSILEMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	+DONTGIB
+	+FASTER
+	+FASTMELEE
+        +THRUGHOST
+        +NEVERRESPAWN
+        +DONTRIP
+	SeeSound "spider/sight"
+	AttackSound "spider/attack"
+	PainSound "spider/pain"
+	DeathSound "spider/death"
+	ActiveSound "spider/active"
+	Obituary "$OB_FLEMBOMINATION"
+	States
+	{
+        Spawn:
+                FLMB A 1
+                FLMB A 3 ACS_ExecuteAlways(667,0)
+                goto Spawn2
+	Spawn2:
+		FLMB ABCD 6 A_Look
+		Loop
+	See:
+                FLMB A 0 A_JumpIf(health < 3001,"See2")
+		FLMB A 3 A_Hoof
+		FLMB ABBCC 3 A_Chase
+		FLMB D 3 A_Metal
+		FLMB D 3 A_Chase
+		Loop
+        See2:
+                FLMB A 0 A_CustomMissile("FlembominationBall2",random(22,52),0,random(0,360))
+		FLMB A 3 A_Hoof
+		FLMB ABBCC 3 A_Chase
+		FLMB D 3 A_Metal
+		FLMB D 3 A_Chase
+		Loop
+	Missile:
+                FLMB F 0 A_Jump(128,"Missile2")
+                FLMB F 0 A_Jump(256,"Missile3")
+		FLMB F 5 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 8 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 2 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 8 A_CustomMissile("FlembominationBall1",52,-67)
+		Goto See
+        Missile2:
+                FLMB F 0 A_JumpIf(health < 6001,3)
+                FLMB F 0 A_JumpIf(health < 3001,"Missile4")
+                goto Missile+2
+                FLMB ABCDABCDABCDABCD 3 A_CustomMissile("flemsporesummonball5",0,0,random(0,360))
+                Goto See
+        Missile3:
+                FLMB F 0 A_JumpIf(health < 3001, 2)
+                goto Missile+2
+                FLMB F 0 A_Jump(128,"Missile4")
+		FLMB F 5 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+		FLMB F 2 A_FaceTarget
+		FLMB G 0 A_CustomMissile("FlembominationBall1",22,-70)
+ 		FLMB G 0 A_CustomMissile("FlembominationBall1",49,64)
+		FLMB G 2 A_CustomMissile("FlembominationBall1",41,77)
+		FLMB F 1 A_FaceTarget
+ 		FLMB H 0 A_CustomMissile("FlembominationBall1",23,-10)
+		FLMB H 2 A_CustomMissile("FlembominationBall1",52,-67)
+                goto Missile+2
+        Missile4:
+                FLMB ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD 1 A_CustomMissile("flemsporesummonball5",0,0,random(0,360))
+                Goto See
+	Pain:
+		FLMB I 3
+		FLMB I 3 A_Pain
+		Goto See
+	Death:
+		FLMB J 20 A_Scream
+		FLMB K 10 A_NoBlocking
+		FLMB LMNOPQR 10
+                FLMB S 0 A_PainDie("SlimeMeteor")
+		FLMB S 30
+		FLMB S -1 A_BossDeath    
+		Stop
+	}
+}
+
+actor FlembominationBall1
+{
+  SpawnID 126
+  Radius 6
+  Height 8
+  Speed 20
+  FastSpeed 50
+  Damage 8
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  Projectile
+  +RANDOMIZE
+  DamageType Flem
+  RenderStyle Normal
+  Alpha 1
+  States
+  {
+  Spawn:
+    BAL2 AB 2
+    loop
+  Death:
+    BAL2 CDE 6
+    stop
+  }
+}
+
+actor FlembominationBall2
+{
+  SpawnID 126
+  Radius 6
+  Height 8
+  Speed 10
+  FastSpeed 30
+  Damage 4
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  Projectile
+  +RANDOMIZE
+  +SEEKERMISSILE
+  DamageType Flem
+  RenderStyle Normal
+  Alpha 1
+  States
+  {
+  Spawn:
+    BAL1 AB 2 A_SeekerMissile(10,12,SMF_LOOK)
+    loop
+  Death:
+    BAL1 CDE 6
+    stop
+  }
+}
+
+ACTOR flemsporesummonball5
+{
+   Radius 20
+   Height 3
+   Speed 32
+   Damage 0
+   PROJECTILE
+   RENDERSTYLE Normal
+   ALPHA 1.0
+   States
+   {
+   Spawn:
+      TNT1 A 3
+      TNT1 A 1 A_Gravity
+   Death:
+      TNT1 A 1 A_SpawnItemEx (FlemSpore4,0,0,0,0,0,0,0,28,0)
+      stop
+   }
+}
+
+actor FlemSpore4
+{
+obituary "%o was killed by a Flem Spore?!?!?"
+  health 1000
+  radius 20
+  height 1
+  mass 5
+  speed 20
+  PainChance 0
+  bloodcolor "green"
+  RenderStyle Normal
+  MONSTER
+  +NORADIUSDMG
+  -COUNTKILL
+  +INVULNERABLE
+  -FLOORCLIP
+  +DONTMORPH
+  +FRIGHTENED
+  -DROPOFF
+  +LOOKALLAROUND
+    states
+  {
+  Spawn:
+        SLPU A 4 A_Look
+        Loop
+  See:
+  	SLPU AAAAA 16 A_Chase
+  Death:
+  	TNT1 A 0 A_Jump(92, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Larva",0,0)
+	Stop
+	TNT1 A 0 A_Jump(64, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Stridicus",0,0)
+	Stop
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Quadrumpus",0,0)
+	Stop
+  }
+}
+
+ACTOR LordSnotfolus 14236
+{
+	Health 10000
+	Radius 40
+	Height 110
+	Mass 1000
+	damagefactor "Flem", 0
+	damagefactor "Zorch",0.1
+	Speed 16
+	PainChance 10
+	Monster
+	MinMissileChance 10
+	+BOSS 
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+FLOORCLIP
+	+NORADIUSDMG
+	+DONTMORPH
+	+BOSSDEATH
+	+NOBLOODDECALS
+        +FASTER
+        +THRUGHOST
+        +DONTRIP
+	SeeSound "cyber/sight"
+	PainSound "cyber/pain"
+	DeathSound "cyber/death"
+	ActiveSound "cyber/active"
+        Species "Flemoid"
+	Obituary "%o was defeated by Lord Snotfolus!"
+	States
+	{
+        Spawn:
+                LRDS A 1
+                LRDS A 3 ACS_Execute(667,0)
+                goto Spawn2
+	Spawn2:
+		LRDS AB 10 A_Look
+		Loop
+	See:
+		LRDS A 3 A_Hoof
+		LRDS ABBCC 3 A_Chase
+		LRDS D 3 A_Metal
+		LRDS D 3 A_Chase
+		Loop
+	Missile:
+		LRDS E 0 A_Jump(64,16)
+		LRDS E 3 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall1",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall1",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall1",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall1",57,14)
+		Goto See
+		LRDS E 0 A_Jump(50,16)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall2",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall2",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall2",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall2",57,14)
+		goto See
+		LRDS E 0 A_Jump(25,16)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall3",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall3",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall3",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall3",57,14)
+		goto See
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall4",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall4",57,14)
+		LRDS E 6 A_FaceTarget
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",51,0)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",65,3)
+		LRDS F 0 A_CustomMissile("SnotfolusBall4",57,-14)
+		LRDS F 6 A_CustomMissile("SnotfolusBall4",57,14)
+		goto See
+	Pain:
+		LRDS G 10 A_Pain
+		Goto See
+	Death:
+		LRDS H 10
+		LRDS I 10 A_Scream
+		LRDS JKL 10
+		LRDS M 10 A_NoBlocking
+		LRDS NO 10
+		LRDS P 30
+		LRDS P -1 A_BossDeath
+		Stop
+	}
+}
+
+actor SnotfolusBall1
+{
+  Game Doom
+  SpawnID 10
+  Radius 6
+  Height 8
+  Speed 50
+  FastSpeed 100
+  Damage 4
+  Projectile
+  +RANDOMIZE
+  +THRUGHOST
+  RenderStyle Normal
+  Alpha 1
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    BAL1 AB 4
+    loop
+  Death:
+    BAL1 CDE 6
+    stop
+  }
+}
+
+actor SnotfolusBall2
+{
+  Game Doom
+  SpawnID 126
+  Radius 6
+  Height 8
+  Speed 40
+  FastSpeed 100
+  Damage 6
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  Projectile
+  +RANDOMIZE
+  RenderStyle Normal
+  Alpha 1
+  States
+  {
+  Spawn:
+    BAL2 AB 2
+    loop
+  Death:
+    BAL2 CDE 6
+    stop
+  }
+}
+
+actor SnotfolusBall3
+{
+  Game Doom
+  Radius 6
+  Height 16
+  Speed 35
+  FastSpeed 70
+  Damage 12
+  RenderStyle Normal
+  Alpha 1
+  SeeSound "baron/attack"
+  DeathSound "baron/shotx"
+  Projectile
+  +RANDOMIZE
+  states
+  {
+  Spawn:
+    BAL7 AB 4
+    loop
+  Death:
+    BAL7 CDE 6
+    stop
+  }
+}
+
+actor SnotfolusBall4
+{
+  radius 11
+  height 8
+  speed 20
+  damage 20
+  damagetype Flem
+  seesound "baron/attack"
+  deathsound "baron/shotx"
+  PROJECTILE
+  +RANDOMIZE
+  states
+  {
+  Spawn:
+    ULTI A 1
+    loop
+  Death:
+    ULTI B 8 A_Explode(100,128,0)
+    ULTI C 6
+    ULTI D 4
+    stop
+  }
+}
+
+ACTOR FlemMine 32421
+{
+	Health 80
+	Radius 16
+	Height 56
+	Mass 50
+	damagefactor "Flem", 0.0
+	Speed 8
+	FastSpeed 16
+	Damage 3
+	PainChance 256
+        Species "Flemoid"
+	Monster
+	+FLOAT +NOGRAVITY +MISSILEMORE +DONTFALL +NOICEDEATH
+	+DONTGIB
+	+FASTER
+	+FASTMELEE
+        +THRUGHOST
+	SeeSound "mine/sight"
+	AttackSound "mine/melee"
+	PainSound "mine/pain"
+	DeathSound "mine/death"
+	ActiveSound "mine/active"
+	Obituary "$OB_FLEMMINE"
+	States
+	{
+        Spawn:
+                MINE A 1
+                MINE A 3 ACS_ExecuteAlways(667,0)
+                goto Spawn2
+	Spawn2:
+		MINE A 10 A_Look
+		Loop
+	See:
+		MINE A 6 A_Chase
+		Loop
+	Missile:
+		MINE C 10 A_FaceTarget
+		MINE D 4 A_SkullAttack
+		MINE CD 4
+		Goto Missile+2
+	Pain:
+		MINE E 3 
+		MINE E 3 A_Pain
+		Goto See
+	Death:
+		MINE F 6 
+		MINE G 6 A_Scream
+		MINE H 6 
+		MINE I 6 A_NoBlocking
+		MINE J 6
+		MINE K 6
+		Stop
+        Raise:
+                TFOG ABABCDEFGHIJ 6 Bright
+                goto See
+	}
+}
+
+ACTOR Stridicus 32487
+{
+	Health 250
+	PainChance 100
+	Speed 10
+	FastSpeed 32
+	Radius 30
+	Height 56
+	Mass 400
+	damagefactor "Flem", 0.0
+        Species "Flemoid"
+	Monster
+	+FLOORCLIP +FASTER +FASTMELEE
+	+DONTGIB
+	SeeSound "demon/sight"
+	AttackSound "demon/melee"
+	PainSound "demon/pain"
+	DeathSound "demon/death"
+	ActiveSound "demon/active"
+	Obituary "$OB_STRIDICUS"
+	States
+	{
+        Spawn:
+                STRD A 1
+                STRD A 3 ACS_ExecuteAlways(667,0)
+                goto Spawn2
+	Spawn2:
+		STRD AB 10 A_Look
+		Loop
+	See:
+		STRD AABBCCDD 1 A_Chase
+		Loop
+	Melee:
+		STRD EF 8 A_FaceTarget
+		STRD G 8 A_CustomMeleeAttack(random[sargattack](1,10)*4, "", "", "Flem")
+		Goto See
+	Pain:
+		STRD H 2
+		STRD H 2 A_Pain
+		Goto See
+	Death:
+		STRD I 8
+		STRD J 8 A_Scream
+		STRD K 4
+		STRD L 4 A_NoBlocking
+		STRD M 4
+		STRD N -1
+		Stop
+	Raise:
+		TFOG ABABCDEFGHIJ 6 Bright
+		Goto See
+	}
+}
+
+actor Quadrumpus 5127
+{
+  obituary "%o was slimed by a Quadrumpus."
+  hitobituary "%o was close-range slimed by a Quadrumpus."
+  health 60
+  radius 20
+  height 56
+  mass 100
+  speed 10
+  Species "Flemoid"
+  damagefactor "Flem",0
+  meleedamage 5
+  painchance 150
+  seesound "imp/sight"
+  painsound "imp/pain"
+  deathsound "imp/death"
+  activesound "imp/active"
+  MONSTER
+  +FLOORCLIP
+  states
+  {
+  Spawn:
+    QUAD A 1
+    QUAD A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    QUAD AB 10 A_Look
+    loop
+  See:
+    QUAD AABBCCDD 3 A_Chase
+    loop
+  Melee:
+  Missile:
+    QUAD E 0 A_Jump(72 + health*2,"Missile2","Missile3","Missile4","Missile5","Missile6","Missile7")
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",27,21)
+    QUAD G 0 A_CustomMissile("BWABall",27,-20)
+    QUAD G 0 A_CustomMissile("BWABall",35,20)
+    QUAD G 6 A_CustomMissile("BWABall",35,-17)
+    goto See
+  Missile2:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",27,21)
+    QUAD G 6 A_CustomMissile("BWABall",27,-20)
+    goto See
+  Missile3:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",35,20)
+    QUAD G 6 A_CustomMissile("BWABall",35,-17)
+    goto See
+  Missile4:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",35,20)
+    QUAD G 6 A_CustomMissile("BWABall",27,21)
+    goto See
+  Missile5:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",27,-20)
+    QUAD G 6 A_CustomMissile("BWABall",35,-17)
+    goto See
+  Missile6:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",27,21)
+    QUAD G 6 A_CustomMissile("BWABall",35,-17)
+    goto See
+  Missile7:
+    QUAD EF 8 A_FaceTarget
+    QUAD G 0 A_CustomMissile("BWABall",35,20)
+    QUAD G 6 A_CustomMissile("BWABall",27,-20)
+    goto See
+  Pain:
+    QUAD H 2
+    QUAD H 2 A_Pain
+    goto See
+  Pain.Ice:
+    QUAD A 0
+    goto Missile
+  Death:
+    QUAD I 8
+    QUAD J 8 A_Scream
+    QUAD K 6
+    QUAD L 6 A_NoBlocking
+    QUAD MNOPQRS 6
+    NULL A -1
+    stop
+  Ice:
+    QUAD A 5 A_GenericFreezeDeath
+    QUAD A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+ACTOR flemsporesummonball4
+{
+   Radius 20
+   Height 3
+   Speed 32
+   Damage 0
+   PROJECTILE
+   RENDERSTYLE Normal
+   ALPHA 1.0
+   States
+   {
+   Spawn:
+      TNT1 A 3
+      TNT1 A 1 A_Gravity
+   Death:
+      TNT1 A 1 A_SpawnItemEx (flemspore3,0,0,0,0,0,0,0,28,0)
+      stop
+   }
+}
+
+actor FlemSpore3
+{
+obituary "%o was killed by a Flem Spore?!?!?"
+  health 1000
+  radius 20
+  height 1
+  mass 5
+  speed 20
+  PainChance 0
+  bloodcolor "green"
+  RenderStyle Normal
+  MONSTER
+  +NORADIUSDMG
+  -COUNTKILL
+  +INVULNERABLE
+  -FLOORCLIP
+  +DONTMORPH
+  +FRIGHTENED
+  -DROPOFF
+  +LOOKALLAROUND
+    states
+  {
+  Spawn:
+        SLPU A 4 A_Look
+        Loop
+  See:
+  	SLPU AAAAA 16 A_Chase
+  Death:
+  	TNT1 A 0 A_Jump(18, 3)
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Commonus",0,0)
+	Stop
+  	TNT1 A 0 A_NoBlocking
+  	TNT1 A 1 A_SpawnItem("Bipedicus",0,0)
+	Stop
+  }
+}
+
+actor Larva 5128
+{
+  spawnid 8
+  hitobituary "%o was boogered on by a larva."
+  health 120
+  painchance 190
+  damagetype Flem
+  speed 12
+  radius 30
+  height 56
+  mass 200
+  Species "Flemoid"
+  damagefactor "Flem",0
+  seesound "demon/sight"
+  attacksound "demon/melee"
+  painsound "demon/pain"
+  deathsound "demon/death"
+  activesound "demon/active"
+  MONSTER
+  +FLOORCLIP
+  states
+  {
+  Spawn:
+    LRVA A 1
+    LRVA A 3 ACS_ExecuteAlways(667,0)
+    goto Spawn2
+  Spawn2:
+    LRVA AB 10 A_Look
+    loop
+  See:
+    LRVA AABB 2 A_Chase
+    loop
+  Melee:
+    LRVA CD 8 A_FaceTarget
+    LRVA E 8 A_SargAttack
+    goto See
+  Pain:
+    LRVA F 2
+    LRVA F 2 A_Pain
+    goto See
+  Pain.Ice:
+    LRVA A 0
+    goto Melee
+  Death:
+    LRVA G 8
+    LRVA H 8 A_Scream
+    LRVA I 4 A_NoBlocking
+    LRVA J 4
+    LRVA K 4
+    stop
+  Ice:
+    LRVA A 5 A_GenericFreezeDeath
+    LRVA A 1 A_FreezeDeathChunks
+    wait
+  Raise:
+    TFOG ABABCDEFGHIJ 6 Bright
+    goto See
+  }
+}
+
+actor SlimeMeteor 27132
+{
+  obituary "%o was killed by a rock?!?!?"
+  health 400
+  DamageFactor "Flem",0
+  DamageFactor "NoThrust",0
+  radius 25
+  height 25
+  mass 999999
+  speed 0
+  PainChance 0
+  MONSTER
+  -FLOORCLIP
+  +DONTMORPH
+  +LOOKALLAROUND
+  -DROPOFF
+  -COUNTKILL
+  +NEVERRESPAWN
+  +DONTBLAST
+  -CANBLAST
+    states
+  {
+  Spawn:
+        METR A 3 A_Look
+        Loop
+  See:
+  	METR AA 24
+  	METR A 0 A_Jump(150, 2)
+  	METR A 0 A_CustomMissile("flemsporesummonball2",0,0,random(0,360))
+  	METR A 0
+  	loop
+  Missile:
+        METR A 0 A_CustomMissile("flemsporesummonball3",0,0,random(0,360))
+        goto See
+  Death:
+        METR A 0 A_Mushroom("FlemSporeSummonBall3",5)
+        stop
+  }
+}
+
+ACTOR flemsporesummonball2
+{
+   Radius 20
+   Height 3
+   Speed 32
+   Damage 0
+   PROJECTILE
+   RENDERSTYLE Normal
+   ALPHA 1.0
+   States
+   {
+   Spawn:
+      TNT1 A 3
+      TNT1 A 1 A_Gravity
+   Death:
+      TNT1 A 1 A_SpawnItemEx (flemspore,0,0,0,0,0,0,0,28,0)
+      stop
+   }
+}
+
+ACTOR flemsporesummonball3
+{
+   Radius 20
+   Height 3
+   Speed 32
+   Damage 0
+   DamageType "Zorch"
+   PROJECTILE
+   RENDERSTYLE Normal
+   ALPHA 1.0
+   States
+   {
+   Spawn:
+      TNT1 A 3
+      TNT1 A 1 A_Gravity
+   Death:
+      TNT1 A 1 A_SpawnItemEx (flemspore2,0,0,0,0,0,0,0,SXF_TRANSFERPOINTERS,0)
+      stop
+   }
+}
+
+actor FlemStalker 216
+{
+    radius 24
+    height 64
+    health 300
+    painchance 255
+    Translation "112:127=170:191"
+    speed 60
+    fastspeed 120
+    Renderstyle Translucent
+    Alpha 0
+    obituary "%o was hit from behind by a Flem Stalker!"
+    BloodColor Red
+    MONSTER
+    +MISSILEMORE
+    +MISSILEEVENMORE
+    +INVULNERABLE
+    +DROPOFF
+    +NOBLOOD
+    states
+    {
+    Spawn:
+      NULL A 3 A_Look
+      loop
+    See:
+      NULL A 3 A_FastChase
+      loop
+    Missile:
+      SPOS A 0 A_FaceTarget
+      SPOS A 2 A_SetTranslucent(0.1,0)
+      SPOS B 2 A_SetTranslucent(0.2,0)
+      SPOS C 2 A_SetTranslucent(0.3,0)
+      SPOS D 2 A_SetTranslucent(0.4,0)
+      SPOS A 2 A_SetTranslucent(0.5,0)
+      SPOS B 2 A_SetTranslucent(0.6,0)
+      SPOS C 2 A_SetTranslucent(0.7,0)
+      SPOS D 2 A_SetTranslucent(0.8,0)
+      SPOS A 2 A_SetTranslucent(0.9,0)
+      SPOS B 2 A_SetTranslucent(1.0,0)
+      SPOS E 0 A_UnSetInvulnerable
+      SPOS E 0 A_Jump(200,"Missile2")
+      SPOS E 10
+      SPOS E 0 A_FaceTarget
+      SPOS F 14 A_CustomRailgun(30,6,Red,LightRed,1)
+      SPOS A 0 A_SetInvulnerable
+      SPOS A 3 A_SetTranslucent(0.9,0)
+      SPOS B 3 A_SetTranslucent(0.8,0)
+      SPOS C 3 A_SetTranslucent(0.7,0)
+      SPOS D 3 A_SetTranslucent(0.6,0)
+      SPOS A 3 A_SetTranslucent(0.5,0)
+      SPOS B 3 A_SetTranslucent(0.4,0)
+      SPOS C 3 A_SetTranslucent(0.3,0)
+      SPOS D 3 A_SetTranslucent(0.2,0)
+      SPOS A 3 A_SetTranslucent(0.1,0)
+      SPOS B 3 A_SetTranslucent(0.0,0)
+      goto See
+    Missile2:
+      SPOS E 0 A_Jump(25,"Missile3")
+      SPOS E 8
+      SPOS E 0 A_FaceTarget
+      SPOS F 0 A_CustomMissile("FlemStalkerBall",33,-15)
+      SPOS F 0 A_CustomMissile("FlemStalkerBall",28,17)
+      SPOS F 10 A_CustomMissile("FlemStalkerBall",38,0)
+      SPOS A 0 A_SetInvulnerable
+      SPOS A 3 A_SetTranslucent(0.9,0)
+      SPOS B 3 A_SetTranslucent(0.8,0)
+      SPOS C 3 A_SetTranslucent(0.7,0)
+      SPOS D 3 A_SetTranslucent(0.6,0)
+      SPOS A 3 A_SetTranslucent(0.5,0)
+      SPOS B 3 A_SetTranslucent(0.4,0)
+      SPOS C 3 A_SetTranslucent(0.3,0)
+      SPOS D 3 A_SetTranslucent(0.2,0)
+      SPOS A 3 A_SetTranslucent(0.1,0)
+      SPOS B 3 A_SetTranslucent(0.0,0)
+      goto See
+    Missile3:
+      SPOS E 9
+      SPOS F 3 A_CustomMissile("FlemStalkerSpawner",38,0)
+      SPOS A 0 A_SetInvulnerable
+      SPOS A 3 A_SetTranslucent(0.9,0)
+      SPOS B 3 A_SetTranslucent(0.8,0)
+      SPOS C 3 A_SetTranslucent(0.7,0)
+      SPOS D 3 A_SetTranslucent(0.6,0)
+      SPOS A 3 A_SetTranslucent(0.5,0)
+      SPOS B 3 A_SetTranslucent(0.4,0)
+      SPOS C 3 A_SetTranslucent(0.3,0)
+      SPOS D 3 A_SetTranslucent(0.2,0)
+      SPOS A 3 A_SetTranslucent(0.1,0)
+      SPOS B 3 A_SetTranslucent(0.0,0)
+      goto See
+    Pain:
+      SPOS G 3
+      SPOS A 0 A_SetInvulnerable
+      SPOS A 3 A_SetTranslucent(0.9,0)
+      SPOS B 3 A_SetTranslucent(0.8,0)
+      SPOS C 3 A_SetTranslucent(0.7,0)
+      SPOS D 3 A_SetTranslucent(0.6,0)
+      SPOS A 3 A_SetTranslucent(0.5,0)
+      SPOS B 3 A_SetTranslucent(0.4,0)
+      SPOS C 3 A_SetTranslucent(0.3,0)
+      SPOS D 3 A_SetTranslucent(0.2,0)
+      SPOS A 3 A_SetTranslucent(0.1,0)
+      SPOS B 3 A_SetTranslucent(0.0,0)
+      goto See
+    Death:
+      FIMP G 3
+      FIMP G 3 A_Burst("RedBlood")
+      stop
+    }
+}
+
+ACTOR RedBlood
+{
+  Mass 5
+  +NOBLOCKMAP
+  +NOTELEPORT
+  Translation "112:127=170:191"
+  States
+  {
+  Spawn:
+    BLUD CBA 8
+    Stop
+  }
+}
+
+actor FlemStalkerBall
+{
+  Game Doom
+  SpawnID 10
+  Radius 6
+  Height 8
+  Speed 20
+  FastSpeed 40
+  Damage 7
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Translation "112:127=170:191"
+  Alpha 1
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    BAL1 AB 4 A_BishopMissileWeave
+    loop
+  Death:
+    BAL1 CDE 6
+    stop
+  }
+}
+
+actor FlemStalkerSpawner
+{
+  Game Doom
+  SpawnID 10
+  Radius 6
+  Height 8
+  Speed 20
+  FastSpeed 40
+  Damage 9
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  scale 2.0
+  Translation "112:127=170:191"
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    BAL1 ABAB 4 A_BishopMissileWeave
+    goto Death
+  Death:
+    BAL1 CD 6
+    BAL1 E 5 A_SpawnItem("FlemStalker")
+    stop
+  }
+}
+
+actor SlimePillar 218
+{
+  Radius 15
+  Height 110
+  Mass 10000
+  Health 60
+  +SOLID
+  +SHOOTABLE
+  States
+  {
+  Spawn:
+    PIL1 ABCD 5
+    loop
+  Death:
+    PIL1 EFGHIJK 3
+    stop
+  }
+}

@@ -1,0 +1,76 @@
+// The Ultimate Chex Quest MAPINFO lump
+
+
+gameinfo
+{
+	titlepage = "TITLEPIC"
+    creditpage = "CREDIT"
+    titlemusic = "D_INTRO"
+    titletime = 7
+	advisorytime = 0
+	pagetime = 3
+	skyflatname = "F_SKY1"
+	defaultdropstyle = 1
+	borderflat = "GRADFLAT"
+	border = doomborder
+//	border = 4,0,"BRDR_TR","BRDR_T","BRDR_TL","BRDR_R","BRDR_L","BRDR_BR","BRDR_B","BRDR_BL"
+	cursorpic = "CURSOR"
+	intermissionmusic = "D_INTER"
+    quitmessages = "Don't Quit now!\nWe need your help!","Please don't quit in our\nhour of greatest need!","Don't give up now!\nDo you still wish to quit?","Admit it. You just love\neating chex cereal, right?","Don't leave yet -- there's\nstill more zorching to do!","Are you going to leave with\nall these flemoids around?","The flemoids are still on the loose.\nAre you sure you want to quit?","You can be a hero, or you\ncan press Y and wimp out.","I hope you're not up\npast your bedtime!","Chex Quest and Chex Quest 2\nwere created by digital cafe.","Visit doomlegends.com","The Galactic Federation of\nCereals still needs your help!","Boingo the Clown says,\n'Keep right on zorching dude!'"
+	intermissioncounter = true 
+	endoom = "ENDTUCQ"
+	dimcolor = "00 00 40"
+	dimamount = 0.5
+	pausesign = "M_PAUSE"
+}
+
+skill baby
+{
+	AutoUseHealth
+	AmmoFactor = 2
+	DamageFactor = 0.5
+	EasyBossBrain
+	SpawnFilter = Baby
+	PicName = "M_JKILL"
+	Name = "$CSKILL_BABY"
+	Key = "e"
+}
+
+skill easy
+{
+	EasyBossBrain
+	SpawnFilter = Easy
+	PicName = "M_ROUGH"
+	Name = "$CSKILL_EASY"
+	Key = "n"
+}
+
+skill normal
+{
+	SpawnFilter = Normal
+	PicName = "M_HURT"
+	Name = "$CSKILL_NORMAL"
+	Key = "g"
+}
+
+skill hard
+{
+	SpawnFilter = Hard
+	PicName = "M_ULTRA"
+	Name = "$CSKILL_HARD"
+	Key = "e"
+}
+
+skill nightmare
+{
+	AmmoFactor = 2
+	FastMonsters
+	DisableCheats
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_NMARE"
+	MustConfirm = "$CNIGHTMARE"
+	Name = "$CSKILL_NIGHTMARE"
+	Key = "s"
+
+}
